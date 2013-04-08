@@ -5,7 +5,7 @@ namespace sac2
 
 sac2_status_t AssetImage::load_asset()
 {
-
+  return STATUS_SUCCESS;
 }
 
-};
+}

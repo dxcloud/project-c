@@ -31,11 +31,20 @@ sac2_status_t Engine::init()
   return STATUS_SUCCESS;
 }
 
+void Engine::process_arguments(int argc, char* argv[])
+{
+#ifdef LOG_ENABLED
+  m_log << "Engine::process arguments:" << std::endl;
+  for (int i = 0; i < argc; ++i)
+    m_log << "#" << i << " " << argv[i] << std::endl;
+#endif
+}
+
 sac2_status_t Engine::run()
 {
   m_running = true;
 
-  sac2_status_t status(0);
+  sac2_status_t status(STATUS_SUCCESS);
   status = init();
 
   if (STATUS_SUCCESS != status)
@@ -44,7 +53,7 @@ sac2_status_t Engine::run()
   return STATUS_SUCCESS;
 }
 
-bool Engine::is_running()
+bool Engine::is_running() const
 {
   return m_running;
 }
@@ -70,4 +79,14 @@ sac2_status_t Engine::cleanup()
   return STATUS_SUCCESS;
 }
 
-};
+  sac2_status_t Engine::update()
+  {
+    return STATUS_SUCCESS;
+  }
+
+  sac2_status_t Engine::draw()
+  {
+    return STATUS_SUCCESS;
+  }
+
+}

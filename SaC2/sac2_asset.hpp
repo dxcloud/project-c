@@ -22,7 +22,7 @@ class Asset
   virtual sac2_status_t load_asset() = 0;
  protected:
 
-  sac2_asset_type m_type;
+  sac2_asset_type_t m_type;
 
   const std::string m_filename;
 
@@ -31,6 +31,6 @@ class Asset
  private:
 };  // class Asset
 
-};
+}
 
 #endif //!_ASSET_HPP_

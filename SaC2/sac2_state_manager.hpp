@@ -8,12 +8,16 @@
 namespace sac2
 {
 
+class GameState;
+  
 class StateManager
 {
  public:
-  StateManager();
+  StateManager():
+    m_states(0)
+  {}
   
-  ~StateManager();
+  ~StateManager() {}
   
   bool is_empty();
   
@@ -27,6 +31,6 @@ class StateManager
 
 };  // class StateManager
 
-};
+}
 
 #endif //! _SAC2_STATE_MANAGER_HPP_

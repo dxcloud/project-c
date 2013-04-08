@@ -14,15 +14,15 @@ class AssetManager
 
   ~AssetManager() {}
 
-  sac2_status_t load_asset(sac2_asset_type type);
+  sac2_status_t load_asset(sac2_asset_type_t type);
 
-  sac2_status_t delete_asset(sac2_asset_type type);
+  sac2_status_t delete_asset(sac2_asset_type_t type);
 
  protected:
 
  private:
 };  // class AssetManager
 
-};
+}
 
 #endif

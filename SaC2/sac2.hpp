@@ -1,7 +1,5 @@
 ﻿#ifndef _SAC2_HPP_
 #define _SAC2_HPP_
-#warning \
-" ***** YOU ARE GOING TO INCLUDE `sac2.hpp' ***** "
 
 /*!
  * \file    sac2.hpp
@@ -16,6 +14,11 @@
 #include "sac2_type.hpp"
 #include "sac2_engine.hpp"
 #include "sac2_game_state.hpp"
+#include "sac2_menu_state.hpp"
 #include "sac2_state_manager.hpp"
+#include "sac2_asset.hpp"
+#include "sac2_asset_manager.hpp"
+#include "sac2_asset_image.hpp"
+
 
 #endif //!_SAC2_HPP_

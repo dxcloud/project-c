@@ -11,7 +11,9 @@ namespace sac2
 class AssetImage: public Asset
 {
  public:
-  AssetImage(const std::string& filename) {}
+  AssetImage(const std::string& filename):
+    Asset(filename)
+  {}
 
   ~AssetImage() {}
   
@@ -22,6 +24,6 @@ class AssetImage: public Asset
  private:
 };  // class AssetImage
 
-};
+}
 
 #endif

@@ -12,6 +12,8 @@
 #include <string>
 #include <map>
 
+#include <SFML/Window.hpp>
+
 namespace sac2
 {
 
@@ -20,7 +22,10 @@ const std::string defaultLogFile("output.log");
 
 //! State ID, used for identifying State objects
 //typedef std::string sac2_state_id_t;
-typedef unsigned int sac2_state_id_t;
+//typedef unsigned int sac2_state_id_t;
+typedef enum state_id {
+  MENU
+} sac2_state_id_t;
 
 //! Asset ID, used for identifying Asset objects
 typedef std::string sac2_asset_id_t;
@@ -33,10 +38,10 @@ typedef struct engine_conf {
 } engine_conf_t;
 
 //! Used for config section maps
-typedef std::map<const std::string&, const std::string&> sac2_name_t;
+typedef std::map<const std::string, const std::string> sac2_name_t;
 
 //! Used for name, value pair maps
-typedef std::map<const std::string&, const std::string&>::iterator sac2_name_iter_t;
+typedef std::map<const std::string, const std::string>::iterator sac2_name_iter_t;
 
 //! Default video settings
 enum sac2_default_video_settings {
@@ -73,8 +78,8 @@ typedef enum asset_type {
   ASSET_SCRIPT, //!< Script
   ASSET_MAP,    //!< Map
   ASSET_CUSTOM  //!< Other type
-} asset_type_t;
+} sac2_asset_type_t;
 
-};
+}
 
 #endif

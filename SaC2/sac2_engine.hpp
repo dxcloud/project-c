@@ -4,11 +4,15 @@
 #include <string>
 #include <fstream>
 
-#include <SFML/RenderWindow.hpp>
+#include <SFML/Graphics.hpp>
 
 #include "sac2_type.hpp"
+#include "sac2_state_manager.hpp"
 
 //! \todo load from a configuration file
+
+//class GameState;
+//class StateManager;
 
 namespace sac2
 {
@@ -26,10 +30,11 @@ class Engine
     m_input(m_window.GetInput()),
 //    m_asset_manager(),
 //    m_stat_manager(),
-    m_state_manager(),
+
 //    m_exit_code(STATUS_SUCCESS),
-    m_running(false)
-//    m_update_rate(1.0F / 100)
+    m_running(false),
+    m_state_manager()
+    //    m_update_rate(1.0F / 100)
   {
 #ifdef LOG_ENABLED
     m_log_file.assign(defaultLogFile);
@@ -47,13 +52,13 @@ class Engine
 #endif
   }
 
-//  virtual void process_arguments(int argc, char* argv[]);
+  void process_arguments(int argc, char* argv[]);
 
   sac2_status_t run(void);
   
   bool is_running(void) const;
   
-  float get_update_rate(void) const;
+//  float get_update_rate(void) const;
   
   sac2_status_t quit();
   
@@ -62,7 +67,12 @@ class Engine
   sac2_status_t init();
   
   void loop();
-  
+
+  sac2_status_t update();
+
+  sac2_status_t draw();
+
+
   sac2_status_t cleanup();
 //  static const engine_conf_t& load_config(const std::string& filename);
 
@@ -79,16 +89,18 @@ class Engine
 //  int                 m_exit_code;        //!< The exit code value that will be returned by the program
   bool                m_running;          //!< True if the application is currently running
 //  float               m_update_rate;      //!< Looger output path and filename
+
+//  AssetManager        m_asset_mng;
+//  StatManager         m_stat_mng;
+  StateManager        m_state_manager;
+
 #ifdef LOG_ENABLED
   std::ofstream       m_log;
   std::string         m_log_filename;
 #endif
 
-//  AssetManager        m_asset_mng;
-//  StatManager         m_stat_mng;
-  StateManager        m_state_manager;
 };  // class Engine
 
-};
+}
 
 #endif
