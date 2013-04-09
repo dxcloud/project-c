@@ -1,12 +1,16 @@
 ﻿#ifndef _SAC2_GAME_STATE_HPP_
 #define _SAC2_GAME_STATE_HPP_
 
+/*!
+ * \file    sac2_game_state.hpp
+ * \author  Chengwu HUANG
+ * \version 0.1
+ * \date    2013-04-08 - Initial Development
+ * \brief   Provides the State interface used by all game engines
+ */
+
 #include "sac2_type.hpp"
 #include "sac2_engine.hpp"
-
-/*!
- * Provides the State interface used by all game engines
- */
 
 namespace sac2
 {
@@ -26,8 +30,12 @@ class GameState
 
   virtual ~GameState() {  }
   
+  virtual sac2_status_t init() = 0;
+
   virtual sac2_state_id_t get_state_id() const { return m_state_id; }
-  
+
+  virtual bool is_paused() const { return m_pause; }
+
   virtual sac2_status_t pause()
   {
     m_pause = true;
