@@ -1,8 +1,13 @@
 ﻿CXX=g++
 CFLAGS += -Wall -ansi -pedantic
-SFMLFLAGS=-lsfml-graphics -lsfml-window -lsfml-system
+CFLAGS += -DLOG_ENABLED
 
-EXEC=SaC2
+### SFML path
+SFMLDIR:=/usr/local/lib
+SFMLFLAGS += -L$(SFMLDIR)
+SFMLFLAGS += -lsfml-graphics -lsfml-window -lsfml-system
+
+EXEC=SaC2.out
 SRC= $(wildcard *.cpp)
 OBJ= $(SRC:.cpp=.o)
 
