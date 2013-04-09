@@ -1,3 +1,19 @@
+# Object files and Backups
+*.o
 *~
-*.kdev4
+
+# Libraries
 lib/
+
+# Log files
+*.log
+
+# Dependencies
+*.d
+
+# Executables
+*.out
+
+# KDevelop project
+*.kdev4
+
