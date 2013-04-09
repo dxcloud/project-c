@@ -1,6 +1,14 @@
 ﻿#ifndef _ASSET_IMAGE_HPP_
 #define _ASSET_IMAGE_HPP_
 
+/*!
+ * \file    sac2_asset_image.hpp
+ * \author  Chengwu HUANG
+ * \version 0.1
+ * \date    2013-04-08
+ * \brief
+ */
+
 #include <string>
 
 #include "sac2_asset.hpp"

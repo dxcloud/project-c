@@ -6,7 +6,7 @@ int main(int argc, char* argv[])
 {
   sac2::Engine app;
   sac2::sac2_status_t status(sac2::STATUS_SUCCESS);
-  app.process_arguments(argc, argv);
+  app.parse_options(argc, argv);
   status = app.run();
   
   return status;

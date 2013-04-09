@@ -2,10 +2,10 @@
 #define _SAC2_TYPE_HPP_
 
 /*!
- * \file
- * \author
- * \version
- * \date
+ * \file    sac2_type.hpp
+ * \author  Chengwu HUANG
+ * \version 0.1
+ * \date    2013-04-08
  * \brief
  */
 
@@ -17,31 +17,29 @@
 namespace sac2
 {
 
+//! Default name for the application
 const std::string defaultApplicationName("SaC2 Demo");
-const std::string defaultLogFile("output.log");
 
-//! State ID, used for identifying State objects
-//typedef std::string sac2_state_id_t;
-//typedef unsigned int sac2_state_id_t;
-typedef enum state_id {
-  MENU
+#ifdef LOG_ENABLED
+//! Default Log file name
+const std::string defaultLogFile("output.log");
+#endif
+
+//! State ID, used for identifying Game state
+typedef enum sac2_state_id {
+  STATE_CURRENT = 0, //!< Current State
+  STATE_MENU    = 1  //!< Main Menu State
 } sac2_state_id_t;
 
 //! Asset ID, used for identifying Asset objects
 typedef std::string sac2_asset_id_t;
 
-typedef struct engine_conf {
-	std::string app_name;
-	int weight;
-	int height;
-	int frame_rate;
-} engine_conf_t;
-
-//! Used for config section maps
-typedef std::map<const std::string, const std::string> sac2_name_t;
-
-//! Used for name, value pair maps
-typedef std::map<const std::string, const std::string>::iterator sac2_name_iter_t;
+typedef struct sac2_engine_conf {
+  std::string app_name;
+  int         weight;
+  int         height;
+  int         frame_rate;
+} sac2_engine_conf_t;
 
 //! Default video settings
 enum sac2_default_video_settings {
@@ -70,7 +68,7 @@ typedef enum sac2_status {
 } sac2_status_t;
 
 //! Asset type
-typedef enum asset_type {
+typedef enum sac2_asset_type {
   ASSET_FONT,   //!< Font
   ASSET_IMAGE,  //!< Image/Sprite
   ASSET_MUSIC,  //!< Background Music
@@ -80,6 +78,6 @@ typedef enum asset_type {
   ASSET_CUSTOM  //!< Other type
 } sac2_asset_type_t;
 
-}
+} // namespace sac2
 
 #endif

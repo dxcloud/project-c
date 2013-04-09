@@ -4,6 +4,11 @@
 namespace sac2
 {
 
+sac2_status_t MenuState::init()
+{
+  return STATUS_SUCCESS;
+}
+
 sac2_status_t MenuState::handle_events(sf::Event event)
 {
   if (event.Type == sf::Event::Closed) {
@@ -14,14 +19,14 @@ sac2_status_t MenuState::handle_events(sf::Event event)
 
 sac2_status_t MenuState::update()
 {
-  return p_engine->update();
-  //return STATUS_SUCCESS;
+  //return p_engine->update();
+  return STATUS_SUCCESS;
 }
 
 sac2_status_t MenuState::draw()
 {
-  return p_engine->draw();
-  //return STATUS_SUCCESS;
+  //return p_engine->draw();
+  return STATUS_SUCCESS;
 }
 
 sac2_status_t MenuState::cleanup()

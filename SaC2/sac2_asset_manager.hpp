@@ -1,6 +1,14 @@
 ﻿#ifndef _ASSET_MANAGER_HPP_
 #define _ASSET_MANAGER_HPP_
 
+/*!
+ * \file    sac2_asset_manager.hpp
+ * \author  Chengwu HUANG
+ * \version 0.1
+ * \date    2013-04-08
+ * \brief
+ */
+
 #include "sac2_type.hpp"
 
 namespace sac2

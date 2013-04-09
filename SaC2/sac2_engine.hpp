@@ -1,6 +1,14 @@
 ﻿#ifndef _SAC2_ENGINE_HPP_
 #define _SAC2_ENGINE_HPP_
 
+/*!
+ * \file    sac2_engine.hpp
+ * \author  Chengwu HUANG
+ * \version 0.1
+ * \date    2013-04-08
+ * \brief   Provides Engine class
+ */
+
 #include <string>
 #include <fstream>
 
@@ -11,96 +19,122 @@
 
 //! \todo load from a configuration file
 
-//class GameState;
-//class StateManager;
-
 namespace sac2
 {
 
+//! \class Engine
+/*!
+ * \brief   Base Engine
+ * \warning LOG_ENABLED should be defined only for \a Debug or
+ *          \a Test Purposes
+ */
 class Engine
 {
  public:
+
+  /*!
+   * \brief Constructor
+   * \param title Title for the window
+   */
   Engine(const std::string& title=defaultApplicationName):
     m_title(title),
     m_video_mode(DEFAULT_VIDEO_WIDTH, DEFAULT_VIDEO_HEIGHT, DEFAULT_VIDEO_BPP),
     m_window(),
     m_window_settings(),
-//    m_window_style(sf::Style::Close | sf::Style::Resize),
     m_window_style(DEFAULT_STYLE),
     m_input(m_window.GetInput()),
 //    m_asset_manager(),
-//    m_stat_manager(),
-
-//    m_exit_code(STATUS_SUCCESS),
     m_running(false),
     m_state_manager()
-    //    m_update_rate(1.0F / 100)
   {
 #ifdef LOG_ENABLED
-    m_log_file.assign(defaultLogFile);
-    m_log.open(m_log_file.c_str());
-    m_log << "Log File: " m_log_file << std::endl;
+    m_log_filename.assign(defaultLogFile);
+    m_log.open(m_log_filename.c_str());
+    m_log << "Log File: " << m_log_filename << std::endl;
     m_log << "Engine started" << std::endl;
 #endif
   }
 
+  /*!
+   * \brief Destructor
+   */
   ~Engine()
   {
 #ifdef LOG_ENABLED
     m_running = false;
-    m_log << "Engine stopped" << std::endl;
+    m_log << "Engine ended" << std::endl;
 #endif
   }
 
-  void process_arguments(int argc, char* argv[]);
+  /*!
+   * \brief Analyse command line arguments
+   * \param argc Number of arguments
+   * \param argv Values of the arguments
+   */
+  void parse_options(int argc, char* argv[]);
 
+  /*!
+   * \brief   Start the engine
+   * \details The following methods will be called by \b run():
+   *          - \b init()
+   *          - \b loop()
+   *          - \b update()
+   *          - \b draw()
+   */
   sac2_status_t run(void);
-  
-  bool is_running(void) const;
-  
-//  float get_update_rate(void) const;
-  
+
+  /*!
+   * \brief  Stop the Engine and quit
+   * \return SaC2 status
+   */
   sac2_status_t quit();
-  
-//  sac2_status_t pre_init();
-  
+
+ protected:
+
+  /*!
+   * \brief Test the Engine is still running
+   * \return Return \b true if the Engine is still running, \b false otherwise
+   */
+  bool is_running(void) const;
+
+  /*!
+   * \brief  Initialize the Engine
+   * \return SaC2 status
+   */
   sac2_status_t init();
-  
-  void loop();
 
-  sac2_status_t update();
+  /*!
+   * \brief   Main loop
+   * \details The Engine will loop while \a is_running is \b true
+   * \return  SaC2 status
+   */
+  sac2_status_t loop();
 
-  sac2_status_t draw();
-
-
+  /*!
+   * \brief  Clean
+   * \return SaC2 status
+   */
   sac2_status_t cleanup();
-//  static const engine_conf_t& load_config(const std::string& filename);
-
-//  protected:
 
  private:
+
   std::string         m_title;            //!< Title for Window
   sf::VideoMode       m_video_mode;       //!< Video Mode (width, height, bpp)
   sf::RenderWindow    m_window;           //!< Render window
   sf::WindowSettings  m_window_settings;  //!< Window settings
   unsigned long       m_window_style;     //!< Window style
   const sf::Input&    m_input;            //!< Input manager for Tender window above
-  
-//  int                 m_exit_code;        //!< The exit code value that will be returned by the program
   bool                m_running;          //!< True if the application is currently running
-//  float               m_update_rate;      //!< Looger output path and filename
-
 //  AssetManager        m_asset_mng;
-//  StatManager         m_stat_mng;
   StateManager        m_state_manager;
 
 #ifdef LOG_ENABLED
-  std::ofstream       m_log;
-  std::string         m_log_filename;
+  std::ofstream       m_log;              //!< Output stream
+  std::string         m_log_filename;     //!< Log file name
 #endif
 
 };  // class Engine
 
-}
+}  // namespace sac2
 
 #endif
