@@ -6,30 +6,60 @@
  * \author  Chengwu HUANG
  * \version 0.1
  * \date    2013-04-08
- * \brief
+ * \brief   Provides class \b AssetImage
  */
 
 #include <string>
 
+#include <SFML/Graphics.hpp>
+
+#include "sac2_type.hpp"
 #include "sac2_asset.hpp"
 
 namespace sac2
 {
 
+//! \class AssetImage
+/*!
+ * \brief Image manipulation
+ */
 class AssetImage: public Asset
 {
  public:
+
+  /*!
+   * \brief Constructor
+   * \param filename Name of file for loading
+   */
   AssetImage(const std::string& filename):
-    Asset(filename)
+    Asset(filename, ASSET_IMAGE),
+    p_image(new sf::Image)
   {}
 
-  ~AssetImage() {}
-  
+  /*!
+   * \brief Destructor
+   */
+  ~AssetImage()
+  {
+    delete_asset();
+  }
+
+  /*!
+   * \brief  Load the asset
+   * \return SaC2 status
+   */
   virtual sac2_status_t load_asset();
-  
+
+  /*!
+   * \brief  Delete the loaded asset
+   * \return SaC2 status
+   */
+  virtual sac2_status_t delete_asset();
  protected:
  
  private:
+
+  sf::Image* p_image;  //!< Image asset
 };  // class AssetImage
 
 }

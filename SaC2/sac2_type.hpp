@@ -20,6 +20,8 @@ namespace sac2
 //! Default name for the application
 const std::string defaultApplicationName("SaC2 Demo");
 
+typedef const std::string asset_id_t;
+
 #ifdef LOG_ENABLED
 //! Default Log file name
 const std::string defaultLogFile("output.log");

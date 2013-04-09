@@ -17,7 +17,7 @@
 #include "sac2_type.hpp"
 #include "sac2_state_manager.hpp"
 
-//! \todo load from a configuration file
+//! \todo Load from a configuration file
 
 namespace sac2
 {
@@ -78,8 +78,7 @@ class Engine
    * \details The following methods will be called by \b run():
    *          - \b init()
    *          - \b loop()
-   *          - \b update()
-   *          - \b draw()
+   *          - \b cleanup()
    */
   sac2_status_t run(void);
 

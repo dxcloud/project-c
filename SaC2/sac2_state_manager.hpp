@@ -22,8 +22,7 @@ typedef std::vector<GameState*>::iterator state_it;
 
 //! \class StateManager
 /*!
- * \brief  The class \b StateManager is used for manage Game states used by
- *        the application
+ * \brief  The class \b StateManager is used for Game states management
  * \warning Make sure the class is included only once
  */
 // Singleton pattern could be used for the class
