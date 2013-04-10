@@ -2,8 +2,9 @@
 *.o
 *~
 
-# Libraries
+# Libraries and Documentation
 lib/
+docs/
 
 # Log files
 *.log
@@ -12,6 +13,7 @@ lib/
 *.d
 
 # Executables
+build/
 *.out
 
 # KDevelop project
