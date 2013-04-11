@@ -101,6 +101,7 @@ sac2_status_t Engine::loop()
       }
     }  // if an event happened
     if (false == state->is_paused()) {
+      m_window.Clear();
       state->update();
       state->draw();
       state = 0;

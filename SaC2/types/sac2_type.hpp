@@ -72,7 +72,8 @@ typedef enum sac2_status {
 //! Asset type
 typedef enum sac2_asset_type {
   ASSET_FONT,   //!< Font
-  ASSET_IMAGE,  //!< Image/Sprite
+  ASSET_SPRITE, //!< Sprite
+  ASSET_IMAGE,  //!< Image
   ASSET_MUSIC,  //!< Background Music
   ASSET_SOUND,  //!< Sound effect
   ASSET_SCRIPT, //!< Script

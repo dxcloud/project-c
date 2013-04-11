@@ -1,6 +1,7 @@
 # Object files and Backups
 *.o
 *~
+*.bak
 
 # Libraries and Documentation
 lib/
@@ -17,5 +18,5 @@ build/
 *.out
 
 # KDevelop project
-*.kdev4
+*.kdev*
 
