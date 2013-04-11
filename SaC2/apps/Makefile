@@ -1,10 +1,9 @@
 ###
-### A typical Makefile
+### Template Makefile
 ### 
 
 ### Set the SAC_MAKE directory path, if it is NOT defined yet
-
-﻿SAC_MAKE = ../make
+SAC_MAKE ?= ../make/rules.mk
 
 ### Name of the application
 EXEC     = SaCDemo
@@ -13,4 +12,4 @@ EXEC     = SaCDemo
 CXXFLAGS = -DLOG_ENABLED  #allow log file generation
 
 ### The following line is required to compile SaC2 source files
-include $(SAC_MAKE)/Makerules
+include $(SAC_MAKE)
