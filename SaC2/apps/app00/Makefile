@@ -3,7 +3,7 @@
 ### 
 
 ### Set the SAC_MAKE directory path, if it is NOT defined yet
-SAC_MAKE ?= ../make/rules.mk
+SAC_MAKE ?= ../../make/rules.mk
 
 ### Name of the application
 EXEC     = SaCDemo

@@ -31,30 +31,24 @@ class AssetSound: public Asset
    * \brief Constructor
    * \param filename Name of file for loading
    */
-  AssetSound(const std::string& filename):
-    Asset(filename, ASSET_SOUND),
-    p_sound(new sf::Sound)
-  {}
+  AssetSound(const std::string& filename);
 
   /*!
    * \brief Destructor
    */
-  ~AssetSound()
-  {
-    delete_asset();
-  }
+  ~AssetSound();
 
   /*!
    * \brief  Load the asset
    * \return SaC2 status
    */
-  virtual sac2_status_t load_asset();
+  sac2_status_t load_asset();
 
   /*!
    * \brief  Delete the loaded asset
    * \return SaC2 status
    */
-  virtual sac2_status_t delete_asset();
+  sac2_status_t delete_asset();
  protected:
  
  private:
@@ -62,6 +56,18 @@ class AssetSound: public Asset
   sf::Sound* p_sound;  //!< Sound asset
 };  // class AssetSound
 
+inline AssetSound::AssetSound(const std::string& filename):
+    Asset(filename, ASSET_SOUND),
+    p_sound(new sf::Sound)
+{
+
 }
+
+inline AssetSound::~AssetSound()
+{
+  delete_asset();
+}
+
+}  // namespace sac2
 
 #endif

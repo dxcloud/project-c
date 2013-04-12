@@ -16,38 +16,38 @@
 namespace sac2
 {
 
-class GameState;  // Forward declaration
+class GameState;
 
 typedef std::vector<GameState*>::iterator state_it;
 
 //! \class StateManager
 /*!
- * \brief  The class \b StateManager is used for Game states management
- * \warning Make sure the class is included only once
+ * \brief   The class \b StateManager is used for Game states management
+ * \warning The class is implemented with Singleton Pattern
  */
-// Singleton pattern could be used for the class
 
 class StateManager
 {
  public:
-  /*!
-   * \brief Default Constructor
-   */
-  StateManager():
-    m_states(0),
-    m_dropped_states(0)
-  {}
 
   /*!
-   * \brief   Destructor
-   * \details Clean all states on the active and dropped stack
+   * \brief
+   * \details
+   * \return 
    */
-  ~StateManager() {
-    while (false == m_states.empty()) {
-      drop_state();
-    }
-    cleanup();
-  }
+  static StateManager* get_instance();
+
+  /*!
+   * \brief
+   * \return
+   */
+  static sac2_status_t finalize();
+
+  /*!
+   * \brief
+   * \return
+   */
+  sac2_status_t initialize();
 
   /*!
    * \brief  Test whether the state stack is empty
@@ -132,11 +132,41 @@ class StateManager
   sac2_status_t remove_state(sac2_state_id_t id);
 
   /*!
+   * \brief
+   * \param
+   * \param
+   * \return SaC2 status
+   */
+  sac2_status_t handle_events(const sf::Event& envent,
+                              const sf::Input& input);
+
+  /*!
    * \brief Clean all states of the dropped state stack
    */
   void cleanup();
 
  protected:
+
+  /*!
+   * \brief   Default private Constructor
+   * \details Only one State Manager is allowed
+   */
+  StateManager():
+    m_states(0),
+    m_dropped_states(0)
+  {}
+
+  /*!
+   * \brief   Private Destructor
+   * \details Clean all states on the active and dropped stack
+   */
+  ~StateManager() {
+    while (false == m_states.empty()) {
+      drop_state();
+    }
+    cleanup();
+  }
+
  private:
   /**
    * \brief   Private copy constructor
@@ -158,11 +188,30 @@ class StateManager
    */
   GameState* find_state(sac2_state_id_t id=STATE_CURRENT);
 
+  //! Unique instance of StateManager
+  static StateManager* p_state_manager;
   //! Stack of currently used states
   std::vector<GameState*> m_states;
   //! Stack of states ready to be cleaned
   std::vector<GameState*> m_dropped_states;
 };  // class StateManager
+
+
+inline StateManager* StateManager::get_instance()
+{
+  if (0 == p_state_manager) { p_state_manager = new StateManager; }
+  return p_state_manager;
+}
+
+inline sac2_status_t StateManager::finalize()
+{
+  if (0 != p_state_manager) {
+    delete p_state_manager;
+    p_state_manager = 0;
+    return STATUS_SUCCESS;
+  }
+  return STATUS_ALREADY;
+}
 
 }  // namespace sac2
 

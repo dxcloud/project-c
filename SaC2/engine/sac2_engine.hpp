@@ -10,12 +10,16 @@
  */
 
 #include <string>
+
+#ifdef LOG_ENABLED
 #include <fstream>
+#endif
 
 #include <SFML/Graphics.hpp>
 
 #include "sac2_type.hpp"
 #include "sac2_state_manager.hpp"
+#include "sac2_asset_manager.hpp"
 
 //! \todo Load from a configuration file
 
@@ -36,35 +40,12 @@ class Engine
    * \brief Constructor
    * \param title Title for the window
    */
-  Engine(const std::string& title=defaultApplicationName):
-    m_title(title),
-    m_video_mode(DEFAULT_VIDEO_WIDTH, DEFAULT_VIDEO_HEIGHT, DEFAULT_VIDEO_BPP),
-    m_window(),
-    m_window_settings(),
-    m_window_style(DEFAULT_STYLE),
-    m_input(m_window.GetInput()),
-//    m_asset_manager(),
-    m_running(false),
-    m_state_manager()
-  {
-#ifdef LOG_ENABLED
-    m_log_filename.assign(defaultLogFile);
-    m_log.open(m_log_filename.c_str());
-    m_log << "Log File: " << m_log_filename << std::endl;
-    m_log << "Engine started" << std::endl;
-#endif
-  }
+  Engine(const std::string& title=defaultApplicationName);
 
   /*!
    * \brief Destructor
    */
-  ~Engine()
-  {
-#ifdef LOG_ENABLED
-    m_running = false;
-    m_log << "Engine ended" << std::endl;
-#endif
-  }
+  virtual ~Engine();
 
   /*!
    * \brief Analyse command line arguments
@@ -122,17 +103,47 @@ class Engine
   sf::RenderWindow    m_window;           //!< Render window
   sf::WindowSettings  m_window_settings;  //!< Window settings
   unsigned long       m_window_style;     //!< Window style
-  const sf::Input&    m_input;            //!< Input manager for Tender window above
   bool                m_running;          //!< True if the application is currently running
-//  AssetManager        m_asset_mng;
-  StateManager        m_state_manager;
+
+  StateManager*        p_state_manager;    //!< State Manager
+  AssetManager*        p_asset_manager;    //!< Asset Manager
 
 #ifdef LOG_ENABLED
   std::ofstream       m_log;              //!< Output stream
   std::string         m_log_filename;     //!< Log file name
 #endif
-
 };  // class Engine
+
+
+inline Engine::Engine(const std::string& title):
+  m_title(title),
+  m_video_mode(DEFAULT_VIDEO_WIDTH, DEFAULT_VIDEO_HEIGHT, DEFAULT_VIDEO_BPP),
+  m_window(),
+  m_window_settings(),
+  m_window_style(DEFAULT_STYLE),
+  m_running(false),
+  p_state_manager(0)
+{
+#ifdef LOG_ENABLED
+  m_log_filename.assign(defaultLogFile);
+  m_log.open(m_log_filename.c_str());
+  m_log << "Log File: " << m_log_filename << std::endl;
+  m_log << "Engine started" << std::endl;
+#endif
+}
+
+inline Engine::~Engine()
+{
+#ifdef LOG_ENABLED
+  m_running = false;
+  m_log << "Engine ended" << std::endl;
+#endif
+}
+
+inline bool Engine::is_running() const
+{
+  return m_running;
+}
 
 }  // namespace sac2
 

@@ -64,9 +64,11 @@ typedef enum sac2_status {
   STATUS_CANCEL   = 3,  //!< Operation cancelled by a call
   STATUS_BUSY     = 4,  //!< Callee function no responding
   STATUS_INVAL    = 5,  //!< An invalid parameter was passed
+  STATUS_ALREADY  = 5,  //!< Parameter is already used/deleted
   STATUS_MISS     = 6,  //!< A file is missing
   STATUS_NOMEM    = 7,  //!< Memory requirred not available
-  STATUS_UNKNOWN  = 8   //!< Unknown behaviour
+  STATUS_QUIT     = 8,
+  STATUS_UNKNOWN        //!< Unknown behaviour
 } sac2_status_t;
 
 //! Asset type

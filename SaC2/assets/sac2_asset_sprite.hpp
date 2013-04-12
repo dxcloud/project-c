@@ -31,18 +31,12 @@ class AssetSprite: public Asset
    * \brief Constructor
    * \param filename Name of file for loading
    */
-  AssetSprite(const std::string& filename):
-    Asset(filename, ASSET_SPRITE),
-    p_sprite(new sf::Sprite)
-  {}
+  AssetSprite(const std::string& filename);
 
   /*!
    * \brief Destructor
    */
-  ~AssetSprite()
-  {
-    delete_asset();
-  }
+  ~AssetSprite();
 
   /*!
    * \brief Set the position of the sprite
@@ -50,12 +44,7 @@ class AssetSprite: public Asset
    * \param y New y coordonate
    * \return SaC2 status
    */
-  sac2_status_t set_position(float x, float y)
-  {
-    p_sprite->SetPosition(x, y);
-
-    return STATUS_SUCCESS;
-  }
+  sac2_status_t set_position(float x, float y);
 
   /*!
    * \brief Resize the sprite
@@ -101,6 +90,26 @@ class AssetSprite: public Asset
 
   sf::Sprite*  p_sprite;  //!< Image asset
 };  // class AssetSprite
+
+
+inline AssetSprite::AssetSprite(const std::string& filename):
+    Asset(filename, ASSET_SPRITE),
+    p_sprite(new sf::Sprite)
+{
+  load_asset();
+}
+
+inline AssetSprite::~AssetSprite()
+{
+  delete_asset();
+}
+
+inline sac2_status_t AssetSprite::set_position(float x, float y)
+{
+  p_sprite->SetPosition(x, y);
+
+  return STATUS_SUCCESS;
+}
 
 }
 

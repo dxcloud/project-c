@@ -29,34 +29,59 @@ class Asset
    * \param filename The name of file to use for loading
    * \param type     The type of the asset
    */
-  Asset(const std::string& filename, sac2_asset_type_t type):
-    m_filename(filename),
-    m_type(type),
-    m_loaded(false)
-  {}
+  Asset(const std::string& filename, sac2_asset_type_t type);
 
   /*!
    * \brief Destructor
    */
-  virtual ~Asset() {}
+  virtual ~Asset();
 
   /*!
    * \brief  Test whether the asset is loaded
    * \return Return \a true if the asset is correctly loaded,
    *         \b false otherwise
    */
-  bool is_loaded() const { return m_loaded; }
+  virtual bool is_loaded() const;
+
+  /*!
+   * \brief Load an asset
+   * \return SaC2 status
+   */
+  virtual sac2_status_t load_asset() = 0;
+
+  /*!
+   * \brief Delete a loaded asset
+   * \return SaC2 status
+   */
+  virtual sac2_status_t delete_asset() = 0;
 
  protected:
 
   const std::string m_filename;  //!< Filename
-
   sac2_asset_type_t m_type;      //!< Type of the asset
-
-  bool m_loaded;                 //!< \a true if the asset is loaded
+  bool m_load;                   //!< \a true if the asset is loaded
 
  private:
 };  // class Asset
+
+
+inline Asset::Asset(const std::string& filename, sac2_asset_type_t type):
+    m_filename(filename),
+    m_type(type),
+    m_load(false)
+{
+  // do nothing
+}
+
+inline Asset::~Asset()
+{
+  // do nothing
+}
+
+inline bool Asset::is_loaded() const
+{
+  return m_load;
+}
 
 }
 

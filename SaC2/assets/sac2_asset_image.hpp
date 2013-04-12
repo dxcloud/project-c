@@ -31,36 +31,44 @@ class AssetImage: public Asset
    * \brief Constructor
    * \param filename Name of file for loading
    */
-  AssetImage(const std::string& filename):
-    Asset(filename, ASSET_IMAGE),
-    p_image(new sf::Image)
-  {}
+  AssetImage(const std::string& filename);
 
   /*!
    * \brief Destructor
    */
-  ~AssetImage()
-  {
-    delete_asset();
-  }
+  ~AssetImage();
 
   /*!
    * \brief  Load the asset
    * \return SaC2 status
    */
-  virtual sac2_status_t load_asset();
+  sac2_status_t load_asset();
 
   /*!
    * \brief  Delete the loaded asset
    * \return SaC2 status
    */
-  virtual sac2_status_t delete_asset();
+  sac2_status_t delete_asset();
+
  protected:
- 
+
  private:
 
   sf::Image* p_image;  //!< Image asset
 };  // class AssetImage
+
+
+inline AssetImage::AssetImage(const std::string& filename):
+    Asset(filename, ASSET_IMAGE),
+    p_image(new sf::Image)
+{
+
+}
+
+inline AssetImage::~AssetImage()
+{
+  delete_asset();
+}
 
 }
 

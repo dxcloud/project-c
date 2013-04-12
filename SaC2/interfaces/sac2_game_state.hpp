@@ -10,7 +10,7 @@
  */
 
 #include "sac2_type.hpp"
-#include "sac2_engine.hpp"
+#include "sac2_state_manager.hpp"
 
 namespace sac2
 {
@@ -18,53 +18,138 @@ namespace sac2
 //! \class GameState
 /*!
  * \brief Base class interface for all game states
+ * \details The following member functions must be defined by any derived
+ *          class:
+ *          - \b initialize()
+ *          - \b handle_events()
+ *          - \b draw()
+ *          - \b cleanup()
  */
 class GameState
 {
  public:
-  GameState(Engine* engine, sac2_state_id_t id):
-    p_engine(engine),
-    m_state_id(id),
-    m_pause(false)
-  {  }
 
-  virtual ~GameState() {  }
-  
-  virtual sac2_status_t init() = 0;
+   /*!
+    * \brief Constructor
+    * \param id Game State identifier
+    */
+  GameState(sac2_state_id_t id);
 
-  virtual sac2_state_id_t get_state_id() const { return m_state_id; }
+  /*!
+   * \brief Destructor
+   */
+  virtual ~GameState();
 
-  virtual bool is_paused() const { return m_pause; }
+  /*!
+   * \brief  Get the identifier of the state
+   * \return Identifier of the state
+   */
+  virtual sac2_state_id_t get_state_id() const;
 
-  virtual sac2_status_t pause()
-  {
-    m_pause = true;
-    return STATUS_SUCCESS;
-  }
+  /*!
+   * \brief  Test if the state is paused
+   * \return \b true if the state is paused, \b false otherwise
+   */
+  virtual bool is_paused() const;
+
+  /*!
+   * \brief  Pause
+   * \return SaC2 status
+   */
+  virtual sac2_status_t pause();
   
-  virtual sac2_status_t resume() {
-    m_pause = false;
-    return STATUS_SUCCESS;
-  }
-  
-  virtual sac2_status_t reset() { return STATUS_SUCCESS; }
-  
-  virtual sac2_status_t handle_events(sf::Event event) = 0;
-  
+  /*!
+   * \brief  Resume
+   * \return SaC2 status
+   */
+  virtual sac2_status_t resume();
+
+  /*!
+   * \brief Initialize the state
+   */
+  virtual sac2_status_t initialize() = 0;
+
+  /*!
+   * \brief  Reset the state
+   * \return SaC2_status
+   */
+  virtual sac2_status_t reset();
+
+  /*!
+   * \brief  Handling input events
+   * \param  event Type of event
+   * \param  input Input from Keyboard and mouse
+   * \return SaC2 status
+   */
+  virtual sac2_status_t handle_events(const sf::Event& event,
+                                      const sf::Input& input) = 0;
+
+  /*!
+   * \brief  Updating the state
+   * \return SaC status
+   */
   virtual sac2_status_t update() = 0;
-  
+
+  /*!
+   * \brief  Drawing 
+   * \return SaC2 status
+   */
   virtual sac2_status_t draw() = 0;
 
+  /*!
+   * \brief  Clean before the state is removed
+   * \return SaC2 status
+   */
   virtual sac2_status_t cleanup() = 0;
 
 protected:
 
-  Engine*               p_engine;
-  const sac2_state_id_t m_state_id;
-  bool                  m_pause;
+  const sac2_state_id_t m_state_id;       //!< Identifier of the state
+  bool                  m_pause;          //!< \b false if the state is active
+  StateManager*         p_state_manager;  //!< \Pointer of the state manager
 
  private:
 };  // class GameState
+
+
+inline GameState::GameState(sac2_state_id_t id):
+    m_state_id(id),
+    m_pause(false)
+{
+  p_state_manager = StateManager::get_instance();
+}
+
+inline GameState::~GameState()
+{
+  // do nothing
+}
+
+inline sac2_state_id_t GameState::get_state_id() const
+{
+  return m_state_id;
+}
+
+inline bool GameState::is_paused() const {
+  return m_pause;
+}
+
+inline sac2_status_t GameState::pause()
+{
+  m_pause = true;
+  return STATUS_SUCCESS;
+}
+
+inline sac2_status_t GameState::resume() {
+  m_pause = false;
+  return STATUS_SUCCESS;
+}
+
+inline sac2_status_t GameState::reset()
+{
+  // do nothing
+  return STATUS_SUCCESS;
+}
+
 
 }
 

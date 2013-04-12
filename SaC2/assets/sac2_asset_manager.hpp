@@ -12,6 +12,9 @@
 #include "sac2_type.hpp"
 #include "sac2_asset.hpp"
 #include "sac2_asset_image.hpp"
+#include "sac2_asset_music.hpp"
+#include "sac2_asset_sound.hpp"
+#include "sac2_asset_sprite.hpp"
 
 namespace sac2
 {
@@ -19,18 +22,28 @@ namespace sac2
 //! \class AssetManager
 /*!
  * \brief   Asset management
- * \warning Make sure the class is instanciated only once
+ * \warning The class is implemented with Singleton Pattern
  */
 class AssetManager
 {
  public:
 
-  AssetManager() {}
+  /*!
+   * \brief
+   */
+  static AssetManager* get_instance();
 
-  ~AssetManager()
-  {
-    delete_asset(ASSET_IMAGE);
-  }
+  /*!
+   * \brief  Initialize AssetManager
+   * \return SaC2 status
+   */
+  sac2_status_t initialize();
+
+  /*!
+   * \brief  Destroy AssetManager
+   * \return SaC2 status
+   */
+  sac2_status_t finalize();
 
   /*!
    * \brief  Get the asset specified by \a type and \a id
@@ -57,26 +70,73 @@ class AssetManager
 
  protected:
 
+  /*!
+   * \brief Private Constructor
+   */
+  AssetManager();
+
+  /*!
+   * \brief Private Destructor
+   */
+  ~AssetManager();
+
  private:
 
   /*!
    * \brief Private copy Constructor
    * \details Copy is NOT allowed
    */
-  AssetManager(const AssetManager&);
+  AssetManager(const AssetManager& asset_manager);
 
   /*!
    * \brief Private assignment operator
    * \details Copy is NOT allowed
    */
-  AssetManager& operator=(const AssetManager&);
+  AssetManager& operator=(const AssetManager& asset_manager);
 
-  //! Store all Image assets
-  std::map<asset_id_t, AssetImage*> m_images;
-
+  static AssetManager* p_asset_manager;          //!< Unique instance
   //! \TODO Add Map asset for musics, sprites, background...
+  std::map<asset_id_t, AssetImage*>  m_images;   //!< Store all image assets
+  std::map<asset_id_t, AssetMusic*>  m_musics;   //!< Store all music assets
+  std::map<asset_id_t, AssetSound*>  m_sounds;   //!< Store all sound assets
+  std::map<asset_id_t, AssetSprite*> m_sprites;  //!< Store all sprites assets
+
 };  // class AssetManager
 
+
+inline AssetManager::AssetManager()
+{
+
 }
+
+inline AssetManager::~AssetManager()
+{
+
+}
+
+inline AssetManager* AssetManager::get_instance()
+{
+  if (0 == p_asset_manager) {
+    p_asset_manager = new AssetManager;
+  }  // if first instance
+  return p_asset_manager;
+}
+
+inline sac2_status_t AssetManager::initialize()
+{
+  return STATUS_SUCCESS;
+}
+
+inline sac2_status_t AssetManager::finalize()
+{
+  if (0 != p_asset_manager) {
+    delete p_asset_manager;
+    p_asset_manager = 0;
+    return STATUS_SUCCESS;
+  }  // if p_asset_manager is NOT already deleted
+  return STATUS_ALREADY;
+}
+
+}  // namespace sac2
 
 #endif

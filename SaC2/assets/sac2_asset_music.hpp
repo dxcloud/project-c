@@ -31,18 +31,12 @@ class AssetMusic: public Asset
    * \brief Constructor
    * \param filename Name of file for loading
    */
-  AssetMusic(const std::string& filename):
-    Asset(filename, ASSET_MUSIC),
-    p_music(new sf::Music)
-  {}
+  AssetMusic(const std::string& filename);
 
   /*!
    * \brief Destructor
    */
-  ~AssetMusic()
-  {
-    delete_asset();
-  }
+  ~AssetMusic();
 
   /*!
    * \brief  Load the asset
@@ -75,6 +69,19 @@ class AssetMusic: public Asset
 
   sf::Music* p_music;  //!< Music asset
 };  // class AssetMusic
+
+
+inline AssetMusic::AssetMusic(const std::string& filename):
+    Asset(filename, ASSET_MUSIC),
+    p_music(new sf::Music)
+{
+
+}
+
+inline AssetMusic::~AssetMusic()
+{
+  delete_asset();
+}
 
 }  // namespace sac2
 

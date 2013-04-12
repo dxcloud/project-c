@@ -4,11 +4,13 @@
 namespace sac2
 {
 
+StateManager* StateManager::p_state_manager = 0;
+
 sac2_status_t StateManager::set_state_to_active(sac2_state_id_t id)
 {
   if (false == m_states.empty()) {
     GameState* state = find_state(id);
-    if (0 != state) return state->resume();
+    if (0 != state) { return state->resume(); }
   } // if m_states is NOT empty
 
   return STATUS_INVAL;
@@ -18,7 +20,7 @@ sac2_status_t StateManager::set_state_to_inactive(sac2_state_id_t id)
 {
   if (false == m_states.empty()) {
     GameState* state = find_state(id);
-    if (0 != state) return state->pause();
+    if (0 != state) { return state->pause(); }
   } // if m_states is NOT empty
 
   return STATUS_INVAL;
@@ -28,8 +30,8 @@ sac2_status_t StateManager::set_state_to_current(sac2_state_id_t id, bool activa
 {
   if (false == m_states.empty()) {
     if (STATE_CURRENT == id) {
-      if (true == activated) return m_states.back()->resume();
-      else return m_states.back()->pause();
+      if (true == activated) { return m_states.back()->resume(); }
+      else { return m_states.back()->pause(); }
     } // if STATE_CURRENT
 
     for (state_it it(m_states.begin()); it < m_states.end(); ++it) {
@@ -38,8 +40,8 @@ sac2_status_t StateManager::set_state_to_current(sac2_state_id_t id, bool activa
 	m_states.erase(it);
 	m_states.push_back(state);
 	state = 0;
-	if (true == activated) return m_states.back()->resume();
-	else return m_states.back()->pause();
+	if (true == activated) { return m_states.back()->resume(); }
+	else { return m_states.back()->pause(); }
       } // if id found
     }
   } // if m_states is NOT empty
@@ -51,10 +53,10 @@ sac2_status_t StateManager::add_state(GameState* state, bool activated)
 {
   //add a state
   m_states.push_back(state);
-  m_states.back()->init();
+  m_states.back()->initialize();
 
-  if (true == activated) return m_states.back()->resume();
-  else return m_states.back()->pause();
+  if (true == activated) { return m_states.back()->resume(); }
+  else { return m_states.back()->pause(); }
 }
 
 sac2_status_t StateManager::reset_state(sac2_state_id_t id)
@@ -122,6 +124,12 @@ GameState* StateManager::find_state(sac2_state_id_t id)
     }
   }
   return 0;
+}
+
+sac2_status_t StateManager::handle_events(const sf::Event& event,
+                                          const sf::Input& input)
+{
+  return m_states.back()->handle_events(event, input);
 }
 
 }

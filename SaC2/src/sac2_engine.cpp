@@ -1,5 +1,4 @@
 ﻿#include "sac2_engine.hpp"
-#include "sac2_menu_state.hpp"
 
 namespace sac2
 {
@@ -29,8 +28,7 @@ sac2_status_t Engine::init()
 
   m_window.SetFramerateLimit(DEFAULT_FRAMERATE_LIMIT);
 
-  GameState* state(new MenuState(this));
-  m_state_manager.add_state(state);
+  p_state_manager = StateManager::get_instance();
 
 #ifdef LOG_ENABLED
   m_log << "Engine::init() >> completed" << std::endl;
@@ -87,33 +85,22 @@ sac2_status_t Engine::run()
 sac2_status_t Engine::loop()
 {
   while (true == m_running) {
-    GameState* state = m_state_manager.get_state();
-    if (0 == state) return STATUS_ERROR;
-
     sf::Event event;
 
     if (true == m_window.GetEvent(event)) {
       if (sf::Event::Closed == event.Type) {
 	quit();
-      }
+      }  // if the window is closed
       else {
-	state->handle_events(event);
+	sac2_status_t status(STATUS_SUCCESS);
+	status = p_state_manager->handle_events(event, m_window.GetInput());
+	if (STATUS_SUCCESS != status) { quit(); }
       }
     }  // if an event happened
-    if (false == state->is_paused()) {
-      m_window.Clear();
-      state->update();
-      state->draw();
-      state = 0;
-      m_window.Display();
-    }  // if the current state is active
-  }  // Loop until m_running is true
+    m_window.Clear();
+    m_window.Display();
+  }  // loop while m_running is true
   return STATUS_SUCCESS;
-}
-
-bool Engine::is_running() const
-{
-  return m_running;
 }
 
 sac2_status_t Engine::quit()
@@ -130,10 +117,11 @@ sac2_status_t Engine::cleanup()
 {
   if (m_window.IsOpened()) {
     m_window.Close();
-  } // if the window is opeend
+  } // if the window is still opeend
 #ifdef LOG_ENABLED
   m_log << "Engine::cleanup() completed" << std::endl;
 #endif
+  p_state_manager->finalize();
   return STATUS_SUCCESS;
 }
 
