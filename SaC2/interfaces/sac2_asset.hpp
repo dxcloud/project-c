@@ -1,5 +1,5 @@
-﻿#ifndef _ASSET_HPP_
-#define _ASSET_HPP_
+﻿#ifndef _SAC2_ASSET_HPP_
+#define _SAC2_ASSET_HPP_
 
 /*!
  * \file    sac2_asset.hpp
@@ -15,6 +15,8 @@
 
 namespace sac2
 {
+
+template<typename T>
 
 //! \class Asset
 /*!
@@ -44,6 +46,12 @@ class Asset
   virtual bool is_loaded() const;
 
   /*!
+   * \brief  Get the asset
+   * \return Asset
+   */
+  const T& get_asset() const;
+
+  /*!
    * \brief Load an asset
    * \return SaC2 status
    */
@@ -59,13 +67,15 @@ class Asset
 
   const std::string m_filename;  //!< Filename
   sac2_asset_type_t m_type;      //!< Type of the asset
-  bool m_load;                   //!< \a true if the asset is loaded
+  bool              m_load;      //!< \a true if the asset is loaded
+  T                 m_asset;     //!< Asset
 
  private:
 };  // class Asset
 
 
-inline Asset::Asset(const std::string& filename, sac2_asset_type_t type):
+template<typename T>
+inline Asset<T>::Asset(const std::string& filename, sac2_asset_type_t type):
     m_filename(filename),
     m_type(type),
     m_load(false)
@@ -73,16 +83,24 @@ inline Asset::Asset(const std::string& filename, sac2_asset_type_t type):
   // do nothing
 }
 
-inline Asset::~Asset()
+template<typename T>
+inline Asset<T>::~Asset()
 {
   // do nothing
 }
 
-inline bool Asset::is_loaded() const
+template<typename T>
+inline const T& Asset<T>::get_asset() const
+{
+  return m_asset;
+}
+
+template<typename T>
+inline bool Asset<T>::is_loaded() const
 {
   return m_load;
 }
 
 }
 
-#endif //!_ASSET_HPP_
+#endif //! _SAC2_ASSET_HPP_
