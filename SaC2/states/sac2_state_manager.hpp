@@ -12,6 +12,7 @@
 #include <vector>
 
 #include "sac2_type.hpp"
+#include "sac2_manager.hpp"
 
 namespace sac2
 {
@@ -26,22 +27,11 @@ typedef std::vector<GameState*>::iterator state_it;
  * \warning The class is implemented with Singleton Pattern
  */
 
-class StateManager
+class StateManager: public Manager<StateManager>
 {
  public:
 
-  /*!
-   * \brief
-   * \details
-   * \return 
-   */
-  static StateManager* get_instance();
-
-  /*!
-   * \brief
-   * \return
-   */
-  static sac2_status_t finalize();
+  friend class Manager<StateManager>;
 
   /*!
    * \brief
@@ -151,34 +141,26 @@ class StateManager
    * \brief   Default private Constructor
    * \details Only one State Manager is allowed
    */
-  StateManager():
-    m_states(0),
-    m_dropped_states(0)
-  {}
+  StateManager();
 
   /*!
    * \brief   Private Destructor
    * \details Clean all states on the active and dropped stack
    */
-  ~StateManager() {
-    while (false == m_states.empty()) {
-      drop_state();
-    }
-    cleanup();
-  }
+  ~StateManager();
 
  private:
   /**
    * \brief   Private copy constructor
    * \details This class is NOT allowed to be copied
    */
-  StateManager(const StateManager&);
+  StateManager(const StateManager& state_manager);
 
   /**
    * \brief   Private assignment operator
    * \details This class is NOT allowed to be copied
    */
-  const StateManager& operator=(const StateManager&);
+  const StateManager& operator=(const StateManager& state_manager);
 
   /*!
    * \brief  Find the state specified by \a id
@@ -188,8 +170,6 @@ class StateManager
    */
   GameState* find_state(sac2_state_id_t id=STATE_CURRENT);
 
-  //! Unique instance of StateManager
-  static StateManager* p_state_manager;
   //! Stack of currently used states
   std::vector<GameState*> m_states;
   //! Stack of states ready to be cleaned
@@ -197,20 +177,18 @@ class StateManager
 };  // class StateManager
 
 
-inline StateManager* StateManager::get_instance()
+inline StateManager::StateManager():
+    m_states(0),
+    m_dropped_states(0)
 {
-  if (0 == p_state_manager) { p_state_manager = new StateManager; }
-  return p_state_manager;
+
 }
 
-inline sac2_status_t StateManager::finalize()
-{
-  if (0 != p_state_manager) {
-    delete p_state_manager;
-    p_state_manager = 0;
-    return STATUS_SUCCESS;
+inline StateManager::~StateManager() {
+  while (false == m_states.empty()) {
+    drop_state();
   }
-  return STATUS_ALREADY;
+  cleanup();
 }
 
 }  // namespace sac2

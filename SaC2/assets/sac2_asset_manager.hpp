@@ -11,6 +11,7 @@
 
 #include "sac2_type.hpp"
 #include "sac2_asset.hpp"
+#include "sac2_manager.hpp"
 #include "sac2_asset_image.hpp"
 #include "sac2_asset_music.hpp"
 #include "sac2_asset_sound.hpp"
@@ -24,26 +25,11 @@ namespace sac2
  * \brief   Asset management
  * \warning The class is implemented with Singleton Pattern
  */
-class AssetManager
+class AssetManager: public Manager<AssetManager>
 {
  public:
 
-  /*!
-   * \brief
-   */
-  static AssetManager* get_instance();
-
-  /*!
-   * \brief  Initialize AssetManager
-   * \return SaC2 status
-   */
-  sac2_status_t initialize();
-
-  /*!
-   * \brief  Destroy AssetManager
-   * \return SaC2 status
-   */
-  sac2_status_t finalize();
+  friend class Manager<AssetManager>;
 
   /*!
    * \brief  Get the asset specified by \a type and \a id
@@ -94,7 +80,6 @@ class AssetManager
    */
   AssetManager& operator=(const AssetManager& asset_manager);
 
-  static AssetManager* p_asset_manager;          //!< Unique instance
   //! \TODO Add Map asset for musics, sprites, background...
   std::map<asset_id_t, AssetImage*>  m_images;   //!< Store all image assets
   std::map<asset_id_t, AssetMusic*>  m_musics;   //!< Store all music assets
@@ -112,29 +97,6 @@ inline AssetManager::AssetManager()
 inline AssetManager::~AssetManager()
 {
 
-}
-
-inline AssetManager* AssetManager::get_instance()
-{
-  if (0 == p_asset_manager) {
-    p_asset_manager = new AssetManager;
-  }  // if first instance
-  return p_asset_manager;
-}
-
-inline sac2_status_t AssetManager::initialize()
-{
-  return STATUS_SUCCESS;
-}
-
-inline sac2_status_t AssetManager::finalize()
-{
-  if (0 != p_asset_manager) {
-    delete p_asset_manager;
-    p_asset_manager = 0;
-    return STATUS_SUCCESS;
-  }  // if p_asset_manager is NOT already deleted
-  return STATUS_ALREADY;
 }
 
 }  // namespace sac2

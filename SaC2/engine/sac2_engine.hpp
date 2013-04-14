@@ -127,22 +127,33 @@ inline Engine::Engine(const std::string& title):
 #ifdef LOG_ENABLED
   m_log_filename.assign(defaultLogFile);
   m_log.open(m_log_filename.c_str());
-  m_log << "Log File: " << m_log_filename << std::endl;
-  m_log << "Engine started" << std::endl;
+  m_log << "Log File: " << m_log_filename << std::endl
+        << "<<<< Engine::Engine() >> Completed" << std::endl;
 #endif
 }
 
 inline Engine::~Engine()
 {
+  cleanup();
+
 #ifdef LOG_ENABLED
-  m_running = false;
-  m_log << "Engine ended" << std::endl;
+  m_log << ">>>> Engine::~Engine() >> Completed" << std::endl;
 #endif
 }
 
 inline bool Engine::is_running() const
 {
   return m_running;
+}
+
+inline sac2_status_t Engine::quit()
+{
+#ifdef LOG_ENABLED
+  m_log << "Engine::quit() >> Called" << std::endl;
+#endif
+  m_running = false;
+
+  return STATUS_SUCCESS;
 }
 
 }  // namespace sac2

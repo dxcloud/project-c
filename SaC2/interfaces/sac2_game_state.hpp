@@ -11,6 +11,7 @@
 
 #include "sac2_type.hpp"
 #include "sac2_state_manager.hpp"
+#include "sac2_asset_manager.hpp"
 
 namespace sac2
 {
@@ -106,7 +107,8 @@ protected:
 
   const sac2_state_id_t m_state_id;       //!< Identifier of the state
   bool                  m_pause;          //!< \b false if the state is active
-  StateManager*         p_state_manager;  //!< \Pointer of the state manager
+  StateManager*         p_state_manager;  //!< State Manager
+  AssetManager*         p_asset_manager;  //!< Asset Manager
 
  private:
 };  // class GameState
@@ -114,9 +116,12 @@ protected:
 
 inline GameState::GameState(sac2_state_id_t id):
     m_state_id(id),
-    m_pause(false)
+    m_pause(false),
+    p_state_manager(0),
+    p_asset_manager(0)
 {
   p_state_manager = StateManager::get_instance();
+  p_asset_manager = AssetManager::get_instance();
 }
 
 inline GameState::~GameState()
@@ -150,7 +155,6 @@ inline sac2_status_t GameState::reset()
   return STATUS_SUCCESS;
 }
 
-
 }
 
-#endif
+#endif  //! _SAC2_GAME_STATE_HPP_

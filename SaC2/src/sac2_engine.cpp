@@ -31,52 +31,43 @@ sac2_status_t Engine::init()
   p_state_manager = StateManager::get_instance();
 
 #ifdef LOG_ENABLED
-  m_log << "Engine::init() >> completed" << std::endl;
+  m_log << "Engine::init() >> Completed" << std::endl;
 #endif
-
   return STATUS_SUCCESS;
 }
 
 void Engine::parse_options(int argc, char* argv[])
 {
 #ifdef LOG_ENABLED
-  m_log << "Engine::process arguments:" << std::endl;
-  for (int i = 0; i < argc; ++i)
+  m_log << "Engine::parse_options() >> Check parameters" << std::endl;
+  for (int i = 0; i < argc; ++i) {
     m_log << "#" << i << " " << argv[i] << std::endl;
+  }
+  m_log << "Engine::parse_options() >> Completed" << std::endl;
 #endif
 }
 
 sac2_status_t Engine::run()
 {
 #ifdef LOG_ENABLED
-  m_log << "Engine::run() started" << std::endl;
+  m_log << "Engine::run() >> Started" << std::endl;
 #endif
 
-  m_running = true;  // The Engine is running
+  m_running = true;  // the Engine is running
 
   sac2_status_t status(STATUS_SUCCESS);
   status = init();
 
-  if (STATUS_SUCCESS != status) {
+  if (STATUS_SUCCESS == status) {
+    status = loop();  // main loop
+
 #ifdef LOG_ENABLED
-  m_log << "Engine::init() initialization failed" << std::endl;
+  m_log << "Engine::loop() >> Completed" << std::endl;
 #endif
-    return status;
-  }
-
-  status = loop();  // Main loop
-
-  if (STATUS_SUCCESS != status) {
-#ifdef LOG_ENABLED
-  m_log << "Engine::loop() quit with " << status << std::endl;
-#endif
-    return status;
-  }
-
-  status = cleanup();
+  }  // if initialization success
 
 #ifdef LOG_ENABLED
-  m_log << "Engine::run() ended with " << status << std::endl;
+  m_log << "Engine::run() >> Ended with " << status << std::endl;
 #endif
 
   return status;
@@ -84,32 +75,26 @@ sac2_status_t Engine::run()
 
 sac2_status_t Engine::loop()
 {
+#ifdef LOG_ENABLED
+  m_log << "Engine::loop() >> Started" << std::endl;
+#endif
+
   while (true == m_running) {
     sf::Event event;
 
     if (true == m_window.GetEvent(event)) {
       if (sf::Event::Closed == event.Type) {
-	quit();
+        quit();
       }  // if the window is closed
       else {
-	sac2_status_t status(STATUS_SUCCESS);
-	status = p_state_manager->handle_events(event, m_window.GetInput());
-	if (STATUS_SUCCESS != status) { quit(); }
-      }
+        sac2_status_t status(STATUS_SUCCESS);
+        status = p_state_manager->handle_events(event, m_window.GetInput());
+        if (STATUS_QUIT == status) { quit(); }  // if Engine::quit() requested
+      }  // handle any other events
+      m_window.Clear();
+      m_window.Display();
     }  // if an event happened
-    m_window.Clear();
-    m_window.Display();
   }  // loop while m_running is true
-  return STATUS_SUCCESS;
-}
-
-sac2_status_t Engine::quit()
-{
-#ifdef LOG_ENABLED
-  m_log << "Engine::quit() called" << std::endl;
-#endif
-  m_running = false;
-
   return STATUS_SUCCESS;
 }
 
@@ -118,10 +103,12 @@ sac2_status_t Engine::cleanup()
   if (m_window.IsOpened()) {
     m_window.Close();
   } // if the window is still opeend
-#ifdef LOG_ENABLED
-  m_log << "Engine::cleanup() completed" << std::endl;
-#endif
+
   p_state_manager->finalize();
+
+#ifdef LOG_ENABLED
+  m_log << "Engine::cleanup() >> Completed" << std::endl;
+#endif
   return STATUS_SUCCESS;
 }
 

@@ -3,8 +3,6 @@
 namespace sac2
 {
 
-AssetManager* AssetManager::p_asset_manager = 0;
-
 Asset* AssetManager::get_asset(sac2_asset_type_t type,
                                sac2_asset_id_t id) const
 {

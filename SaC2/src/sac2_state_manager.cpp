@@ -4,8 +4,6 @@
 namespace sac2
 {
 
-StateManager* StateManager::p_state_manager = 0;
-
 sac2_status_t StateManager::set_state_to_active(sac2_state_id_t id)
 {
   if (false == m_states.empty()) {
@@ -36,12 +34,12 @@ sac2_status_t StateManager::set_state_to_current(sac2_state_id_t id, bool activa
 
     for (state_it it(m_states.begin()); it < m_states.end(); ++it) {
       if (id == (*it)->get_state_id()) {
-	GameState* state = dynamic_cast<GameState*> (*it);
-	m_states.erase(it);
-	m_states.push_back(state);
-	state = 0;
-	if (true == activated) { return m_states.back()->resume(); }
-	else { return m_states.back()->pause(); }
+        GameState* state = dynamic_cast<GameState*> (*it);
+        m_states.erase(it);
+        m_states.push_back(state);
+        state = 0;
+        if (true == activated) { return m_states.back()->resume(); }
+        else { return m_states.back()->pause(); }
       } // if id found
     }
   } // if m_states is NOT empty
@@ -95,7 +93,7 @@ sac2_status_t StateManager::remove_state(sac2_state_id_t id)
         m_states.erase(it);
         m_dropped_states.push_back(state);
         state = 0;
-	return STATUS_SUCCESS;
+        return STATUS_SUCCESS;
       } // if id found
     }
   } // if m_states is NOT empty
@@ -129,7 +127,10 @@ GameState* StateManager::find_state(sac2_state_id_t id)
 sac2_status_t StateManager::handle_events(const sf::Event& event,
                                           const sf::Input& input)
 {
-  return m_states.back()->handle_events(event, input);
+  if (false == m_states.empty()) {
+    return m_states.back()->handle_events(event, input);
+  }
+  else { return STATUS_SUCCESS; }
 }
 
 }
