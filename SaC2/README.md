@@ -6,10 +6,12 @@ About
 
 Features
 --------
+* Written in C++
+* Base on SFML 1.6
 
 System supported
 ----------------
-	* GNU/Linux
+* GNU/Linux
 
 Getting Started
 ---------------
