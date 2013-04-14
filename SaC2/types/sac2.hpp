@@ -14,11 +14,15 @@
 #include "sac2_type.hpp"
 #include "sac2_engine.hpp"
 #include "sac2_game_state.hpp"
+#include "sac2_manager.hpp"
 #include "sac2_menu_state.hpp"
 #include "sac2_state_manager.hpp"
 #include "sac2_asset.hpp"
 #include "sac2_asset_manager.hpp"
 #include "sac2_asset_image.hpp"
+#include "sac2_asset_music.hpp"
+#include "sac2_asset_sound.hpp"
+#include "sac2_asset_sprite.hpp"
 
 
-#endif //!_SAC2_HPP_
+#endif //! _SAC2_HPP_
