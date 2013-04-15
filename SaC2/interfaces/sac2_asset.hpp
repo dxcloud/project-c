@@ -12,6 +12,7 @@
 #include <string>
 
 #include "sac2_type.hpp"
+#include "sac2_asset_manager.hpp"
 
 namespace sac2
 {
@@ -65,10 +66,11 @@ class Asset
 
  protected:
 
-  const std::string m_filename;  //!< Filename
-  sac2_asset_type_t m_type;      //!< Type of the asset
-  bool              m_load;      //!< \a true if the asset is loaded
-  T                 m_asset;     //!< Asset
+  const std::string m_filename;       //!< Filename
+  sac2_asset_type_t m_type;           //!< Type of the asset
+  bool              m_load;           //!< \a true if the asset is loaded
+  T                 m_asset;          //!< Asset
+  AssetManager*     p_asset_manager;  //!< Asset Manager
 
  private:
 };  // class Asset
@@ -80,6 +82,7 @@ inline Asset<T>::Asset(const std::string& filename, sac2_asset_type_t type):
     m_type(type),
     m_load(false)
 {
+  p_asset_manager = AssetManager::get_instance();
   // do nothing
 }
 

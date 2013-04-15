@@ -1,5 +1,5 @@
-#ifndef _MANAGER_HPP_
-#define _MANAGER_HPP_
+#ifndef _SAC2_MANAGER_HPP_
+#define _SAC2_MANAGER_HPP_
 
 /*!
  * \file    sac2_manager.hpp
