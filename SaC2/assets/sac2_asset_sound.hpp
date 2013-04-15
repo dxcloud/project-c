@@ -1,5 +1,5 @@
-#ifndef _ASSET_SOUND_HPP_
-#define _ASSET_SOUND_HPP_
+#ifndef _SAC2_ASSET_SOUND_HPP_
+#define _SAC2_ASSET_SOUND_HPP_
 
 /*!
  * \file    sac2_asset_sound.hpp
@@ -23,7 +23,7 @@ namespace sac2
 /*!
  * \brief Sound manipulation
  */
-class AssetSound: public Asset
+class AssetSound: public Asset<sf::SoundBuffer>
 {
  public:
 
@@ -53,12 +53,10 @@ class AssetSound: public Asset
  
  private:
 
-  sf::Sound* p_sound;  //!< Sound asset
 };  // class AssetSound
 
 inline AssetSound::AssetSound(const std::string& filename):
-    Asset(filename, ASSET_SOUND),
-    p_sound(new sf::Sound)
+    Asset<sf::SoundBuffer>(filename, ASSET_SOUND)
 {
 
 }
@@ -70,4 +68,4 @@ inline AssetSound::~AssetSound()
 
 }  // namespace sac2
 
-#endif
+#endif  //! _SAC2_ASSET_SOUND_HPP_

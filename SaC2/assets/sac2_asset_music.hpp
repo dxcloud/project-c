@@ -1,5 +1,5 @@
-#ifndef _ASSET_MUSIC_HPP_
-#define _ASSET_MUSIC_HPP_
+#ifndef _SAC2_ASSET_MUSIC_HPP_
+#define _SAC2_ASSET_MUSIC_HPP_
 
 /*!
  * \file    sac2_asset_music.hpp
@@ -23,7 +23,7 @@ namespace sac2
 /*!
  * \brief Music manipulation
  */
-class AssetMusic: public Asset
+class AssetMusic: public Asset<sf::Music>
 {
  public:
 
@@ -66,14 +66,11 @@ class AssetMusic: public Asset
  protected:
  
  private:
-
-  sf::Music* p_music;  //!< Music asset
 };  // class AssetMusic
 
 
 inline AssetMusic::AssetMusic(const std::string& filename):
-    Asset(filename, ASSET_MUSIC),
-    p_music(new sf::Music)
+    Asset<sf::Music>(filename, ASSET_MUSIC)
 {
 
 }
@@ -85,4 +82,4 @@ inline AssetMusic::~AssetMusic()
 
 }  // namespace sac2
 
-#endif
+#endif  //! _SAC2_ASSET_MUSIC_HPP_

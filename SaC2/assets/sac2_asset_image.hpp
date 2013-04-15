@@ -1,5 +1,5 @@
-﻿#ifndef _ASSET_IMAGE_HPP_
-#define _ASSET_IMAGE_HPP_
+﻿#ifndef _SAC2_ASSET_IMAGE_HPP_
+#define _SAC2_ASSET_IMAGE_HPP_
 
 /*!
  * \file    sac2_asset_image.hpp
@@ -23,7 +23,7 @@ namespace sac2
 /*!
  * \brief Image manipulation
  */
-class AssetImage: public Asset
+class AssetImage: public Asset<sf::Image>
 {
  public:
 
@@ -37,6 +37,9 @@ class AssetImage: public Asset
    * \brief Destructor
    */
   ~AssetImage();
+
+
+//  const sf::Image& get_asset() const { return m_image; }
 
   /*!
    * \brief  Load the asset
@@ -53,14 +56,12 @@ class AssetImage: public Asset
  protected:
 
  private:
-
-  sf::Image* p_image;  //!< Image asset
+//  sf::Image m_image;  //!< Image asset
 };  // class AssetImage
 
 
 inline AssetImage::AssetImage(const std::string& filename):
-    Asset(filename, ASSET_IMAGE),
-    p_image(new sf::Image)
+    Asset<sf::Image>(filename, ASSET_IMAGE)
 {
 
 }
@@ -72,4 +73,4 @@ inline AssetImage::~AssetImage()
 
 }
 
-#endif
+#endif  //! _SAC2_ASSET_IMAGE_HPP_
