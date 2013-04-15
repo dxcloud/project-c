@@ -1,5 +1,5 @@
-﻿#ifndef _SAC2_ASSET_MANAGER_HPP_
-#define _SAC2_ASSET_MANAGER_HPP_
+﻿#ifndef _ASSET_MANAGER_HPP_
+#define _ASSET_MANAGER_HPP_
 
 /*!
  * \file    sac2_asset_manager.hpp
@@ -10,18 +10,15 @@
  */
 
 #include "sac2_type.hpp"
+#include "sac2_asset.hpp"
 #include "sac2_manager.hpp"
-#include "sac2_drawable.hpp"
+#include "sac2_asset_image.hpp"
+#include "sac2_asset_music.hpp"
+#include "sac2_asset_sound.hpp"
+#include "sac2_asset_sprite.hpp"
 
 namespace sac2
 {
-
-class Engine;
-//class Asset;
-class AssetImage;
-class AssetMusic;
-class AssetSound;
-class AssetSprite;
 
 //! \class AssetManager
 /*!
@@ -34,11 +31,6 @@ class AssetManager: public Manager<AssetManager>
 
   friend class Manager<AssetManager>;
 
-  sac2_status_t initialize(Engine* engine) {
-    p_engine = engine;
-    return STATUS_SUCCESS;
-  }
-
   /*!
    * \brief  Get the asset specified by \a type and \a id
    * \param  type The type of desired asset
@@ -46,14 +38,7 @@ class AssetManager: public Manager<AssetManager>
    * \return Pointer of the asset
    *         Return 0 if the asset is missing
    */
-  AssetImage* get_asset(sac2_asset_type_t type, const sac2_asset_id_t& id) const;
-
-  /*!
-   * \brief
-   */
-  sac2_status_t add_asset(sac2_asset_type_t type,
-                          const std::string& filename,
-                          const sac2_asset_id_t& id="");
+  Asset* get_asset(sac2_asset_type_t type, sac2_asset_id_t id) const;
 
   /*!
    * \brief  Load the asset specified by \a type
@@ -68,10 +53,6 @@ class AssetManager: public Manager<AssetManager>
    * \return SaC2 status
    */
   sac2_status_t delete_asset(sac2_asset_type_t type);
-
-  sac2_status_t update(Engine* engine);
-
-  sac2_status_t draw(Drawable* drawable);
 
  protected:
 
@@ -99,17 +80,16 @@ class AssetManager: public Manager<AssetManager>
    */
   AssetManager& operator=(const AssetManager& asset_manager);
 
-  Engine* p_engine;
   //! \TODO Add Map asset for musics, sprites, background...
-  std::map<sac2_asset_id_t, AssetImage*>  m_images;   //!< Store all image assets
-  std::map<sac2_asset_id_t, AssetMusic*>  m_musics;   //!< Store all music assets
-  std::map<sac2_asset_id_t, AssetSound*>  m_sounds;   //!< Store all sound assets
-  std::map<sac2_asset_id_t, AssetSprite*> m_sprites;  //!< Store all sprites assets
+  std::map<asset_id_t, AssetImage*>  m_images;   //!< Store all image assets
+  std::map<asset_id_t, AssetMusic*>  m_musics;   //!< Store all music assets
+  std::map<asset_id_t, AssetSound*>  m_sounds;   //!< Store all sound assets
+  std::map<asset_id_t, AssetSprite*> m_sprites;  //!< Store all sprites assets
 
 };  // class AssetManager
 
 
-inline AssetManager::AssetManager(): p_engine(0)
+inline AssetManager::AssetManager()
 {
 
 }
@@ -121,4 +101,4 @@ inline AssetManager::~AssetManager()
 
 }  // namespace sac2
 
-#endif  //! _SAC2_ASSET_MANAGER_HPP_
+#endif
