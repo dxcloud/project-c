@@ -9,6 +9,7 @@
  * \brief
  */
 
+#include <iostream>
 #include <string>
 #include <map>
 
@@ -19,8 +20,6 @@ namespace sac2
 
 //! Default name for the application
 const std::string defaultApplicationName("SaC2 Demo");
-
-typedef const std::string asset_id_t;
 
 #ifdef LOG_ENABLED
 //! Default Log file name
@@ -36,11 +35,16 @@ typedef enum sac2_state_id {
 //! Asset ID, used for identifying Asset objects
 typedef std::string sac2_asset_id_t;
 
+//! Associate an ID for every asset filename
+typedef std::map<sac2_asset_id_t, std::string> sac2_asset_map_t;
+
+
+//! Engine configuration file parameters
 typedef struct sac2_engine_conf {
-  std::string app_name;
-  int         weight;
-  int         height;
-  int         frame_rate;
+  std::string app_name;    //!< Name of the application
+  int         weight;      //!< Window weight
+  int         height;      //!< Window height
+  int         frame_rate;  //!< Frame rate
 } sac2_engine_conf_t;
 
 //! Default video settings
@@ -83,6 +87,13 @@ typedef enum sac2_asset_type {
   ASSET_CUSTOM  //!< Other type
 } sac2_asset_type_t;
 
+//! Type of coordinate
+typedef struct sac2_coordinate {
+  float x;
+  float y;
+} sac2_vector_t;
+
+
 } // namespace sac2
 
-#endif
+#endif //! _SAC2_TYPE_HPP_
