@@ -5,6 +5,7 @@ namespace sac2
 
 sac2_status_t AssetSprite::load_asset()
 {
+  //p_asset_manager->
   return STATUS_SUCCESS;
 }
 
