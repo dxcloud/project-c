@@ -1,6 +1,3 @@
-﻿#ifndef _SAC2_HPP_
-#define _SAC2_HPP_
-
 /*!
  * \file    sac2.hpp
  * \author  Chengwu HUANG
@@ -9,6 +6,9 @@
  * \brief   Provides all includes
  * \warning Prefer include header files needed to this file
  */
+
+#ifndef SAC2_HPP
+#define SAC2_HPP
 
 // SaC2 includes
 #include "sac2_type.hpp"
@@ -25,4 +25,5 @@
 #include "sac2_asset_sprite.hpp"
 
 
-#endif //! _SAC2_HPP_
+#endif  //! SAC2_HPP
+

@@ -1,13 +1,13 @@
-﻿#ifndef _SAC2_TYPE_HPP_
-#define _SAC2_TYPE_HPP_
-
 /*!
  * \file    sac2_type.hpp
  * \author  Chengwu HUANG
  * \version 0.1
- * \date    2013-04-08
- * \brief
+ * \date    2013-04-08 - Initial Development
+ * \brief   Provides SaC2 types
  */
+
+#ifndef SAC2_TYPE_HPP
+#define SAC2_TYPE_HPP
 
 #include <iostream>
 #include <string>
@@ -96,4 +96,5 @@ typedef struct sac2_coordinate {
 
 } // namespace sac2
 
-#endif //! _SAC2_TYPE_HPP_
+#endif  //! SAC2_TYPE_HPP
+
