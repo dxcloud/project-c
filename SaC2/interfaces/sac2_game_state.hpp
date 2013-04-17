@@ -1,6 +1,3 @@
-﻿#ifndef _SAC2_GAME_STATE_HPP_
-#define _SAC2_GAME_STATE_HPP_
-
 /*!
  * \file    sac2_game_state.hpp
  * \author  Chengwu HUANG
@@ -8,6 +5,9 @@
  * \date    2013-04-08 - Initial Development
  * \brief   Provides the State interface used by all game engines
  */
+
+#ifndef SAC2_GAME_STATE_HPP
+#define SAC2_GAME_STATE_HPP
 
 #include "sac2_type.hpp"
 #include "sac2_state_manager.hpp"
@@ -18,11 +18,12 @@ namespace sac2
 
 //! \class GameState
 /*!
- * \brief Base class interface for all game states
+ * \brief   Base class interface for all game states
  * \details The following member functions must be defined by any derived
  *          class:
  *          - \b initialize()
  *          - \b handle_events()
+ *          - \b update()
  *          - \b draw()
  *          - \b cleanup()
  */
@@ -54,19 +55,20 @@ class GameState
   virtual bool is_paused() const;
 
   /*!
-   * \brief  Pause
+   * \brief  Set the state to pause
    * \return SaC2 status
    */
   virtual sac2_status_t pause();
   
   /*!
-   * \brief  Resume
+   * \brief  Resume if the state is paused
    * \return SaC2 status
    */
   virtual sac2_status_t resume();
 
   /*!
    * \brief Initialize the state
+   * \return SaC2 status
    */
   virtual sac2_status_t initialize() = 0;
 
@@ -77,7 +79,7 @@ class GameState
   virtual sac2_status_t reset();
 
   /*!
-   * \brief  Handling input events
+   * \brief  Handle input events
    * \param  event Type of event
    * \param  input Input from Keyboard and mouse
    * \return SaC2 status
@@ -86,13 +88,14 @@ class GameState
                                       const sf::Input& input) = 0;
 
   /*!
-   * \brief  Updating the state
-   * \return SaC status
+   * \brief   Update the state
+   * \details Change the position of a sprite for example...
+   * \return  SaC status
    */
   virtual sac2_status_t update() = 0;
 
   /*!
-   * \brief  Drawing 
+   * \brief  Display sprites on the screen
    * \return SaC2 status
    */
   virtual sac2_status_t draw() = 0;
@@ -109,6 +112,7 @@ protected:
   bool                  m_pause;          //!< \b false if the state is active
   StateManager*         p_state_manager;  //!< State Manager
   AssetManager*         p_asset_manager;  //!< Asset Manager
+  WindowManager*        p_window_manager; //!< Window Manager
 
  private:
 };  // class GameState
@@ -118,10 +122,12 @@ inline GameState::GameState(sac2_state_id_t id):
     m_state_id(id),
     m_pause(false),
     p_state_manager(0),
-    p_asset_manager(0)
+    p_asset_manager(0),
+    p_window_manager(0)
 {
   p_state_manager = StateManager::get_instance();
   p_asset_manager = AssetManager::get_instance();
+  p_window_manager = WindowManager::get_instance();
 }
 
 inline GameState::~GameState()
@@ -157,4 +163,5 @@ inline sac2_status_t GameState::reset()
 
 }
 
-#endif  //! _SAC2_GAME_STATE_HPP_
+#endif  //! SAC2_GAME_STATE_HPP
+

@@ -1,6 +1,3 @@
-﻿#ifndef _SAC2_ASSET_HPP_
-#define _SAC2_ASSET_HPP_
-
 /*!
  * \file    sac2_asset.hpp
  * \author  Chengwu HUANG
@@ -8,6 +5,9 @@
  * \date    2013-04-08 - Initial Development
  * \brief   Provides basic Asset used by the class \b AssetManager
  */
+
+#ifndef SAC2_ASSET_HPP
+#define SAC2_ASSET_HPP
 
 #include <string>
 
@@ -21,7 +21,8 @@ template<typename T>
 
 //! \class Asset
 /*!
- * \brief Basic virtual class for assets
+ * \brief   Basic virtual class for assets
+ * \details See \b sac2_asset_type_t for a list of available assets
  */
 class Asset
 {
@@ -41,7 +42,7 @@ class Asset
 
   /*!
    * \brief  Test whether the asset is loaded
-   * \return Return \a true if the asset is correctly loaded,
+   * \return Return \b true if the asset is correctly loaded,
    *         \b false otherwise
    */
   virtual bool is_loaded() const;
@@ -83,7 +84,6 @@ inline Asset<T>::Asset(const std::string& filename, sac2_asset_type_t type):
     m_load(false)
 {
   p_asset_manager = AssetManager::get_instance();
-  // do nothing
 }
 
 template<typename T>
@@ -106,4 +106,5 @@ inline bool Asset<T>::is_loaded() const
 
 }
 
-#endif //! _SAC2_ASSET_HPP_
+#endif  //! SAC2_ASSET_HPP
+
