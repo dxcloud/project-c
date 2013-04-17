@@ -1,6 +1,3 @@
-﻿#ifndef _SAC2_ASSET_MANAGER_HPP_
-#define _SAC2_ASSET_MANAGER_HPP_
-
 /*!
  * \file    sac2_asset_manager.hpp
  * \author  Chengwu HUANG
@@ -8,6 +5,9 @@
  * \date    2013-04-08
  * \brief   Provides AssetManager class
  */
+
+#ifndef SAC2_ASSET_MANAGER_HPP
+#define SAC2_ASSET_MANAGER_HPP
 
 #include "sac2_type.hpp"
 #include "sac2_manager.hpp"
@@ -48,12 +48,13 @@ class AssetManager: public Manager<AssetManager>
    */
   AssetImage* get_asset(sac2_asset_type_t type, const sac2_asset_id_t& id) const;
 
+  AssetImage* get_image(const sac2_asset_id_t& id) const;
+
   /*!
    * \brief
    */
   sac2_status_t add_asset(sac2_asset_type_t type,
-                          const std::string& filename,
-                          const sac2_asset_id_t& id="");
+                          const sac2_asset_id_t& id);
 
   /*!
    * \brief  Load the asset specified by \a type
@@ -67,7 +68,8 @@ class AssetManager: public Manager<AssetManager>
    * \param  type Type of asset to be deleted
    * \return SaC2 status
    */
-  sac2_status_t delete_asset(sac2_asset_type_t type);
+  sac2_status_t delete_asset(sac2_asset_type_t type,
+                             const sac2_asset_id_t& id);
 
   sac2_status_t update(Engine* engine);
 
@@ -109,7 +111,8 @@ class AssetManager: public Manager<AssetManager>
 };  // class AssetManager
 
 
-inline AssetManager::AssetManager(): p_engine(0)
+inline AssetManager::AssetManager():
+    p_engine(0)
 {
 
 }
@@ -121,4 +124,5 @@ inline AssetManager::~AssetManager()
 
 }  // namespace sac2
 
-#endif  //! _SAC2_ASSET_MANAGER_HPP_
+#endif  //! SAC2_ASSET_MANAGER_HPP
+

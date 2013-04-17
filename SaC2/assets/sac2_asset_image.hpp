@@ -1,6 +1,3 @@
-﻿#ifndef _SAC2_ASSET_IMAGE_HPP_
-#define _SAC2_ASSET_IMAGE_HPP_
-
 /*!
  * \file    sac2_asset_image.hpp
  * \author  Chengwu HUANG
@@ -8,6 +5,9 @@
  * \date    2013-04-08
  * \brief   Provides class \b AssetImage
  */
+
+#ifndef SAC2_ASSET_IMAGE_HPP
+#define SAC2_ASSET_IMAGE_HPP
 
 #include <string>
 
@@ -21,11 +21,14 @@ namespace sac2
 
 //! \class AssetImage
 /*!
- * \brief Image manipulation
+ * \brief   Image manipulation
+ * \details AssetImage is wrapper class of sf::Image, and should NOT be
+ *          manipulated directly.
+ *          Use AssetSprite instead.
  */
 class AssetImage: public Asset<sf::Image>
 {
- public:
+public:
 
   /*!
    * \brief Constructor
@@ -37,9 +40,6 @@ class AssetImage: public Asset<sf::Image>
    * \brief Destructor
    */
   ~AssetImage();
-
-
-//  const sf::Image& get_asset() const { return m_image; }
 
   /*!
    * \brief  Load the asset
@@ -53,10 +53,10 @@ class AssetImage: public Asset<sf::Image>
    */
   sac2_status_t delete_asset();
 
- protected:
+protected:
 
- private:
-//  sf::Image m_image;  //!< Image asset
+private:
+
 };  // class AssetImage
 
 
@@ -73,4 +73,5 @@ inline AssetImage::~AssetImage()
 
 }
 
-#endif  //! _SAC2_ASSET_IMAGE_HPP_
+#endif  //! SAC2_ASSET_IMAGE_HPP
+

@@ -1,6 +1,3 @@
-#ifndef _SAC2_ASSET_SPRITE_HPP_
-#define _SAC2_ASSET_SPRITE_HPP_
-
 /*!
  * \file    sac2_asset_sprite.hpp
  * \author  Chengwu HUANG
@@ -9,6 +6,9 @@
  * \brief   Provides class \b AssetSprite
  */
 
+#ifndef SAC2_ASSET_SPRITE_HPP
+#define SAC2_ASSET_SPRITE_HPP
+
 #include <string>
 
 #include <SFML/Graphics.hpp>
@@ -16,6 +16,7 @@
 #include "sac2_type.hpp"
 #include "sac2_asset.hpp"
 #include "sac2_drawable.hpp"
+#include "sac2_asset_image.hpp"
 
 namespace sac2
 {
@@ -27,7 +28,7 @@ namespace sac2
  */
 class AssetSprite: public Asset<sf::Sprite>, public Drawable
 {
- public:
+public:
 
   /*!
    * \brief Constructor
@@ -131,10 +132,13 @@ class AssetSprite: public Asset<sf::Sprite>, public Drawable
    * \return SaC2 status
    */
   virtual sac2_status_t delete_asset();
- protected:
- 
- private:
-  sf::Image* p_image;
+
+protected:
+
+private:
+
+  AssetImage* p_image;
+
 };  // class AssetSprite
 
 
@@ -143,7 +147,7 @@ inline AssetSprite::AssetSprite(const std::string& filename):
     Drawable(),
     p_image(0)
 {
-
+  p_image = p_asset_manager->get_image(filename);
 }
 
 inline AssetSprite::~AssetSprite()
@@ -221,12 +225,13 @@ inline sac2_status_t AssetSprite::resize(float width, float height)
 
 inline sac2_status_t AssetSprite::flip(bool flip_x, bool flip_y)
 {
-  if (true == flip_x) m_asset.FlipX(true);
-  if (true == flip_y) m_asset.FlipY(true);
+  if (true == flip_x) { m_asset.FlipX(true); }
+  if (true == flip_y) { m_asset.FlipY(true); }
 
   return STATUS_SUCCESS;
 }
 
 }
 
-#endif  //! _SAC2_ASSET_SPRITE_HPP_
+#endif  //! SAC2_ASSET_SPRITE_HPP
+
