@@ -26,15 +26,25 @@ AssetImage* AssetManager::get_asset(sac2_asset_type_t type,
   return 0;
 }
 
+AssetImage* AssetManager::get_image(const sac2_asset_id_t& id) const
+{
+    std::map<sac2_asset_id_t, AssetImage*>::const_iterator iter;
+    iter = m_images.find(id);
+    if (m_images.end() != iter) {
+      return iter->second;
+    }
+
+  return 0;
+}
+
 sac2_status_t AssetManager::add_asset(sac2_asset_type_t type,
-                                      const std::string& filename,
                                       const sac2_asset_id_t& id)
 {
   if (ASSET_IMAGE == type) {
     std::map<sac2_asset_id_t, AssetImage*>::iterator iter;
     iter = m_images.find(id);
     if (m_images.end() == iter) {
-      AssetImage* image(new AssetImage(filename));
+      AssetImage* image(new AssetImage(id));
       if (STATUS_SUCCESS != image->load_asset()) { return STATUS_MISS; }
       m_images.insert(std::pair<sac2_asset_id_t, AssetImage*>(id, image));
       return STATUS_SUCCESS;
@@ -50,7 +60,8 @@ sac2_status_t AssetManager::load_asset(sac2_asset_type_t type)
   return STATUS_SUCCESS;
 }
 
-sac2_status_t AssetManager::delete_asset(sac2_asset_type_t type)
+sac2_status_t AssetManager::delete_asset(sac2_asset_type_t type,
+                                         const sac2_asset_id_t& id)
 {
   return STATUS_SUCCESS;
 }
@@ -60,14 +71,12 @@ sac2_status_t AssetManager::update(Engine* engine)
   return STATUS_SUCCESS;
 }
 
-sac2_status_t AssetManager::draw(Drawable* drawable)
+/*
+sac2_status_t AssetManager::draw(sac2_asset_type_t type, Drawable* drawable)
 {
-  if (0 == p_engine) {
-    return STATUS_ERROR;
-  }
-  sf::Sprite sprite;
-  p_engine->draw(sprite);
+  p_engine->draw(type, drawable);
   return STATUS_SUCCESS;
 }
+*/
 
 }
