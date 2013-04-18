@@ -1,9 +1,10 @@
 ﻿#include "sac2_engine.hpp"
+#include "sac2_asset_sprite.hpp"
 
 namespace sac2
 {
 
-sac2_status_t Engine::init()
+sac2_status_t Engine::initialize()
 {
 //  m_video_mode.Width =
 //  m_video_mode.Height =
@@ -29,6 +30,8 @@ sac2_status_t Engine::init()
   m_window.SetFramerateLimit(DEFAULT_FRAMERATE_LIMIT);
 
   p_state_manager = StateManager::get_instance();
+  p_asset_manager = AssetManager::get_instance();
+  p_asset_manager->initialize(this);
 
 #ifdef LOG_ENABLED
   m_log << "Engine::init() >> Completed" << std::endl;
@@ -56,7 +59,7 @@ sac2_status_t Engine::run()
   m_running = true;  // the Engine is running
 
   sac2_status_t status(STATUS_SUCCESS);
-  status = init();
+  status = initialize();
 
   if (STATUS_SUCCESS == status) {
     status = loop();  // main loop
@@ -81,19 +84,20 @@ sac2_status_t Engine::loop()
 
   while (true == m_running) {
     sf::Event event;
+    m_window.GetEvent(event);  // get an event
 
-    if (true == m_window.GetEvent(event)) {
-      if (sf::Event::Closed == event.Type) {
-        quit();
-      }  // if the window is closed
-      else {
-        sac2_status_t status(STATUS_SUCCESS);
-        status = p_state_manager->handle_events(event, m_window.GetInput());
-        if (STATUS_QUIT == status) { quit(); }  // if Engine::quit() requested
-      }  // handle any other events
-      m_window.Clear();
-      m_window.Display();
-    }  // if an event happened
+    if (sf::Event::Closed == event.Type) {
+      quit();
+    }  // if the window is closed
+    else {
+      sac2_status_t status(STATUS_SUCCESS);
+      status = p_state_manager->handle_events(event, m_window.GetInput());
+      if (STATUS_QUIT == status) { quit(); }  // if Engine::quit() requested
+    }  // handle any other events
+
+    m_window.Clear();  // clear
+    p_state_manager->update();
+    m_window.Display();  // draw
   }  // loop while m_running is true
   return STATUS_SUCCESS;
 }
@@ -105,11 +109,23 @@ sac2_status_t Engine::cleanup()
   } // if the window is still opeend
 
   p_state_manager->finalize();
+  p_asset_manager->finalize();
 
 #ifdef LOG_ENABLED
   m_log << "Engine::cleanup() >> Completed" << std::endl;
 #endif
   return STATUS_SUCCESS;
 }
+
+sac2_status_t Engine::draw(sac2_asset_type_t type, Drawable* drawable)
+{
+  if (ASSET_SPRITE == type) {
+    AssetSprite* sprite = dynamic_cast<AssetSprite*>(drawable);
+    m_window.Draw(sprite->get_asset());
+  }
+
+  return STATUS_SUCCESS;
+}
+
 
 }
