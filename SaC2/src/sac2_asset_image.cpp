@@ -14,12 +14,7 @@ sac2_status_t AssetImage::load_asset()
 
 sac2_status_t AssetImage::delete_asset()
 {
-/*  if (true == m_load) {
-    delete p_image;
-    p_image = 0;
-    m_load = false;
-  }
-*/
+  p_asset_manager->delete_asset(ASSET_IMAGE, m_filename);
   return STATUS_SUCCESS;
 }
 
