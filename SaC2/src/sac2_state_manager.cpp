@@ -133,4 +133,11 @@ sac2_status_t StateManager::handle_events(const sf::Event& event,
   else { return STATUS_SUCCESS; }
 }
 
+void StateManager::update()
+{
+  if (false == m_states.empty()) {
+    m_states.back()->update();
+  }
+}
+
 }
