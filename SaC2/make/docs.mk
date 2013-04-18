@@ -16,7 +16,7 @@ docs: $(DOXYFILE)
 ### Create configuration file from a template
 ### The following options are modifyed to match the project
 ###     PROJECT_NAME       Same as executable
-###     OUTPUT_DIRECTORY   'docs' directory
+###     OUTPUT_DIRECTORY   Set to 'docs' directory
 ###     INPUT              Includes also SaC2 files
 $(DOXYFILE): FORCE
 	@mkdir -p $(DOC_DIR)
@@ -24,5 +24,3 @@ $(DOXYFILE): FORCE
 	@sed -e '97a\INPUT                  = $(SAC_DIR) $(BASE_DIR)' \
 	 -e '10a\OUTPUT_DIRECTORY       = $(DOC_DIR)' \
 	 -e '6a\PROJECT_NAME           = "$(EXEC)"' <$@ > $@.tmp
-
-FORCE:

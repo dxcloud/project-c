@@ -4,8 +4,6 @@
 
 include $(SAC_MAKE_DIR)/clean.mk
 
-mrproper: clean FORCE
+mrproper: clean
 	@rm -rf build docs
 	@echo "Remove build and docs directories"
-
-FORCE:

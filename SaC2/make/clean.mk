@@ -2,8 +2,6 @@
 ### SaC2/make/clean.mk
 ###
 
-clean: FORCE
-	@rm -rf *~ $(OBJ_DIR)/*.o
+clean:
+	@rm -rf *~ $(OBJ_DIR)/*.o $(DEPFILE)
 	@echo "Object files removed"
-
-FORCE:
