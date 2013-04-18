@@ -1,6 +1,3 @@
-﻿#ifndef _SAC2_ENGINE_HPP_
-#define _SAC2_ENGINE_HPP_
-
 /*!
  * \file    sac2_engine.hpp
  * \author  Chengwu HUANG
@@ -8,6 +5,9 @@
  * \date    2013-04-08
  * \brief   Provides Engine class
  */
+
+#ifndef SAC2_ENGINE_HPP
+#define SAC2_ENGINE_HPP
 
 #include <string>
 
@@ -34,7 +34,7 @@ namespace sac2
  */
 class Engine
 {
- public:
+public:
 
   /*!
    * \brief Constructor
@@ -69,7 +69,7 @@ class Engine
    */
   sac2_status_t quit();
 
- protected:
+protected:
 
   /*!
    * \brief Test the Engine is still running
@@ -81,7 +81,7 @@ class Engine
    * \brief  Initialize the Engine
    * \return SaC2 status
    */
-  sac2_status_t init();
+  sac2_status_t initialize();
 
   /*!
    * \brief   Main loop
@@ -96,7 +96,7 @@ class Engine
    */
   sac2_status_t cleanup();
 
- private:
+private:
 
   std::string         m_title;            //!< Title for Window
   sf::VideoMode       m_video_mode;       //!< Video Mode (width, height, bpp)
@@ -122,7 +122,8 @@ inline Engine::Engine(const std::string& title):
   m_window_settings(),
   m_window_style(DEFAULT_STYLE),
   m_running(false),
-  p_state_manager(0)
+  p_state_manager(0),
+  p_asset_manager(0)
 {
 #ifdef LOG_ENABLED
   m_log_filename.assign(defaultLogFile);
@@ -158,4 +159,5 @@ inline sac2_status_t Engine::quit()
 
 }  // namespace sac2
 
-#endif
+#endif  //! SAC2_ENGINE_HPP
+
