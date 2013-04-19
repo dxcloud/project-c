@@ -12,6 +12,7 @@
 #include "sac2_type.hpp"
 #include "sac2_state_manager.hpp"
 #include "sac2_asset_manager.hpp"
+#include "sac2_window_manager.hpp"
 
 namespace sac2
 {
@@ -164,4 +165,3 @@ inline sac2_status_t GameState::reset()
 }
 
 #endif  //! SAC2_GAME_STATE_HPP
-

@@ -101,7 +101,7 @@ sac2_status_t StateManager::remove_state(sac2_state_id_t id)
   return STATUS_INVAL;
 }
 
-void StateManager::cleanup()
+sac2_status_t StateManager::cleanup()
 {
   while (false == m_dropped_states.empty()) {
     GameState* state = m_dropped_states.back();
@@ -110,6 +110,7 @@ void StateManager::cleanup()
     delete state;
     state = 0;
   } // while m_dropped_states is NOT empty
+  return STATUS_SUCCESS;
 }
 
 GameState* StateManager::find_state(sac2_state_id_t id)

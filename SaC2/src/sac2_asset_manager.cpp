@@ -1,13 +1,11 @@
 ﻿#include <SFML/Graphics.hpp>
 
-#include "sac2_asset_manager.hpp"
-#include "sac2_engine.hpp"
 #include "sac2_asset.hpp"
+#include "sac2_asset_manager.hpp"
 #include "sac2_asset_image.hpp"
 #include "sac2_asset_music.hpp"
 #include "sac2_asset_sound.hpp"
 #include "sac2_asset_sprite.hpp"
-
 
 namespace sac2
 {
@@ -66,17 +64,4 @@ sac2_status_t AssetManager::delete_asset(sac2_asset_type_t type,
   return STATUS_SUCCESS;
 }
 
-sac2_status_t AssetManager::update(Engine* engine)
-{
-  return STATUS_SUCCESS;
-}
-
-/*
-sac2_status_t AssetManager::draw(sac2_asset_type_t type, Drawable* drawable)
-{
-  p_engine->draw(type, drawable);
-  return STATUS_SUCCESS;
-}
-*/
-
-}
+}  // namespace sac2

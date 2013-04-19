@@ -16,8 +16,6 @@
 namespace sac2
 {
 
-class Engine;
-//class Asset;
 class AssetImage;
 class AssetMusic;
 class AssetSound;
@@ -26,6 +24,8 @@ class AssetSprite;
 //! \class AssetManager
 /*!
  * \brief   Asset management
+ * \details This class provides asset utilities.
+ *          
  * \warning The class is implemented with Singleton Pattern
  */
 class AssetManager: public Manager<AssetManager>
@@ -33,11 +33,6 @@ class AssetManager: public Manager<AssetManager>
  public:
 
   friend class Manager<AssetManager>;
-
-  sac2_status_t initialize(Engine* engine) {
-    p_engine = engine;
-    return STATUS_SUCCESS;
-  }
 
   /*!
    * \brief  Get the asset specified by \a type and \a id
@@ -71,9 +66,13 @@ class AssetManager: public Manager<AssetManager>
   sac2_status_t delete_asset(sac2_asset_type_t type,
                              const sac2_asset_id_t& id);
 
-  sac2_status_t update(Engine* engine);
+  /*!
+   * \brief Initialize the manager
+   * \return SaC2 status
+   */
+  sac2_status_t initialize();
 
-  sac2_status_t draw(Drawable* drawable);
+  sac2_status_t update();
 
  protected:
 
@@ -101,7 +100,6 @@ class AssetManager: public Manager<AssetManager>
    */
   AssetManager& operator=(const AssetManager& asset_manager);
 
-  Engine* p_engine;
   //! \TODO Add Map asset for musics, sprites, background...
   std::map<sac2_asset_id_t, AssetImage*>  m_images;   //!< Store all image assets
   std::map<sac2_asset_id_t, AssetMusic*>  m_musics;   //!< Store all music assets
@@ -112,7 +110,7 @@ class AssetManager: public Manager<AssetManager>
 
 
 inline AssetManager::AssetManager():
-    p_engine(0)
+    Manager<AssetManager>()
 {
 
 }

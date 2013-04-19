@@ -1,5 +1,5 @@
-#ifndef _SAC2_MANAGER_HPP_
-#define _SAC2_MANAGER_HPP_
+#ifndef SAC2_MANAGER_HPP
+#define SAC2_MANAGER_HPP
 
 /*!
  * \file    sac2_manager.hpp
@@ -22,7 +22,7 @@ template<typename T>
  */
 class Manager
 {
- public:
+public:
 
   /*!
    * \brief  Get an instance of the class
@@ -30,13 +30,29 @@ class Manager
    */
   static T* get_instance();
 
+  bool is_initialized();
+
+  /*!
+   * \brief   Initialize the manager
+   * \details If the derivated class uses specific member datas, overrides
+   *          this method
+   * \return  SaC2 status
+   */
+  sac2_status_t initialize();
+
+  /*!
+   * \brief  Clean before destroying the class
+   * \return SaC2 status
+   */
+  sac2_status_t cleanup();
+
   /*!
    * \brief  Destroy the class if NOT destroyed yet
    * \return SaC2 status
    */
   static sac2_status_t finalize();
 
- protected:
+protected:
 
   /*!
    * \brief   Constructor
@@ -50,17 +66,19 @@ class Manager
    */
   virtual ~Manager();
 
- private:
+private:
 
   static T* p_manager;  //!< Unique instance
-}; 
+  bool      m_initialized;  //!< 
+};  // class Manager
 
 
 template<typename T>
 T* Manager<T>::p_manager = 0;
 
 template<typename T>
-inline Manager<T>::Manager()
+inline Manager<T>::Manager():
+    m_initialized(false)
 {
   
 }
@@ -82,6 +100,19 @@ inline T* Manager<T>::get_instance()
 }
 
 template<typename T>
+inline bool Manager<T>::is_initialized()
+{
+  return m_initialized;
+}
+
+template<typename T>
+inline sac2_status_t Manager<T>::initialize()
+{
+  m_initialized = true;
+  return STATUS_SUCCESS;
+}
+
+template<typename T>
 inline sac2_status_t Manager<T>::finalize()
 {
   if (0 != p_manager) {
@@ -92,6 +123,13 @@ inline sac2_status_t Manager<T>::finalize()
   return STATUS_ALREADY;
 }
 
+template<typename T>
+inline sac2_status_t Manager<T>::cleanup()
+{
+  // do nothing
+  return STATUS_SUCCESS;
 }
 
-#endif  //! _SAC2_MANAGER_HPP_
+}
+
+#endif  //! SAC2_MANAGER_HPP

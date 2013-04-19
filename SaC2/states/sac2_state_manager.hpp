@@ -1,13 +1,13 @@
-﻿#ifndef _SAC2_STATE_MANAGER_HPP_
-#define _SAC2_STATE_MANAGER_HPP_
-
-/*!
+﻿/*!
  * \file    sac2_state_manager.hpp
  * \author  Chengwu HUANG
  * \version 0.1
  * \date    2013-04-08 - Initial Development
  * \brief   Provides the StateManager class
  */
+
+#ifndef SAC2_STATE_MANAGER_HPP
+#define SAC2_STATE_MANAGER_HPP
 
 #include <vector>
 
@@ -29,7 +29,7 @@ typedef std::vector<GameState*>::iterator state_it;
  */
 class StateManager: public Manager<StateManager>
 {
- public:
+public:
 
   friend class Manager<StateManager>;
 
@@ -125,12 +125,20 @@ class StateManager: public Manager<StateManager>
                               const sf::Input& input);
 
   /*!
-   * \brief Clean all states of the dropped state stack
+   * \brief  Initialize the manager
+   * \return SaC2 status
    */
-  void cleanup();
+  sac2_status_t initialize();
+
+  /*!
+   * \brief  Clean all states of the dropped state stack
+   * \return SaC2 status
+   */
+  sac2_status_t cleanup();
 
   void update();
- protected:
+
+protected:
 
   /*!
    * \brief   Default private Constructor
@@ -155,7 +163,7 @@ class StateManager: public Manager<StateManager>
    * \brief   Private assignment operator
    * \details This class is NOT allowed to be copied
    */
-  const StateManager& operator=(const StateManager& state_manager);
+  StateManager& operator=(const StateManager& state_manager);
 
   /*!
    * \brief  Find the state specified by \a id
@@ -188,4 +196,4 @@ inline StateManager::~StateManager() {
 
 }  // namespace sac2
 
-#endif //! _SAC2_STATE_MANAGER_HPP_
+#endif //! SAC2_STATE_MANAGER_HPP
