@@ -20,12 +20,12 @@
 #include "sac2_type.hpp"
 #include "sac2_state_manager.hpp"
 #include "sac2_asset_manager.hpp"
+#include "sac2_window_manager.hpp"
 
 //! \todo Load from a configuration file
 
 namespace sac2
 {
-
 //! \class Engine
 /*!
  * \brief   Base Engine
@@ -35,7 +35,6 @@ namespace sac2
 class Engine
 {
 public:
-
   /*!
    * \brief Constructor
    * \param title Title for the window
@@ -70,7 +69,6 @@ public:
   sac2_status_t quit();
 
 protected:
-
   /*!
    * \brief Test the Engine is still running
    * \return Return \b true if the Engine is still running, \b false otherwise
@@ -97,16 +95,12 @@ protected:
   sac2_status_t cleanup();
 
 private:
+  //! True if the application is currently running
+  bool                m_running;
 
-  std::string         m_title;            //!< Title for Window
-  sf::VideoMode       m_video_mode;       //!< Video Mode (width, height, bpp)
-  sf::RenderWindow    m_window;           //!< Render window
-  sf::WindowSettings  m_window_settings;  //!< Window settings
-  unsigned long       m_window_style;     //!< Window style
-  bool                m_running;          //!< True if the application is currently running
-
-  StateManager*        p_state_manager;    //!< State Manager
-  AssetManager*        p_asset_manager;    //!< Asset Manager
+  StateManager*       p_state_manager;    //!< State Manager
+  AssetManager*       p_asset_manager;    //!< Asset Manager
+  WindowManager*      p_window_manager;   //!< Window Manager
 
 #ifdef LOG_ENABLED
   std::ofstream       m_log;              //!< Output stream
@@ -116,14 +110,10 @@ private:
 
 
 inline Engine::Engine(const std::string& title):
-  m_title(title),
-  m_video_mode(DEFAULT_VIDEO_WIDTH, DEFAULT_VIDEO_HEIGHT, DEFAULT_VIDEO_BPP),
-  m_window(),
-  m_window_settings(),
-  m_window_style(DEFAULT_STYLE),
   m_running(false),
   p_state_manager(0),
-  p_asset_manager(0)
+  p_asset_manager(0),
+  p_window_manager(0)
 {
 #ifdef LOG_ENABLED
   m_log_filename.assign(defaultLogFile);
@@ -131,6 +121,8 @@ inline Engine::Engine(const std::string& title):
   m_log << "Log File: " << m_log_filename << std::endl
         << "<<<< Engine::Engine() >> Completed" << std::endl;
 #endif
+
+  initialize();
 }
 
 inline Engine::~Engine()
@@ -160,4 +152,3 @@ inline sac2_status_t Engine::quit()
 }  // namespace sac2
 
 #endif  //! SAC2_ENGINE_HPP
-

@@ -6,32 +6,10 @@ namespace sac2
 
 sac2_status_t Engine::initialize()
 {
-//  m_video_mode.Width =
-//  m_video_mode.Height =
-//  m_video_mode.BitsPerPixel =
-  if (false == m_video_mode.IsValid()) {
-#ifdef LOG_ENABLED
-    m_log << "Engine::init() >> Video mode is NOT supported" << std::endl
-          << "The application is about to quit" << std::endl;
-#endif
-    return STATUS_FAIL;
-  }
-#ifdef LOG_ENABLED
-  m_log << "Engine::init() >> Video mode OK" << std::endl;
-#endif
-//  m_title =
-//  m_style = None, Titlebar, Resize, Close, Fullscreen
-//  m_window_settings.DepthBits =
-//  m_window_settings.StencilBits =
-//  m_window_settings.AntialiasingLevel =
-
-  m_window.Create(m_video_mode, m_title, m_window_style, m_window_settings);
-
-  m_window.SetFramerateLimit(DEFAULT_FRAMERATE_LIMIT);
-
   p_state_manager = StateManager::get_instance();
   p_asset_manager = AssetManager::get_instance();
-  p_asset_manager->initialize(this);
+  p_window_manager = WindowManager::get_instance();
+  p_window_manager->initialize("SaCDemo");
 
 #ifdef LOG_ENABLED
   m_log << "Engine::init() >> Completed" << std::endl;
@@ -83,31 +61,23 @@ sac2_status_t Engine::loop()
 #endif
 
   while (true == m_running) {
-    sf::Event event;
-    m_window.GetEvent(event);  // get an event
+    sf::Event event = p_window_manager->get_event();
 
     if (sf::Event::Closed == event.Type) {
       quit();
     }  // if the window is closed
     else {
-      sac2_status_t status(STATUS_SUCCESS);
-      status = p_state_manager->handle_events(event, m_window.GetInput());
-      if (STATUS_QUIT == status) { quit(); }  // if Engine::quit() requested
+//      sac2_status_t status(STATUS_SUCCESS);
+//      status = p_state_manager->handle_events(event, m_window.GetInput());
+//      if (STATUS_QUIT == status) { quit(); }  // if Engine::quit() requested
     }  // handle any other events
-
-    m_window.Clear();  // clear
-    p_state_manager->update();
-    m_window.Display();  // draw
+    p_window_manager->update();
   }  // loop while m_running is true
   return STATUS_SUCCESS;
 }
 
 sac2_status_t Engine::cleanup()
 {
-  if (m_window.IsOpened()) {
-    m_window.Close();
-  } // if the window is still opeend
-
   p_state_manager->finalize();
   p_asset_manager->finalize();
 
@@ -116,16 +86,5 @@ sac2_status_t Engine::cleanup()
 #endif
   return STATUS_SUCCESS;
 }
-
-sac2_status_t Engine::draw(sac2_asset_type_t type, Drawable* drawable)
-{
-  if (ASSET_SPRITE == type) {
-    AssetSprite* sprite = dynamic_cast<AssetSprite*>(drawable);
-    m_window.Draw(sprite->get_asset());
-  }
-
-  return STATUS_SUCCESS;
-}
-
 
 }
