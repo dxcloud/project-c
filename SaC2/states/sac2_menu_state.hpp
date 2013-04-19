@@ -1,25 +1,30 @@
-﻿#ifndef _SAC2_OPENING_STATE_HPP_
-#define _SAC2_OPENING_STATE_HPP_
-
 /*!
- * \file    sac2_menu_state.hpp
- * \author  Chengwu HUANG
+ * \file sac2_menu_state.hpp
+ * \author Chengwu HUANG
  * \version 0.1
- * \date    2013-04-08
- * \brief
+ * \date 2013 - 04 - 08
  */
+
+#ifndef SAC2_MENU_STATE_HPP
+#define SAC2_MENU_STATE_HPP
 
 #include <SFML/Window.hpp>
 
 #include "sac2_type.hpp"
 #include "sac2_game_state.hpp"
+#include "sac2_asset_image.hpp"
+#include "sac2_asset_sprite.hpp"
 
 namespace sac2
 {
 
+//! \class MenuState
+/*!
+ * \brief A default game state
+ */
 class MenuState: public GameState
 {
- public:
+public:
 
   /*!
    * \brief Default Constructor
@@ -66,13 +71,18 @@ class MenuState: public GameState
    */
   virtual sac2_status_t cleanup();
 
- protected:
- private:
+protected:
+
+private:
+
+  AssetSprite m_sprite;
   // asset
 };
 
 
-inline MenuState::MenuState(sac2_state_id_t id): GameState(id)
+inline MenuState::MenuState(sac2_state_id_t id):
+    GameState(id),
+    m_sprite("/home/orange/project-c/SaC2/samples/image01.png")
 {
   // nothing to do
 }
@@ -82,7 +92,7 @@ inline MenuState::~MenuState()
   // nothing to do
 }
 
-
 }
 
-#endif //!_SAC2_OPENING_STATE_HPP_
+#endif  //! SAC2_MENU_STATE_HPP
+

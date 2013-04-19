@@ -1,5 +1,5 @@
-﻿#ifndef _STATE_MANAGER_HPP_
-#define _STATE_MANAGER_HPP_
+﻿#ifndef _SAC2_STATE_MANAGER_HPP_
+#define _SAC2_STATE_MANAGER_HPP_
 
 /*!
  * \file    sac2_state_manager.hpp
@@ -17,8 +17,9 @@
 namespace sac2
 {
 
-class GameState;
+class GameState;  // forward declaration
 
+//! GameState iterator
 typedef std::vector<GameState*>::iterator state_it;
 
 //! \class StateManager
@@ -26,18 +27,11 @@ typedef std::vector<GameState*>::iterator state_it;
  * \brief   The class \b StateManager is used for Game states management
  * \warning The class is implemented with Singleton Pattern
  */
-
 class StateManager: public Manager<StateManager>
 {
  public:
 
   friend class Manager<StateManager>;
-
-  /*!
-   * \brief
-   * \return
-   */
-  sac2_status_t initialize();
 
   /*!
    * \brief  Test whether the state stack is empty
@@ -90,7 +84,7 @@ class StateManager: public Manager<StateManager>
    * \brief   Add a state on the state stack, make it as the current state
    * \details Depends on \a activated, the added state will be set to active
    *          or inactive.
-   * \param   GameState* Pointer of the state to be added
+   * \param   state      Pointer of the state to be added
    * \param   activated  Set the added state to active or inactive
    * \return  SaC2 status
    */
@@ -113,7 +107,7 @@ class StateManager: public Manager<StateManager>
   sac2_status drop_state();
 
   /*!
-   * \brief   Remove the state specified by \id from the state stack
+   * \brief   Remove the state specified by \b id from the state stack
    * \details If the current state should be removed use \b drop_state()
    *          instead
    * \param   id Identifier of the state to be removed
@@ -122,12 +116,12 @@ class StateManager: public Manager<StateManager>
   sac2_status_t remove_state(sac2_state_id_t id);
 
   /*!
-   * \brief
-   * \param
-   * \param
+   * \brief  Handle events
+   * \param  event Type of event
+   * \param  input Input from Keyboard or Mouse
    * \return SaC2 status
    */
-  sac2_status_t handle_events(const sf::Event& envent,
+  sac2_status_t handle_events(const sf::Event& event,
                               const sf::Input& input);
 
   /*!
@@ -135,6 +129,7 @@ class StateManager: public Manager<StateManager>
    */
   void cleanup();
 
+  void update();
  protected:
 
   /*!
