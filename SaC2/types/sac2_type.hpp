@@ -26,6 +26,8 @@ const std::string defaultApplicationName("SaC2 Demo");
 const std::string defaultLogFile("output.log");
 #endif
 
+typedef unsigned int sac2_length_t;
+
 //! State ID, used for identifying Game state
 typedef enum sac2_state_id {
   STATE_CURRENT = 0, //!< Current State
