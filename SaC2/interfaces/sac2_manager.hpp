@@ -66,10 +66,11 @@ protected:
    */
   virtual ~Manager();
 
+  bool      m_initialized;  //!< \b true if the class is initialized
+
 private:
 
   static T* p_manager;  //!< Unique instance
-  bool      m_initialized;  //!< 
 };  // class Manager
 
 

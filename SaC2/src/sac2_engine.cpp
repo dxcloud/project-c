@@ -8,6 +8,7 @@ sac2_status_t Engine::initialize()
 {
   p_state_manager = StateManager::get_instance();
   p_asset_manager = AssetManager::get_instance();
+  p_asset_manager->initialize();
   p_window_manager = WindowManager::get_instance();
   p_window_manager->initialize("SaCDemo");
 

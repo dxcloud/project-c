@@ -10,8 +10,9 @@
 #define SAC2_ASSET_MANAGER_HPP
 
 #include "sac2_type.hpp"
+#include "sac2_resources.hpp"
 #include "sac2_manager.hpp"
-#include "sac2_drawable.hpp"
+//#include "sac2_drawable.hpp"
 
 namespace sac2
 {
@@ -123,4 +124,3 @@ inline AssetManager::~AssetManager()
 }  // namespace sac2
 
 #endif  //! SAC2_ASSET_MANAGER_HPP
-

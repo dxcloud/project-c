@@ -64,4 +64,20 @@ sac2_status_t AssetManager::delete_asset(sac2_asset_type_t type,
   return STATUS_SUCCESS;
 }
 
+sac2_status_t AssetManager::initialize()
+{
+  if (true == m_initialized) {
+    return STATUS_ALREADY;
+  }  // if already initialized
+
+  for (sac2_res_it iter = Res::image.begin();
+       iter != Res::image.end();
+       ++iter) {
+    m_images.insert(std::make_pair(iter->first,
+                                   new AssetImage(iter->second)));
+  }  // add resource
+  m_initialized = true;
+  return STATUS_SUCCESS;
+}
+
 }  // namespace sac2

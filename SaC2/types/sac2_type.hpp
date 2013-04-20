@@ -19,13 +19,14 @@ namespace sac2
 {
 
 //! Default name for the application
-const std::string defaultApplicationName("SaC2 Demo");
+const std::string defaultApplicationName = "SaC2 Demo";
 
 #ifdef LOG_ENABLED
 //! Default Log file name
-const std::string defaultLogFile("output.log");
+const std::string defaultLogFile = "output.log";
 #endif
 
+//! Width or Height of the window
 typedef unsigned int sac2_length_t;
 
 //! State ID, used for identifying Game state
@@ -38,8 +39,7 @@ typedef enum sac2_state_id {
 typedef std::string sac2_asset_id_t;
 
 //! Associate an ID for every asset filename
-typedef std::map<sac2_asset_id_t, std::string> sac2_asset_map_t;
-
+typedef std::map<const sac2_asset_id_t, const std::string> sac2_asset_map_t;
 
 //! Engine configuration file parameters
 typedef struct sac2_engine_conf {
@@ -99,4 +99,3 @@ typedef struct sac2_coordinate {
 } // namespace sac2
 
 #endif  //! SAC2_TYPE_HPP
-
