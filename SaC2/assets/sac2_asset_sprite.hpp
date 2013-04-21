@@ -1,3 +1,6 @@
+#ifndef SAC2_ASSET_SPRITE_HPP
+#define SAC2_ASSET_SPRITE_HPP
+
 /*!
  * \file    sac2_asset_sprite.hpp
  * \author  Chengwu HUANG
@@ -5,9 +8,6 @@
  * \date    2013-04-08
  * \brief   Provides class \b AssetSprite
  */
-
-#ifndef SAC2_ASSET_SPRITE_HPP
-#define SAC2_ASSET_SPRITE_HPP
 
 #include <string>
 
@@ -24,17 +24,17 @@ namespace sac2
 //! \class AssetSprite
 /*!
  * \brief   Sprite manipulation
- * \details Sprites are elements can be drawn on screen
+ * \details Sprites are elements can be drawn on screen.
+ *          This class can be manipulate be any other classes.
+ *          Use \b AssetManager for loading a sprite from an image.
  */
 class AssetSprite: public Asset<sf::Sprite>, public Drawable
 {
 public:
-
   /*!
-   * \brief Constructor
-   * \param filename Name of file for loading
+   * \brief Default constructor
    */
-  AssetSprite(const std::string& filename);
+  AssetSprite();
 
   /*!
    * \brief Destructor
@@ -42,33 +42,35 @@ public:
   ~AssetSprite();
 
   /*!
-   * \brief  Get the current position of the object
-   * \return Current position
+   * \brief  Get the current position of the sprite
+   * \return Current position of the sprite
    */
   sac2_vector_t get_position() const;
 
   /*!
-   * \brief  Get the current scal of the object
+   * \brief  Get the current scale of the sprite
    * \return Current scale factor
    */
   sac2_vector_t get_scale() const;
 
   /*!
-   * \brief  Get the current orientation of the object
+   * \brief  Get the current orientation of the sprite
    * \return Current rotation, in degrees
    */
   float get_rotation() const;
 
   /*!
-   * \brief  Set the position
-   * \param  x New X coordinate
-   * \param  y New Y coordinate
-   * \return SaC2 status
+   * \brief   Set the position of the sprite
+   * \details The sprite will moved to the new position
+   * \param   x New X coordinate
+   * \param   y New Y coordinate
+   * \return  SaC2 status
    */
   sac2_status_t set_position(float x, float y);
 
   /*!
-   * \brief  Set the scale
+   * \brief  Set the scale of the sprite
+   * \details The parameters must be positive.
    * \param  x X scale factor
    * \param  y Y scale factor
    * \return SaC2 status
@@ -98,7 +100,7 @@ public:
   sac2_status_t rotate(float angle);
 
   /*!
-   * \brief  Reset all parameter to default value
+   * \brief  Reset all parameter to the default values
    * \return SaC2 status
    */
   sac2_status_t reset();
@@ -122,32 +124,23 @@ public:
   sac2_status_t flip(bool flip_x, bool flip_y);
 
   /*!
-   * \brief  Load the asset
-   * \return SaC2 status
+   * \brief   Load the sprite from a image
+   * \details This method is only called by \b AssetManager.
+   *          For loading, use \b load_sprite of \b AssetManager class.
+   * \param   image Image from which the sprite will be loaded
+   * \return  SaC2 status
+   *          - \b STATUS_SUCCESS
+   *          - \b STATUS_ALREADY
    */
-  virtual sac2_status_t load_asset();
-
-  /*!
-   * \brief  Delete the loaded asset
-   * \return SaC2 status
-   */
-  virtual sac2_status_t delete_asset();
-
-protected:
-
-private:
-
-  AssetImage* p_image;
-
+  sac2_status_t load(const sf::Image& image);
 };  // class AssetSprite
 
 
-inline AssetSprite::AssetSprite(const std::string& filename):
-    Asset<sf::Sprite>(filename, ASSET_SPRITE),
-    Drawable(),
-    p_image(0)
+inline AssetSprite::AssetSprite():
+    Asset<sf::Sprite>(ASSET_SPRITE),
+    Drawable()
 {
-  p_image = p_asset_manager->get_image(filename);
+
 }
 
 inline AssetSprite::~AssetSprite()
@@ -209,14 +202,6 @@ inline sac2_status_t AssetSprite::rotate(float angle)
   return STATUS_SUCCESS;
 }
 
-inline sac2_status_t AssetSprite::reset()
-{
-  m_asset.SetPosition(0.0F, 0.0F);
-  m_asset.SetScale(1.0F, 1.0F);
-  m_asset.SetRotation(0.0F);
-  return STATUS_SUCCESS;
-}
-
 inline sac2_status_t AssetSprite::resize(float width, float height)
 {
   m_asset.Resize(width, height);
@@ -231,7 +216,6 @@ inline sac2_status_t AssetSprite::flip(bool flip_x, bool flip_y)
   return STATUS_SUCCESS;
 }
 
-}
+}  // namespace sac2
 
 #endif  //! SAC2_ASSET_SPRITE_HPP
-

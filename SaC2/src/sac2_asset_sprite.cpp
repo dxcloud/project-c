@@ -3,21 +3,21 @@
 namespace sac2
 {
 
-sac2_status_t AssetSprite::load_asset()
+sac2_status_t AssetSprite::load(const sf::Image& image)
 {
-  if ((false == m_load) && (0 != p_image)) {
-    m_asset.SetImage(p_image->get_asset());
-    m_load = true;
+  if (false == m_loaded) {
+    m_asset.SetImage(image);
+    m_loaded = true;
     return STATUS_SUCCESS;
   }
-  return STATUS_FAIL;
+  return STATUS_ALREADY;
 }
 
-sac2_status_t AssetSprite::delete_asset()
+sac2_status_t AssetSprite::reset()
 {
-  p_image = 0;
-  m_load = false;
-  p_asset_manager->delete_asset(ASSET_SPRITE, m_filename);
+  m_asset.SetPosition(0.0F, 0.0F);
+  m_asset.SetScale(1.0F, 1.0F);
+  m_asset.SetRotation(0.0F);
   return STATUS_SUCCESS;
 }
 

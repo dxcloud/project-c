@@ -1,6 +1,3 @@
-#ifndef _SAC2_ASSET_SOUND_HPP_
-#define _SAC2_ASSET_SOUND_HPP_
-
 /*!
  * \file    sac2_asset_sound.hpp
  * \author  Chengwu HUANG
@@ -8,6 +5,9 @@
  * \date    2013-04-10
  * \brief   Provides class \b AssetSound
  */
+
+#ifndef SAC2_ASSET_SOUND_HPP
+#define SAC2_ASSET_SOUND_HPP
 
 #include <string>
 
@@ -28,44 +28,27 @@ class AssetSound: public Asset<sf::SoundBuffer>
  public:
 
   /*!
-   * \brief Constructor
-   * \param filename Name of file for loading
+   * \brief Default constructor
    */
-  AssetSound(const std::string& filename);
+  AssetSound();
 
   /*!
    * \brief Destructor
    */
   ~AssetSound();
-
-  /*!
-   * \brief  Load the asset
-   * \return SaC2 status
-   */
-  sac2_status_t load_asset();
-
-  /*!
-   * \brief  Delete the loaded asset
-   * \return SaC2 status
-   */
-  sac2_status_t delete_asset();
- protected:
- 
- private:
-
 };  // class AssetSound
 
-inline AssetSound::AssetSound(const std::string& filename):
-    Asset<sf::SoundBuffer>(filename, ASSET_SOUND)
+inline AssetSound::AssetSound():
+    Asset<sf::SoundBuffer>(ASSET_SOUND)
 {
 
 }
 
 inline AssetSound::~AssetSound()
 {
-  delete_asset();
+
 }
 
 }  // namespace sac2
 
-#endif  //! _SAC2_ASSET_SOUND_HPP_
+#endif  //! SAC2_ASSET_SOUND_HPP

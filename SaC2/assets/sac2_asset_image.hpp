@@ -22,19 +22,18 @@ namespace sac2
 //! \class AssetImage
 /*!
  * \brief   Image manipulation
- * \details AssetImage is wrapper class of sf::Image, and should NOT be
- *          manipulated directly.
- *          Use AssetSprite instead.
+ * \details \b AssetImage is a wrapper of class \b sf::Image,
+ *          and should NOT be directly manipulated (\b AssetManager excepted).
+ *          Use class \b AssetSprite instead.
  */
 class AssetImage: public Asset<sf::Image>
 {
 public:
-
   /*!
    * \brief Constructor
    * \param filename Name of file for loading
    */
-  AssetImage(const std::string& filename);
+  explicit AssetImage(const std::string& filename);
 
   /*!
    * \brief Destructor
@@ -42,36 +41,32 @@ public:
   ~AssetImage();
 
   /*!
-   * \brief  Load the asset
-   * \return SaC2 status
+   * \brief  Load the image from a file
+   * \return Return SaC2 Status:
+   *         - \b STATUS_SUCCESS
+   *         - \b STATUS_ALREADY
+   *         - \b STATUS_FAIL
    */
-  sac2_status_t load_asset();
-
-  /*!
-   * \brief  Delete the loaded asset
-   * \return SaC2 status
-   */
-  sac2_status_t delete_asset();
-
-protected:
+  sac2_status_t load();
 
 private:
+  const std::string m_filename;  //!< Filename of the image
 
 };  // class AssetImage
 
 
 inline AssetImage::AssetImage(const std::string& filename):
-    Asset<sf::Image>(filename, ASSET_IMAGE)
+    Asset<sf::Image>(ASSET_IMAGE),
+    m_filename(filename)
 {
 
 }
 
 inline AssetImage::~AssetImage()
 {
-  delete_asset();
-}
 
 }
+
+}  //namespace sac2
 
 #endif  //! SAC2_ASSET_IMAGE_HPP
-

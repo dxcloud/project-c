@@ -3,19 +3,17 @@
 namespace sac2
 {
 
-sac2_status_t AssetImage::load_asset()
+sac2_status_t AssetImage::load()
 {
-  if (false == m_load) {
-    m_load = m_asset.LoadFromFile(m_filename);
-    if (false == m_load) { return STATUS_FAIL; }
+  if (false == m_loaded) {
+    if (false == m_asset.LoadFromFile(m_filename)) {
+      m_asset.SetSmooth(false);
+      return STATUS_FAIL;
+    }
+    m_loaded = true;
+    return STATUS_SUCCESS;
   }
-  return STATUS_SUCCESS;
-}
-
-sac2_status_t AssetImage::delete_asset()
-{
-  p_asset_manager->delete_asset(ASSET_IMAGE, m_filename);
-  return STATUS_SUCCESS;
+  return STATUS_ALREADY;
 }
 
 }
