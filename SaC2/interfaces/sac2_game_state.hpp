@@ -47,25 +47,25 @@ class GameState
    * \brief  Get the identifier of the state
    * \return Identifier of the state
    */
-  virtual sac2_state_id_t get_state_id() const;
+  sac2_state_id_t get_state_id() const;
 
   /*!
    * \brief  Test if the state is paused
    * \return \b true if the state is paused, \b false otherwise
    */
-  virtual bool is_paused() const;
+  bool is_paused() const;
 
   /*!
    * \brief  Set the state to pause
    * \return SaC2 status
    */
-  virtual sac2_status_t pause();
+  sac2_status_t pause();
   
   /*!
    * \brief  Resume if the state is paused
    * \return SaC2 status
    */
-  virtual sac2_status_t resume();
+  sac2_status_t resume();
 
   /*!
    * \brief Initialize the state
@@ -77,7 +77,7 @@ class GameState
    * \brief  Reset the state
    * \return SaC2_status
    */
-  virtual sac2_status_t reset();
+  sac2_status_t reset();
 
   /*!
    * \brief  Handle input events
@@ -110,7 +110,8 @@ class GameState
 protected:
 
   const sac2_state_id_t m_state_id;       //!< Identifier of the state
-  bool                  m_pause;          //!< \b false if the state is active
+  bool                  m_initialized;    //!< \b true if the state is initialized
+  bool                  m_paused;         //!< \b false if the state is active
   StateManager*         p_state_manager;  //!< State Manager
   AssetManager*         p_asset_manager;  //!< Asset Manager
   WindowManager*        p_window_manager; //!< Window Manager
@@ -121,7 +122,8 @@ protected:
 
 inline GameState::GameState(sac2_state_id_t id):
     m_state_id(id),
-    m_pause(false),
+    m_initialized(false),
+    m_paused(false),
     p_state_manager(0),
     p_asset_manager(0),
     p_window_manager(0)
@@ -142,17 +144,17 @@ inline sac2_state_id_t GameState::get_state_id() const
 }
 
 inline bool GameState::is_paused() const {
-  return m_pause;
+  return m_paused;
 }
 
 inline sac2_status_t GameState::pause()
 {
-  m_pause = true;
+  m_paused = true;
   return STATUS_SUCCESS;
 }
 
 inline sac2_status_t GameState::resume() {
-  m_pause = false;
+  m_paused = false;
   return STATUS_SUCCESS;
 }
 
