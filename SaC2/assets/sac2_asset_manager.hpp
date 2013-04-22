@@ -12,7 +12,6 @@
 #include "sac2_type.hpp"
 #include "sac2_resources.hpp"
 #include "sac2_manager.hpp"
-//#include "sac2_drawable.hpp"
 
 namespace sac2
 {
@@ -25,9 +24,8 @@ class AssetSprite;
 //! \class AssetManager
 /*!
  * \brief   Asset management
- * \details This class provides asset utilities.
- *          
- * \warning The class is implemented with Singleton Pattern
+ * \details This class provides asset manipulation utilities.
+ *          This class is implemented with Singleton Pattern
  */
 class AssetManager: public Manager<AssetManager>
 {
@@ -42,9 +40,9 @@ class AssetManager: public Manager<AssetManager>
    * \return Pointer of the asset
    *         Return 0 if the asset is missing
    */
-  AssetImage* get_asset(sac2_asset_type_t type, const sac2_asset_id_t& id) const;
+  AssetImage* get_asset(sac2_asset_type_t type,
+                        const sac2_asset_id_t& id) const;
 
-  AssetImage* get_image(const sac2_asset_id_t& id) const;
 
   /*!
    * \brief
@@ -66,6 +64,8 @@ class AssetManager: public Manager<AssetManager>
    */
   sac2_status_t delete_asset(sac2_asset_type_t type,
                              const sac2_asset_id_t& id);
+
+  sac2_status_t load_sprite(AssetSprite& sprite, const sac2_asset_id_t& id);
 
   /*!
    * \brief Initialize the manager
