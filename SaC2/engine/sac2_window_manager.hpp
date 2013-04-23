@@ -23,7 +23,9 @@ namespace sac2
 //! \class WindowManager
 /*!
  * \brief   Window Management
- * \details This class provides methods for screen manipulation
+ * \details This class provides methods for screen manipulation.
+ *          Most of methods are the same as the class \b sf::RenderWindow.
+ *          The class is implemented with \a Singleton \a Pattern.
  */
 class WindowManager: public Manager<WindowManager>
 {
@@ -33,32 +35,35 @@ public:
 
   /*!
    * \brief  Get the width of the Rendering Window
-   * \return Width
+   * \return Width of the window
    */
   sac2_length_t get_width();
 
   /*!
    * \brief  Get the height of the Rendering Window
-   * \return Height
+   * \return Height of the window
    */
   sac2_length_t get_height();
-
-  /*!
-   * \brief  Get an event on top of events statck
-   * \param  event Event to be filled
-   * \return Retrun \b true if an event was returned, \b false otherwise
-   */
-  bool get_event(sf::Event event);
 
   /*!
    * \brief  Get the current event
    * \return Current event
    */
-  const sf::Event& get_event();
+  bool get_event(sf::Event& event);
+
+  /*!
+   * \brief  Get the input from Keyboard
+   * \return Keyboard input
+   */
+  const sf::Input& get_input() const;
 
   /*!
    * \brief  Initialise the Rendering Window
+   * \param  title Title for the window
    * \return SaC2 status
+   *         - \b STATUS_SUCCESS
+   *         - \b STATUS_ALREADY
+   *         - \b STATUS_FAIL
    */
   sac2_status_t initialize(const std::string& title);
 
@@ -82,10 +87,16 @@ public:
   sac2_status_t close();
 
   /*!
-   * \brief  Clear the current screen and draw the next one
+   * \brief  Clear the current screen
    * \return SaC2 status
    */
-  sac2_status_t update();
+  sac2_status_t clear();
+
+  /*!
+   * \brief Display the current screen
+   * \return SaC2 status
+   */
+  sac2_status_t display();
 
 protected:
 
@@ -102,12 +113,14 @@ protected:
 private:
 
   /*!
-   * \brief Could NOT be copied
+   * \brief   Private constructor
+   * \details This class could NOT be copied
    */
   WindowManager(const WindowManager& window_manager);
 
   /*!
-   * \brief Could NOT be copied
+   * \brief   Private assignment operator
+   * \details This class could NOT be copied
    */
   WindowManager& operator=(const WindowManager& window_manager);
 
@@ -116,8 +129,9 @@ private:
   sf::WindowSettings  m_window_settings;  //!< Window settings
   unsigned long       m_window_style;     //!< Window style
 
-  sf::Event           m_event;            //!< Event
-};
+//  sf::Event           m_event;            //!< Event
+
+};  // class WindowManager
 
 inline WindowManager::WindowManager():
     m_video_mode(DEFAULT_VIDEO_WIDTH, DEFAULT_VIDEO_HEIGHT, DEFAULT_VIDEO_BPP),
@@ -143,16 +157,14 @@ inline sac2_length_t WindowManager::get_height()
   return m_window.GetWidth();
 }
 
-inline bool WindowManager::get_event(sf::Event event)
+inline bool WindowManager::get_event(sf::Event& event)
 {
-  if (m_window.GetEvent(m_event) == true) {std::cout << "event" << std::endl;}
-  return m_window.GetEvent(m_event);
+  return m_window.GetEvent(event);
 }
 
-inline const sf::Event& WindowManager::get_event()
+inline const sf::Input& WindowManager::get_input() const
 {
-  m_window.GetEvent(m_event);
-  return m_event;
+  return m_window.GetInput();
 }
 
 inline sac2_status_t WindowManager::draw(const AssetSprite& sprite)
@@ -167,13 +179,18 @@ inline sac2_status_t WindowManager::close()
   return STATUS_SUCCESS;
 }
 
-inline sac2_status_t WindowManager::update()
+inline sac2_status_t WindowManager::clear()
 {
   m_window.Clear();
+  return STATUS_SUCCESS;
+}
+
+inline sac2_status_t WindowManager::display()
+{
   m_window.Display();
   return STATUS_SUCCESS;
 }
 
-}
+}  // namespace sac2
 
 #endif  //! SAC2_WINDOW_MANAGER
