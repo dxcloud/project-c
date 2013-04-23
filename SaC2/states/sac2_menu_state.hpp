@@ -12,7 +12,6 @@
 
 #include "sac2_type.hpp"
 #include "sac2_game_state.hpp"
-#include "sac2_asset_image.hpp"
 #include "sac2_asset_sprite.hpp"
 
 namespace sac2
@@ -47,42 +46,38 @@ public:
    * \brief  Handle events
    * \param  event Type of the event
    * \param  input Input from Keyboard or Mouse
-   * \return SaC2 status.
-   *         The status \b STATUS_QUIT requests Engine::quit()
+   * \return SaC2 status
    */
   virtual sac2_status_t handle_events(const sf::Event& event,
-				       const sf::Input& input);
+                                      const sf::Input& input);
 
   /*!
    * \brief  Update the state
    * \return SaC2 status
    */
-  virtual sac2_status_t update();
+  sac2_status_t update();
 
   /*!
    * \brief  Draw
    * \return SaC2 status
    */
-  virtual sac2_status_t draw();
+  sac2_status_t draw();
 
   /*!
    * \brief  Cleanup
    * \return SaC2 status
    */
-  virtual sac2_status_t cleanup();
-
-protected:
+  sac2_status_t cleanup();
 
 private:
 
-  AssetSprite m_sprite;
-  // asset
-};
+  AssetSprite m_sprite;  //!< Sample sprite
+};  // class MenuState
 
 
 inline MenuState::MenuState(sac2_state_id_t id):
     GameState(id),
-    m_sprite("/home/orange/project-c/SaC2/samples/image01.png")
+    m_sprite()
 {
   // nothing to do
 }
@@ -92,7 +87,6 @@ inline MenuState::~MenuState()
   // nothing to do
 }
 
-}
+}  // namespace
 
 #endif  //! SAC2_MENU_STATE_HPP
-
