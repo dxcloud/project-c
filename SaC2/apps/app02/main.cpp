@@ -8,7 +8,9 @@ int main(int argc, char** argv)
   app.parse_options(argc, argv);
 
   StateManager* p_state_manager = StateManager::get_instance();
-  p_state_manager->add_state(new MenuState);
+  MenuState* first_game_state = new MenuState;
+  first_game_state->initialize();
+  p_state_manager->add_state(first_game_state);
 
   sac2_status_t status(STATUS_SUCCESS);
 

@@ -1,5 +1,5 @@
-#ifndef _SAC2_DRAWABLE_HPP_
-#define _SAC2_DRAWABLE_HPP_
+#ifndef SAC2_DRAWABLE_HPP
+#define SAC2_DRAWABLE_HPP
 
 /*!
  * \file    sac2_drawable.hpp
@@ -96,7 +96,7 @@ public:
    * \return SaC2 status
    */
   sac2_status_t reset();
-};
+};  // class Drawable
 
 
 inline Drawable::Drawable()
@@ -114,7 +114,6 @@ inline sac2_status_t Drawable::reset()
   return STATUS_SUCCESS;
 }
 
-}
+}  // namespace sac2
 
-
-#endif  //! _SAC2_DRAWABLE_HPP_
+#endif  //! SAC2_DRAWABLE_HPP

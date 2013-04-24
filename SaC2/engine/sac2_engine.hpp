@@ -29,8 +29,8 @@ namespace sac2
 //! \class Engine
 /*!
  * \brief   Base Engine
- * \warning LOG_ENABLED should be defined only for \a Debug or
- *          \a Test Purposes
+ * \warning \b LOG_ENABLED should be defined only for \a Debug or
+ *          \a Test \a Purposes
  */
 class Engine
 {

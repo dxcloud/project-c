@@ -42,7 +42,6 @@ sac2_status_t Engine::run()
 
   if (STATUS_SUCCESS == status) {
     status = loop();  // main loop
-
 #ifdef LOG_ENABLED
   m_log << "Engine::loop() >> Completed" << std::endl;
 #endif
@@ -61,18 +60,19 @@ sac2_status_t Engine::loop()
   m_log << "Engine::loop() >> Started" << std::endl;
 #endif
 
+  sf::Event event;
   while (true == m_running) {
-    sf::Event event = p_window_manager->get_event();
+    p_window_manager->get_event(event);
 
     if (sf::Event::Closed == event.Type) {
       quit();
     }  // if the window is closed
     else {
-//      sac2_status_t status(STATUS_SUCCESS);
-//      status = p_state_manager->handle_events(event, m_window.GetInput());
-//      if (STATUS_QUIT == status) { quit(); }  // if Engine::quit() requested
+      p_state_manager->handle_events(event, p_window_manager->get_input());
+      p_window_manager->clear();
+      p_state_manager->update();
     }  // handle any other events
-    p_window_manager->update();
+    p_window_manager->display();
   }  // loop while m_running is true
   return STATUS_SUCCESS;
 }
