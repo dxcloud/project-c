@@ -13,12 +13,11 @@ sac2_status_t MenuState::initialize()
   return STATUS_ALREADY;
 }
 
-
 sac2_status_t MenuState::handle_events(const sf::Event& event,
                                        const sf::Input& input)
 {
   if (true == input.IsKeyDown(sf::Key::Escape)) {
-//    if (false == m_paused) { p_window_manager->close(); }  // Request for Engine::quit()
+    if (false == m_paused) { p_window_manager->close(); }  // request Engine::quit()
   }  // 'Escape' quit, 'P' pause, 'R' resume
   else if (true == input.IsKeyDown(sf::Key::P)) { m_paused = true; }
   else if (true == input.IsKeyDown(sf::Key::R)) { m_paused = false; }

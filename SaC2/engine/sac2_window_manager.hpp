@@ -159,6 +159,10 @@ inline sac2_length_t WindowManager::get_height()
 
 inline bool WindowManager::get_event(sf::Event& event)
 {
+  if (false == m_window.IsOpened()) {
+    event.Type = sf::Event::Closed;
+    return true;
+  }
   return m_window.GetEvent(event);
 }
 
