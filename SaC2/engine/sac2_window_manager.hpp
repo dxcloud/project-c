@@ -16,6 +16,7 @@
 #include "sac2_type.hpp"
 #include "sac2_manager.hpp"
 #include "sac2_asset_sprite.hpp"
+#include "sac2_asset_text.hpp"
 
 namespace sac2
 {
@@ -78,7 +79,12 @@ public:
    * \param  sprite The sprite to be drawn
    * \return SaC2 status
    */
-  sac2_status_t draw(const AssetSprite& sprite);
+  sac2_status_t draw_sprite(const AssetSprite& sprite);
+
+  /*!
+   * \brief 
+   */
+  sac2_status_t display_text(const AssetText& text);
 
   /*!
    * \brief  Close the current window
@@ -171,9 +177,15 @@ inline const sf::Input& WindowManager::get_input() const
   return m_window.GetInput();
 }
 
-inline sac2_status_t WindowManager::draw(const AssetSprite& sprite)
+inline sac2_status_t WindowManager::draw_sprite(const AssetSprite& sprite)
 {
   m_window.Draw(sprite.get_asset());
+  return STATUS_SUCCESS;
+}
+
+inline sac2_status_t WindowManager::display_text(const AssetText& text)
+{
+  m_window.Draw(text.get_asset());
   return STATUS_SUCCESS;
 }
 

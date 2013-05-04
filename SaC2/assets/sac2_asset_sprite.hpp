@@ -133,6 +133,11 @@ public:
    *          - \b STATUS_ALREADY
    */
   sac2_status_t load(const sf::Image& image);
+
+  /*!
+   * \brief
+   */
+  sac2_status_t unload();
 };  // class AssetSprite
 
 
@@ -213,6 +218,12 @@ inline sac2_status_t AssetSprite::flip(bool flip_x, bool flip_y)
   if (true == flip_x) { m_asset.FlipX(true); }
   if (true == flip_y) { m_asset.FlipY(true); }
 
+  return STATUS_SUCCESS;
+}
+
+inline sac2_status_t AssetSprite::unload()
+{
+  m_loaded = false;
   return STATUS_SUCCESS;
 }
 

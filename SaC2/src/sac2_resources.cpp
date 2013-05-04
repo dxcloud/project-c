@@ -13,6 +13,14 @@ sac2_asset_map_t create_image()
   return map_image;
 }
 
+sac2_asset_map_t create_font()
+{
+  sac2_asset_map_t map_font;
+  map_font.insert(std::make_pair("FT01", "/home/orange/project-c/SaC2/samples/arial.ttf"));
+  return map_font;
+}
+
 const sac2_asset_map_t Res::image = create_image();
 
+const sac2_asset_map_t Res::font = create_font();
 }

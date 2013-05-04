@@ -2,10 +2,12 @@
 
 #include "sac2_asset.hpp"
 #include "sac2_asset_manager.hpp"
+#include "sac2_asset_font.hpp"
 #include "sac2_asset_image.hpp"
 #include "sac2_asset_music.hpp"
 #include "sac2_asset_sound.hpp"
 #include "sac2_asset_sprite.hpp"
+#include "sac2_asset_text.hpp"
 
 namespace sac2
 {
@@ -65,6 +67,19 @@ sac2_status_t AssetManager::load_sprite(AssetSprite& sprite,
   return STATUS_SUCCESS;
 }
 
+sac2_status_t AssetManager::load_font(AssetText& text,
+                                      const sac2_asset_id_t& id)
+{
+  std::map<sac2_asset_id_t, AssetFont*>::iterator iter;
+  iter = m_fonts.find(id);
+  if (m_fonts.end() == iter) { return STATUS_MISS; }  // if NOT found
+  iter->second->load();
+  text.set_font(iter->second->get_asset());
+  return STATUS_SUCCESS;
+
+  return STATUS_SUCCESS;
+}
+
 sac2_status_t AssetManager::initialize()
 {
   if (true == m_initialized) {
@@ -76,7 +91,15 @@ sac2_status_t AssetManager::initialize()
        ++iter) {
     m_images.insert(std::make_pair(iter->first,
                                    new AssetImage(iter->second)));
-  }  // add resource
+  }  // add image type resource
+
+  for (sac2_res_it iter = Res::font.begin();
+       iter != Res::font.end();
+       ++iter) {
+    m_fonts.insert(std::make_pair(iter->first,
+                                   new AssetFont(iter->second)));
+  }  // add font type resource
+
   m_initialized = true;
   return STATUS_SUCCESS;
 }

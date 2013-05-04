@@ -21,6 +21,7 @@ namespace sac2
 //! Associates a resource name with an \b Identifier
 typedef struct res {
   static const sac2_asset_map_t image;  //!< Image type resource name
+  static const sac2_asset_map_t font;   //!< Font type resource name
 } Res;
 
 //! Constant iterator for \b Res

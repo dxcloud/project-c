@@ -13,6 +13,7 @@
 #include "sac2_type.hpp"
 #include "sac2_game_state.hpp"
 #include "sac2_asset_sprite.hpp"
+#include "sac2_asset_text.hpp"
 
 namespace sac2
 {
@@ -72,12 +73,14 @@ public:
 private:
 
   AssetSprite m_sprite;  //!< Sample sprite
+  AssetText   m_text;
 };  // class MenuState
 
 
 inline MenuState::MenuState(sac2_state_id_t id):
     GameState(id),
-    m_sprite()
+    m_sprite(),
+    m_text()
 {
   // nothing to do
 }

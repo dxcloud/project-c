@@ -16,10 +16,12 @@
 namespace sac2
 {
 
+class AssetFont;
 class AssetImage;
 class AssetMusic;
 class AssetSound;
 class AssetSprite;
+class AssetText;
 
 //! \class AssetManager
 /*!
@@ -67,6 +69,8 @@ class AssetManager: public Manager<AssetManager>
 
   sac2_status_t load_sprite(AssetSprite& sprite, const sac2_asset_id_t& id);
 
+  sac2_status_t load_font(AssetText& text, const sac2_asset_id_t& id);
+
   /*!
    * \brief Initialize the manager
    * \return SaC2 status
@@ -102,6 +106,7 @@ class AssetManager: public Manager<AssetManager>
   AssetManager& operator=(const AssetManager& asset_manager);
 
   //! \TODO Add Map asset for musics, sprites, background...
+  std::map<sac2_asset_id_t, AssetFont*>   m_fonts;
   std::map<sac2_asset_id_t, AssetImage*>  m_images;   //!< Store all image assets
   std::map<sac2_asset_id_t, AssetMusic*>  m_musics;   //!< Store all music assets
   std::map<sac2_asset_id_t, AssetSound*>  m_sounds;   //!< Store all sound assets

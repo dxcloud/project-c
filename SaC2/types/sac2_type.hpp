@@ -84,6 +84,7 @@ typedef enum sac2_asset_type {
   ASSET_IMAGE,  //!< Image
   ASSET_MUSIC,  //!< Background Music
   ASSET_SOUND,  //!< Sound effect
+  ASSET_TEXT,   //!< Text
   ASSET_SCRIPT, //!< Script
   ASSET_MAP,    //!< Map
   ASSET_CUSTOM  //!< Other type
