@@ -6,6 +6,7 @@
 # Libraries and Documentation
 lib/
 docs/
+samples/
 
 # Log files
 *.log

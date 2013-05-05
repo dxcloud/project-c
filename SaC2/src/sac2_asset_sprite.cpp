@@ -13,12 +13,4 @@ sac2_status_t AssetSprite::load(const sf::Image& image)
   return STATUS_ALREADY;
 }
 
-sac2_status_t AssetSprite::reset()
-{
-  m_asset.SetPosition(0.0F, 0.0F);
-  m_asset.SetScale(1.0F, 1.0F);
-  m_asset.SetRotation(0.0F);
-  return STATUS_SUCCESS;
-}
-
 }

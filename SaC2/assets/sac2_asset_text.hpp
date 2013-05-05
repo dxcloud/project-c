@@ -14,13 +14,13 @@
 #include <SFML/Graphics.hpp>
 
 #include "sac2_type.hpp"
-#include "sac2_asset.hpp"
 #include "sac2_drawable.hpp"
 
 namespace sac2
 {
 
-class AssetText: public Asset<sf::String>
+class AssetText:
+  public Drawable<sf::String>
 {
 public:
   /*!
@@ -46,7 +46,7 @@ public:
 
 
 inline AssetText::AssetText():
-    Asset<sf::String>(ASSET_TEXT)
+  Drawable<sf::String>(ASSET_TEXT)
 {
 
 }

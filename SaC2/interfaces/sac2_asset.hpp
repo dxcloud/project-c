@@ -31,7 +31,7 @@ public:
    * \brief Constructor
    * \param type The type of the asset
    */
-  Asset(sac2_asset_type_t type);
+  explicit Asset(sac2_asset_type_t type);
 
   /*!
    * \brief Destructor
@@ -55,8 +55,6 @@ protected:
   sac2_asset_type_t m_type;    //!< Type of the asset
   bool              m_loaded;  //!< \a true if the asset is loaded
   T                 m_asset;   //!< Asset
-
-private:
 };  // class Asset
 
 

@@ -9,6 +9,8 @@ sac2_status_t MenuState::initialize()
     p_asset_manager->load_sprite(m_sprite, "IM02");
     p_asset_manager->load_font(m_text, "FT01");
     m_text.set_text("Hello World");
+    m_text.set_position(500, 200);
+    m_text.rotate(90);
     m_initialized = true;
     return STATUS_SUCCESS;
   }
