@@ -2,25 +2,48 @@
 
 namespace sac2 {
 
-sac2_asset_map_t create_image()
+status_t Resource::create(const std::string& filename)
 {
-  sac2_asset_map_t map_image;
-  map_image.insert(std::make_pair("IM01", "/home/orange/project-c/SaC2/samples/image01.png"));
-  map_image.insert(std::make_pair("IM02", "/home/orange/project-c/SaC2/samples/image02.png"));
-  map_image.insert(std::make_pair("IM03", "/home/orange/project-c/SaC2/samples/image03.png"));
-  map_image.insert(std::make_pair("IM04", "/home/orange/project-c/SaC2/samples/image04.png"));
-  map_image.insert(std::make_pair("IM05", "/home/orange/project-c/SaC2/samples/image05.png"));
-  return map_image;
+  return STATUS_SUCCESS;
 }
 
-sac2_asset_map_t create_font()
+status_t Resource::set_font(const sac2_asset_id_t& id,
+                                     const std::string& filepath)
 {
-  sac2_asset_map_t map_font;
-  map_font.insert(std::make_pair("FT01", "/home/orange/project-c/SaC2/samples/arial.ttf"));
-  return map_font;
+  m_fonts.insert(std::make_pair(id, filepath));
+  return STATUS_SUCCESS;
 }
 
-const sac2_asset_map_t Res::image = create_image();
+status_t Resource::set_image(const sac2_asset_id_t& id,
+                                     const std::string& filepath)
+{
+  m_images.insert(std::make_pair(id, filepath));
+  return STATUS_SUCCESS;
+}
 
-const sac2_asset_map_t Res::font = create_font();
+status_t Resource::set_music(const sac2_asset_id_t& id,
+                                     const std::string& filepath)
+{
+  m_musics.insert(std::make_pair(id, filepath));
+  return STATUS_SUCCESS;
+}
+
+status_t Resource::set_sound(const sac2_asset_id_t& id,
+                                     const std::string& filepath)
+{
+  m_sounds.insert(std::make_pair(id, filepath));
+  return STATUS_SUCCESS;
+}
+
+const std::string& Resource::operator()(sac2_asset_type_t type,
+                                        const sac2_asset_id_t& id) const
+{
+  sac2_resource_const_it iter;
+  if (ASSET_FONT == type) { iter = m_fonts.find(id); }
+  else if (ASSET_IMAGE == type) { iter = m_images.find(id); }
+  else if (ASSET_MUSIC == type) { iter = m_musics.find(id); }
+  else if (ASSET_SOUND == type) { iter = m_sounds.find(id); }
+  return const_cast<std::string&>(iter->second);
+}
+
 }

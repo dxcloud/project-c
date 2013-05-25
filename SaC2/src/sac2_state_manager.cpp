@@ -4,7 +4,7 @@
 namespace sac2
 {
 
-sac2_status_t StateManager::set_state_to_active(sac2_state_id_t id)
+status_t StateManager::set_state_to_active(sac2_state_id_t id)
 {
   if (false == m_states.empty()) {
     GameState* state = find_state(id);
@@ -14,7 +14,7 @@ sac2_status_t StateManager::set_state_to_active(sac2_state_id_t id)
   return STATUS_INVAL;
 }
 
-sac2_status_t StateManager::set_state_to_inactive(sac2_state_id_t id)
+status_t StateManager::set_state_to_inactive(sac2_state_id_t id)
 {
   if (false == m_states.empty()) {
     GameState* state = find_state(id);
@@ -24,7 +24,7 @@ sac2_status_t StateManager::set_state_to_inactive(sac2_state_id_t id)
   return STATUS_INVAL;
 }
 
-sac2_status_t StateManager::set_state_to_current(sac2_state_id_t id, bool activated)
+status_t StateManager::set_state_to_current(sac2_state_id_t id, bool activated)
 {
   if (false == m_states.empty()) {
     if (STATE_CURRENT == id) {
@@ -47,7 +47,7 @@ sac2_status_t StateManager::set_state_to_current(sac2_state_id_t id, bool activa
   return STATUS_INVAL;
 }
 
-sac2_status_t StateManager::add_state(GameState* state, bool activated)
+status_t StateManager::add_state(GameState* state, bool activated)
 {
   //add a state
   m_states.push_back(state);
@@ -57,7 +57,7 @@ sac2_status_t StateManager::add_state(GameState* state, bool activated)
   else { return m_states.back()->pause(); }
 }
 
-sac2_status_t StateManager::reset_state(sac2_state_id_t id)
+status_t StateManager::reset_state(sac2_state_id_t id)
 {
   if (false == m_states.empty()) {
     GameState* state = find_state(id);
@@ -82,7 +82,7 @@ sac2_status StateManager::drop_state()
   return STATUS_INVAL;
 }
 
-sac2_status_t StateManager::remove_state(sac2_state_id_t id)
+status_t StateManager::remove_state(sac2_state_id_t id)
 {
   if (STATE_CURRENT == id) return drop_state();
 
@@ -101,7 +101,7 @@ sac2_status_t StateManager::remove_state(sac2_state_id_t id)
   return STATUS_INVAL;
 }
 
-sac2_status_t StateManager::cleanup()
+status_t StateManager::cleanup()
 {
   while (false == m_dropped_states.empty()) {
     GameState* state = m_dropped_states.back();
@@ -125,20 +125,21 @@ GameState* StateManager::find_state(sac2_state_id_t id)
   return 0;
 }
 
-sac2_status_t StateManager::handle_events(const sf::Event& event,
-                                          const sf::Input& input)
+status_t StateManager::handle_events(const sf::Event& event
+                                          )
 {
   if (false == m_states.empty()) {
-    return m_states.back()->handle_events(event, input);
+    return m_states.back()->handle_events(event);
   }
   else { return STATUS_SUCCESS; }
 }
 
-void StateManager::update()
+status_t StateManager::update()
 {
   if (false == m_states.empty()) {
     m_states.back()->update();
   }
+  return STATUS_SUCCESS;
 }
 
 }

@@ -3,18 +3,41 @@
 namespace sac2
 {
 
-sac2_status_t AssetMusic::play_music(bool play)
+status_t AssetMusic::play()
 {
-  if (true == play) { m_asset.Play(); }
-  else { m_asset.Stop(); }
-
+  m_asset.play();
   return STATUS_SUCCESS;
 }
 
-sac2_status_t AssetMusic::set_loop(bool loop)
+status_t AssetMusic::pause()
 {
-  m_asset.SetLoop(loop);
+  m_asset.pause();
   return STATUS_SUCCESS;
+}
+
+status_t AssetMusic::stop()
+{
+  m_asset.stop();
+  return STATUS_SUCCESS;
+}
+
+status_t AssetMusic::set_loop(bool loop)
+{
+  m_asset.setLoop(loop);
+  return STATUS_SUCCESS;
+}
+
+status_t AssetMusic::load(const std::string& filename)
+{
+  if (false == m_loaded) {
+    //m_filename = filename;
+    if (false == m_asset.openFromFile(m_filename)) {
+      return STATUS_MISS;
+    }
+    m_loaded = true;
+    return STATUS_SUCCESS;
+  }
+  return STATUS_ALREADY;
 }
 
 }

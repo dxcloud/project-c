@@ -8,8 +8,10 @@ SAC_MAKE ?= ../../make/rules.mk
 ### Name of the application
 EXEC     = SaCDemo
 
+CXX = g++
+
 ### Extra compilation options
-CXXFLAGS = -DLOG_ENABLED  #allow log file generation
+CXXFLAGS = -Wno-long-long
 
 ### The following line is required to compile SaC2 source files
 include $(SAC_MAKE)

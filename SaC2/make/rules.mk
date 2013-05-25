@@ -5,7 +5,7 @@
 
 AUTHOR          = Chengwu HUANG
 DATE            = 2013-04-11
-VERSION         = 0.1
+VERSION         = 1.0
 
 ### Set directory path
 SAC_MAKE_DIR   ?= $(shell locate -l 1 SaC2/make)
@@ -25,11 +25,15 @@ CXXFLAGS       += $(CFLAGS)
 CXXFLAGS       += -Wall -pedantic -O
 
 ### Add SaC headers
-CXXFLAGS       += -I$(SAC_DIR)/assets
-CXXFLAGS       += -I$(SAC_DIR)/engine
-CXXFLAGS       += -I$(SAC_DIR)/interfaces
-CXXFLAGS       += -I$(SAC_DIR)/states
-CXXFLAGS       += -I$(SAC_DIR)/types
+CXXFLAGS       += -I$(SAC_DIR)/include/assets \
+                  -I$(SAC_DIR)/include/core \
+                  -I$(SAC_DIR)/include/interfaces \
+                  -I$(SAC_DIR)/include/states \
+                  -I$(SAC_DIR)/include/types
+#CXXFLAGS       += -I$(SAC_DIR)/engine
+#CXXFLAGS       += -I$(SAC_DIR)/interfaces
+#CXXFLAGS       += -I$(SAC_DIR)/states
+#CXXFLAGS       += -I$(SAC_DIR)/types
 
 ### Sources
 SRC             = $(wildcard *.cpp)

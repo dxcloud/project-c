@@ -3,10 +3,10 @@
 namespace sac2
 {
 
-sac2_status_t AssetFont::load()
+status_t AssetFont::load()
 {
   if (false == m_loaded) {
-    if (false == m_asset.LoadFromFile(m_filename)) {
+    if (false == m_asset.loadFromFile(m_filename)) {
       return STATUS_FAIL;
     }
     m_loaded = true;

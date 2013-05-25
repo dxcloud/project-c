@@ -1,91 +1,77 @@
-﻿#include "sac2_engine.hpp"
-#include "sac2_asset_sprite.hpp"
+﻿/**
+ * \file sac2_engine.cpp
+ */
+
+#include "sac2_engine.hpp"
 
 namespace sac2
 {
 
-sac2_status_t Engine::initialize()
+//----------------------------------------------------------------------------
+//  Engine::initialize
+//----------------------------------------------------------------------------
+status_t Engine::initialize()
 {
-  p_state_manager = StateManager::get_instance();
-  p_asset_manager = AssetManager::get_instance();
-  p_asset_manager->initialize();
-  p_window_manager = WindowManager::get_instance();
-  p_window_manager->initialize("SaCDemo");
+//  p_state_manager = StateManager::get_instance();
+//  p_asset_manager = AssetManager::get_instance();
+//  p_asset_manager->initialize();
+//  p_window_manager = RenderingManager::get_instance();
+//  p_window_manager->initialize("SaCDemo");
 
-#ifdef LOG_ENABLED
-  m_log << "Engine::init() >> Completed" << std::endl;
-#endif
   return STATUS_SUCCESS;
 }
 
+//----------------------------------------------------------------------------
+//  Engine::parse_options
+//----------------------------------------------------------------------------
 void Engine::parse_options(int argc, char* argv[])
 {
-#ifdef LOG_ENABLED
-  m_log << "Engine::parse_options() >> Check parameters" << std::endl;
-  for (int i = 0; i < argc; ++i) {
-    m_log << "#" << i << " " << argv[i] << std::endl;
-  }
-  m_log << "Engine::parse_options() >> Completed" << std::endl;
-#endif
+
 }
 
-sac2_status_t Engine::run()
+//----------------------------------------------------------------------------
+//  Engine::run
+//----------------------------------------------------------------------------
+status_t Engine::run()
 {
-#ifdef LOG_ENABLED
-  m_log << "Engine::run() >> Started" << std::endl;
-#endif
+  if (INITILIAZED != m_engine_state) {
+    return STATUS_ERROR;
+  }  // initialization failed
 
-  m_running = true;  // the Engine is running
+  m_engine_state = RUNNING;
 
-  sac2_status_t status(STATUS_SUCCESS);
-  status = initialize();
-
-  if (STATUS_SUCCESS == status) {
-    status = loop();  // main loop
-#ifdef LOG_ENABLED
-  m_log << "Engine::loop() >> Completed" << std::endl;
-#endif
-  }  // if initialization success
-
-#ifdef LOG_ENABLED
-  m_log << "Engine::run() >> Ended with " << status << std::endl;
-#endif
-
-  return status;
+  loop();  // main loop
+  return STATUS_SUCCESS;
 }
 
-sac2_status_t Engine::loop()
+//----------------------------------------------------------------------------
+//  Engine::loop
+//----------------------------------------------------------------------------
+void Engine::loop()
 {
-#ifdef LOG_ENABLED
-  m_log << "Engine::loop() >> Started" << std::endl;
-#endif
-
   sf::Event event;
-  while (true == m_running) {
+  while (RUNNING == m_engine_state) {
     p_window_manager->get_event(event);
 
-    if (sf::Event::Closed == event.Type) {
+    if (sf::Event::Closed == event.type) {
       quit();
     }  // if the window is closed
     else {
-      p_state_manager->handle_events(event, p_window_manager->get_input());
-      p_window_manager->clear();
-      p_state_manager->update();
+//      p_state_manager->handle_events(event, p_window_manager->get_input());
+//      p_window_manager->clear();
+//      p_state_manager->update();
     }  // handle any other events
-    p_window_manager->display();
+//    p_window_manager->display();
   }  // loop while m_running is true
-  return STATUS_SUCCESS;
 }
 
-sac2_status_t Engine::cleanup()
+//----------------------------------------------------------------------------
+//  Engine::cleanup
+//----------------------------------------------------------------------------
+void Engine::cleanup()
 {
-  p_state_manager->finalize();
-  p_asset_manager->finalize();
-
-#ifdef LOG_ENABLED
-  m_log << "Engine::cleanup() >> Completed" << std::endl;
-#endif
-  return STATUS_SUCCESS;
+//  p_state_manager->finalize();
+//  p_asset_manager->finalize();
 }
 
 }

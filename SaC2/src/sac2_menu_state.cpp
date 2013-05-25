@@ -1,25 +1,30 @@
-﻿#include "sac2_menu_state.hpp"
+#include "sac2_menu_state.hpp"
 
 namespace sac2
 {
 
-sac2_status_t MenuState::initialize()
+status_t MenuState::initialize()
 {
   if (false == m_initialized) {
+/*
     p_asset_manager->load_sprite(m_sprite, "IM02");
     p_asset_manager->load_font(m_text, "FT01");
     m_text.set_text("Hello World");
     m_text.set_position(500, 200);
     m_text.rotate(90);
+    p_asset_manager->load_sound(m_sound, "SD01");
+    p_asset_manager->load_music(m_music, "MS01");
+*/
     m_initialized = true;
     return STATUS_SUCCESS;
   }
   return STATUS_ALREADY;
 }
 
-sac2_status_t MenuState::handle_events(const sf::Event& event,
-                                       const sf::Input& input)
+status_t MenuState::handle_events(const sf::Event& event
+                                       )
 {
+/*
   if (true == input.IsKeyDown(sf::Key::Escape)) {
     if (false == m_paused) { p_window_manager->close(); }  // request Engine::quit()
   }  // 'Escape' quit, 'P' pause, 'R' resume
@@ -49,24 +54,30 @@ sac2_status_t MenuState::handle_events(const sf::Event& event,
     m_sprite.unload();
     p_asset_manager->load_sprite(m_sprite, "IM05");
   }
-
+  else if (true == input.IsKeyDown(sf::Key::S)) {
+    m_sound.play();
+  }
+  else if (true == input.IsKeyDown(sf::Key::M)) {
+    m_music.play();
+  }
+*/
   return STATUS_SUCCESS;
 }
 
-sac2_status_t MenuState::update()
+status_t MenuState::update()
 {
   draw();
   return STATUS_SUCCESS;
 }
 
-sac2_status_t MenuState::draw()
+status_t MenuState::draw()
 {
   p_window_manager->draw_sprite(m_sprite);
   p_window_manager->display_text(m_text);
   return STATUS_SUCCESS;
 }
 
-sac2_status_t MenuState::cleanup()
+status_t MenuState::cleanup()
 {
   return STATUS_SUCCESS;
 }
