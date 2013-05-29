@@ -2,10 +2,12 @@
  * \file sac2_engine.cpp
  */
 
-#include "sac2_engine.hpp"
+#include <sac2_engine.hpp>
 
 namespace sac2
 {
+
+engine_state_t Engine::m_engine_state(UNINITIALIZED);
 
 //----------------------------------------------------------------------------
 //  Engine::initialize
@@ -15,7 +17,8 @@ status_t Engine::initialize()
 //  p_state_manager = StateManager::get_instance();
 //  p_asset_manager = AssetManager::get_instance();
 //  p_asset_manager->initialize();
-//  p_window_manager = RenderingManager::get_instance();
+  p_rendering_manager = p_rendering_manager->create();
+//  p_rendering_manager->initialize();
 //  p_window_manager->initialize("SaCDemo");
 
   return STATUS_SUCCESS;
@@ -37,9 +40,7 @@ status_t Engine::run()
   if (INITILIAZED != m_engine_state) {
     return STATUS_ERROR;
   }  // initialization failed
-
   m_engine_state = RUNNING;
-
   loop();  // main loop
   return STATUS_SUCCESS;
 }
@@ -49,18 +50,19 @@ status_t Engine::run()
 //----------------------------------------------------------------------------
 void Engine::loop()
 {
-  sf::Event event;
+//  sf::Event event;
   while (RUNNING == m_engine_state) {
-    p_window_manager->get_event(event);
+    p_rendering_manager->update();
+//    p_rendering_manager->get_event(event);
 
-    if (sf::Event::Closed == event.type) {
-      quit();
-    }  // if the window is closed
-    else {
+//    if (sf::Event::Closed == event.type) {
+//      quit();
+//    }  // if the window is closed
+//    else {
 //      p_state_manager->handle_events(event, p_window_manager->get_input());
 //      p_window_manager->clear();
 //      p_state_manager->update();
-    }  // handle any other events
+//    }  // handle any other events
 //    p_window_manager->display();
   }  // loop while m_running is true
 }
@@ -72,6 +74,7 @@ void Engine::cleanup()
 {
 //  p_state_manager->finalize();
 //  p_asset_manager->finalize();
+  p_rendering_manager->destroy();
 }
 
 }

@@ -149,7 +149,9 @@ void AssetManager::load_image(const sac2_asset_id_t& id)
   }
 }
 
-status_t AssetManager::update() {}
+status_t AssetManager::update() {
+  return STATUS_SUCCESS;
+}
 
 /*void AssetManager::load_sprite(const sac2_asset_id_t& id)
 {

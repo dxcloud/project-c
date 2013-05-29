@@ -53,9 +53,9 @@ typedef struct sac2_engine_conf {
 
 //! Default video settings
 enum sac2_default_video_settings {
-  DEFAULT_VIDEO_WIDTH     = 1024, //!< Video mode width, in pixels
-  DEFAULT_VIDEO_HEIGHT    = 768,  //!< Video mode height, in pixels
-  DEFAULT_VIDEO_BPP       = 32,   //!< Video mode pixel depth, in bits per pixels
+  DEFAULT_VIDEO_WIDTH     = 1024U, //!< Video mode width, in pixels
+  DEFAULT_VIDEO_HEIGHT    = 768U,  //!< Video mode height, in pixels
+  DEFAULT_VIDEO_BPP       = 32U,   //!< Video mode pixel depth, in bits per pixels
   DEFAULT_FRAMERATE_LIMIT = 60,   //!< Maximum fixed frequency
   DEFAULT_DB              = 24,   //!< Bits of the depth buffer
   DEFAULT_SB              = 8,    //!< Bits of the stencil buffer
@@ -63,6 +63,19 @@ enum sac2_default_video_settings {
   //! Window creation styles
   DEFAULT_STYLE           = (sf::Style::Resize | sf::Style::Close)
 };
+
+/*!
+ * \brief Indicates the current state of the Engine
+ */
+typedef enum {
+  UNINITIALIZED,  //!< Uninitialized
+  INITILIAZED,    //!< Initialized
+  RUNNING,        //!< Engine is running
+  PAUSED,         //!< Engine is paused
+  STOPPED,         //!< Engine is stopped
+  SHUTDOWN        //!< Engine is shut down
+} engine_state_t;
+
 
 //! Status Return value
 typedef enum sac2_status {

@@ -12,7 +12,7 @@
 #include <string>
 
 #include <sac2_type.hpp>
-
+#include <sac2_rendering_manager.hpp>
 
 namespace sac2
 {
@@ -25,19 +25,6 @@ namespace sac2
  */
 class Engine
 {
-public:
-  /*!
-   * \brief Indicates the current state of the Engine
-   */
-  typedef enum {
-    UNINITIALIZED,  //!< Uninitialized
-    INITILIAZED,    //!< Initialized
-    RUNNING,        //!< Engine is running
-    PAUSED,         //!< Engine is paused
-    STOPPED,         //!< Engine is stopped
-    SHUTDOWN        //!< Engine is shut down
-  } engine_state_t;
-
 public:
   /*!
    * \brief Constructor
@@ -77,7 +64,7 @@ public:
    * \brief  Stop the Engine and quit
    * \return SaC2 status
    */
-  void quit();
+  static void quit();
 
 protected:
   /*!
@@ -102,9 +89,9 @@ protected:
   void cleanup();
 
 private:
-  engine_state_t      m_engine_state;     //!< Current state of the engine
+  static engine_state_t     m_engine_state;     //!< Current state of the engine
 
-  RenderingManager*      p_window_manager;   //!< Window Manager
+  RenderingManager*  p_rendering_manager;   //!< Window Manager
 };  // class Engine
 
 
@@ -112,12 +99,13 @@ private:
 //  Engine::Engine
 //----------------------------------------------------------------------------
 inline Engine::Engine(const std::string& title):
-  m_engine_state(UNINITIALIZED),
-  p_window_manager(0)
+//  m_engine_state(UNINITIALIZED),
+  p_rendering_manager(0)
 {
   if (STATUS_SUCCESS == initialize()) {
     m_engine_state = INITILIAZED;
   }
+std::cout << "Engine created" << std::endl;
 }
 
 //----------------------------------------------------------------------------
@@ -126,12 +114,13 @@ inline Engine::Engine(const std::string& title):
 inline Engine::~Engine()
 {
   cleanup();
+std::cout << "Engine destroyed" << std::endl;
 }
 
 //----------------------------------------------------------------------------
 //  Engine::get_engine_state
 //----------------------------------------------------------------------------
-inline Engine::engine_state_t Engine::get_engine_state() const
+inline engine_state_t Engine::get_engine_state() const
 {
   return m_engine_state;
 }
@@ -142,6 +131,7 @@ inline Engine::engine_state_t Engine::get_engine_state() const
 inline void Engine::quit()
 {
   m_engine_state = STOPPED;
+std::cout << "quit called" << std::endl;
 }
 
 }  // namespace sac2

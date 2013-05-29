@@ -31,6 +31,16 @@ public:
    */
   static T* create();
 
+  /*!
+   * \brief  Destroy the class if NOT destroyed yet
+   * \return SaC2 status
+   */
+  static status_t destroy();
+
+  /*!
+   * \brief  Tell whether the manager is initialized
+   * \return 
+   */
   bool is_initialized();
 
   /*!
@@ -40,7 +50,11 @@ public:
    * \return  SaC2 status
    */
   virtual status_t initialize();
-  
+
+  /*!
+   * \brief
+   * \return
+   */
   virtual status_t update();
 
   /*!
@@ -49,14 +63,7 @@ public:
    */
   virtual status_t cleanup();
 
-  /*!
-   * \brief  Destroy the class if NOT destroyed yet
-   * \return SaC2 status
-   */
-  static status_t destroy();
-
 protected:
-
   /*!
    * \brief   Constructor
    * \details Proctected
@@ -69,6 +76,7 @@ protected:
    */
   virtual ~Manager();
 
+protected:
   bool      m_initialized;  //!< \b true if the class is initialized
 
 private:
@@ -77,22 +85,34 @@ private:
 };  // class Manager
 
 
+//----------------------------------------------------------------------------
+//  Manager::p_manager
+//----------------------------------------------------------------------------
 template<typename T>
 T* Manager<T>::p_manager = 0;
 
+//----------------------------------------------------------------------------
+//  Manager::Manager
+//----------------------------------------------------------------------------
 template<typename T>
 inline Manager<T>::Manager():
-    m_initialized(false)
+  m_initialized(false)
 {
-  
+  // do nothing
 }
 
+//----------------------------------------------------------------------------
+//  Manager::~Manager
+//----------------------------------------------------------------------------
 template<typename T>
 inline Manager<T>::~Manager()
 {
-
+  // do nothing
 }
 
+//----------------------------------------------------------------------------
+//  Engine::create
+//----------------------------------------------------------------------------
 template<typename T>
 inline T* Manager<T>::create()
 {
@@ -103,12 +123,18 @@ inline T* Manager<T>::create()
   return p_manager;
 }
 
+//----------------------------------------------------------------------------
+//  Manager::is_initialized
+//----------------------------------------------------------------------------
 template<typename T>
 inline bool Manager<T>::is_initialized()
 {
   return m_initialized;
 }
 
+//----------------------------------------------------------------------------
+//  Manager::initialize
+//----------------------------------------------------------------------------
 template<typename T>
 inline status_t Manager<T>::initialize()
 {
@@ -116,12 +142,18 @@ inline status_t Manager<T>::initialize()
   return STATUS_SUCCESS;
 }
 
+//----------------------------------------------------------------------------
+//  Manager::update
+//----------------------------------------------------------------------------
 template<typename T>
 inline status_t Manager<T>::update()
 {
   return STATUS_SUCCESS;
 }
 
+//----------------------------------------------------------------------------
+//  Manager::destroy
+//----------------------------------------------------------------------------
 template<typename T>
 inline status_t Manager<T>::destroy()
 {
@@ -133,6 +165,9 @@ inline status_t Manager<T>::destroy()
   return STATUS_ALREADY;
 }
 
+//----------------------------------------------------------------------------
+//  Manager::cleanup
+//----------------------------------------------------------------------------
 template<typename T>
 inline status_t Manager<T>::cleanup()
 {

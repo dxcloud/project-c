@@ -72,8 +72,8 @@ status_t MenuState::update()
 
 status_t MenuState::draw()
 {
-  p_window_manager->draw_sprite(m_sprite);
-  p_window_manager->display_text(m_text);
+//  p_window_manager->draw_sprite(m_sprite);
+//  p_window_manager->display_text(m_text);
   return STATUS_SUCCESS;
 }
 

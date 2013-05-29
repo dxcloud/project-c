@@ -6,6 +6,7 @@
 # Libraries and Documentation
 doc/
 docs/
+share/
 samples/
 
 # Log files

@@ -18,16 +18,35 @@
 
 /**
  * \TODO Configure from file
+ *   \b VideoMode
+ *     - width
+ *     - height
+ *     - bitsPerPixel
  *   \b ContextSettings:
  *     - depthBits (DB)
  *     - stencilBits (SB)
  *     - antialiasingLevel (AAL)
  *     - majorVersion (MaV)
  *     - minorVersion (MiV)
+ *   \b RenderWindow
+ *     - setVerticalSyncEnabled (vSync)
+ *     - setMouseCursorVisible (mouse)
+ *     - setKeyRepeatEnabled (keyR)
+ *     - setFramerateLimit (FRL)
+ * 
  */
 
 namespace sac2
 {
+
+enum {
+  STYLE_NONE       = sf::Style::None,
+  STYLE_TITLEBAR   = sf::Style::Titlebar,
+  STYLE_RESIZE     = sf::Style::Resize,
+  STYLE_CLOSE      = sf::Style::Close,
+  STYLE_FULLSCREEN = sf::Style::Fullscreen,
+  STYLE_DEFAULT    = sf::Style::Default
+};
 
 /*!
  * \class   RenderingManager
@@ -75,7 +94,6 @@ public:
    *         - \b STATUS_ALREADY
    *         - \b STATUS_FAIL
    */
-  status_t initialize(const std::string& title);
   status_t initialize();
 
   /*!
@@ -83,12 +101,12 @@ public:
    * \param  sprite The sprite to be drawn
    * \return SaC2 status
    */
-  status_t draw_sprite(const AssetSprite& sprite);
+//  status_t draw_sprite(const AssetSprite& sprite);
 
   /*!
    * \brief 
    */
-  status_t display_text(const AssetText& text);
+//  status_t display_text(const AssetText& text);
 
   /*!
    * \brief  Close the current window
@@ -134,27 +152,37 @@ private:
   RenderingManager& operator=(const RenderingManager& window_manager);
 
 private:
-  sf::RenderWindow    m_window;           //!< Render window
-  sf::VideoMode       m_video_mode;       //!< Video Mode (width, height, bpp)
-  sf::ContextSettings  m_window_settings;  //!< Window settings
-  unsigned long       m_window_style;     //!< Window style
+  sf::RenderWindow     m_window;           //!< Render window
+  sf::VideoMode        m_video_mode;       //!< Video Mode (width, height, bpp)
+  sf::ContextSettings  m_settings;  //!< Window settings
+  unsigned long        m_window_style;     //!< Window style
 
 //  sf::Event           m_event;            //!< Event
 
 };  // class RenderingManager
 
-inline RenderingManager::RenderingManager():
-  m_window(),
-  m_video_mode(DEFAULT_VIDEO_WIDTH, DEFAULT_VIDEO_HEIGHT, DEFAULT_VIDEO_BPP),
-  m_window_settings(),
-  m_window_style(DEFAULT_STYLE)
-{
 
+//----------------------------------------------------------------------------
+//  RenderingManager::RenderingManager
+//----------------------------------------------------------------------------
+inline RenderingManager::RenderingManager():
+  Manager<RenderingManager>(),
+  m_window(),
+  m_video_mode(),
+  m_settings(),
+  m_window_style(STYLE_DEFAULT)
+{
+  initialize();
+std::cout << "Rendering Manager created" << std::endl;
 }
 
+//----------------------------------------------------------------------------
+//  RenderingManager::~RenderingManager
+//----------------------------------------------------------------------------
 inline RenderingManager::~RenderingManager()
 {
-  Manager::destroy();
+  // do nothing
+std::cout << "Rendering Manager destroyed" << std::endl;
 }
 
 inline sac2_length_t RenderingManager::get_width()
@@ -176,6 +204,7 @@ inline bool RenderingManager::get_event(sf::Event& event)
   return m_window.pollEvent(event);
 }
 
+/*
 inline status_t RenderingManager::draw_sprite(const AssetSprite& sprite)
 {
   m_window.draw(sprite.get_asset());
@@ -187,10 +216,10 @@ inline status_t RenderingManager::display_text(const AssetText& text)
 //  m_window.draw(text.get_asset());
   return STATUS_SUCCESS;
 }
-
+*/
 inline status_t RenderingManager::close()
 {
-//  m_window.close();
+  m_window.close();
   return STATUS_SUCCESS;
 }
 
