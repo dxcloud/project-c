@@ -15,6 +15,7 @@
 
 #include "sac2_type.hpp"
 #include "sac2_manager.hpp"
+#include <sac2_logger.hpp>
 
 /**
  * \TODO Configure from file
@@ -157,7 +158,7 @@ private:
   sf::ContextSettings  m_settings;  //!< Window settings
   unsigned long        m_window_style;     //!< Window style
 
-//  sf::Event           m_event;            //!< Event
+  sf::Event           m_event;            //!< Event
 
 };  // class RenderingManager
 
@@ -170,10 +171,13 @@ inline RenderingManager::RenderingManager():
   m_window(),
   m_video_mode(),
   m_settings(),
-  m_window_style(STYLE_DEFAULT)
+  m_window_style(STYLE_DEFAULT),
+  m_event()
 {
+#ifdef SAC2_LOGGER_ENABLED
+  Logger::log_info("RenderingManager::constructor - start initialization");
+#endif
   initialize();
-std::cout << "Rendering Manager created" << std::endl;
 }
 
 //----------------------------------------------------------------------------
@@ -181,8 +185,9 @@ std::cout << "Rendering Manager created" << std::endl;
 //----------------------------------------------------------------------------
 inline RenderingManager::~RenderingManager()
 {
-  // do nothing
-std::cout << "Rendering Manager destroyed" << std::endl;
+#ifdef SAC2_LOGGER_ENABLED
+  Logger::log_info("RenderingManager::destructor - successfully destroyed");
+#endif
 }
 
 inline sac2_length_t RenderingManager::get_width()

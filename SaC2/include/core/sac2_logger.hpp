@@ -59,12 +59,12 @@ public:
    * \param filename Output Log filename, if the parameter is omitted
    *                 \b DEFAULT_LOG_FILE will be used
    */
-  static void open(const std::string& filename=DEFAULT_LOG_FILE);
+  static void create(const std::string& filename=DEFAULT_LOG_FILE);
 
   /*!
    * \brief Close file stream
    */
-  static void close();
+  static void destroy();
 
   /*!
    * \brief Log a message
@@ -72,37 +72,37 @@ public:
    * \param message The string message
    * \see   log_level
    */
-  static void write(log_level_t level, const std::string& message);
+  static void log(log_level_t level, const std::string& message);
 
   /*!
    * \brief Log a DEBUG type message
    * \param message The string message
    */
-  static void write_debug(const std::string& message);
+  static void log_debug(const std::string& message);
 
   /*!
    * \brief Log a CONFIG type message
    * \param message The string message
    */
-  static void write_config(const std::string& message);
+  static void log_config(const std::string& message);
 
   /*!
    * \brief Log an INFO type message
    * \param message The string message
    */
-  static void write_info(const std::string& message);
+  static void log_info(const std::string& message);
 
   /*!
    * \brief Log a WARNING type message
    * \param message The string message
    */
-  static void write_warning(const std::string& message);
+  static void log_warning(const std::string& message);
 
   /*!
    * \brief Log an ERROR type message
    * \param message The string message
    */
-  static void write_error(const std::string& message);
+  static void log_error(const std::string& message);
 
 private:
   /*!

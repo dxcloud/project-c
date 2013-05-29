@@ -3,6 +3,8 @@
  */
 
 #include <sac2_engine.hpp>
+#include <sac2_rendering_manager.hpp>
+#include <sac2_input_manager.hpp>
 
 namespace sac2
 {
@@ -17,10 +19,13 @@ status_t Engine::initialize()
 //  p_state_manager = StateManager::get_instance();
 //  p_asset_manager = AssetManager::get_instance();
 //  p_asset_manager->initialize();
-  p_rendering_manager = p_rendering_manager->create();
+  p_rendering_manager = RenderingManager::create();
+  p_input_manager = InputManager::create();
 //  p_rendering_manager->initialize();
 //  p_window_manager->initialize("SaCDemo");
-
+#ifdef SAC2_LOGGER_ENABLED
+  Logger::log_info("Engine::initialize - successfully initialized");
+#endif
   return STATUS_SUCCESS;
 }
 
@@ -41,6 +46,11 @@ status_t Engine::run()
     return STATUS_ERROR;
   }  // initialization failed
   m_engine_state = RUNNING;
+
+#ifdef SAC2_LOGGER_ENABLED
+  Logger::log_info("Engine::run - start running");
+#endif
+
   loop();  // main loop
   return STATUS_SUCCESS;
 }
@@ -50,21 +60,10 @@ status_t Engine::run()
 //----------------------------------------------------------------------------
 void Engine::loop()
 {
-//  sf::Event event;
   while (RUNNING == m_engine_state) {
+    p_input_manager->update();
     p_rendering_manager->update();
-//    p_rendering_manager->get_event(event);
-
-//    if (sf::Event::Closed == event.type) {
-//      quit();
-//    }  // if the window is closed
-//    else {
-//      p_state_manager->handle_events(event, p_window_manager->get_input());
-//      p_window_manager->clear();
-//      p_state_manager->update();
-//    }  // handle any other events
-//    p_window_manager->display();
-  }  // loop while m_running is true
+  }  // loop while m_engine_state is RUNNING
 }
 
 //----------------------------------------------------------------------------
@@ -72,9 +71,11 @@ void Engine::loop()
 //----------------------------------------------------------------------------
 void Engine::cleanup()
 {
-//  p_state_manager->finalize();
-//  p_asset_manager->finalize();
-  p_rendering_manager->destroy();
+  RenderingManager::destroy();
+  InputManager::destroy();
+#ifdef SAC2_LOGGER_ENABLED
+  Logger::log_info("Engine::cleanup - called");
+#endif
 }
 
 }

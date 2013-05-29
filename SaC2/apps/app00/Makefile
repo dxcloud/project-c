@@ -11,7 +11,7 @@ EXEC     = SaCDemo
 CXX = g++
 
 ### Extra compilation options
-CXXFLAGS = -Wno-long-long
+CXXFLAGS = -Wno-long-long -DSAC2_LOGGER_ENABLED
 
 ### The following line is required to compile SaC2 source files
 include $(SAC_MAKE)

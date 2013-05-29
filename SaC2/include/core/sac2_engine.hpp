@@ -12,10 +12,13 @@
 #include <string>
 
 #include <sac2_type.hpp>
-#include <sac2_rendering_manager.hpp>
+#include <sac2_logger.hpp>
 
 namespace sac2
 {
+
+class RenderingManager;
+class InputManager;
 
 /*!
  * \class   Engine
@@ -89,9 +92,10 @@ protected:
   void cleanup();
 
 private:
-  static engine_state_t     m_engine_state;     //!< Current state of the engine
-
   RenderingManager*  p_rendering_manager;   //!< Window Manager
+  InputManager*      p_input_manager;
+
+  static engine_state_t     m_engine_state;     //!< Current state of the engine
 };  // class Engine
 
 
@@ -99,13 +103,16 @@ private:
 //  Engine::Engine
 //----------------------------------------------------------------------------
 inline Engine::Engine(const std::string& title):
-//  m_engine_state(UNINITIALIZED),
-  p_rendering_manager(0)
+  p_rendering_manager(0),
+  p_input_manager(0)
 {
+#ifdef SAC2_LOGGER_ENABLED
+  Logger::create();
+  Logger::log_info("Engine::constructor - start initialization");
+#endif
   if (STATUS_SUCCESS == initialize()) {
     m_engine_state = INITILIAZED;
   }
-std::cout << "Engine created" << std::endl;
 }
 
 //----------------------------------------------------------------------------
@@ -114,7 +121,10 @@ std::cout << "Engine created" << std::endl;
 inline Engine::~Engine()
 {
   cleanup();
-std::cout << "Engine destroyed" << std::endl;
+#ifdef SAC2_LOGGER_ENABLED
+  Logger::log_info("Engine::destructor - successfully destroyed");
+  Logger::destroy();
+#endif
 }
 
 //----------------------------------------------------------------------------
@@ -130,8 +140,10 @@ inline engine_state_t Engine::get_engine_state() const
 //----------------------------------------------------------------------------
 inline void Engine::quit()
 {
+#ifdef SAC2_LOGGER_ENABLED
+  Logger::log_info("Engine::quit - called");
+#endif
   m_engine_state = STOPPED;
-std::cout << "quit called" << std::endl;
 }
 
 }  // namespace sac2

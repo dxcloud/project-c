@@ -14,6 +14,9 @@ status_t RenderingManager::initialize()
     m_video_mode.height = DEFAULT_VIDEO_HEIGHT;
     m_video_mode.bitsPerPixel = DEFAULT_VIDEO_BPP;
     if (false == m_video_mode.isValid()) {
+#ifdef SAC2_LOGGER_ENABLED
+      Logger::log_info("RenderingManager::initialize - Video mode NOT supported");
+#endif
       return STATUS_FAIL;
     }
     std::string title = "SAC2 Demo";
@@ -28,6 +31,9 @@ status_t RenderingManager::initialize()
 
     m_window.setFramerateLimit(DEFAULT_FRAMERATE_LIMIT);
     m_initialized = true;
+#ifdef SAC2_LOGGER_ENABLED
+    Logger::log_info("RenderingManager::initialize - successfully initialized");
+#endif
     return STATUS_SUCCESS;
   }
   return STATUS_ALREADY;
@@ -38,9 +44,12 @@ status_t RenderingManager::initialize()
 //----------------------------------------------------------------------------
 status_t RenderingManager::update()
 {
-  sf::Event event;
-  m_window.pollEvent(event);
-  if (sf::Event::Closed == event.type) {
+//  sf::Event event;
+  m_window.pollEvent(m_event);
+  if (sf::Event::Closed == m_event.type) {
+#ifdef SAC2_LOGGER_ENABLED
+    Logger::log_info("RenderingManager::update - window closed");
+#endif
     Engine::quit();
   }  // stop engine whether the window is closed
   return STATUS_SUCCESS;
