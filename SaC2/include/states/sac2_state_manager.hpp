@@ -124,19 +124,7 @@ public:
   status_t handle_events(const sf::Event& event
                               );
 
-  /*!
-   * \brief  Initialize the manager
-   * \return SaC2 status
-   */
-  status_t initialize();
-
-  /*!
-   * \brief  Clean all states of the dropped state stack
-   * \return SaC2 status
-   */
-  status_t cleanup();
-
-  status_t update();
+  void update();
 
 protected:
 
@@ -151,6 +139,18 @@ protected:
    * \details Clean all states on the active and dropped stack
    */
   ~StateManager();
+
+  /*!
+   * \brief  Initialize the manager
+   * \return SaC2 status
+   */
+  void initialize();
+
+  /*!
+   * \brief  Clean all states of the dropped state stack
+   * \return SaC2 status
+   */
+  void cleanup();
 
  private:
   /**

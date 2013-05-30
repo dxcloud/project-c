@@ -44,7 +44,7 @@ class Logger
    *          - \b WARNING
    *          - \b ERROR
    */
-  typedef enum log_level {
+  typedef enum log_level_t {
     DEBUG,    ///< Debugging message
     CONFIG,   ///< Configuration message, e.g. CPU type
     INFO,     ///< Informational message
@@ -116,16 +116,14 @@ private:
   ~Logger();
 
   /*!
-   * \brief Private copy Constructor
-   * 
-   *        Copy is NOT allowed
+   * \brief   Private copy Constructor
+   * \details Copy is NOT allowed
    */
   Logger(const Logger&);
 
   /*!
-   * \brief Private assignment operator
-   * 
-   *        Copy is NOT allowed
+   * \brief   Private assignment operator
+   * \details Copy is NOT allowed
    */
   Logger& operator=(const Logger&);
 

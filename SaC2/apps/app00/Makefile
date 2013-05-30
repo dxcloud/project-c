@@ -2,16 +2,17 @@
 ### Template Makefile
 ### 
 
-### Set the SAC_MAKE directory path, if it is NOT defined yet
+### Set SaC2 make directory path, if NOT defined yet
 SAC_MAKE ?= ../../make/rules.mk
 
 ### Name of the application
 EXEC     = SaCDemo
 
-CXX = g++
+### Specify the compilator
+CXX      = g++
 
 ### Extra compilation options
-CXXFLAGS = -Wno-long-long -DSAC2_LOGGER_ENABLED
+CXXFLAGS = -DSAC2_LOGGER_ENABLED
 
 ### The following line is required to compile SaC2 source files
 include $(SAC_MAKE)

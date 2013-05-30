@@ -3,6 +3,10 @@
 
 namespace sac2
 {
+void StateManager::initialize()
+{
+
+}
 
 status_t StateManager::set_state_to_active(sac2_state_id_t id)
 {
@@ -101,7 +105,7 @@ status_t StateManager::remove_state(sac2_state_id_t id)
   return STATUS_INVAL;
 }
 
-status_t StateManager::cleanup()
+void StateManager::cleanup()
 {
   while (false == m_dropped_states.empty()) {
     GameState* state = m_dropped_states.back();
@@ -110,7 +114,6 @@ status_t StateManager::cleanup()
     delete state;
     state = 0;
   } // while m_dropped_states is NOT empty
-  return STATUS_SUCCESS;
 }
 
 GameState* StateManager::find_state(sac2_state_id_t id)
@@ -134,12 +137,11 @@ status_t StateManager::handle_events(const sf::Event& event
   else { return STATUS_SUCCESS; }
 }
 
-status_t StateManager::update()
+void StateManager::update()
 {
   if (false == m_states.empty()) {
     m_states.back()->update();
   }
-  return STATUS_SUCCESS;
 }
 
 }

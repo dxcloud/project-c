@@ -69,7 +69,7 @@ enum sac2_default_video_settings {
  */
 typedef enum {
   UNINITIALIZED,  //!< Uninitialized
-  INITILIAZED,    //!< Initialized
+  INITIALIZED,    //!< Initialized
   RUNNING,        //!< Engine is running
   PAUSED,         //!< Engine is paused
   STOPPED,         //!< Engine is stopped

@@ -102,7 +102,7 @@ status_t AssetManager::load_music(AssetMusic& music,
   return STATUS_SUCCESS;
 }
 */
-status_t AssetManager::initialize()
+void AssetManager::initialize()
 {
 /*
   if (true == m_initialized) {
@@ -138,7 +138,6 @@ status_t AssetManager::initialize()
   }
 */
   m_initialized = true;
-  return STATUS_SUCCESS;
 }
 
 void AssetManager::load_image(const sac2_asset_id_t& id)
@@ -149,8 +148,8 @@ void AssetManager::load_image(const sac2_asset_id_t& id)
   }
 }
 
-status_t AssetManager::update() {
-  return STATUS_SUCCESS;
+void AssetManager::update() {
+
 }
 
 /*void AssetManager::load_sprite(const sac2_asset_id_t& id)

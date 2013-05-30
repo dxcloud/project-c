@@ -22,7 +22,7 @@ OUTPUT          = $(addprefix $(BUILD_DIR)/,$(EXEC))
 ### Set C++ Flags
 CXX            ?= g++
 CXXFLAGS       += $(CFLAGS)
-CXXFLAGS       += -Wall -pedantic -O
+CXXFLAGS       += -Wall -pedantic -O -Wno-long-long
 
 ### Add SaC headers
 CXXFLAGS       += -I$(SAC_DIR)/include/assets \

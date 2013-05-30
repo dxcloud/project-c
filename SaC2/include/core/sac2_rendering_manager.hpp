@@ -39,7 +39,9 @@
 
 namespace sac2
 {
-
+/*!
+ * \brief
+ */
 enum {
   STYLE_NONE       = sf::Style::None,
   STYLE_TITLEBAR   = sf::Style::Titlebar,
@@ -88,16 +90,6 @@ public:
 //  const sf::Input& get_input() const;
 
   /*!
-   * \brief  Initialise the Rendering Window
-   * \param  title Title for the window
-   * \return SaC2 status
-   *         - \b STATUS_SUCCESS
-   *         - \b STATUS_ALREADY
-   *         - \b STATUS_FAIL
-   */
-  status_t initialize();
-
-  /*!
    * \brief  Draw a sprite on the sreen
    * \param  sprite The sprite to be drawn
    * \return SaC2 status
@@ -126,7 +118,7 @@ public:
    * \return SaC2 status
    */
   status_t display();
-  status_t update();
+  void update();
 
 protected:
   /*!
@@ -138,6 +130,16 @@ protected:
    * \brief Destructor
    */
   virtual ~RenderingManager();
+
+  /*!
+   * \brief  Initialise the Rendering Window
+   * \param  title Title for the window
+   * \return SaC2 status
+   *         - \b STATUS_SUCCESS
+   *         - \b STATUS_ALREADY
+   *         - \b STATUS_FAIL
+   */
+  void initialize();
 
 private:
   /*!
@@ -158,7 +160,7 @@ private:
   sf::ContextSettings  m_settings;  //!< Window settings
   unsigned long        m_window_style;     //!< Window style
 
-  sf::Event           m_event;            //!< Event
+  sf::Event            m_event;            //!< Event
 
 };  // class RenderingManager
 

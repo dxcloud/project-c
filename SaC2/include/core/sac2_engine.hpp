@@ -76,7 +76,7 @@ protected:
    *         - \b STATUS_SUCCESS
    *         - \b STATUS_FAIL
    */
-  status_t initialize();
+  void initialize();
 
   /*!
    * \brief   Main loop
@@ -107,12 +107,9 @@ inline Engine::Engine(const std::string& title):
   p_input_manager(0)
 {
 #ifdef SAC2_LOGGER_ENABLED
-  Logger::create();
   Logger::log_info("Engine::constructor - start initialization");
 #endif
-  if (STATUS_SUCCESS == initialize()) {
-    m_engine_state = INITILIAZED;
-  }
+  initialize();
 }
 
 //----------------------------------------------------------------------------
@@ -123,7 +120,6 @@ inline Engine::~Engine()
   cleanup();
 #ifdef SAC2_LOGGER_ENABLED
   Logger::log_info("Engine::destructor - successfully destroyed");
-  Logger::destroy();
 #endif
 }
 

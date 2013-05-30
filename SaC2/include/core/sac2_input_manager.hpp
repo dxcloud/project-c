@@ -38,20 +38,10 @@ public:
   void set_input_config(InputConfig* input_config);
 
   /*!
-   * \brief Initialized InputManager
-   */
-  status_t initialize();
-
-  /*!
    * \brief   Update InputManager
    * \details This method calls handle_inputs() of the InputConfig.
    */
-  status_t update();
-
-  /*!
-   * \brief Delete the current input configuration
-   */
-  status_t cleanup();
+  void update();
 
 protected:
   /*!
@@ -63,6 +53,11 @@ protected:
    * \brief Default destructor
    */
   ~InputManager();
+
+  /*!
+   * \brief Delete the current input configuration
+   */
+  void cleanup();
 
 private:
   /*!
@@ -89,10 +84,10 @@ inline InputManager::InputManager():
   Manager<InputManager>(),
   p_input_config(new DefaultInputConfig)
 {
-#ifdef SAC2_LOGGER_ENABLED
-  Logger::log_info("InputManager::constructor - start initialization");
-#endif
   initialize();
+#ifdef SAC2_LOGGER_ENABLED
+  Logger::log_info("InputManager::constructor - successfully initialized");
+#endif
 }
 
 //----------------------------------------------------------------------------

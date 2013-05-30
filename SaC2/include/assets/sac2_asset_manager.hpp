@@ -82,16 +82,10 @@ public:
   void load_font(const sac2_asset_id_t& id);
   void load_image(const sac2_asset_id_t& id);
 
-  /*!
-   * \brief Initialize the manager
-   * \return SaC2 status
-   */
-  status_t initialize();
 
-  status_t update();
+  void update();
 
  protected:
-
   /*!
    * \brief Private Constructor
    */
@@ -101,6 +95,12 @@ public:
    * \brief Private Destructor
    */
   ~AssetManager();
+
+  /*!
+   * \brief Initialize the manager
+   * \return SaC2 status
+   */
+  void initialize();
 
  private:
 

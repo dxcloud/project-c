@@ -3,20 +3,18 @@
 namespace sac2
 {
 
-status_t InputManager::initialize()
+//----------------------------------------------------------------------------
+//  InputManager::update
+//----------------------------------------------------------------------------
+void InputManager::update()
 {
-  if (false == m_initialized) {
-//    set_input_config(new DefaultInputConfig);
-    m_initialized = true;
-#ifdef SAC2_LOGGER_ENABLED
-    Logger::log_info("InputManager::initialize - successfully initialized");
-#endif
-    return STATUS_SUCCESS;
-  }
-  return STATUS_ALREADY;
+  p_input_config->handle_inputs();
 }
 
-status_t InputManager::cleanup()
+//----------------------------------------------------------------------------
+//  InputManager::cleanup
+//----------------------------------------------------------------------------
+void InputManager::cleanup()
 {
   if (0 != p_input_config) {
     delete p_input_config;
@@ -24,17 +22,12 @@ status_t InputManager::cleanup()
 #ifdef SAC2_LOGGER_ENABLED
     Logger::log_info("InputManager::cleanup - input config removed");
 #endif
-    return STATUS_SUCCESS;
   }
-  return STATUS_ALREADY;
 }
 
-status_t InputManager::update()
-{
-  p_input_config->handle_inputs();
-  return STATUS_SUCCESS;
-}
-
+//----------------------------------------------------------------------------
+//  InputManager::set_input_config
+//----------------------------------------------------------------------------
 void InputManager::set_input_config(InputConfig* input_config)
 {
   cleanup();
