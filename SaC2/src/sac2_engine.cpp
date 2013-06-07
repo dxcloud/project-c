@@ -2,32 +2,47 @@
  * \file sac2_engine.cpp
  */
 
+#include <sstream>
+
 #include <sac2_engine.hpp>
 #include <sac2_rendering_manager.hpp>
 #include <sac2_input_manager.hpp>
+#include <sac2_asset_manager.hpp>
 
 namespace sac2
 {
 
-engine_state_t Engine::m_engine_state(UNINITIALIZED);
+//----------------------------------------------------------------------------
+//  Engine::m_engine_state
+//----------------------------------------------------------------------------
+state_t Engine::m_engine_state(SHUTDOWN);
+
+//----------------------------------------------------------------------------
+//  Engine::Engine
+//----------------------------------------------------------------------------
+Engine::Engine(const std::string& title):
+  p_rendering_manager(RenderingManager::create()),
+  p_input_manager(InputManager::create()),
+  p_asset_manager(AssetManager::create())
+{
+#ifdef SAC2_LOGGER_ENABLED
+  Logger::log_info("Engine::constructor - start initialization");
+#endif
+  initialize();
+}
 
 //----------------------------------------------------------------------------
 //  Engine::initialize
 //----------------------------------------------------------------------------
 void Engine::initialize()
 {
-//  p_state_manager = StateManager::get_instance();
-//  p_asset_manager = AssetManager::get_instance();
-//  p_asset_manager->initialize();
-  p_rendering_manager = RenderingManager::create();
   if (false == p_rendering_manager->is_initialized()) { return; }
-  p_input_manager = InputManager::create();
   if (false == p_input_manager->is_initialized()) { return; }
-//  p_rendering_manager->initialize();
-//  p_window_manager->initialize("SaCDemo");
+  if (false == p_asset_manager->is_initialized()) { return; }
+
   m_engine_state = INITIALIZED;
 #ifdef SAC2_LOGGER_ENABLED
-  Logger::log_info("Engine::initialize - successfully initialized");
+  Logger::log_debug("Engine::initialize - successfully initialized");
 #endif
 }
 
@@ -36,7 +51,18 @@ void Engine::initialize()
 //----------------------------------------------------------------------------
 void Engine::parse_options(int argc, char* argv[])
 {
-
+#ifdef SAC2_LOGGER_ENABLED
+  Logger::log_debug("Engine::parse_options - checking passing arguments");
+  for (int i(0); i < argc; ++i) {
+    std::stringstream argument;
+    argument << "argv["
+             << i
+             << "]"
+             << " = "
+             << argv[i];
+    Logger::log_debug(argument.str());
+  }
+#endif
 }
 
 //----------------------------------------------------------------------------
@@ -78,6 +104,7 @@ void Engine::cleanup()
 {
   RenderingManager::destroy();
   InputManager::destroy();
+  AssetManager::destroy();
 #ifdef SAC2_LOGGER_ENABLED
   Logger::log_info("Engine::cleanup - all managers deleted");
 #endif
