@@ -1,147 +1,165 @@
-#include "sac2_state_manager.hpp"
-#include "sac2_game_state.hpp"
+#include <sac2_state_manager.hpp>
+#include <sac2_game_state.hpp>
 
 namespace sac2
 {
+
+//----------------------------------------------------------------------------
+//  StateManager::update
+//----------------------------------------------------------------------------
+void StateManager::update()
+{
+  if (false == is_empty()) {
+    if (RUNNING == m_state_stack.back()->m_state_status) {
+      m_state_stack.back()->update();
+    }
+  }
+}
+
+//----------------------------------------------------------------------------
+//  StateManager::add_state
+//----------------------------------------------------------------------------
+status_t StateManager::add_state(state_id_t id, GameState* game_state)
+{
+  if (m_game_states.end() == m_game_states.find(id)) {
+    m_game_states.insert(std::make_pair(id, game_state));
+    return STATUS_SUCCESS;
+  }  // if state_id_t NOT used yet
+  return STATUS_ALREADY;
+}
+
+//----------------------------------------------------------------------------
+//  StateManager::change_state
+//----------------------------------------------------------------------------
+status_t StateManager::change_state(state_id_t id)
+{
+  pause_state();  // attempt to pause the current game state
+  if (0 == find_state(id)) { return STATUS_INVAL; }
+  m_state_stack.push_back(find_state(id));  // add the new state on the stack
+  switch (m_state_stack.back()->m_state_status) {
+    case UNINITIALIZED:
+      initialize_state();
+      break;
+    case PAUSED:
+      resume_state();
+      break;
+    case STOPPED:
+      reset_state();
+      break;
+    default:
+      break;
+  }
+  return STATUS_SUCCESS;
+}
+
+//----------------------------------------------------------------------------
+//  StateManager::initialize_state
+//----------------------------------------------------------------------------
+status_t StateManager::initialize_state()
+{
+  if (false == is_empty()) {
+    if (UNINITIALIZED == m_state_stack.back()->m_state_status) {
+      m_state_stack.back()->initialize();
+      m_state_stack.back()->m_state_status = RUNNING;
+      return STATUS_SUCCESS;
+    }  // initialize the state
+  }
+  return STATUS_CANCEL;
+}
+
+//----------------------------------------------------------------------------
+//  StateManager::pause_state
+//----------------------------------------------------------------------------
+status_t StateManager::pause_state()
+{
+  if (false == is_empty()) {
+    if (RUNNING == m_state_stack.back()->m_state_status) {
+      m_state_stack.back()->pause();
+      m_state_stack.back()->m_state_status = PAUSED;
+      return STATUS_SUCCESS;
+    }
+  }
+  return STATUS_CANCEL;
+}
+
+//----------------------------------------------------------------------------
+//  StateManager::resume_state
+//----------------------------------------------------------------------------
+status_t StateManager::resume_state()
+{
+  if (false == is_empty()) {
+    if (PAUSED == m_state_stack.back()->m_state_status) {
+      m_state_stack.back()->resume();
+      m_state_stack.back()->m_state_status = RUNNING;
+      return STATUS_SUCCESS;
+    }
+  }
+  return STATUS_CANCEL;
+}
+
+//----------------------------------------------------------------------------
+//  StateManager::clean_state
+//----------------------------------------------------------------------------
+status_t StateManager::clean_state()
+{
+  if (false == is_empty()) {
+    if (PAUSED == m_state_stack.back()->m_state_status) {
+      m_state_stack.back()->cleanup();
+      m_state_stack.back()->m_state_status = STOPPED;
+      return STATUS_SUCCESS;
+    }
+  }
+  return STATUS_CANCEL;
+}
+
+//----------------------------------------------------------------------------
+//  StateManager::drop_state
+//----------------------------------------------------------------------------
+status_t StateManager::drop_state()
+{
+  if (false == is_empty()) {
+    if (STOPPED == m_state_stack.back()->m_state_status) {
+      m_state_stack.pop_back();
+    }
+    resume_state();
+    return STATUS_SUCCESS;
+  }
+  return STATUS_CANCEL;
+}
+
+//----------------------------------------------------------------------------
+//  StateManager::reset_state
+//----------------------------------------------------------------------------
+status_t StateManager::reset_state()
+{
+  if (false == is_empty()) {
+    if (STOPPED == m_state_stack.back()->m_state_status) {
+      m_state_stack.back()->initialize();
+      m_state_stack.back()->m_state_status = RUNNING;
+      return STATUS_SUCCESS;
+    }
+  }
+  return STATUS_CANCEL;
+}
+
+//----------------------------------------------------------------------------
+//  StateManager::initialize
+//----------------------------------------------------------------------------
 void StateManager::initialize()
 {
 
 }
 
-status_t StateManager::set_state_to_active(sac2_state_id_t id)
-{
-  if (false == m_states.empty()) {
-    GameState* state = find_state(id);
-    if (0 != state) { return state->resume(); }
-  } // if m_states is NOT empty
-
-  return STATUS_INVAL;
-}
-
-status_t StateManager::set_state_to_inactive(sac2_state_id_t id)
-{
-  if (false == m_states.empty()) {
-    GameState* state = find_state(id);
-    if (0 != state) { return state->pause(); }
-  } // if m_states is NOT empty
-
-  return STATUS_INVAL;
-}
-
-status_t StateManager::set_state_to_current(sac2_state_id_t id, bool activated)
-{
-  if (false == m_states.empty()) {
-    if (STATE_CURRENT == id) {
-      if (true == activated) { return m_states.back()->resume(); }
-      else { return m_states.back()->pause(); }
-    } // if STATE_CURRENT
-
-    for (state_it it(m_states.begin()); it < m_states.end(); ++it) {
-      if (id == (*it)->get_state_id()) {
-        GameState* state = dynamic_cast<GameState*> (*it);
-        m_states.erase(it);
-        m_states.push_back(state);
-        state = 0;
-        if (true == activated) { return m_states.back()->resume(); }
-        else { return m_states.back()->pause(); }
-      } // if id found
-    }
-  } // if m_states is NOT empty
-
-  return STATUS_INVAL;
-}
-
-status_t StateManager::add_state(GameState* state, bool activated)
-{
-  //add a state
-  m_states.push_back(state);
-  m_states.back()->initialize();
-
-  if (true == activated) { return m_states.back()->resume(); }
-  else { return m_states.back()->pause(); }
-}
-
-status_t StateManager::reset_state(sac2_state_id_t id)
-{
-  if (false == m_states.empty()) {
-    GameState* state = find_state(id);
-    state->pause();
-    state->reset();
-    state = 0;
-
-    return STATUS_SUCCESS;
-  } // if m_states is NOT empty
-  return STATUS_INVAL;
-}
-
-sac2_status StateManager::drop_state()
-{
-  if (false == m_states.empty()) {
-    GameState* state = m_states.back();
-    m_states.pop_back();
-    m_dropped_states.push_back(state);
-    state = 0;
-    return STATUS_SUCCESS;
-  } // if m_states is NOT empty
-  return STATUS_INVAL;
-}
-
-status_t StateManager::remove_state(sac2_state_id_t id)
-{
-  if (STATE_CURRENT == id) return drop_state();
-
-  if (false == m_states.empty()) {
-    for (state_it it(m_states.begin()); it < m_states.end(); ++it) {
-      if (id == (*it)->get_state_id()) {
-        GameState* state = dynamic_cast<GameState*> (*it);
-        m_states.erase(it);
-        m_dropped_states.push_back(state);
-        state = 0;
-        return STATUS_SUCCESS;
-      } // if id found
-    }
-  } // if m_states is NOT empty
-
-  return STATUS_INVAL;
-}
-
+//----------------------------------------------------------------------------
+//  StateManager::cleanup
+//----------------------------------------------------------------------------
 void StateManager::cleanup()
 {
-  while (false == m_dropped_states.empty()) {
-    GameState* state = m_dropped_states.back();
-    m_dropped_states.pop_back();
-    state->cleanup();
-    delete state;
-    state = 0;
-  } // while m_dropped_states is NOT empty
-}
-
-GameState* StateManager::find_state(sac2_state_id_t id)
-{
-  if (STATE_CURRENT == id) return m_states.back();
-
-  for (state_it it(m_states.begin()); it < m_states.end(); ++it) {
-    if ((*it)->get_state_id() == id) {
-      return dynamic_cast<GameState*>(*it);
-    }
-  }
-  return 0;
-}
-
-status_t StateManager::handle_events(const sf::Event& event
-                                          )
-{
-  if (false == m_states.empty()) {
-    return m_states.back()->handle_events(event);
-  }
-  else { return STATUS_SUCCESS; }
-}
-
-void StateManager::update()
-{
-  if (false == m_states.empty()) {
-    m_states.back()->update();
-  }
+  for (state_iter_t iter(m_game_states.begin()); iter != m_game_states.end(); ++iter) {
+    delete iter->second;
+    iter->second = 0;
+  }  // delete the state collection
+  m_game_states.clear();
 }
 
 }

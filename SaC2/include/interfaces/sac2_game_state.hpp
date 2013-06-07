@@ -9,34 +9,36 @@
 #ifndef SAC2_GAME_STATE_HPP
 #define SAC2_GAME_STATE_HPP
 
-#include "sac2_type.hpp"
-#include "sac2_state_manager.hpp"
-#include "sac2_asset_manager.hpp"
-#include "sac2_rendering_manager.hpp"
+#include <sac2_type.hpp>
+#include <sac2_state_manager.hpp>
+#include <sac2_asset_manager.hpp>
+#include <sac2_rendering_manager.hpp>
+#include <sac2_input_manager.hpp>
+#include <sac2_logger.hpp>
 
 namespace sac2
 {
-
-//! \class GameState
 /*!
+ * \class   State
  * \brief   Base class interface for all game states
  * \details The following member functions must be defined by any derived
  *          class:
  *          - \b initialize()
- *          - \b handle_events()
+ *          - \b pause()
+ *          - \b resume()
  *          - \b update()
- *          - \b draw()
  *          - \b cleanup()
  */
 class GameState
 {
- public:
+public:
+  friend class StateManager;
 
+public:
    /*!
-    * \brief Constructor
-    * \param id Game State identifier
+    * \brief Default constructor
     */
-  GameState(sac2_state_id_t id);
+  GameState();
 
   /*!
    * \brief Destructor
@@ -44,10 +46,10 @@ class GameState
   virtual ~GameState();
 
   /*!
-   * \brief  Get the identifier of the state
-   * \return Identifier of the state
+   * \brief  Test if the state is initialized
+   * \return \b true if the state is initialized, \b false otherwise
    */
-  sac2_state_id_t get_state_id() const;
+  bool is_initialized() const;
 
   /*!
    * \brief  Test if the state is paused
@@ -56,113 +58,55 @@ class GameState
   bool is_paused() const;
 
   /*!
-   * \brief  Set the state to pause
-   * \return SaC2 status
+   * \brief  Test if the state is running
+   * \return \b true if the state is running, \b false otherwise
    */
-  status_t pause();
+  bool is_running() const;
+
+  /*!
+   * \brief  Test if the state is stopped
+   * \return \b true if the state is stopped, \b false otherwise
+   */
+  bool is_stopped() const;
+
+protected:
+  /*!
+   * \brief Initialize the state
+   */
+  virtual void initialize() = 0;
+
+  /*!
+   * \brief  Set the state to pause
+   */
+  virtual void pause() = 0;
   
   /*!
    * \brief  Resume if the state is paused
-   * \return SaC2 status
    */
-  status_t resume();
-
-  /*!
-   * \brief Initialize the state
-   * \return SaC2 status
-   */
-  virtual status_t initialize() = 0;
-
-  /*!
-   * \brief  Reset the state
-   * \return SaC2_status
-   */
-  status_t reset();
-
-  /*!
-   * \brief  Handle input events
-   * \param  event Type of event
-   * \param  input Input from Keyboard and mouse
-   * \return SaC2 status
-   */
-  virtual status_t handle_events(const sf::Event& event
-                                      ) = 0;
+  virtual void resume() = 0;
 
   /*!
    * \brief   Update the state
    * \details Change the position of a sprite for example...
-   * \return  SaC status
    */
-  virtual status_t update() = 0;
-
-  /*!
-   * \brief  Display sprites on the screen
-   * \return SaC2 status
-   */
-  virtual status_t draw() = 0;
+  virtual void update() = 0;
 
   /*!
    * \brief  Clean before the state is removed
-   * \return SaC2 status
    */
-  virtual status_t cleanup() = 0;
+  virtual void cleanup() = 0;
 
 protected:
-
-  const sac2_state_id_t m_state_id;       //!< Identifier of the state
-  bool                  m_initialized;    //!< \b true if the state is initialized
-  bool                  m_paused;         //!< \b false if the state is active
   StateManager*         p_state_manager;  //!< State Manager
   AssetManager*         p_asset_manager;  //!< Asset Manager
-  RenderingManager*        p_window_manager; //!< Window Manager
+  RenderingManager*     p_rendering_manager; //!< Window Manager
+  InputManager*         p_input_manager;
 
- private:
+private:
+  state_t               m_state_status;
 };  // class GameState
 
-
-inline GameState::GameState(sac2_state_id_t id):
-    m_state_id(id),
-    m_initialized(false),
-    m_paused(false),
-    p_state_manager(0),
-    p_asset_manager(0),
-    p_window_manager(0)
-{
-  p_state_manager = StateManager::create();
-  p_asset_manager = AssetManager::create();
-  p_window_manager = RenderingManager::create();
-}
-
-inline GameState::~GameState()
-{
-  // do nothing
-}
-
-inline sac2_state_id_t GameState::get_state_id() const
-{
-  return m_state_id;
-}
-
-inline bool GameState::is_paused() const {
-  return m_paused;
-}
-
-inline status_t GameState::pause()
-{
-  m_paused = true;
-  return STATUS_SUCCESS;
-}
-
-inline status_t GameState::resume() {
-  m_paused = false;
-  return STATUS_SUCCESS;
-}
-
-inline status_t GameState::reset()
-{
-  // do nothing
-  return STATUS_SUCCESS;
-}
+#include <sac2_game_state.inl>
 
 }
 

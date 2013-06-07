@@ -10,124 +10,121 @@
 #define SAC2_STATE_MANAGER_HPP
 
 #include <vector>
+#include <map>
 
-#include "sac2_type.hpp"
-#include "sac2_manager.hpp"
+#include <sac2_type.hpp>
+#include <sac2_manager.hpp>
+#include <sac2_logger.hpp>
 
 namespace sac2
 {
 
 class GameState;  // forward declaration
 
-//! GameState iterator
-typedef std::vector<GameState*>::iterator state_it;
+typedef std::vector<GameState*>::iterator state_it;  //!< GameState iterator
+typedef std::map<state_id_t, GameState*> state_map_t;
+typedef state_map_t::iterator state_iter_t;
+typedef state_map_t::const_iterator state_const_iter_t;
 
-//! \class StateManager
 /*!
+ * \class   StateManager
  * \brief   The class \b StateManager is used for Game states management
- * \warning The class is implemented with Singleton Pattern
+ * \details A State Machine is implemented by this manager.
+ * \note    The class is implemented with Singleton Pattern.
  */
-class StateManager: public Manager<StateManager>
+class StateManager:
+  public Manager<StateManager>
 {
 public:
-
   friend class Manager<StateManager>;
 
+public:
   /*!
    * \brief  Test whether the state stack is empty
-   * \return Return \b true if the state stack is empty, \b false otherwise
+   * \return Return \b true if the state stack is empty, \b false otherwise.
    */
-  bool is_empty() const
-  {
-    return m_states.empty();
-  }
+  bool is_empty() const;
 
   /*!
-   * \brief   Get the current state
-   * \return  Pointer of the current state
+   * \brief   Update the StateManager
+   * \details The current RUNNING game state will be updated.
    */
-  GameState* get_state() const
-  {
-    return m_states.back();
-  }
-
-  /*!
-   * \brief   Set the state specified by \a id to active
-   * \details If the parameter \a id is NOT specified, the current state will
-   *          be set to active
-   * \param   id Identifier of the state to make it active
-   * \return  SaC2 status
-   */
-  status_t set_state_to_active(sac2_state_id_t id=STATE_CURRENT);
-
-  /*!
-   * \brief   Set the state specified by \a id to inactive
-   * \details If the parameter \a id is NOT specified, the current state will
-   *          be set to inactive
-   * \param   id Identifier of the state to make it inactive
-   * \return  SaC2 status
-   */
-  status_t set_state_to_inactive(sac2_state_id_t id=STATE_CURRENT);
-
-  /*!
-   * \brief   Make the state specified by \a id the current state
-   * \details Depends on \a activated, the state will be set to active
-   *          or inactive. If \a id is \b STATE_CURRENT, the state will only
-   *          be set to active or inactive
-   * \param   id        Identifier of the state to make it the current state
-   * \param   activated Set the current state to active or inactive
-   * \return  SaC2 status
-   */
-  status_t set_state_to_current(sac2_state_id_t id, bool activated=true);
-
-  /*!
-   * \brief   Add a state on the state stack, make it as the current state
-   * \details Depends on \a activated, the added state will be set to active
-   *          or inactive.
-   * \param   state      Pointer of the state to be added
-   * \param   activated  Set the added state to active or inactive
-   * \return  SaC2 status
-   */
-  status_t add_state(GameState* state, bool activated=true);
-
-  /*!
-   * \brief   Reset the state specified by \a id
-   * \details If the parameter \a id id NOT specified the current state will
-   *          be reset. The state will be set to inactive
-   * \param   id Identifier of the state to be reset
-   * \return  SaC2 status
-   */
-  status_t reset_state(sac2_state_id_t id=STATE_CURRENT);
-
-  /*!
-   * \brief   Remove the current state from state stack and return to the
-   *          previous state on the stack.
-   * \return  SaC2 status
-   */
-  sac2_status drop_state();
-
-  /*!
-   * \brief   Remove the state specified by \b id from the state stack
-   * \details If the current state should be removed use \b drop_state()
-   *          instead
-   * \param   id Identifier of the state to be removed
-   * \return  SaC2 status
-   */
-  status_t remove_state(sac2_state_id_t id);
-
-  /*!
-   * \brief  Handle events
-   * \param  event Type of event
-   * \param  input Input from Keyboard or Mouse
-   * \return SaC2 status
-   */
-  status_t handle_events(const sf::Event& event
-                              );
-
   void update();
 
-protected:
+  /*!
+   * \brief   Add a new state to the collection of the states
+   * \param   id         Identifier of the new state.
+   * \param   game_state Pointer of the state to be added, it must be
+   *                     allocated with the keyword \b new.
+   * \details The parameter \b id must be unique, if it is already used
+   *          the state will NOT be added.
+   */
+  status_t add_state(state_id_t id, GameState* game_state);
 
+  /*!
+   * \brief  Change the current state to the one specified by \b id
+   * \param  id Identifier of the state to be played
+   * \return The following status could be returned:
+   *         - \b STATUS_SUCCESS
+   *         - \b STATUS_INVAL
+   */
+  status_t change_state(state_id_t id);
+
+  /*!
+   * \brief   Initialize the current state
+   * \return  The following status could be returned:
+   *          - \b STATUS_SUCCESS
+   *          - \b STATUS_CANCEL
+   * \details Resume the state if it is \b UNINITIALIZED
+   */
+  status_t initialize_state();
+
+  /*!
+   * \brief   Set the current state to pause
+   * \return  The following status could be returned:
+   *          - \b STATUS_SUCCESS
+   *          - \b STATUS_CANCEL
+   * \details Pause the current game state if it is \b RUNNING.
+   */
+  status_t pause_state();
+
+  /*!
+   * \brief   Resume the current state
+   * \return  The following status could be returned:
+   *          - \b STATUS_SUCCESS
+   *          - \b STATUS_CANCEL
+   * \details Resume the state if it is \b PAUSED
+   */
+  status_t resume_state();
+
+  /*!
+   * \brief   Stop and clean the state
+   * \return  The following status could be returned:
+   *          - \b STATUS_SUCCESS
+   *          - \b STATUS_CANCEL
+   * \details Clean the state if it is \b PAUSED
+   */
+  status_t clean_state();
+
+  /*!
+   * \brief   Remove the current state from the stack
+   * \return  The following status could be returned:
+   *          - \b STATUS_SUCCESS
+   *          - \b STATUS_CANCEL
+   * \details Remove the state if it is \b STOPPED
+   */
+  status_t drop_state();
+
+  /*!
+   * \brief   Reinitialize the current state
+   * \return  The following status could be returned:
+   *          - \b STATUS_SUCCESS
+   *          - \b STATUS_CANCEL
+   * \details Reset the state if it is \b STOPPED
+   */
+  status_t reset_state();
+
+protected:
   /*!
    * \brief   Default private Constructor
    * \details Only one State Manager is allowed
@@ -142,56 +139,77 @@ protected:
 
   /*!
    * \brief  Initialize the manager
-   * \return SaC2 status
    */
   void initialize();
 
   /*!
-   * \brief  Clean all states of the dropped state stack
-   * \return SaC2 status
+   * \brief  Clean all states of the state collection
    */
   void cleanup();
 
- private:
+private:
   /**
    * \brief   Private copy constructor
    * \details This class is NOT allowed to be copied
    */
-  StateManager(const StateManager& state_manager);
+  StateManager(const StateManager&);
 
   /**
    * \brief   Private assignment operator
    * \details This class is NOT allowed to be copied
    */
-  StateManager& operator=(const StateManager& state_manager);
+  StateManager& operator=(const StateManager&);
 
   /*!
-   * \brief  Find the state specified by \a id
+   * \brief  Find the state specified by the parameter \b id
    * \param  id Identifier of the desired state
-   * \return Pointer of the desired state
-   *         Return 0 if NOT found
+   * \return Pointer of the desired state or 0 if the state is NOT found.
    */
-  GameState* find_state(sac2_state_id_t id=STATE_CURRENT);
+  GameState* find_state(state_id_t id) const;
 
   //! Stack of currently used states
-  std::vector<GameState*> m_states;
-  //! Stack of states ready to be cleaned
-  std::vector<GameState*> m_dropped_states;
+  std::vector<GameState*> m_state_stack;
+  //! Map of available states
+  std::map<state_id_t, GameState*> m_game_states;
 };  // class StateManager
 
-
+//----------------------------------------------------------------------------
+//  StateManager::constructor
+//----------------------------------------------------------------------------
 inline StateManager::StateManager():
-    m_states(0),
-    m_dropped_states(0)
+  m_state_stack(),
+  m_game_states()
 {
-
+#ifdef SAC2_LOGGER_ENABLED
+  Logger::log_debug("StateManager::constructor - start initialization");
+#endif
+  initialize();
 }
 
+//----------------------------------------------------------------------------
+//  StateManager::destructor
+//----------------------------------------------------------------------------
 inline StateManager::~StateManager() {
-  while (false == m_states.empty()) {
-    drop_state();
-  }
   cleanup();
+#ifdef SAC2_LOGGER_ENABLED
+  Logger::log_debug("StateManager::destructor - successfully destroyed");
+#endif
+}
+
+//----------------------------------------------------------------------------
+//  StateManager::is_empty
+//----------------------------------------------------------------------------
+inline bool StateManager::is_empty() const
+{
+  return m_state_stack.empty();
+}
+
+//----------------------------------------------------------------------------
+//  StateManager::find_state
+//----------------------------------------------------------------------------
+inline GameState* StateManager::find_state(state_id_t id) const
+{
+  return m_game_states.find(id)->second;
 }
 
 }  // namespace sac2

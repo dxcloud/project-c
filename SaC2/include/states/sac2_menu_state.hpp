@@ -32,7 +32,7 @@ public:
    * \brief Default Constructor
    * \param id Identifier of the state
    */
-  MenuState(sac2_state_id_t id=STATE_MENU);
+  MenuState();
 
   /*!
    * \brief Destructor
@@ -43,35 +43,28 @@ public:
    * \brief  Initialize the state
    * \return SaC2 Status
    */
-  virtual status_t initialize();
-
-  /*!
-   * \brief  Handle events
-   * \param  event Type of the event
-   * \param  input Input from Keyboard or Mouse
-   * \return SaC2 status
-   */
-  virtual status_t handle_events(const sf::Event& event
-                                      );
+  virtual void initialize();
 
   /*!
    * \brief  Update the state
    * \return SaC2 status
    */
-  status_t update();
+  void update();
 
   /*!
    * \brief  Draw
    * \return SaC2 status
    */
-  status_t draw();
+  void draw();
 
   /*!
    * \brief  Cleanup
    * \return SaC2 status
    */
-  status_t cleanup();
+  void cleanup();
 
+  void pause();
+  void resume();
 private:
 
   AssetSprite m_sprite;  //!< Sample sprite
@@ -81,8 +74,8 @@ private:
 };  // class MenuState
 
 
-inline MenuState::MenuState(sac2_state_id_t id):
-    GameState(id),
+inline MenuState::MenuState():
+    GameState(),
     m_sprite(),
     m_text(),
     m_sound(),
