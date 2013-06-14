@@ -11,6 +11,9 @@ CXXFLAGS  += -Wall -pedantic -O2
 #CXXFLAGS  += -DRAPIDXML_NO_EXCEPTIONS
 LDFLAGS   +=
 
+R_OUTPUT   = resource
+CXXFLAGS  += -DRESOURCE_FILENAME=\"$(R_OUTPUT)\"
+
 ### Targets
 ALL        = all
 EXEC       = srg
@@ -39,7 +42,7 @@ $(SRG_OBJECT): $(SRG_SOURCE) $(SRG_HEADER)
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 $(CLEAN):
-	$(RM) -rf $(EXEC) *~ *.o
+	$(RM) -rf $(EXEC) *~ *.o $(R_OUTPUT).cpp $(R_OUTPUT).hpp
 
 $(HELP):
 	@$(PRINT) "Type \"make\" to build"

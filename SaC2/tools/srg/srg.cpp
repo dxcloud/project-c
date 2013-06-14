@@ -19,7 +19,6 @@
 namespace srg
 {
 
-const char* Srg::RESOURCE_FILENAME("res.cpp");
 const char* Srg::ATTRIBUTE_DIR("dir");
 const char* Srg::ATTRIBUTE_ID("id");
 const char* Srg::ATTRIBUTE_FILENAME("filename");
@@ -147,6 +146,56 @@ void Srg::parse_xml()
   }
 }
 
+void Srg::generate() const
+{
+  generate_header();
+  generate_source();
+}
+
+void Srg::generate_header() const
+{
+  std::ofstream ofs;
+  std::string header(m_res_filename + ".hpp");
+  ofs.open(header.c_str());
+  if (true == ofs.is_open()) {
+    ofs << "#ifndef SRG_RESOURCE_HPP" << std::endl
+        << "#define SRG_RESOURCE_HPP" << std::endl << std::endl
+        << "enum {" << std::endl;
+    for (filename_it_t it(m_filenames.begin()); it != m_filenames.end(); ++it) {
+      ofs << "  " << it->first << "," << std::endl;
+    }
+    ofs << "  NUMBER_ELEMENTS" << std::endl
+        << "};" << std::endl << std::endl
+        << "#endif"<< std::endl << std::endl;
+  }
+}
+
+void Srg::generate_source() const
+{
+  std::ofstream ofs;
+  std::string source(m_res_filename + ".cpp");
+  ofs.open(source.c_str());
+  if (true == ofs.is_open()) {
+    ofs << "#include <sac2_asset_table.hpp>" << std::endl
+        << "#include \"" << m_res_filename << ".hpp\""
+        << std::endl << std::endl
+        << "namespace sac2" << std::endl
+        << "{" << std::endl
+        << "asset_map_t AssetTable::create_table()" << std::endl
+        << "{" << std::endl
+        << "  asset_map_t table;" << std::endl;
+    for (filename_it_t it(m_filenames.begin()); it != m_filenames.end(); ++it) {
+      ofs << "  table[static_cast<asset_id_t>(" << it->first << ")] = "
+          << "\"" << it->second << "\";" << std::endl;
+    }
+    ofs << "  return table;" << std::endl
+        << "}" << std::endl << std::endl
+        << "}" << std::endl << std::endl;
+  }
+  ofs.close();
+}
+
+
 }
 
 
@@ -169,6 +218,7 @@ int main(int argc, char* argv[])
   }
   srg::Srg generator(argv[1]);
   generator.parse_xml();
+  generator.generate();
 
   return 0;
 }

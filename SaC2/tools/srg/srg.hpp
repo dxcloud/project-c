@@ -6,11 +6,16 @@
 
 #include <rapidxml.hpp>
 
+#  ifndef RESOURCE_FILENAME
+#  define RESOURCE_FILENAME "resource"
+#  endif
+
 namespace srg
 {
 
 typedef rapidxml::xml_node<>* xml_node_ptr;
 typedef rapidxml::xml_attribute<>* xml_attribute_ptr;
+typedef std::map<std::string, std::string>::const_iterator filename_it_t;
 
 typedef enum resource_type_t {
   IMAGE_RESOURCE,
@@ -36,14 +41,11 @@ public:
   ~Srg();
 
   /*!
-   * \brief 
-   */
-  void set_xml_filename(const std::string& filename);
-
-  /*!
    * \brief
    */
   void parse_xml();
+
+  void generate() const;
 
 private:
   bool is_srg_node(const char* name1, const char* name2) const;
@@ -61,7 +63,10 @@ private:
   void check_dir_attribute(xml_node_ptr node, bool all_path=false);
   void check_id_and_filename_attribute(xml_node_ptr node);
 
-  static const char* RESOURCE_FILENAME;
+  void generate_header() const;
+  void generate_source() const;
+
+private:
   static const char* ATTRIBUTE_DIR;
   static const char* ATTRIBUTE_ID;
   static const char* ATTRIBUTE_FILENAME;
@@ -82,7 +87,7 @@ private:
 //---
 inline Srg::Srg(const std::string& xml_filename):
   m_xml_filename(xml_filename),
-  m_res_filename("/"),
+  m_res_filename(RESOURCE_FILENAME),
   m_res_path()
 {
   m_res_path["image"] = "";
