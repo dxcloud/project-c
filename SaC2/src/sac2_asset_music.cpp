@@ -29,15 +29,11 @@ status_t AssetMusic::set_loop(bool loop)
 
 status_t AssetMusic::load(const std::string& filename)
 {
-  if (false == m_loaded) {
     //m_filename = filename;
     if (false == m_asset.openFromFile(m_filename)) {
       return STATUS_MISS;
     }
-    m_loaded = true;
     return STATUS_SUCCESS;
-  }
-  return STATUS_ALREADY;
 }
 
 }

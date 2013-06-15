@@ -23,12 +23,9 @@ status_t AssetSound::stop()
 
 status_t AssetSound::load_sound(const sf::SoundBuffer& buffer)
 {
-  if (false == m_loaded) {
     m_asset.setBuffer(buffer);
-    m_loaded = true;
     return STATUS_SUCCESS;
-  }
-  return STATUS_ALREADY;
+
 }
 
 }

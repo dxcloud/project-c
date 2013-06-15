@@ -20,14 +20,10 @@ status_t AssetImage::load()
 
 status_t AssetImage::load(const std::string& filename)
 {
-  if (false == m_loaded) {
     if (false == m_asset.loadFromFile(filename)) {
       return STATUS_FAIL;
     }
-    m_loaded = true;
     return STATUS_SUCCESS;
-  }
-  return STATUS_ALREADY;
 }
 
 }

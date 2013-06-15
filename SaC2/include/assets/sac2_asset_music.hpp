@@ -78,17 +78,16 @@ private:
 
 
 inline AssetMusic::AssetMusic():
-  Asset<sf::Music>(ASSET_MUSIC)
+  Asset<sf::Music>()
 {
 
 }
 
 inline AssetMusic::AssetMusic(const std::string& filename):
-  Asset<sf::Music>(ASSET_MUSIC),
+  Asset<sf::Music>(),
   m_filename(filename)
 {
   m_asset.openFromFile(m_filename);
-  m_loaded = true;
 }
 
 inline AssetMusic::~AssetMusic()

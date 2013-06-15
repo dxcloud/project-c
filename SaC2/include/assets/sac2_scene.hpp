@@ -73,13 +73,13 @@ public:
    * \param id   Identifier of the sprite to be added on the scene
    * \param deep 
    */
-  void add_sprite(const sac2_asset_id_t& id, deep_t deep);
+//  void add_sprite(const sac2_asset_id_t& id, deep_t deep);
 
   /*!
    * \brief Test whether the scene contains the sprite which has \b id
    * \param id
    */
-  bool has_sprite(const sac2_asset_type_t& id) const;
+//  bool has_sprite(const sac2_asset_type_t& id) const;
 
   /*!
    * \brief  Get a sprite
@@ -87,7 +87,7 @@ public:
    * \return Return \b NULL whether the sprite is NOT available on the
    *         current scene
    */
-  AssetSprite* get_sprite(const sac2_asset_id_t& id) const;
+//  AssetSprite* get_sprite(const sac2_asset_id_t& id) const;
 
   /*!
    * \brief Get the current music
@@ -99,18 +99,18 @@ public:
    * \brief Remove a sprite from the scene
    * \param id Identifiier of the sprite to be removed
    */
-  void remove_sprite(const sac2_asset_id_t& id);
+//  void remove_sprite(const sac2_asset_id_t& id);
 
   /*!
    * \brief Copy constructor
    */
-  void add_musics(const sac2_asset_id_t& id);
+//  void add_musics(const sac2_asset_id_t& id);
 
   /*!
    * \brief Replace the current music by another one
    * \param id Identifier of the music to be played instead
    */
-  void replace_music(const sac2_asset_id_t& id);
+//  void replace_music(const sac2_asset_id_t& id);
 
   /*!
    * \brief Update the scene

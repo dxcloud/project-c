@@ -11,18 +11,18 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "sac2_type.hpp"
-#include "sac2_asset.hpp"
+#include <sac2_type.hpp>
+#include <sac2_asset.hpp>
 
 namespace sac2
 {
 
-template<typename T>
-//! \class Drawable
 /*!
+ * \class   Drawable
  * \brief   Base class for drawable objects
  * \details Drawable objects are \b DrawableAsset and \b AssetText classes
  */
+template<typename T>
 class Drawable:
   public Asset<T>
 {
@@ -31,7 +31,7 @@ public:
   /*!
    * \brief Default Constructor
    */
-  Drawable(sac2_asset_type_t type);
+  Drawable();
 
   /*!
    * \brief Virtual destructor
@@ -103,8 +103,8 @@ public:
 
 
 template<typename T>
-inline Drawable<T>::Drawable(sac2_asset_type_t type):
-  Asset<T>(type)
+inline Drawable<T>::Drawable():
+  Asset<T>()
 {
 
 }

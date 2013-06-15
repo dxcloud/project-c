@@ -7,12 +7,141 @@
 #include "sac2_asset_image.hpp"
 #include "sac2_asset_music.hpp"
 #include "sac2_asset_sound.hpp"
-#include "sac2_asset_sprite.hpp"
+#include <sac2_asset_sprite.hpp>
 #include "sac2_asset_text.hpp"
+#include <sac2_texture.hpp>
 
 namespace sac2
 {
 
+//----------------------------------------------------------------------------
+//  AssetManager::AssetManager
+//----------------------------------------------------------------------------
+AssetManager::AssetManager():
+  Manager<AssetManager>(),
+  m_asset_table(),
+  m_textures()
+{
+  Manager<AssetManager>::initialize();
+#ifdef SAC2_LOGGER_ENABLED
+  Logger::log_info("AssetManager::constructor - succesfully initialized");
+#endif
+}
+
+//----------------------------------------------------------------------------
+//  AssetManager::~AssetManager
+//----------------------------------------------------------------------------
+AssetManager::~AssetManager()
+{
+  cleanup();
+#ifdef SAC2_LOGGER_ENABLED
+  Logger::log_info("AssetManager::destructor - succesfully destroyed");
+#endif
+}
+
+//----------------------------------------------------------------------------
+//  AssetManager::cleanup
+//----------------------------------------------------------------------------
+void AssetManager::cleanup()
+{
+  for (texture_iter_t iter(m_textures.begin()); iter != m_textures.end(); ++iter) {
+    delete iter->second;
+    iter->second = 0;
+  }
+  m_textures.clear();
+}
+
+//----------------------------------------------------------------------------
+//  AssetManager::load_sprite
+//----------------------------------------------------------------------------
+/*
+status_t AssetManager::load_sprite(AssetSprite& sprite, asset_id_t id)
+{
+  texture_iter_t iter(m_textures.find(id));
+  Logger::log_debug("texture iter try to find");
+  if (m_textures.end() == iter) {
+    Logger::log_debug("...not found");
+    resource_it res_iter(m_resource.m_table.find(id));
+    Logger::log_debug("resource iter try to find");
+    if (m_resource.m_table.end() == res_iter) { return STATUS_MISS; }
+    sf::Texture* texture(new sf::Texture);
+    Logger::log_debug("new texture");
+    if (false == texture->loadFromFile(res_iter->second)) {
+      Logger::log_error("error loading");
+      delete texture;
+      return STATUS_ERROR;
+    }
+    m_textures.insert(std::make_pair(id, texture));
+  }  // if NOT found
+  sprite.load(*m_textures[id]);
+  return STATUS_SUCCESS;
+}
+*/
+
+//----------------------------------------------------------------------------
+//  AssetManager::load_texture
+//----------------------------------------------------------------------------
+status_t AssetManager::load_texture(asset_id_t id)
+{
+  resource_iter_t res_iter(m_asset_table.m_table.find(id));
+  if (m_asset_table.m_table.end() == res_iter) { return STATUS_MISS; }
+  sf::Texture* texture(new sf::Texture);
+  if (false == texture->loadFromFile(res_iter->second)) {
+    delete texture;
+    return STATUS_FAIL;
+  }
+  m_textures.insert(std::make_pair(id, texture));
+  return STATUS_SUCCESS;
+}
+
+//----------------------------------------------------------------------------
+//  AssetManager::unload_texture
+//----------------------------------------------------------------------------
+status_t AssetManager::unload_texture(asset_id_t id)
+{
+  texture_iter_t texture_iter(m_textures.find(id));
+  if (m_textures.end() == texture_iter) { return STATUS_CANCEL; }
+  delete texture_iter->second;
+  texture_iter->second = 0;
+  m_textures.erase(texture_iter);
+  return STATUS_SUCCESS;
+}
+
+//----------------------------------------------------------------------------
+//  AssetManager::get_sprite
+//----------------------------------------------------------------------------
+status_t AssetManager::get_sprite(AssetSprite& sprite, asset_id_t id)
+{
+  texture_iter_t texture_iter(m_textures.find(id));
+  if (m_textures.end() == texture_iter) {
+    if (STATUS_SUCCESS != load_texture(id)) {
+      return STATUS_ERROR;
+    }
+  }
+  sprite.load(*(m_textures[id]));
+  return STATUS_SUCCESS;
+}
+
+
+void AssetManager::update() {
+
+}
+/*
+AssetSprite* AssetManager::get_sprite(asset_id_t id)
+{
+  texture_iter_t iter(m_textures.find(id));
+  if (m_textures.end() == iter) {
+    resource_it res_iter(AssetTable::m_table.find(id));
+    if (m_resource.m_table.end() == res_iter) { return 0; }
+    m_textures[id] = new sf::Texture;
+    m_textures[id]->loadFromFile(res_iter->second);
+  }
+  AssetSprite *sprite(new AssetSprite);
+  sprite->load(*(m_textures[id]));
+  return sprite;
+}
+*/
+/*
 status_t AssetManager::get_sprite(AssetSprite& sprite, const sac2_asset_id_t& id)
 {
   asset_image_it iter = m_images.find(id);
@@ -28,7 +157,7 @@ status_t AssetManager::get_sprite(AssetSprite& sprite, const sac2_asset_id_t& id
   sprite.load(iter->second->get_asset());
   return STATUS_SUCCESS;
 }
-/*
+
 status_t AssetManager::add_asset(sac2_asset_type_t type,
                                       const sac2_asset_id_t& id)
 {
@@ -101,10 +230,10 @@ status_t AssetManager::load_music(AssetMusic& music,
 //  music.load(iter->second->get_asset());
   return STATUS_SUCCESS;
 }
-*/
+
 void AssetManager::initialize()
 {
-/*
+
   if (true == m_initialized) {
     return STATUS_ALREADY;
   }  // if already initialized
@@ -136,7 +265,7 @@ void AssetManager::initialize()
     m_musics.insert(std::make_pair(iter->first,
                                    new AssetMusic(iter->second)));
   }
-*/
+
   m_initialized = true;
 }
 
@@ -152,7 +281,7 @@ void AssetManager::update() {
 
 }
 
-/*void AssetManager::load_sprite(const sac2_asset_id_t& id)
+void AssetManager::load_sprite(const sac2_asset_id_t& id)
 {
   asset_sprite_it iter = m_sprites.find(id);
   if (m_sprites.end() == iter) {

@@ -47,7 +47,7 @@ private:
 
 
 inline AssetFont::AssetFont(const std::string& filename):
-    Asset<sf::Font>(ASSET_FONT),
+    Asset<sf::Font>(),
     m_filename(filename)
 {
 

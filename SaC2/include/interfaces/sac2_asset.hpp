@@ -9,79 +9,70 @@
 #ifndef SAC2_ASSET_HPP
 #define SAC2_ASSET_HPP
 
-#include <string>
-
-#include "sac2_type.hpp"
-#include "sac2_asset_manager.hpp"
-
 namespace sac2
 {
 
-template<typename T>
-
-//! \class Asset
 /*!
- * \brief   Basic virtual class for assets
- * \details \see \b sac2_asset_type_t for the list of available assets
+ * \class   Asset
+ * \brief   Base virtual class for assets
+ * \details An Asset could be:
+ *          - sf::Sprite
+ *          - sf::Sound
+ *          - sf::Music
+ *          - sf::Text
+ *          This template class is basically a wrapper class for SFML
+ *          graphical or audio elements.
  */
+template<typename T>
 class Asset
 {
 public:
   /*!
-   * \brief Constructor
-   * \param type The type of the asset
+   * \brief Default constructor
    */
-  explicit Asset(sac2_asset_type_t type);
+  Asset();
 
   /*!
-   * \brief Destructor
+   * \brief Default destructor
    */
   virtual ~Asset();
 
   /*!
-   * \brief  Test whether the asset is loaded
-   * \return Return \b true if the asset is correctly loaded,
-   *         \b false otherwise
-   */
-  bool is_loaded() const;
-
-  /*!
-   * \brief  Get the asset
-   * \return Asset
+   * \brief  Get SFML Graphical or Audio element
+   * \return 
    */
   const T& get_asset() const;
 
 protected:
-  sac2_asset_type_t m_type;    //!< Type of the asset
-  bool              m_loaded;  //!< \a true if the asset is loaded
-  T                 m_asset;   //!< Asset
+  T m_asset;   //!< SFML Asset
 };  // class Asset
 
 
+//----------------------------------------------------------------------------
+//  Asset::Asset
+//----------------------------------------------------------------------------
 template<typename T>
-inline Asset<T>::Asset(sac2_asset_type_t type):
-    m_type(type),
-    m_loaded(false)
+inline Asset<T>::Asset()
 {
-
+  // do nothing
 }
 
+//----------------------------------------------------------------------------
+//  Asset::~Asset
+//----------------------------------------------------------------------------
 template<typename T>
 inline Asset<T>::~Asset()
 {
   // do nothing
 }
 
+//----------------------------------------------------------------------------
+//  Asset::get_asset
+//----------------------------------------------------------------------------
 template<typename T>
 inline const T& Asset<T>::get_asset() const
 {
   return m_asset;
-}
-
-template<typename T>
-inline bool Asset<T>::is_loaded() const
-{
-  return m_loaded;
 }
 
 }  // namespace sac2

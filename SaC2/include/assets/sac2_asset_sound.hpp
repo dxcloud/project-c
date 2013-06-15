@@ -51,7 +51,7 @@ class AssetSound:
   /*!
    * \brief
    */
-  sac2_status stop();
+  status_t stop();
 
   /*!
    * \brief
@@ -61,7 +61,7 @@ class AssetSound:
 };  // class AssetSound
 
 inline AssetSound::AssetSound():
-  Asset<sf::Sound>(ASSET_SOUND)
+  Asset<sf::Sound>()
 {
 
 }

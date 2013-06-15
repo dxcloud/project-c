@@ -50,7 +50,7 @@ private:
 
 
 inline AssetBuffer::AssetBuffer(const std::string& filename):
-  Asset<sf::SoundBuffer>(ASSET_BUFFER),
+  Asset<sf::SoundBuffer>(),
   m_filename(filename)
 {
 

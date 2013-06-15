@@ -15,10 +15,11 @@
 
 #include "sac2_type.hpp"
 #include "sac2_drawable.hpp"
-#include "sac2_asset_image.hpp"
 
 namespace sac2
 {
+
+class AssetManager;
 
 //! \class AssetSprite
 /*!
@@ -30,6 +31,9 @@ namespace sac2
 class AssetSprite:
   public Drawable<sf::Sprite>
 {
+public:
+  friend class AssetManager;
+
 public:
   /*!
    * \brief Default constructor
@@ -59,6 +63,7 @@ public:
    */
   status_t flip(bool flip_x, bool flip_y);
 
+private:
   /*!
    * \brief   Load the sprite from a image
    * \details This method is only called by \b AssetManager.
@@ -68,17 +73,13 @@ public:
    *          - \b STATUS_SUCCESS
    *          - \b STATUS_ALREADY
    */
-  status_t load(const sf::Image& image);
+  void load(const sf::Texture& texture);
 
-  /*!
-   * \brief
-   */
-  status_t unload();
 };  // class AssetSprite
 
 
 inline AssetSprite::AssetSprite():
-  Drawable<sf::Sprite>(ASSET_SPRITE)
+  Drawable<sf::Sprite>()
 {
 
 }
@@ -102,10 +103,9 @@ inline status_t AssetSprite::flip(bool flip_x, bool flip_y)
   return STATUS_SUCCESS;
 }
 
-inline status_t AssetSprite::unload()
+inline void AssetSprite::load(const sf::Texture& texture)
 {
-  m_loaded = false;
-  return STATUS_SUCCESS;
+  m_asset.setTexture(texture);
 }
 
 }  // namespace sac2

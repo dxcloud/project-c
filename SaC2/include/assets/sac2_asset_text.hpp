@@ -46,7 +46,7 @@ public:
 
 
 inline AssetText::AssetText():
-  Drawable<sf::String>(ASSET_TEXT)
+  Drawable<sf::String>()
 {
 
 }

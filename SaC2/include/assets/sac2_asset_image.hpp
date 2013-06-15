@@ -59,13 +59,13 @@ private:
 
 
 inline AssetImage::AssetImage():
-  Asset<sf::Image>(ASSET_IMAGE)
+  Asset<sf::Image>()
 {
 
 }
 
 inline AssetImage::AssetImage(const std::string& filename):
-    Asset<sf::Image>(ASSET_IMAGE)
+    Asset<sf::Image>()
 {
 
 }
