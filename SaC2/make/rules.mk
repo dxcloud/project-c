@@ -1,98 +1,131 @@
+###---------------------------------------------------------------------------
+### SaC2 make system
+### Requires GNU Make version 3.80 or newer
 ###
-### SaC2/make/rules.mk
-### Requires GNU Make version 3.80 or higher
-###
+### file:        SaC2/make/rules.mk
+### author:      Chengwu Huang <chengwhuang@gmail.com>
+### date:        2013-04-11
+### update:      2013-06-17
+### version:     1.0
+### description: Define global variables needed by different goals.
+###---------------------------------------------------------------------------
 
-AUTHOR          = Chengwu HUANG
-DATE            = 2013-04-11
-VERSION         = 1.0
+###---------------------------------------------------------------------------
+### Check GNU make version
+###---------------------------------------------------------------------------
+vmake_required     := 3.80
+check_vmake        := $(filter $(vmake_required), \
+                      $(firstword $(sort $(MAKE_VERSION) $(vmake_required))))
 
-### Set directory path
-SAC_MAKE_DIR   ?= $(shell locate -l 1 SaC2/make)
-SAC_DIR        ?= $(shell dirname $(SAC_MAKE_DIR))
-SRC_DIR         = $(SAC_DIR)/src
-BASE_DIR        = $(shell pwd)
-BUILD_DIR       = $(BASE_DIR)/build
-OBJ_DIR         = $(BUILD_DIR)/objs
+ifeq (,$(check_vmake))
+  $(error GNU make version 3.80 or newer is required.)
+endif
 
-### Set a default name for the application if not defined
-EXEC           ?= main.out
-OUTPUT          = $(addprefix $(BUILD_DIR)/,$(EXEC))
+###---------------------------------------------------------------------------
+### Set SaC2 global variables
+###---------------------------------------------------------------------------
+SAC2_MAKERULES     ?= $(shell locate -l 1 SaC2/make/rules.mk)
+SAC2_MAKE_PATH     ?= $(shell dirname $SAC2_MAKERULES)
+SAC2_PATH          ?= $(dirname $SAC2_MAKE_DIR)
 
-### Set C++ Flags
-CXX            ?= g++
-CXXFLAGS       += $(CFLAGS)
-CXXFLAGS       += -Wall -pedantic -O -Wno-long-long
+### Define source directories
+WORK_DIR            = $(PWD)
+BUILD_DIR           = $(WORK_DIR)/build
+OBJECT_DIR          = $(BUILD_DIR)/objs
+LIBRARY_DIR         = $(BUILD_DIR)/lib
 
-### Add SaC headers
-CXXFLAGS       += -I$(SAC_DIR)/include/assets \
-                  -I$(SAC_DIR)/include/core \
-                  -I$(SAC_DIR)/include/interfaces \
-                  -I$(SAC_DIR)/include/states \
-                  -I$(SAC_DIR)/include/types
-#CXXFLAGS       += -I$(SAC_DIR)/engine
-#CXXFLAGS       += -I$(SAC_DIR)/interfaces
-#CXXFLAGS       += -I$(SAC_DIR)/states
-#CXXFLAGS       += -I$(SAC_DIR)/types
+### Dependencies file
+DEPFILE             = $(BUILD_DIR)/.depend
+
+### Executable parameters
+EXEC               ?= main.out
+OUTPUT              = $(addprefix $(BUILD_DIR)/,$(EXEC))
 
 ### Sources
-SRC             = $(wildcard *.cpp)
-OBJ             = $(addprefix $(OBJ_DIR)/,$(SRC:.cpp=.o))
-SAC_SRC         = $(wildcard $(SRC_DIR)/*.cpp)
-SAC_OBJ         = $(addprefix $(OBJ_DIR)/,$(notdir $(SAC_SRC:.cpp=.o)))
+SOURCES             = $(wildcard *.cpp)
 
-### Dependencies
-DEPFILE         = $(BUILD_DIR)/depend
-DEP_DIR         = $(BUILD_DIR)/dep
-
-
-ifneq (,$(findstring build,$(shell ls $(BASE_DIR))))
-  BUILD_FLAG = yes
-endif
-
-
+###---------------------------------------------------------------------------
 ### Define valid goals
-override GOALS := clean docs mrproper depend run
+###---------------------------------------------------------------------------
+override SAC2_GOALS = all \
+                      archive \
+                      clean \
+                      depend \
+                      distclean \
+                      docs \
+                      exec \
+                      help \
+                      memcheck \
+                      mrproper \
+                      run
 
-### SAC2_HELP is printed if an unvalid target is specified
-define SAC2_HELP
-
- SaC2 make system:
-
- Usage: make [OPTION]
-
- - The executable is in 'build' directory.
-
- OPTION:
-   all       Compile source files.
-   docs      Generate documentation.
-   clean     Clean '.o' files from 'build' directory.
-   mrproper  Remove 'build' and 'docs' directories.
-
- AUTHORS: $(AUTHOR)
- DATE   : $(DATE)
- VERSION: SaC2 $(VERSION)
-
-
+define SAC2_HELP_MAKE
+SaC2 make system
 endef
 
+###---------------------------------------------------------------------------
+### Usage message
+###---------------------------------------------------------------------------
+define SAC2_HELP_USAGE
+USAGE:
+  `make <COMMAND>' or `make help <COMMAND>'
+endef
 
-### Include depends on goal
+###---------------------------------------------------------------------------
+### SaC2 version message
+###---------------------------------------------------------------------------
+define SAC2_HELP_VERSION
+VERSION:
+  SaC2 1.0
+AUTHORS:
+  Chengwu Huang <chengwhuang@gmail.com>
+DATE:
+  2013-04-11
+UPDATED:
+  2013-06-17
+endef
+
+###---------------------------------------------------------------------------
+### No executable message
+###---------------------------------------------------------------------------
+define SAC2_HELP_RUN
+$(SAC2_HELP_MAKE)
+
+ERROR:
+  The executable `$(EXEC)' does NOT exist.
+
+SEE ALSO:
+  For the compilation, type `make help all' or `make help exec'.
+  For more information about SaC2 make system, type `make help'.
+
+$(SAC2_HELP_VERSION)
+endef
+
+###---------------------------------------------------------------------------
+### Include user goal file
+### - If no goal is specified, the code sources will be build
+### - Otherwise, the valid command will be executed.
+###---------------------------------------------------------------------------
+SHOW_DEPENDENCIES=no
+
+USER_REQUEST_CMD    = $(word 1,$(filter $(MAKECMDGOALS),$(SAC2_GOALS)))
+
 ifeq (,$(MAKECMDGOALS))
-  include $(SAC_MAKE_DIR)/make.mk
-else ifeq ($(filter $(MAKECMDGOALS),$(GOALS)),$(MAKECMDGOALS))
-  SAC_INCLUDE = $(addsuffix .mk,$(filter $(MAKECMDGOALS),$(GOALS)))
-  include $(SAC_MAKE_DIR)/$(SAC_INCLUDE)
-else ifeq (all,$(MAKECMDGOALS))
-  include $(SAC_MAKE_DIR)/make.mk
+  include $(SAC2_MAKE_PATH)/help.mk
+else ifeq ($(USER_REQUEST_CMD),$(MAKECMDGOALS))
+  goal_include = $(addsuffix .mk,$(filter $(MAKECMDGOALS),$(SAC2_GOALS)))
+  ifeq (depend,$(USER_REQUEST_CMD))
+  SHOW_DEPENDENCIES=yes
+  endif
+  include $(SAC2_MAKE_PATH)/$(goal_include)
 else
-  $(info $(SAC2_HELP)Error: Unknown option)
-  INVALID_TARGET = $(MAKECMDGOALS)
+  include $(SAC2_MAKE_PATH)/help.mk
 endif
 
-.PHONY: clean mrproper docs depend
+.PHONY: .FORCE $(SAC2_GOALS)
 
-$(INVALID_TARGET): FORCE
+.DEFAULT: help
 
-FORCE::
+.FORCE:
 	@:
+

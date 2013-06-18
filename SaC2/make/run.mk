@@ -1,19 +1,20 @@
+###---------------------------------------------------------------------------
+### SaC2 make system
+### Requires GNU Make version 3.80 or newer
 ###
-### SaC2/make/run.mk
-###
+### file:        SaC2/make/run.mk
+### author:      Chengwu Huang <chengwhuang@gmail.com>
+### date:        2013-04-11
+### update:      2013-06-18
+### version:     1.0
+### description: Run the application
+###---------------------------------------------------------------------------
 
-define RUN_FAILED
-The executable does NOT exist. \
-Compile the application with 'make'.
-endef
-
-run: FORCE
-ifeq (yes,$(BUILD_FLAG))
-  ifneq (,$(findstring $(EXEC),$(shell ls $(BUILD_DIR))))
-	./build/$(EXEC)
-  else
-	@echo $(RUN_FAILED)
-  endif
+run: .FORCE
+ifeq (,$(wildcard $(OUTPUT)))
+$(info $(SAC2_HELP_RUN))
 else
-	@echo $(RUN_FAILED)
+	@echo "Running \`$(EXEC)'..."
+	@./build/$(EXEC)
 endif
+

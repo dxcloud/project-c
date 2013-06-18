@@ -1,6 +1,6 @@
 # Make System for SaC2
-__SaC2__ __Version:__ 0.1
-__Date:__ 2013 - 04 - 18
+__SaC2__ __Version:__ 0.1    
+__Date:__ 2013-04-18
 
 Description:
 ------------
@@ -23,3 +23,6 @@ application. The following flags can be used:
 Author:
 -------
 Chengwu HUANG
+
+##TODO: write command help message in the file help.mk
+
