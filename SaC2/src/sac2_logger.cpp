@@ -1,4 +1,9 @@
+/*!
+ * \file sac2_logger.cpp
+ */
+
 #include <sac2_logger.hpp>
+#include <sac2_version.hpp>
 
 namespace sac2
 {
@@ -23,7 +28,7 @@ const std::string Logger::m_level[]=
 //----------------------------------------------------------------------------
 //  Engine::DEFAULT_LOG_FILE
 //----------------------------------------------------------------------------
-const std::string Logger::DEFAULT_LOG_FILE="SaC2.log";
+const std::string Logger::DEFAULT_LOG_FILE("SaC2.log");
 
 //----------------------------------------------------------------------------
 //  Logger::create
@@ -33,7 +38,8 @@ void Logger::create(const std::string& filename)
   if (false == m_logger.m_active) {
     m_logger.m_active = true;
     m_logger.m_stream.open(filename.c_str());
-    m_logger.m_stream << "Log File: " << filename << std::endl;
+    log_info("Log filename: " + filename);
+    log_info("SaC2 Version: ");
   }
 }
 
@@ -108,4 +114,4 @@ void Logger::log_error(const std::string& message)
   log(ERROR, message);
 }
 
-}
+}  // namespace sac2
