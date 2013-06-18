@@ -19,23 +19,21 @@
 namespace sac2
 {
 
-//! \class AssetMusic
 /*!
+ * \class AssetMusic
  * \brief Music manipulation
  */
 class AssetMusic:
   public Asset<sf::Music>
 {
+public:
   friend class AssetManager;
 
 public:
-  AssetMusic();
-
   /*!
    * \brief Constructor
-   * \param filename Name of file for loading
    */
-  explicit AssetMusic(const std::string& filename);
+  AssetMusic();
 
   /*!
    * \brief Destructor
@@ -69,11 +67,8 @@ public:
 private:
   /*!
    * \brief
-   * \return SaC2 status
    */
   status_t load(const std::string& filename);
-
-  const std::string m_filename;
 };  // class AssetMusic
 
 
@@ -83,12 +78,6 @@ inline AssetMusic::AssetMusic():
 
 }
 
-inline AssetMusic::AssetMusic(const std::string& filename):
-  Asset<sf::Music>(),
-  m_filename(filename)
-{
-  m_asset.openFromFile(m_filename);
-}
 
 inline AssetMusic::~AssetMusic()
 {

@@ -14,24 +14,28 @@
 
 #include <sac2_type.hpp>
 #include <sac2_manager.hpp>
-#include <sac2_asset_table.hpp>
 #include <sac2_logger.hpp>
 
 namespace sac2
 {
 
+
+
+typedef std::map<asset_id_t, const std::string> asset_map_t;
+typedef asset_map_t::iterator asset_iter_t;
+typedef asset_map_t::const_iterator asset_const_iter_t;
+
 typedef std::map<asset_id_t, sf::Texture*> texture_map_t;
+typedef std::map<asset_id_t, sf::Font*> font_map_t;
+typedef std::map<asset_id_t, sf::SoundBuffer*> sound_map_t;
 typedef texture_map_t::iterator texture_iter_t;
+typedef font_map_t::iterator font_iter_t;
+typedef sound_map_t::iterator sound_iter_t;
 
 class AssetSprite;
-/*
-class AssetFont;
-class AssetImage;
-class AssetMusic;
 class AssetSound;
-class AssetBuffer;
-class AssetText;
-*/
+class AssetMusic;
+
 /*!
  * \class   AssetManager
  * \brief   Asset management
@@ -46,6 +50,7 @@ public:
 
 public:
 
+  status_t get_music(asset_id_t id, AssetMusic& music);
   /*!
    * \brief   Get the sprite specified by \b id. Attribute of this class
    *          could be modified by this method
@@ -59,8 +64,9 @@ public:
    *          - \b STATUS_ERROR: Error from \b load_texture
    * \warning Check the returned status before using the sprite.
    */
-  status_t get_sprite(AssetSprite& sprite, asset_id_t id);
+  status_t get_sprite(asset_id_t id, AssetSprite& sprite);
 
+  status_t get_sound(asset_id_t id, AssetSound& sound);
   /*!
    * \brief  Load a texture
    * \param  id Identifier of the texture to be loaded
@@ -71,6 +77,7 @@ public:
    */
   status_t load_texture(asset_id_t id);
 
+  status_t load_sound(asset_id_t id);
   /*!
    * \brief Remove an unused texture
    * \param id Identifier of the texture to be unloaded
@@ -81,41 +88,11 @@ public:
    */
   status_t unload_texture(asset_id_t id);
 
-  /*!
-   * \brief
-   */
-//  status_t add_asset(sac2_asset_type_t type,
-//                          const sac2_asset_id_t& id);
+  status_t unload_sound(asset_id_t id);
 
   /*!
-   * \brief  Load the asset specified by \a type
-   * \param  type Type of asset to be loaded
-   * \return SaC2 status
+   * \brief  Update
    */
-//  status_t load_asset(sac2_asset_type_t type);
-
-  /*!
-   * \brief  Delete the asset specified by \a type
-   * \param  type Type of asset to be deleted
-   * \return SaC2 status
-   */
-//  status_t delete_asset(sac2_asset_type_t type,
-//                             const sac2_asset_id_t& id);
-
-//  status_t load_sprite(AssetSprite& sprite, asset_id_t id);
-//  AssetSprite* get_sprite(asset_id_t id);
-
-//  status_t load_font(AssetText& text, const sac2_asset_id_t& id);
-
-//  status_t load_sound(AssetSound& sound, const sac2_asset_id_t& id);
-
-//  status_t load_music(AssetMusic& music, const sac2_asset_id_t& id);
-
-//  void load_sprite(const sac2_asset_id_t& id);
-//  void load_font(const sac2_asset_id_t& id);
-//  void load_image(const sac2_asset_id_t& id);
-
-
   void update();
 
 protected:
@@ -147,20 +124,24 @@ private:
    */
   AssetManager& operator=(const AssetManager&);
 
+  template<typename M, typename I, typename R, typename A>
+  status_t get_asset(asset_id_t id, A& asset, M& asset_map);
+
+  template<typename M, typename C>
+  status_t load_asset(asset_id_t id, M& asset_map);
+
+  template<typename M, typename I>
+  status_t unload_asset(asset_id_t id, M& asset_map);
+
 private:
-  AssetTable            m_asset_table;
-  texture_map_t         m_textures;
-//  std::map<sac2_asset_id_t, sf::Font*>        m_fonts;
-//  std::map<sac2_asset_id_t, sf::SoundBuffer*> m_sound_buffers;
-//  std::map<sac2_asset_id_t, AssetSprite*>     m_sprites;
-//  std::map<sac2_asset_id_t, AssetMusic*>      m_musics;   //!< Store all music asset
+  static const asset_map_t       m_asset_table;  //!< Image type resource name
+  font_map_t            m_font_map;
+  sound_map_t           m_sound_map;
+  texture_map_t         m_texture_map;
 };  // class AssetManager
 
-
-//typedef std::map<sac2_asset_id_t, AssetImage*>::iterator asset_image_it;
-//typedef std::map<sac2_asset_id_t, AssetSprite*>::iterator asset_sprite_it;
-//typedef std::map<sac2_asset_id_t, AssetMusic*>::iterator asset_music_it;
-
 }  // namespace sac2
+
+#include <sac2_asset_manager.inl>
 
 #endif  //! SAC2_ASSET_MANAGER_HPP

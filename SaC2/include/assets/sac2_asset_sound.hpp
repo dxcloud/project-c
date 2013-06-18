@@ -9,8 +9,6 @@
 #ifndef SAC2_ASSET_SOUND_HPP
 #define SAC2_ASSET_SOUND_HPP
 
-#include <string>
-
 #include <SFML/Audio.hpp>
 
 #include "sac2_type.hpp"
@@ -19,15 +17,19 @@
 namespace sac2
 {
 
-//! \class AssetSound
+class AssetManager;
+
 /*!
+ * \class AssetSound
  * \brief Sound manipulation
  */
 class AssetSound:
   public Asset<sf::Sound>
 {
- public:
+public:
+  friend class AssetManager;
 
+public:
   /*!
    * \brief Default constructor
    */
@@ -53,11 +55,12 @@ class AssetSound:
    */
   status_t stop();
 
+private:
   /*!
    * \brief
    * \param buffer
    */
-  status_t load_sound(const sf::SoundBuffer& buffer);
+  void load(const sf::SoundBuffer& buffer);
 };  // class AssetSound
 
 inline AssetSound::AssetSound():

@@ -1,4 +1,8 @@
-#include "sac2_asset_sound.hpp"
+/*!
+ * \file sac2_asset_sound.cpp
+ */
+
+#include <sac2_asset_sound.hpp>
 
 namespace sac2
 {
@@ -21,11 +25,9 @@ status_t AssetSound::stop()
   return STATUS_SUCCESS;
 }
 
-status_t AssetSound::load_sound(const sf::SoundBuffer& buffer)
+void AssetSound::load(const sf::SoundBuffer& buffer)
 {
-    m_asset.setBuffer(buffer);
-    return STATUS_SUCCESS;
-
+  m_asset.setBuffer(buffer);
 }
 
 }

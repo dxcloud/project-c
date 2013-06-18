@@ -68,10 +68,7 @@ private:
    * \brief   Load the sprite from a image
    * \details This method is only called by \b AssetManager.
    *          For loading, use \b load_sprite of \b AssetManager class.
-   * \param   image Image from which the sprite will be loaded
-   * \return  SaC2 status
-   *          - \b STATUS_SUCCESS
-   *          - \b STATUS_ALREADY
+   * \param   texture Image from which the sprite will be loaded
    */
   void load(const sf::Texture& texture);
 
