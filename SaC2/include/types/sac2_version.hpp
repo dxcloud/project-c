@@ -194,9 +194,8 @@ private:
   uint8_t m_revision;  //!< Revision value
 };
 
-
 }
 
 #include <sac2_version.inl>
 
-#endif
+#endif  //! SAC2_VERIONS_HPP
