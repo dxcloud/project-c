@@ -100,8 +100,8 @@ private:
   static state_t     m_engine_state;     //!< Current state of the engine
 };  // class Engine
 
-#include <sac2_engine.inl>
-
 }  // namespace sac2
+
+#include <sac2_engine.inl>
 
 #endif  //! SAC2_ENGINE_HPP

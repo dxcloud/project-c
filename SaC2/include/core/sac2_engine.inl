@@ -1,3 +1,10 @@
+/*!
+ * \file sac2_engine.inl
+ */
+
+#ifndef SAC2_ENGINE_INL
+#define SAC2_ENGINE_INL
+
 //----------------------------------------------------------------------------
 //  Engine::~Engine
 //----------------------------------------------------------------------------
@@ -28,3 +35,5 @@ inline void Engine::quit()
 #endif
   m_engine_state = STOPPED;
 }
+
+#endif  //! SAC2_ENGINE_INL
