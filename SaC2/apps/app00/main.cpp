@@ -2,6 +2,7 @@
 
 int main(int argc, char* argv[])
 {
+  sac2::Logger::create();
   sac2::Engine app;
   app.parse_options(argc, argv);
   app.run();
