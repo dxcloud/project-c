@@ -18,16 +18,19 @@
 
 namespace sac2
 {
+
 /*!
  * \class   State
  * \brief   Base class interface for all game states
- * \details The following member functions must be defined by any derived
- *          class:
- *          - \b initialize()
- *          - \b pause()
- *          - \b resume()
- *          - \b update()
- *          - \b cleanup()
+ * \details The following member functions must be defined by all derived
+ *          classes:
+ *          - \b initializing()
+ *          - \b pausing()
+ *          - \b resuming()
+ *          - \b updating()
+ *          - \b cleaning()
+ * \warning None of these methods should be called directly, instead use
+ *          methods provided by StateManager to pause, resume.
  */
 class GameState
 {
@@ -47,54 +50,54 @@ public:
 
   /*!
    * \brief  Test if the state is initialized
-   * \return \b true if the state is initialized, \b false otherwise
+   * \return Return \b true if the state is initialized, \b false otherwise
    */
   bool is_initialized() const;
 
   /*!
    * \brief  Test if the state is paused
-   * \return \b true if the state is paused, \b false otherwise
+   * \return Return \b true if the state is paused, \b false otherwise
    */
   bool is_paused() const;
 
   /*!
    * \brief  Test if the state is running
-   * \return \b true if the state is running, \b false otherwise
+   * \return Return \b true if the state is running, \b false otherwise
    */
   bool is_running() const;
 
   /*!
    * \brief  Test if the state is stopped
-   * \return \b true if the state is stopped, \b false otherwise
+   * \return Return \b true if the state is stopped, \b false otherwise
    */
   bool is_stopped() const;
 
 protected:
+
   /*!
    * \brief Initialize the state
    */
-  virtual void initialize() = 0;
+  virtual void initializing() = 0;
 
   /*!
-   * \brief  Set the state to pause
+   * \brief When the state is paused
    */
-  virtual void pause() = 0;
+  virtual void pausing() = 0;
   
   /*!
-   * \brief  Resume if the state is paused
+   * \brief When the state is resumed
    */
-  virtual void resume() = 0;
+  virtual void resuming() = 0;
 
   /*!
-   * \brief   Update the state
-   * \details Change the position of a sprite for example...
+   * \brief Called if the state is currently running
    */
-  virtual void update() = 0;
+  virtual void updating() = 0;
 
   /*!
-   * \brief  Clean before the state is removed
+   * \brief Clean elements of the state before to be destroyed
    */
-  virtual void cleanup() = 0;
+  virtual void cleaning() = 0;
 
 protected:
   StateManager*         p_state_manager;  //!< State Manager
@@ -106,8 +109,8 @@ private:
   state_t               m_state_status;
 };  // class GameState
 
-#include <sac2_game_state.inl>
-
 }
+
+#include <sac2_game_state.inl>
 
 #endif  //! SAC2_GAME_STATE_HPP

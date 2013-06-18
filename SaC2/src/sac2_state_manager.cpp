@@ -11,7 +11,7 @@ void StateManager::update()
 {
   if (false == is_empty()) {
     if (RUNNING == m_state_stack.back()->m_state_status) {
-      m_state_stack.back()->update();
+      m_state_stack.back()->updating();
     }
   }
 }
@@ -23,15 +23,23 @@ status_t StateManager::add_state(state_id_t id, GameState* game_state)
 {
   if (m_game_states.end() == m_game_states.find(id)) {
     m_game_states.insert(std::make_pair(id, game_state));
+#ifdef SAC2_LOGGER_ENABLED
+    Logger::log_debug("StateManager::add_state - state added");
+#endif
     return STATUS_SUCCESS;
   }  // if state_id_t NOT used yet
+  delete game_state;  // no need to be kept
+  game_state = 0;
+#ifdef SAC2_LOGGER_ENABLED
+    Logger::log_debug("StateManager::add_state - state ID already used");
+#endif
   return STATUS_ALREADY;
 }
 
 //----------------------------------------------------------------------------
-//  StateManager::change_state
+//  StateManager::start_state
 //----------------------------------------------------------------------------
-status_t StateManager::change_state(state_id_t id)
+status_t StateManager::start_state(state_id_t id)
 {
   pause_state();  // attempt to pause the current game state
   if (0 == find_state(id)) { return STATUS_INVAL; }
@@ -59,7 +67,7 @@ status_t StateManager::initialize_state()
 {
   if (false == is_empty()) {
     if (UNINITIALIZED == m_state_stack.back()->m_state_status) {
-      m_state_stack.back()->initialize();
+      m_state_stack.back()->initializing();
       m_state_stack.back()->m_state_status = RUNNING;
       return STATUS_SUCCESS;
     }  // initialize the state
@@ -74,7 +82,7 @@ status_t StateManager::pause_state()
 {
   if (false == is_empty()) {
     if (RUNNING == m_state_stack.back()->m_state_status) {
-      m_state_stack.back()->pause();
+      m_state_stack.back()->pausing();
       m_state_stack.back()->m_state_status = PAUSED;
       return STATUS_SUCCESS;
     }
@@ -89,7 +97,7 @@ status_t StateManager::resume_state()
 {
   if (false == is_empty()) {
     if (PAUSED == m_state_stack.back()->m_state_status) {
-      m_state_stack.back()->resume();
+      m_state_stack.back()->resuming();
       m_state_stack.back()->m_state_status = RUNNING;
       return STATUS_SUCCESS;
     }
@@ -100,11 +108,11 @@ status_t StateManager::resume_state()
 //----------------------------------------------------------------------------
 //  StateManager::clean_state
 //----------------------------------------------------------------------------
-status_t StateManager::clean_state()
+status_t StateManager::stop_state()
 {
   if (false == is_empty()) {
     if (PAUSED == m_state_stack.back()->m_state_status) {
-      m_state_stack.back()->cleanup();
+      m_state_stack.back()->cleaning();
       m_state_stack.back()->m_state_status = STOPPED;
       return STATUS_SUCCESS;
     }
@@ -118,10 +126,10 @@ status_t StateManager::clean_state()
 status_t StateManager::drop_state()
 {
   if (false == is_empty()) {
-    if (STOPPED == m_state_stack.back()->m_state_status) {
-      m_state_stack.pop_back();
+    if (RUNNING == m_state_stack.back()->m_state_status) {
+      m_state_stack.back()->pausing();
     }
-    resume_state();
+    m_state_stack.pop_back();
     return STATUS_SUCCESS;
   }
   return STATUS_CANCEL;
@@ -134,7 +142,7 @@ status_t StateManager::reset_state()
 {
   if (false == is_empty()) {
     if (STOPPED == m_state_stack.back()->m_state_status) {
-      m_state_stack.back()->initialize();
+      m_state_stack.back()->initializing();
       m_state_stack.back()->m_state_status = RUNNING;
       return STATUS_SUCCESS;
     }
@@ -155,7 +163,10 @@ void StateManager::initialize()
 //----------------------------------------------------------------------------
 void StateManager::cleanup()
 {
-  for (state_iter_t iter(m_game_states.begin()); iter != m_game_states.end(); ++iter) {
+  for (state_iter_t iter(m_game_states.begin());
+                         iter != m_game_states.end();
+                         ++iter) {
+    iter->second->cleaning();
     delete iter->second;
     iter->second = 0;
   }  // delete the state collection

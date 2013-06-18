@@ -56,26 +56,29 @@ public:
    * \param   id         Identifier of the new state.
    * \param   game_state Pointer of the state to be added, it must be
    *                     allocated with the keyword \b new.
-   * \details The parameter \b id must be unique, if it is already used
-   *          the state will NOT be added.
+   * \return  Status code:
+   *          - \b STATUS_SUCCESS
+   *          - \b STATUS_ALREADY
+   * \details The parameter \b id must be unique, if the identifier is
+   *          already used the state will NOT be added but deleted.
    */
   status_t add_state(state_id_t id, GameState* game_state);
 
   /*!
    * \brief  Change the current state to the one specified by \b id
    * \param  id Identifier of the state to be played
-   * \return The following status could be returned:
+   * \return Status code:
    *         - \b STATUS_SUCCESS
    *         - \b STATUS_INVAL
    */
-  status_t change_state(state_id_t id);
+  status_t start_state(state_id_t id);
 
   /*!
-   * \brief   Initialize the current state
+   * \brief   Initialize the state on the top of the stack
    * \return  The following status could be returned:
    *          - \b STATUS_SUCCESS
    *          - \b STATUS_CANCEL
-   * \details Resume the state if it is \b UNINITIALIZED
+   * \details Initialize the state, \b GameState::initializing() is called
    */
   status_t initialize_state();
 
@@ -84,7 +87,7 @@ public:
    * \return  The following status could be returned:
    *          - \b STATUS_SUCCESS
    *          - \b STATUS_CANCEL
-   * \details Pause the current game state if it is \b RUNNING.
+   * \details Pause the state, \b GameState::pausing() is called
    */
   status_t pause_state();
 
@@ -93,7 +96,7 @@ public:
    * \return  The following status could be returned:
    *          - \b STATUS_SUCCESS
    *          - \b STATUS_CANCEL
-   * \details Resume the state if it is \b PAUSED
+   * \details Resume the state, \b GameState::resuming() is called
    */
   status_t resume_state();
 
@@ -102,9 +105,9 @@ public:
    * \return  The following status could be returned:
    *          - \b STATUS_SUCCESS
    *          - \b STATUS_CANCEL
-   * \details Clean the state if it is \b PAUSED
+   * \details Stop the state, \b GameState::cleaning() is called
    */
-  status_t clean_state();
+  status_t stop_state();
 
   /*!
    * \brief   Remove the current state from the stack
@@ -120,7 +123,8 @@ public:
    * \return  The following status could be returned:
    *          - \b STATUS_SUCCESS
    *          - \b STATUS_CANCEL
-   * \details Reset the state if it is \b STOPPED
+   * \details Reset the state, \b GameState::cleaning() and
+   *          \b GameState::initializing() are called
    */
   status_t reset_state();
 
