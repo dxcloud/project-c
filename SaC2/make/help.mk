@@ -61,7 +61,7 @@ define SAC2_HELP_UNKNOWN_CMD
 $(SAC2_HELP_MAKE)
 
 ERROR:
-  Unknown command `$(MAKECMDGOALS)'
+  Unknown command `make $(MAKECMDGOALS)'
 
 $(SAC2_HELP_USAGE)
 

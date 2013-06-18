@@ -28,6 +28,12 @@ SAC2_MAKERULES     ?= $(shell locate -l 1 SaC2/make/rules.mk)
 SAC2_MAKE_PATH     ?= $(shell dirname $SAC2_MAKERULES)
 SAC2_PATH          ?= $(dirname $SAC2_MAKE_DIR)
 
+### C++ Compiler default parameters
+CXX                ?= g++
+OPTFLAGS           ?= -O2
+CXXFLAGS           += $(CFLAGS) $(OPTFLAGS)
+CXXFLAGS           += -Wall -pedantic -std=c++11
+
 ### Define source directories
 WORK_DIR            = $(PWD)
 BUILD_DIR           = $(WORK_DIR)/build

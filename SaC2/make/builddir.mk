@@ -10,17 +10,17 @@
 ### description: Create necessary directories
 ###---------------------------------------------------------------------------
 
-builddir:
+builddir: .FORCE
 	@if [ ! -d "$(BUILD_DIR)" ]; then \
-    echo "Creating directory \`build'..."; \
-    mkdir $(BUILD_DIR); \
+	  echo "Creating directory \`build'..."; \
+	  mkdir $(BUILD_DIR); \
 	fi
 	@if [ ! -d "$(OBJECT_DIR)" ]; then \
-    echo "Creating directory \`build/objs'..."; \
-    mkdir $(OBJECT_DIR); \
+	  echo "Creating directory \`build/objs'..."; \
+	  mkdir $(OBJECT_DIR); \
 	fi
 	@if [ ! -d "$(LIBRARY_DIR)" ]; then \
-    echo "Creating directory \`build/lib'..."; \
-    mkdir $(LIBRARY_DIR); \
+	  echo "Creating directory \`build/lib'..."; \
+	  mkdir $(LIBRARY_DIR); \
 	fi
 

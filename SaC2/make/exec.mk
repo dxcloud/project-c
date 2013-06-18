@@ -11,29 +11,22 @@
 ###              directory from current path
 ###---------------------------------------------------------------------------
 
-### Executable parameters
-EXEC               ?= main.out
-OUTPUT              = $(addprefix $(BUILD_DIR)/,$(EXEC))
-
-### C++ Compiler default parameters
-CXX                ?= g++
-OPTFLAGS           ?= -O2
-CXXFLAGS           += $(CFLAGS) $(OPTFLAGS)
-CXXFLAGS           += -Wall -pedantic -std=c++11 -g
+include $(SAC2_MAKE_PATH)/depend.mk
+include $(SAC2_MAKE_PATH)/sac2.mk
 
 OBJECTS             = $(addprefix $(OBJECT_DIR)/,$(SOURCES:.cpp=.o))
 
-exec: depend $(OUTPUT)
+CXXFLAGS += -g -DLOGGER_ENABLED
 
-$(OUTPUT): sac2 $(OBJECTS)
-	@echo "Generating executable \`$(EXEC)'..."
-	@$(CXX) -o $@ $(OBJECTS) $(LDFLAGS)
+exec: sac2 depend $(OUTPUT)
 	@echo "Finished: type \`make run' to execute,"
 	@echo "          or \`make memcheck' for memory leak checking"
+
+$(OUTPUT): $(OBJECTS) $(SAC2_SHARED_OBJECT)
+	@echo "Generating executable \`$(EXEC)'..."
+	@$(CXX) -o $@ $(OBJECTS) $(LDFLAGS)
 
 $(OBJECT_DIR)/%.o: %.cpp
 	@echo "Building \`$(notdir $@)'..."
 	@$(CXX) -o $@ -c $< $(CXXFLAGS)
-
-include $(SAC2_MAKE_PATH)/depend.mk
 

@@ -12,6 +12,7 @@
 ###---------------------------------------------------------------------------
 
 include $(SAC2_MAKE_PATH)/sfml.mk
+include $(SAC2_MAKE_PATH)/builddir.mk
 
 ###---------------------------------------------------------------------------
 ### Define SaC2 source and header path
@@ -31,33 +32,28 @@ SAC2_OBJECTS        = $(addprefix $(LIBRARY_DIR)/, \
 
 SAC2_SHARED_OBJECT  = $(LIBRARY_DIR)/libsac2.so
 
-SAC2_FLAGS         += -L$(LIBRARY_DIR) \
+LDFLAGS            += -L$(LIBRARY_DIR) \
                       -Wl,-rpath,$(LIBRARY_DIR) \
                       -lsac2
 
 CXXFLAGS           += $(SAC2_INCLUDES)
-LDFLAGS            += $(SAC2_FLAGS)
+
+SAC2_CXXFLAGS       = -Wall -O2 -pedantic -std=c++11 $(SAC2_INCLUDES) -DSAC2_LOGGER_ENABLED
 
 sac2: builddir $(SAC2_SHARED_OBJECT)
 
-ifeq (,$(wildcard $(SAC2_SHARED_OBJECT)))
 $(SAC2_SHARED_OBJECT): $(SAC2_SHARED_OBJECT).1
 	@echo "Generating shared library \`$(notdir $@)'..."
 	@ln -sf $< $@
-else
-$(SAC2_SHARED_OBJECT): .FORCE
-endif
 
 $(SAC2_SHARED_OBJECT).1: $(SAC2_SHARED_OBJECT).1.0
 	@ln -sf $< $@
 
 $(SAC2_SHARED_OBJECT).1.0: $(SAC2_OBJECTS)
 	@$(CXX) -shared -Wl,-soname,$(SAC2_SHARED_OBJECT).1 \
-      -o $(SAC2_SHARED_OBJECT).1.0 $(SAC2_OBJECTS)
+	  -o $(SAC2_SHARED_OBJECT).1.0 $(SAC2_OBJECTS)
 
 $(LIBRARY_DIR)/%.o: $(SAC2_SOURCE_DIR)/%.cpp
 	@echo "Building \`$(notdir $@)'..."
-	@$(CXX) -fPIC -o $@ -c $< $(CXXFLAGS)
-
-include $(SAC2_MAKE_PATH)/builddir.mk
+	@$(CXX) -fPIC -o $@ -c $< $(SAC2_CXXFLAGS)
 

@@ -10,19 +10,21 @@
 ### description: List the dependencies of the source files
 ###---------------------------------------------------------------------------
 
-include $(SAC2_MAKE_PATH)/sac2.mk
-
-depend: builddir $(DEPFILE)
+depend: $(DEPFILE)
 ifeq (yes,$(SHOW_DEPENDENCIES))
 	@cat $(DEPFILE)
 endif
 
 $(DEPFILE): $(SOURCES)
-	@echo "Generating Dependencies..."
+	@if [ ! -d "$(BUILD_DIR)" ]; then \
+	  echo "Creating directory \`build'..."; \
+	  mkdir $(BUILD_DIR); \
+	fi
+	@echo "Building Dependencies..."
 	@set -e rm -f $@; \
-    $(CXX) -MM $(CXXFLAGS) $^ > $@.$$$$; \
-    sed 's:[_a-zA-Z0-9]*\.o:$(OBJECT_DIR)/&:g' < $@.$$$$ > $@; \
-    rm -f $@.$$$$
+	$(CXX) -MM $(CXXFLAGS) $^ > $@.$$$$; \
+	sed 's:[_a-zA-Z0-9]*\.o:$(OBJECT_DIR)/&:g' < $@.$$$$ > $@; \
+	rm -f $@.$$$$
 
 -include $(DEPFILE)
 

@@ -10,9 +10,9 @@
 ### description: Remove all generated files and directories
 ###---------------------------------------------------------------------------
 
-mrproper: clean
+mrproper: distclean
 	@echo "Remove \`build' and \`docs' directories"
 	@rm -rf build/ docs/
 
-include $(SAC2_MAKE_PATH)/clean.mk
+include $(SAC2_MAKE_PATH)/distclean.mk
 
