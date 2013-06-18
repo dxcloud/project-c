@@ -23,8 +23,8 @@ The digit **X** refers to a main section, and **Y** is for a paragraph of
 the section **X**.
 
 ## Memo Structure
-All memo have a title with 2-digit number. A number ends with **0** is a general
-description of the section.
+All memo have a title with 2-digit number. A number ends with **X0** is a
+general description of the section.
 
 ## Contents (non final)
 00. Presentation and Structure

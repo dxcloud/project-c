@@ -21,8 +21,8 @@ This method is called when the state is set to pause.
 **Called by:** `StateManager::pause_state()`
 
 ### void GameState::resuming()
-In opposition to `pausing()`, this method is called the **StateManager** tries
-to resume the state.
+In opposition to `pausing()`, this method is called when the **StateManager**
+tries to resume the state.
 
 **Called by:** `StateManager::resume_state()`
 
@@ -35,7 +35,7 @@ sprites.
 ### void GameState::cleaning()
 Used for cleaning attributes.
 
-**Called by:*** `StateManager::stop_state()`
+**Called by:** `StateManager::stop_state()`
 
 ## Lifecycle
 A **GameState** has also a attribute called **m_state_status**, this attribute
@@ -44,29 +44,27 @@ is private so that any derived class cannot modify it, and only
 the current period of the state lifecycle (see *MEMO 42* for more information
 about State lifecycle). The *query methods* is the only way to know
 the current state status, these methods are:
-* `is_initialized()`
-* `is_running()`
-* `is_paused()`
-* `is_stopped()`
+* `bool GameState::is_initialized()`
+* `bool GameState::is_running()`
+* `bool GameState::is_paused()`
+* `bool GameState::is_stopped()`
 
 Because of this state status, the call of some methods from **StateManager**
-has no effect. The following paragraphes show the available methods in each
+has no effect. The following table shows the available methods in each
 state.
 
-### Uninitialized
-**Available:** `StateManager::initialize_state()`
-
-### Initialized
-**Available:** `StateManager::start_state()`
-
-### Running
-**Available:** `StateManager::pause_state()`
-
-### Paused
-**Available:** `StateManager::resume_state()`, `StateManager::stop_state()`
-
-### Stopped
-**Available:** `StateManager::reset_state()`
+        +---------------+----------------------------------+-------------+
+        | state status  |         available methods        | next status |
+        +===============+==================================+=============+
+        | UNINITIALIZED | StateManager::initialize_state() | RUNNING     |
+        +---------------+----------------------------------+-------------+
+        | RUNNING       | StateManager::pause_state()      | PAUSED      |
+        +---------------+----------------------------------+-------------+
+        | PAUSED        | StateManager::resume_state()     | RUNNING     |
+        |               | StateManager::stop_state()       | STOPPED     |
+        +---------------+----------------------------------+-------------+
+        | STOPPED       | StateManager::reset_state()      | RUNNING     |
+        +---------------+----------------------------------+-------------+
 
 ## See also
 *MEMO 42:* State Machine

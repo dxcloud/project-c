@@ -69,6 +69,6 @@ The following graph show the lifecycle of a **GameState**
 
 
 ## See also
-*MEMO 41:* Game State
+*MEMO 41:* Game State    
 *MEMO 43:* Managing States
 
