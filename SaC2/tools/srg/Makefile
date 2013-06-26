@@ -1,49 +1,43 @@
-###
+###---------------------------------------------------------------------------
 ### SaC2 Resource Generator
-### Makefile
-### Version 0.1
-### Date: 2013-06-11
+### Requires GNU Make version 3.80 or newer
 ###
+### file:        SaC2/tools/Makefile
+### author:      Chengwu Huang <chengwhuang@gmail.com>
+### date:        2013-06-11
+### update:      2013-06-26
+### version:     1.0
+### description: Build `srg'
+###---------------------------------------------------------------------------
 
-### Compiler and compilation options
-CXX        = clang++
-CXXFLAGS  += -Wall -pedantic -O2
-#CXXFLAGS  += -DRAPIDXML_NO_EXCEPTIONS
-LDFLAGS   +=
-
-R_OUTPUT   = resource
-CXXFLAGS  += -DRESOURCE_FILENAME=\"$(R_OUTPUT)\"
+### C++ Compiler default parameters
+CXX                 = g++
+OPTFLAGS            = -O2
+CXXFLAGS           += -Wall -pedantic -std=c++11
+CXXFLAGS           += $(OPTFLAGS)
+LDFLAGS             =
 
 ### Targets
-ALL        = all
-EXEC       = srg
-CLEAN      = clean
-HELP       = help
-
-### Shell command
-RM         = rm
-PRINT      = echo
+EXEC                = srg
 
 ### Header and source file
-SRG_SOURCE = srg.cpp
-SRG_OBJECT = srg.o
-SRG_HEADER = srg.hpp
+SRG_HEADER          = srg.hpp
+SRG_SOURCE          = srg.cpp
+SRG_OBJECT          = srg.o
 
 ### Rapidxml library path
-INCLUDE    = $(shell locate -l 1 SaC2/libs/rapidxml)
-CXXFLAGS  += -I$(INCLUDE)
+INCLUDE             = $(shell locate -l 1 SaC2/libs/rapidxml)
+CXXFLAGS           += -I$(INCLUDE)
 
-$(ALL): $(EXEC)
+all: $(EXEC)
 
 $(EXEC): $(SRG_OBJECT)
-	$(CXX) $(LDFLAGS) -o $@ $^
+	@$(CXX) $(LDFLAGS) -o $@ $^
 
 $(SRG_OBJECT): $(SRG_SOURCE) $(SRG_HEADER)
-	$(CXX) $(CXXFLAGS) -o $@ -c $<
+	@$(CXX) $(CXXFLAGS) -o $@ -c $<
 
-$(CLEAN):
-	$(RM) -rf $(EXEC) *~ *.o $(R_OUTPUT).cpp $(R_OUTPUT).hpp
+clean:
+	@rm -rf $(EXEC) *~ *.o
 
-$(HELP):
-	@$(PRINT) "Type \"make\" to build"
-
+.PHONY: all,clean
