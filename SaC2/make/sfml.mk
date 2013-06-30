@@ -21,5 +21,6 @@ SFML_FLAGS         += -L$(SFML_PATH)/lib \
                       -lsfml-system \
                       -Wl,-rpath,$(SFML_PATH)/lib
 
-LDFLAGS            += $(SFML_FLAGS)
+CXXFLAGS           += $(SFML_INCLUDES)
 
+LDFLAGS            += $(SFML_FLAGS)

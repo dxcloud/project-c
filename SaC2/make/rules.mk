@@ -32,7 +32,7 @@ SAC2_PATH          ?= $(dirname $SAC2_MAKE_DIR)
 CXX                ?= g++
 OPTFLAGS           ?= -O2
 CXXFLAGS           += $(CFLAGS) $(OPTFLAGS)
-CXXFLAGS           += -Wall -pedantic -std=c++11
+CXXFLAGS           += -Wall -pedantic -std=c++11 -g
 
 ### Define source directories
 WORK_DIR            = $(PWD)

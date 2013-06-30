@@ -23,6 +23,7 @@ SAC2_INCLUDES      += -I$(SAC2_PATH)/include/assets \
                       -I$(SAC2_PATH)/include/interfaces \
                       -I$(SAC2_PATH)/include/states \
                       -I$(SAC2_PATH)/include/types \
+                      -I$(SAC2_PATH)/include/utils \
                       $(SFML_INCLUDES)
 
 
@@ -38,7 +39,8 @@ LDFLAGS            += -L$(LIBRARY_DIR) \
 
 CXXFLAGS           += $(SAC2_INCLUDES)
 
-SAC2_CXXFLAGS       = -Wall -O2 -pedantic -std=c++11 $(SAC2_INCLUDES) -DSAC2_LOGGER_ENABLED
+SAC2_CXXFLAGS       = -Wall -O2 -pedantic -std=c++11 $(SAC2_INCLUDES) \
+                      -DSAC2_LOGGER_ENABLED -g
 
 sac2: builddir $(SAC2_SHARED_OBJECT)
 
