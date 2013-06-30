@@ -17,6 +17,7 @@ samples/
 
 # Executables
 build/
+bin/
 *.out
 
 # KDevelop project
