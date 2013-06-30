@@ -299,7 +299,7 @@ void Srg::generate_source() const
         << "namespace sac2" << std::endl
         << "{" << std::endl
         << std::endl
-        << "asset_map_t AssetManager::m_asset_table =" << std::endl
+        << "const asset_map_t AssetManager::m_asset_table =" << std::endl
         << "{" << std::endl;
     for (filename_const_iter_t it(m_filenames.begin());
          it != m_filenames.end();
@@ -310,7 +310,7 @@ void Srg::generate_source() const
       ofs << "  {(asset_id_t) " << it->first << ", "
           << "\"" << it->second << "\"}";
     }
-      ofs << std::endl << "}" << std::endl << std::endl
+      ofs << std::endl << "};" << std::endl << std::endl
           << "}" << std::endl << std::endl;
   }
   ofs.close();
@@ -340,7 +340,7 @@ void Srg::insert_file_header(std::ofstream& ofs) const
 //----------------------------------------------------------------------------
 void Srg::print_usage()
 {
-  std::cout << "Usage: ./srg <filename>" << std::endl;
+  std::cout << "Usage: srg <filename>" << std::endl;
 }
 
 }
