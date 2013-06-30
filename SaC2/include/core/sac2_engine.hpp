@@ -11,6 +11,8 @@
 
 #include <string>
 
+#include <SFML/System.hpp>
+
 #include <sac2_type.hpp>
 #include <sac2_logger.hpp>
 
@@ -20,6 +22,7 @@ namespace sac2
 class RenderingManager;
 class InputManager;
 class AssetManager;
+class StateManager;
 
 /*!
  * \class   Engine
@@ -93,9 +96,12 @@ protected:
   void cleanup();
 
 private:
+  sf::Clock          m_clock;
+
   RenderingManager*  p_rendering_manager;   //!< Window Manager
   InputManager*      p_input_manager;
   AssetManager*      p_asset_manager;
+  StateManager*      p_state_manager;
 
   static state_t     m_engine_state;     //!< Current state of the engine
 };  // class Engine

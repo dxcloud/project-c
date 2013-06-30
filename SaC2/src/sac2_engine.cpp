@@ -8,6 +8,7 @@
 #include <sac2_rendering_manager.hpp>
 #include <sac2_input_manager.hpp>
 #include <sac2_asset_manager.hpp>
+#include <sac2_state_manager.hpp>
 
 namespace sac2
 {
@@ -21,9 +22,11 @@ state_t Engine::m_engine_state(SHUTDOWN);
 //  Engine::Engine
 //----------------------------------------------------------------------------
 Engine::Engine(const std::string& title):
+  m_clock(),
   p_rendering_manager(RenderingManager::create()),
   p_input_manager(InputManager::create()),
-  p_asset_manager(AssetManager::create())
+  p_asset_manager(AssetManager::create()),
+  p_state_manager(StateManager::create())
 {
 #ifdef SAC2_LOGGER_ENABLED
   Logger::log_info("Engine::constructor - start initialization");
@@ -39,6 +42,7 @@ void Engine::initialize()
   if (false == p_rendering_manager->is_initialized()) { return; }
   if (false == p_input_manager->is_initialized()) { return; }
   if (false == p_asset_manager->is_initialized()) { return; }
+  if (false == p_state_manager->is_initialized()) { return; }
 
   m_engine_state = INITIALIZED;
 #ifdef SAC2_LOGGER_ENABLED
@@ -91,9 +95,13 @@ status_t Engine::run()
 //----------------------------------------------------------------------------
 void Engine::loop()
 {
+  m_clock.restart();
   while (RUNNING == m_engine_state) {
-    p_input_manager->update();
-    p_rendering_manager->update();
+    sf::Time elapsed(m_clock.restart());
+    float dt(elapsed.asSeconds());
+    p_input_manager->update(dt);
+    p_rendering_manager->update(dt);
+    p_state_manager->update(dt);
   }  // loop while m_engine_state is RUNNING
 }
 

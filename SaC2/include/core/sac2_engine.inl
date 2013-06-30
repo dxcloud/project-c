@@ -5,6 +5,9 @@
 #ifndef SAC2_ENGINE_INL
 #define SAC2_ENGINE_INL
 
+namespace sac2
+{
+
 //----------------------------------------------------------------------------
 //  Engine::~Engine
 //----------------------------------------------------------------------------
@@ -34,6 +37,8 @@ inline void Engine::quit()
   Logger::log_info("Engine::quit - called");
 #endif
   m_engine_state = STOPPED;
+}
+
 }
 
 #endif  //! SAC2_ENGINE_INL
