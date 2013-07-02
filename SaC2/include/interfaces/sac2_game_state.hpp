@@ -1,112 +1,137 @@
-/*!
- * \file    sac2_game_state.hpp
- * \author  Chengwu HUANG
- * \version 0.1
- * \date    2013-04-08 - Initial Development
- * \brief   Provides the State interface used by all game engines
- */
+//////////////////////////////////////////////////////////////////////////////
+//! \file
+//!     sac2_game_state.hpp
+//! \author
+//!     Chengwu HUANG
+//! \version
+//!     0.1 (development version)
+//! \date
+//!     2013-04-08
+//! \brief
+//!     Provides \c Game \c State interface.
+//////////////////////////////////////////////////////////////////////////////
 
 #ifndef SAC2_GAME_STATE_HPP
 #define SAC2_GAME_STATE_HPP
 
 #include <sac2_type.hpp>
-#include <sac2_state_manager.hpp>
-#include <sac2_asset_manager.hpp>
-#include <sac2_rendering_manager.hpp>
-#include <sac2_input_manager.hpp>
 #include <sac2_logger.hpp>
 
 namespace sac2
 {
 
-/*!
- * \class   State
- * \brief   Base class interface for all game states
- * \details The following member functions must be defined by all derived
- *          classes:
- *          - \b initializing()
- *          - \b pausing()
- *          - \b resuming()
- *          - \b updating()
- *          - \b cleaning()
- * \warning None of these methods should be called directly, instead use
- *          methods provided by StateManager to pause, resume.
- */
+//////////////////////////////////////////////////////////////////////////////
+//! \class
+//!     GameState
+//! \brief
+//!     Base interface for all Game State.
+//! \details
+//!     The following member functions must be defined by any derived class:
+//!     - \b initializing()
+//!     - \b pausing()
+//!     - \b resuming()
+//!     - \b updating(float dt)
+//!     - \b cleaning()
+//! \note
+//!     The above methods are only called by \b StateManager.
+//!     Do NOT call them directly.
+//! \see
+//!     StateManager
+//////////////////////////////////////////////////////////////////////////////
 class GameState
 {
 public:
+  ////////////////////////////////////////////////////////////////////////////
+  //! Access private attribute \b m_state_status.
+  ////////////////////////////////////////////////////////////////////////////
   friend class StateManager;
 
 public:
-   /*!
-    * \brief Default constructor
-    */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Default constructor.
+  ////////////////////////////////////////////////////////////////////////////
   GameState();
 
-  /*!
-   * \brief Destructor
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Default destructor.
+  ////////////////////////////////////////////////////////////////////////////
   virtual ~GameState();
 
-  /*!
-   * \brief  Test if the state is initialized
-   * \return Return \b true if the state is initialized, \b false otherwise
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Test whether the State is initialized.
+  //! \return
+  //!     Return \b true if the State is initialized.
+  ////////////////////////////////////////////////////////////////////////////
   bool is_initialized() const;
 
-  /*!
-   * \brief  Test if the state is paused
-   * \return Return \b true if the state is paused, \b false otherwise
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Test whether the State is paused.
+  //! \return
+  //!     Return \b true if the State is paused, \b false otherwise.
+  ////////////////////////////////////////////////////////////////////////////
   bool is_paused() const;
 
-  /*!
-   * \brief  Test if the state is running
-   * \return Return \b true if the state is running, \b false otherwise
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Test whether the State is updating.
+  //! \return
+  //!     Return \b true if the State is updating, \b false otherwise.
+  ////////////////////////////////////////////////////////////////////////////
   bool is_running() const;
 
-  /*!
-   * \brief  Test if the state is stopped
-   * \return Return \b true if the state is stopped, \b false otherwise
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Test whether the State is stopped.
+  //! \return
+  //!     Return \b true if the State is stopped, \b false otherwise.
+  ////////////////////////////////////////////////////////////////////////////
   bool is_stopped() const;
 
 protected:
-
-  /*!
-   * \brief Initialize the state
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Initialize the State.
+  ////////////////////////////////////////////////////////////////////////////
   virtual void initializing() = 0;
 
-  /*!
-   * \brief When the state is paused
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Called when the State is paused.
+  ////////////////////////////////////////////////////////////////////////////
   virtual void pausing() = 0;
-  
-  /*!
-   * \brief When the state is resumed
-   */
+
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Called when the State is resumed.
+  ////////////////////////////////////////////////////////////////////////////
   virtual void resuming() = 0;
 
-  /*!
-   * \brief Called if the state is currently running
-   */
-  virtual void updating() = 0;
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Called when the State is running.
+  ////////////////////////////////////////////////////////////////////////////
+  virtual void updating(float dt) = 0;
 
-  /*!
-   * \brief Clean elements of the state before to be destroyed
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Called when the State is stopped.
+  ////////////////////////////////////////////////////////////////////////////
   virtual void cleaning() = 0;
 
-protected:
-  StateManager*         p_state_manager;  //!< State Manager
-  AssetManager*         p_asset_manager;  //!< Asset Manager
-  RenderingManager*     p_rendering_manager; //!< Window Manager
-  InputManager*         p_input_manager;
-
 private:
-  state_t               m_state_status;
+  ////////////////////////////////////////////////////////////////////////////
+  //! Indicates the current state status of the Game State:
+  //! - \b UNINITIALIZED
+  //! - \b INITIALIZED
+  //! - \b RUNNING
+  //! - \b PAUSED
+  //! - \b  STOPPED
+  ////////////////////////////////////////////////////////////////////////////
+  state_t m_state_status;
 };  // class GameState
 
 }
