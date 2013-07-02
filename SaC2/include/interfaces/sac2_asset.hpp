@@ -1,80 +1,87 @@
-/*!
- * \file    sac2_asset.hpp
- * \author  Chengwu HUANG
- * \version 0.1
- * \date    2013-04-08 - Initial Development
- * \brief   Provides basic Asset used by the class \b AssetManager
- */
+//////////////////////////////////////////////////////////////////////////////
+//! \file
+//!     sac2_asset.hpp
+//! \author
+//!     Chengwu HUANG
+//! \version
+//!     0.1 (development version)
+//! \date
+//!     2013-04-08
+//! \brief
+//!     Provides basic asset interface. \b Asset is a template class.
+//////////////////////////////////////////////////////////////////////////////
 
 #ifndef SAC2_ASSET_HPP
 #define SAC2_ASSET_HPP
 
+#include <sac2_type.hpp>
+
 namespace sac2
 {
 
-/*!
- * \class   Asset
- * \brief   Base virtual class for assets
- * \details An Asset could be:
- *          - sf::Sprite
- *          - sf::Sound
- *          - sf::Music
- *          - sf::Text
- *          This template class is basically a wrapper class for SFML
- *          graphical or audio elements.
- */
+//////////////////////////////////////////////////////////////////////////////
+//! \class
+//!     Asset
+//! \brief
+//!     Base virtual class for assets manipulation.
+//! \details
+//!     This template class is basically a wrapper class for SFML
+//!     graphic or audio resources such as \b sf::Sprite or \b sf::Sound.
+//! \note
+//!     The constructor and the destructor or protected to prevent
+//!     instanciation. The asset cannot be copied directly, use the class
+//!     \b AssetManager to manipulate this class and derived classes.
+//! \see
+//!     AssetManager
+//////////////////////////////////////////////////////////////////////////////
 template<typename T>
 class Asset
 {
 public:
-  /*!
-   * \brief Default constructor
-   */
-  Asset();
-
-  /*!
-   * \brief Default destructor
-   */
-  virtual ~Asset();
-
-  /*!
-   * \brief  Get SFML Graphical or Audio element
-   * \return 
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Return the wrapped asset.
+  //! \return
+  //!     Reference of the asset.
+  //!
+  ////////////////////////////////////////////////////////////////////////////
   const T& get_asset() const;
 
 protected:
-  T m_asset;   //!< SFML Asset
+  ////////////////////////////////////////////////////////////////////////////
+  //! Wrapped asset type
+  ////////////////////////////////////////////////////////////////////////////
+  T  m_asset;
+
+protected:
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Protected default constructor
+  ////////////////////////////////////////////////////////////////////////////
+  Asset();
+
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Protected default destructor
+  ////////////////////////////////////////////////////////////////////////////
+  virtual ~Asset();
+
+private:
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Private copy constructor
+  ////////////////////////////////////////////////////////////////////////////
+  Asset(const Asset&);
+
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Private assignement operator
+  ////////////////////////////////////////////////////////////////////////////
+  Asset& operator=(const Asset&);
 };  // class Asset
 
-
-//----------------------------------------------------------------------------
-//  Asset::Asset
-//----------------------------------------------------------------------------
-template<typename T>
-inline Asset<T>::Asset()
-{
-  // do nothing
-}
-
-//----------------------------------------------------------------------------
-//  Asset::~Asset
-//----------------------------------------------------------------------------
-template<typename T>
-inline Asset<T>::~Asset()
-{
-  // do nothing
-}
-
-//----------------------------------------------------------------------------
-//  Asset::get_asset
-//----------------------------------------------------------------------------
-template<typename T>
-inline const T& Asset<T>::get_asset() const
-{
-  return m_asset;
-}
-
 }  // namespace sac2
+
+#include <sac2_asset.inl>
 
 #endif  //! SAC2_ASSET_HPP
