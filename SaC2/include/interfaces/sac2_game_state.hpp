@@ -129,7 +129,7 @@ private:
   //! - \b INITIALIZED
   //! - \b RUNNING
   //! - \b PAUSED
-  //! - \b  STOPPED
+  //! - \b STOPPED
   ////////////////////////////////////////////////////////////////////////////
   state_t m_state_status;
 };  // class GameState

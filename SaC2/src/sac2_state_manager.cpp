@@ -7,11 +7,11 @@ namespace sac2
 //----------------------------------------------------------------------------
 //  StateManager::update
 //----------------------------------------------------------------------------
-void StateManager::update()
+void StateManager::update(float dt)
 {
   if (false == is_empty()) {
     if (RUNNING == m_state_stack.back()->m_state_status) {
-      m_state_stack.back()->updating();
+      m_state_stack.back()->updating(dt);
     }
   }
 }
@@ -155,7 +155,7 @@ status_t StateManager::reset_state()
 //----------------------------------------------------------------------------
 void StateManager::initialize()
 {
-
+  if (false == m_initialized) { m_initialized = true; }
 }
 
 //----------------------------------------------------------------------------

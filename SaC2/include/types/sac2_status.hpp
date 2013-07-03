@@ -20,7 +20,7 @@ namespace sac2
  *          The class \b Status is able to give status information.
  * \see     Status
  */
-typedef enum status_t {
+enum status_t {
   STATUS_SUCCESS,  //!< General success response
   STATUS_ERROR,    //!< Generic condition: backwards compatible
   STATUS_FAIL,     //!< Initialization failed
@@ -31,7 +31,7 @@ typedef enum status_t {
   STATUS_MISS,     //!< A file is missing
   STATUS_NOMEM,    //!< Memory requirred not available
   STATUS_UNKNOWN   //!< Unknown status
-} status_t;
+};
 
 //! Table of all status code and the corresponding description messages.
 typedef std::map<status_t, const std::string> status_map_t;

@@ -3,7 +3,7 @@
  * \author  Chengwu HUANG
  * \version 0.1
  * \date    2013-04-08 - Initial Development
- * \brief   Provides SaC2 types
+ * \brief   Provides SaC2 types including typedef
  */
 
 #ifndef SAC2_TYPE_HPP
@@ -16,6 +16,8 @@
 #include <SFML/Window.hpp>
 
 #include <sac2_status.hpp>
+#include <sac2_vector2d.hpp>
+#include <sac2_math.hpp>
 
 /*!
  * \namespace sac2
@@ -57,18 +59,27 @@ enum DEFAUL_VIDEO_SETTING {
   DEFAULT_STYLE           = (sf::Style::Resize | sf::Style::Close)
 };
 
+
+
 /*!
- * \enum  state_t
- * \brief List of different states
+ * \enum    state_t
+ * \brief   List of different states
+ * \details Could be used by a State Machine
  */
-typedef enum state_t {
+enum state_t
+{
   UNINITIALIZED,  //!< Uninitialized
   INITIALIZED,    //!< Initialized
-  RUNNING,        //!< Engine is running
-  PAUSED,         //!< Engine is paused
-  STOPPED,         //!< Engine is stopped
-  SHUTDOWN        //!< Engine is shut down
-} state_t;
+  UNLOADED,       //!< Unloaded
+  LOADED,         //!< Loaded
+  CREATED,        //!< Created
+  RUNNING,        //!< Running
+  PAUSED,         //!< Paused
+  STOPPED,        //!< Stopped
+  DESTROYED,      //!< Destroyed
+  SHUTDOWN        //!< Shut Down
+};
+
 
 //! Asset type
 typedef enum asset_type_t {
@@ -86,12 +97,19 @@ typedef enum asset_type_t {
   ASSET_UNDEFINED
 } asset_type_t;
 
-//! Type of coordinate
-typedef struct sac2_coordinate {
-  float x;
-  float y;
-} sac2_vector_t;
+
+typedef Vector2D vector_t;
+typedef Vector2D point_t;
+typedef sf::Vector2u pixel_t;
+
+struct material_t
+{
+  float density;
+  float restitution;
+};
+
 
 } // namespace sac2
+
 
 #endif  //! SAC2_TYPE_HPP

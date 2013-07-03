@@ -29,19 +29,19 @@ void RenderingManager::initialize()
 #ifdef SAC2_LOGGER_ENABLED
       Logger::log_info("RenderingManager::initialize - successfully initialized");
 #endif
-    }
-    else {
+    }  // video mode supported
 #ifdef SAC2_LOGGER_ENABLED
+    else {
       Logger::log_error("RenderingManager::initialize - mode NOT supported");
-#endif
     }
+#endif
   }
 }
 
 //----------------------------------------------------------------------------
 //  RenderingManager::update
 //----------------------------------------------------------------------------
-void RenderingManager::update()
+void RenderingManager::update(float dt)
 {
   m_window.pollEvent(m_event);
   if (sf::Event::Closed == m_event.type) {
@@ -50,6 +50,14 @@ void RenderingManager::update()
 #endif
     Engine::quit();
   }  // stop engine whether the window is closed
+}
+
+//----------------------------------------------------------------------------
+//  RenderingManager::cleanup
+//----------------------------------------------------------------------------
+void RenderingManager::cleanup()
+{
+
 }
 
 }

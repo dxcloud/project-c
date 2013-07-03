@@ -5,7 +5,8 @@
 #ifndef SAC2_STATUS_INL
 #define SAC2_STATUS_INL
 
-namespace sac2{
+namespace sac2
+{
 
 //----------------------------------------------------------------------------
 //  Status::Status

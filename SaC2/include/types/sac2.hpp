@@ -4,11 +4,25 @@
  * \version 0.1
  * \date    2013-04-05 - Initial Development
  * \brief   Provides all includes
- * \warning Prefer include header files needed to this file
  */
 
 #ifndef SAC2_HPP
 #define SAC2_HPP
+
+//////////////////////////////////////////////////////////////////////////////
+//! \mainpage
+//!     Simple and Clear 2D Engine API
+//! \author
+//!     Chengwu HUANG <chengwhuang@gmail.com>
+//! \version
+//!     0.1 (development version)
+//! \date
+//!     2013-04-05: initial development date
+//! \section Introduction
+//!     SaC2 Engine tends to simply manipulation.
+//////////////////////////////////////////////////////////////////////////////
+
+
 
 // SaC2 includes
 #include "sac2_type.hpp"
