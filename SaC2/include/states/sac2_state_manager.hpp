@@ -49,7 +49,7 @@ public:
    * \brief   Update the StateManager
    * \details The current RUNNING game state will be updated.
    */
-  void update();
+  void update(float dt);
 
   /*!
    * \brief   Add a new state to the collection of the states
