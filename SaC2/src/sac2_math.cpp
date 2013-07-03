@@ -1,33 +1,50 @@
-/*!
- * \file sac2_math.cpp
- */
-
-#include <limits>
+//////////////////////////////////////////////////////////////////////////////
+//! \file
+//!     sac2_math.cpp
+//! \author
+//!     Chengwu HUANG
+//! \version
+//!     0.1 (develpment version)
+//! \date
+//!     2013-07-01
+//! \brief
+//!     Math utilities.
+//////////////////////////////////////////////////////////////////////////////
 
 #include <sac2_math.hpp>
+#include <sac2_vector2d.hpp>
 
 namespace sac2
 {
 
-const float Math::PI(3.141592654F);
-const float Math::TWO_PI(6.283185307F);
-const float Math::HALF_PI(1.570796327F);
-const float Math::QUARTER_PI(0.785398163F);
-const float Math::E(2.718281828F);
-const float Math::LOG10_2(0.301029996F);
-const float Math::SQRT_2(1.414213562F);
-const float Math::LN_2(0.693147181F);
-const float Math::EPSILON(std::numeric_limits<float>::epsilon());
-
+//////////////////////////////////////////////////////////////////////////////
+// float radians(float deg)
+//////////////////////////////////////////////////////////////////////////////
 float radians(float deg)
 {
-  return deg * Math::PI / 180.0F;
+  return deg * cts::PI / 180.0F;
 }
 
+//////////////////////////////////////////////////////////////////////////////
+// float degrees(float rad)
+//////////////////////////////////////////////////////////////////////////////
 float degrees(float rad)
 {
-  return rad * 180.0F / Math::PI;
+  return rad * 180.0F / cts::PI;
+}
+
+float distance(const Vector2D& vec_1, const Vector2D& vec_2)
+{
+  return sqrtf(distance_2(vec_1, vec_2));
+}
+
+float distance_2(const Vector2D& vec_1, const Vector2D& vec_2)
+{
+  float d_x(vec_1.x - vec_2.x);
+  float d_y(vec_1.y - vec_2.y);
+  d_x *= d_x;
+  d_y *= d_y;
+  return (d_x + d_y);
 }
 
 }
-
