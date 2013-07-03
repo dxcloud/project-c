@@ -3,10 +3,15 @@
 namespace sac2
 {
 
+void InputManager::initialize()
+{
+  if (false == m_initialized) { m_initialized = true; }
+}
+
 //----------------------------------------------------------------------------
 //  InputManager::update
 //----------------------------------------------------------------------------
-void InputManager::update()
+void InputManager::update(float dt)
 {
   p_input_config->handle_inputs();
 }

@@ -112,6 +112,8 @@ typedef enum key_t {
   KEY_PAUSE     = sf::Keyboard::Pause        ///< The Pause key
 } key_t;
 
+class GameState;
+
 /*!
  * \class InputConfig
  * \brief This is a base class for input configuration
@@ -122,7 +124,7 @@ public:
   /*!
    * \brief Default constructor
    */
-  InputConfig();
+  InputConfig(GameState* game_state = 0);
 
   /*!
    * \brief Default destructor
@@ -130,11 +132,19 @@ public:
   virtual ~InputConfig();
 
   /*!
+   * \brief
+   */
+  void bind_game_state(GameState* game_state);
+
+  /*!
    * \brief   Handle inputs from Keyboard
    * \details This method must be override by any derived class
    * \return  SaC2 status
    */
   virtual void handle_inputs() = 0;
+
+protected:
+  GameState* p_game_state;
 
 protected:
   /*!
@@ -150,7 +160,8 @@ protected:
 //----------------------------------------------------------------------------
 //  InputConfig::InputConfig
 //----------------------------------------------------------------------------
-inline InputConfig::InputConfig()
+inline InputConfig::InputConfig(GameState* game_state):
+  p_game_state(game_state)
 {
 #ifdef SAC2_LOGGER_ENABLED
   Logger::log_info("InputConfig::constructor - new input config created");
@@ -189,7 +200,7 @@ public:
   /*!
    * \brief Default constructor
    */
-  DefaultInputConfig();
+  DefaultInputConfig(GameState* game_state = 0);
 
   /*!
    * \brief Default destructor
@@ -207,8 +218,8 @@ public:
 //----------------------------------------------------------------------------
 //  DefaultInputConfig::DefaultInputConfig
 //----------------------------------------------------------------------------
-inline DefaultInputConfig::DefaultInputConfig():
-  InputConfig()
+inline DefaultInputConfig::DefaultInputConfig(GameState* game_state):
+  InputConfig(game_state)
 {
   // do nothing
 }

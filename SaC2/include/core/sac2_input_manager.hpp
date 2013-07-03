@@ -41,7 +41,7 @@ public:
    * \brief   Update InputManager
    * \details This method calls handle_inputs() of the InputConfig.
    */
-  void update();
+  void update(float dt);
 
 protected:
   /*!
@@ -53,6 +53,8 @@ protected:
    * \brief Default destructor
    */
   ~InputManager();
+
+  void initialize();
 
   /*!
    * \brief Delete the current input configuration
