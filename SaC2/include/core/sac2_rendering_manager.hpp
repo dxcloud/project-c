@@ -17,6 +17,8 @@
 #include "sac2_manager.hpp"
 #include <sac2_logger.hpp>
 
+#include <sac2_asset_sprite.hpp>
+
 /**
  * \TODO Configure from file
  *   \b VideoMode
@@ -34,7 +36,6 @@
  *     - setMouseCursorVisible (mouse)
  *     - setKeyRepeatEnabled (keyR)
  *     - setFramerateLimit (FRL)
- * 
  */
 
 namespace sac2
@@ -69,13 +70,13 @@ public:
    * \brief  Get the width of the Rendering Window
    * \return Width of the window
    */
-  sac2_length_t get_width();
+  uint32_t get_width();
 
   /*!
    * \brief  Get the height of the Rendering Window
    * \return Height of the window
    */
-  sac2_length_t get_height();
+  uint32_t get_height();
 
   /*!
    * \brief  Get the current event
@@ -94,7 +95,7 @@ public:
    * \param  sprite The sprite to be drawn
    * \return SaC2 status
    */
-//  status_t draw_sprite(const AssetSprite& sprite);
+  status_t draw_sprite(const AssetSprite& sprite);
 
   /*!
    * \brief 
@@ -118,7 +119,7 @@ public:
    * \return SaC2 status
    */
   status_t display();
-  void update();
+  void update(float dt);
 
 protected:
   /*!
@@ -140,6 +141,7 @@ protected:
    *         - \b STATUS_FAIL
    */
   void initialize();
+  void cleanup();
 
 private:
   /*!
@@ -192,12 +194,12 @@ inline RenderingManager::~RenderingManager()
 #endif
 }
 
-inline sac2_length_t RenderingManager::get_width()
+inline uint32_t RenderingManager::get_width()
 {
   return m_window.getSize().x;
 }
 
-inline sac2_length_t RenderingManager::get_height()
+inline uint32_t RenderingManager::get_height()
 {
   return m_window.getSize().y;
 }
@@ -211,13 +213,13 @@ inline bool RenderingManager::get_event(sf::Event& event)
   return m_window.pollEvent(event);
 }
 
-/*
+
 inline status_t RenderingManager::draw_sprite(const AssetSprite& sprite)
 {
   m_window.draw(sprite.get_asset());
   return STATUS_SUCCESS;
 }
-
+/*
 inline status_t RenderingManager::display_text(const AssetText& text)
 {
 //  m_window.draw(text.get_asset());
