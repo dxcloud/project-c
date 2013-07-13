@@ -13,11 +13,10 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "sac2_type.hpp"
-#include "sac2_manager.hpp"
+#include <sac2_type.hpp>
+#include <sac2_manager.hpp>
 #include <sac2_logger.hpp>
 
-#include <sac2_asset_sprite.hpp>
 
 /**
  * \TODO Configure from file
@@ -95,7 +94,7 @@ public:
    * \param  sprite The sprite to be drawn
    * \return SaC2 status
    */
-  status_t draw_sprite(const AssetSprite& sprite);
+//  status_t draw_sprite(const AssetSprite& sprite);
 
   /*!
    * \brief 
@@ -119,6 +118,7 @@ public:
    * \return SaC2 status
    */
   status_t display();
+  status_t add_drawable(sf::Drawable* drawable);
   void update(float dt);
 
 protected:
@@ -134,12 +134,8 @@ protected:
 
   /*!
    * \brief  Initialise the Rendering Window
-   * \param  title Title for the window
-   * \return SaC2 status
-   *         - \b STATUS_SUCCESS
-   *         - \b STATUS_ALREADY
-   *         - \b STATUS_FAIL
    */
+
   void initialize();
   void cleanup();
 
@@ -163,6 +159,7 @@ private:
   unsigned long        m_window_style;     //!< Window style
 
   sf::Event            m_event;            //!< Event
+  std::vector<sf::Drawable*> m_draw_list;
 
 };  // class RenderingManager
 
@@ -181,7 +178,6 @@ inline RenderingManager::RenderingManager():
 #ifdef SAC2_LOGGER_ENABLED
   Logger::log_info("RenderingManager::constructor - start initialization");
 #endif
-  initialize();
 }
 
 //----------------------------------------------------------------------------
@@ -213,13 +209,13 @@ inline bool RenderingManager::get_event(sf::Event& event)
   return m_window.pollEvent(event);
 }
 
-
+/*
 inline status_t RenderingManager::draw_sprite(const AssetSprite& sprite)
 {
   m_window.draw(sprite.get_asset());
   return STATUS_SUCCESS;
 }
-/*
+
 inline status_t RenderingManager::display_text(const AssetText& text)
 {
 //  m_window.draw(text.get_asset());
@@ -241,6 +237,12 @@ inline status_t RenderingManager::clear()
 inline status_t RenderingManager::display()
 {
   m_window.display();
+  return STATUS_SUCCESS;
+}
+
+inline status_t RenderingManager::add_drawable(sf::Drawable* drawable)
+{
+  m_draw_list.push_back(drawable);
   return STATUS_SUCCESS;
 }
 

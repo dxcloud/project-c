@@ -14,7 +14,7 @@
 #ifndef SAC2_BOUNDING_CIRCLE_HPP
 #define SAC2_BOUNDING_CIRCLE_HPP
 
-#include <sac2_type.hpp>
+#include <sac2_bounding_shape.hpp>
 
 namespace sac2
 {
@@ -118,6 +118,8 @@ public:
   //!     are intersecting, \b false otherwise.
   ////////////////////////////////////////////////////////////////////////////
   bool intersect(const BoundingCircle& circle) const;
+
+  float area() const;
 
 private:
   //! The center of the circle.

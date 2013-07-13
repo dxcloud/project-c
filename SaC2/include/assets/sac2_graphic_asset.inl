@@ -5,6 +5,8 @@
 #ifndef SAC2_GRAPHIC_ASSET_HPP_INCLUDE
 #define SAC2_GRAPHIC_ASSET_HPP_INCLUDE
 
+#include <sac2_rendering_manager.hpp>
+
 namespace sac2
 {
 
@@ -127,6 +129,12 @@ template<class C>
 inline void GraphicAsset<C>::rotate(float angdeg)
 {
   Asset<C>::m_asset.rotate(angdeg);
+}
+
+template<class C>
+inline void GraphicAsset<C>::draw()
+{
+  RenderingManager::instance().add_drawable(&(Asset<C>::m_asset));
 }
 
 }

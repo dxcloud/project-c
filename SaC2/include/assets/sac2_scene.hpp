@@ -13,9 +13,6 @@
 #include <map>
 
 #include "sac2_type.hpp"
-#include "sac2_asset_sprite.hpp"
-#include "sac2_asset_sound.hpp"
-#include "sac2_asset_music.hpp"
 
 namespace sac2
 {
@@ -93,7 +90,7 @@ public:
    * \brief Get the current music
    * \return Current music
    */
-  AssetMusic* get_music() const;
+
 
   /*!
    * \brief Remove a sprite from the scene
@@ -119,8 +116,7 @@ public:
 
 protected:
   scene_id_t m_identifier;
-  std::map<deep_t, AssetSprite*> m_sprites;
-  AssetMusic* p_musics;
+
 private:
 
 };  // class Scene
@@ -148,10 +144,6 @@ inline scene_id_t Scene::get_scene_id() const
   return m_identifier;
 }
 
-inline AssetMusic* Scene::get_music() const
-{
-  return p_musics;
-}
 
 }
 

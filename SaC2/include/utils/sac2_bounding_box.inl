@@ -98,6 +98,11 @@ inline point_t BoundingBox::get_center() const
   return ((m_min + m_max) * 0.5F);
 }
 
+inline float BoundingBox::area() const
+{
+  return (fabs(m_max.x - m_min.x) * fabs(m_max.y - m_min.y));
+}
+
 }  // namespace sac2
 
 #endif  //! SAC2_BOUNDING_BOX_HPP_INCLUDE

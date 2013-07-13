@@ -142,11 +142,6 @@ protected:
   ~StateManager();
 
   /*!
-   * \brief  Initialize the manager
-   */
-  void initialize();
-
-  /*!
    * \brief  Clean all states of the state collection
    */
   void cleanup();
@@ -187,7 +182,7 @@ inline StateManager::StateManager():
 #ifdef SAC2_LOGGER_ENABLED
   Logger::log_debug("StateManager::constructor - start initialization");
 #endif
-  initialize();
+//  initialize();
 }
 
 //----------------------------------------------------------------------------

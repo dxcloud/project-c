@@ -16,8 +16,10 @@
 #include <SFML/Window.hpp>
 
 #include <sac2_status.hpp>
+//#include <sac2_math_physics_type.hpp>
 #include <sac2_vector2d.hpp>
 #include <sac2_math.hpp>
+#include <sac2_physics.hpp>
 
 /*!
  * \namespace sac2
@@ -96,17 +98,6 @@ typedef enum asset_type_t {
   ASSET_CUSTOM,  //!< Other type
   ASSET_UNDEFINED
 } asset_type_t;
-
-
-typedef Vector2D vector_t;
-typedef Vector2D point_t;
-typedef sf::Vector2u pixel_t;
-
-struct material_t
-{
-  float density;
-  float restitution;
-};
 
 
 } // namespace sac2

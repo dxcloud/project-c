@@ -22,11 +22,11 @@ state_t Engine::m_engine_state(SHUTDOWN);
 //  Engine::Engine
 //----------------------------------------------------------------------------
 Engine::Engine(const std::string& title):
-  m_clock(),
-  p_rendering_manager(RenderingManager::create()),
-  p_input_manager(InputManager::create()),
-  p_asset_manager(AssetManager::create()),
-  p_state_manager(StateManager::create())
+  m_clock()
+//  p_rendering_manager(RenderingManager::create()),
+//  p_input_manager(InputManager::create()),
+//  p_asset_manager(AssetManager::create()),
+//  p_state_manager(StateManager::create())
 {
 #ifdef SAC2_LOGGER_ENABLED
   Logger::log_info("Engine::constructor - start initialization");
@@ -39,10 +39,10 @@ Engine::Engine(const std::string& title):
 //----------------------------------------------------------------------------
 void Engine::initialize()
 {
-  if (false == p_rendering_manager->is_initialized()) { return; }
-  if (false == p_input_manager->is_initialized()) { return; }
-  if (false == p_asset_manager->is_initialized()) { return; }
-  if (false == p_state_manager->is_initialized()) { return; }
+//  if (false == p_rendering_manager->is_initialized()) { return; }
+//  if (false == p_input_manager->is_initialized()) { return; }
+//  if (false == p_asset_manager->is_initialized()) { return; }
+//  if (false == p_state_manager->is_initialized()) { return; }
 
   m_engine_state = INITIALIZED;
 #ifdef SAC2_LOGGER_ENABLED
@@ -99,9 +99,12 @@ void Engine::loop()
   while (RUNNING == m_engine_state) {
     sf::Time elapsed(m_clock.restart());
     float dt(elapsed.asSeconds());
-    p_input_manager->update(dt);
-    p_rendering_manager->update(dt);
-    p_state_manager->update(dt);
+//    p_input_manager->update(dt);
+//    p_rendering_manager->update(dt);
+//    p_state_manager->update(dt);
+    InputManager::instance().update(dt);
+    StateManager::instance().update(dt);
+    RenderingManager::instance().update(dt);
   }  // loop while m_engine_state is RUNNING
 }
 
@@ -113,6 +116,7 @@ void Engine::cleanup()
   RenderingManager::destroy();
   InputManager::destroy();
   AssetManager::destroy();
+  StateManager::destroy();
 #ifdef SAC2_LOGGER_ENABLED
   Logger::log_info("Engine::cleanup - all managers deleted");
 #endif

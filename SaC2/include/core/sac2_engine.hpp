@@ -98,10 +98,10 @@ protected:
 private:
   sf::Clock          m_clock;
 
-  RenderingManager*  p_rendering_manager;   //!< Window Manager
-  InputManager*      p_input_manager;
-  AssetManager*      p_asset_manager;
-  StateManager*      p_state_manager;
+//  RenderingManager*  p_rendering_manager;   //!< Window Manager
+//  InputManager*      p_input_manager;
+//  AssetManager*      p_asset_manager;
+//  StateManager*      p_state_manager;
 
   static state_t     m_engine_state;     //!< Current state of the engine
 };  // class Engine

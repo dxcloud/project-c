@@ -14,7 +14,7 @@
 #ifndef SAC2_BOUNDING_BOX_HPP
 #define SAC2_BOUNDING_BOX_HPP
 
-#include <sac2_type.hpp>
+#include <sac2_bounding_shape.hpp>
 
 namespace sac2
 {
@@ -114,6 +114,8 @@ public:
   //!     are intersecting, \b false otherwise.
   ////////////////////////////////////////////////////////////////////////////
   bool intersect(const BoundingBox& box) const;
+
+  float area() const;
 
 private:
   //! The lower bounds of the \c x and \c y axis (top left point).

@@ -9,7 +9,7 @@ namespace sac2
 //----------------------------------------------------------------------------
 void RenderingManager::initialize()
 {
-  if (false == m_initialized) {
+
     m_video_mode.width = DEFAULT_VIDEO_WIDTH;
     m_video_mode.height = DEFAULT_VIDEO_HEIGHT;
     m_video_mode.bitsPerPixel = DEFAULT_VIDEO_BPP;
@@ -25,7 +25,7 @@ void RenderingManager::initialize()
       m_window.create(m_video_mode, title, m_window_style, m_settings);
 
       m_window.setFramerateLimit(DEFAULT_FRAMERATE_LIMIT);
-      m_initialized = true;
+
 #ifdef SAC2_LOGGER_ENABLED
       Logger::log_info("RenderingManager::initialize - successfully initialized");
 #endif
@@ -35,7 +35,7 @@ void RenderingManager::initialize()
       Logger::log_error("RenderingManager::initialize - mode NOT supported");
     }
 #endif
-  }
+
 }
 
 //----------------------------------------------------------------------------
@@ -49,7 +49,13 @@ void RenderingManager::update(float dt)
     Logger::log_debug("RenderingManager::update - window closed");
 #endif
     Engine::quit();
+    return;
   }  // stop engine whether the window is closed
+  m_window.clear();
+  for (uint32_t i(0); i < m_draw_list.size(); ++i) {
+    m_window.draw(*m_draw_list[i]);
+  }
+  m_window.display();
 }
 
 //----------------------------------------------------------------------------

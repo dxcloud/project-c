@@ -3,11 +3,6 @@
 namespace sac2
 {
 
-void InputManager::initialize()
-{
-  if (false == m_initialized) { m_initialized = true; }
-}
-
 //----------------------------------------------------------------------------
 //  InputManager::update
 //----------------------------------------------------------------------------

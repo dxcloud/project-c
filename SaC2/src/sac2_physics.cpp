@@ -9,7 +9,7 @@ point_t free_fall(const point_t& initial_position,
 {
   point_t result(initial_position);
   result.x += initial_velocity.x * dt;
-  result.y += (initial_velocity.y * dt) + (0.5F * constants::g * dt * dt);
+  result.y += (initial_velocity.y * dt) + (0.5F * cts::ACCELERATION * dt * dt);
   return result;
 }
 

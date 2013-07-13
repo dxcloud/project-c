@@ -33,13 +33,12 @@
 #include "sac2_state_manager.hpp"
 #include "sac2_asset.hpp"
 #include "sac2_asset_manager.hpp"
-#include "sac2_asset_music.hpp"
-#include "sac2_asset_sound.hpp"
-#include "sac2_asset_sprite.hpp"
 #include <sac2_logger.hpp>
 #include <sac2_input_config.hpp>
 #include <sac2_input_manager.hpp>
-
+#include <sac2_sprite_asset.hpp>
+#include <sac2_math.hpp>
+#include <sac2_physics.hpp>
 
 #endif  //! SAC2_HPP
 

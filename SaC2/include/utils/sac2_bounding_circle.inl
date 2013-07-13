@@ -100,6 +100,11 @@ inline float BoundingCircle::get_radius() const
   return m_radius;
 }
 
+inline float BoundingCircle::area() const
+{
+  return (cts::PI * m_radius * m_radius);
+}
+
 }  // namespace sac2
 
 #endif  //! SAC2_BOUNDING_CIRCLE_HPP_INCLUDE

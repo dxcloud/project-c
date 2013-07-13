@@ -15,6 +15,7 @@
 #define SAC2_GRAPHIC_ASSET_HPP
 
 #include <sac2_asset.hpp>
+#include <SFML/Graphics/Drawable.hpp>
 
 namespace sac2
 {
@@ -130,6 +131,7 @@ public:
   ////////////////////////////////////////////////////////////////////////////
   void rotate(float angdeg);
 
+  void draw();
 protected:
   ////////////////////////////////////////////////////////////////////////////
   //! \brief

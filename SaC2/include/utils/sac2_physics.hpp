@@ -14,44 +14,45 @@
 #ifndef SAC2_PHYSICS_HPP
 #define SAC2_PHYSICS_HPP
 
-#include <sac2_type.hpp>
+//#include <sac2_type.hpp>
+#include <sac2_math_physics_type.hpp>
 #include <sac2_vector2d.hpp>
 
 namespace sac2
 {
 
-namespace cts
+struct Material
 {
+  float density;  //! Area density (kg.m^-2)
+  float restitution;
+  float friction;
 
-//////////////////////////////////////////////////////////////////////////////
-//! Constant of Gravitation
-//////////////////////////////////////////////////////////////////////////////
-const float GRAVITATION  = 6.67384e-11F;
+  Material():
+    density(0.0F),
+    restitution(0.0F),
+    friction(0.0F)
+  {
 
-//////////////////////////////////////////////////////////////////////////////
-//! Gravity of Earth
-//////////////////////////////////////////////////////////////////////////////
-const float ACCELERATION = 9.80665F;
+  }
+};
 
-//////////////////////////////////////////////////////////////////////////////
-//! Speed of light
-//////////////////////////////////////////////////////////////////////////////
-const float LIGHT_SPEED  = 299792458.0F;
+struct MassData
+{
+  vector_t center;  //! center of gravity
+  float inv_mass;   //! mass (kg)
+  float inertia;
 
+  MassData():
+  center(0.0F, 0.0F),
+  inv_mass(0.0F),
+  inertia(0.0F)
+  {
 
-const material_t ROCK        = { 0.6F, 0.1F };
-const material_t WOOD        = { 0.3F, 0.2F };
-const material_t METAL       = { 1.2F, 0.05F };
-const material_t BOUNCY_BALL = { 0.3F, 0.8F };
-const material_t SUPER_BALL  = { 0.3F, 0.95F };
-const material_t PILLOW      = { 0.1F, 0.2F };
-const material_t STATIC      = { 0.0F, 0.4F };
+  }
+};
 
-}
-
-
-
-
+typedef Material material_t;
+typedef MassData mass_t;
 
 point_t free_fall(const point_t& initial_position,
                   const vector_t& initial_velocity,

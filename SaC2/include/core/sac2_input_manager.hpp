@@ -54,8 +54,6 @@ protected:
    */
   ~InputManager();
 
-  void initialize();
-
   /*!
    * \brief Delete the current input configuration
    */

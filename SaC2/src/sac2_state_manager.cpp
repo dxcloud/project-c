@@ -150,13 +150,7 @@ status_t StateManager::reset_state()
   return STATUS_CANCEL;
 }
 
-//----------------------------------------------------------------------------
-//  StateManager::initialize
-//----------------------------------------------------------------------------
-void StateManager::initialize()
-{
-  if (false == m_initialized) { m_initialized = true; }
-}
+
 
 //----------------------------------------------------------------------------
 //  StateManager::cleanup
