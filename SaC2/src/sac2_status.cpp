@@ -1,3 +1,14 @@
+//////////////////////////////////////////////////////////////////////////////
+//! \file
+//!     sac2_status.cpp
+//! \author
+//!     Chengwu HUANG
+//! \version
+//!     1.0
+//! \date
+//!     2013-07-23
+//////////////////////////////////////////////////////////////////////////////
+
 #include <iostream>
 
 #include <sac2_status.hpp>
@@ -5,9 +16,9 @@
 namespace sac2
 {
 
-//----------------------------------------------------------------------------
-//  Status::m_status_table
-//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+// Status::m_status_table
+//////////////////////////////////////////////////////////////////////////////
 const status_map_t Status::m_status_table = {
   {STATUS_SUCCESS, "status 0 - STATUS_SUCCESS: No error returned"},
   {STATUS_ERROR,   "status 1 - STATUS_ERROR: Generic error detected"},
@@ -21,23 +32,14 @@ const status_map_t Status::m_status_table = {
   {STATUS_UNKNOWN, "status 9 - STATUS_UNKNOWN: Unknown status code"}
 };
 
-//----------------------------------------------------------------------------
-//  Status::NUM_STATUS
-//----------------------------------------------------------------------------
-const unsigned char Status::NUM_STATUS(m_status_table.size());
+//////////////////////////////////////////////////////////////////////////////
+// Status::NUM_STATUS
+//////////////////////////////////////////////////////////////////////////////
+const uint8_t Status::NUM_STATUS = m_status_table.size();
 
-//----------------------------------------------------------------------------
-//  Status::status_cast
-//----------------------------------------------------------------------------
-status_t Status::status_cast(unsigned int val)
-{
-  if (NUM_STATUS < val) { return STATUS_UNKNOWN; }
-  return static_cast<status_t>(val);
-}
-
-//----------------------------------------------------------------------------
-//  Status::status_info
-//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+// Status::status_info
+//////////////////////////////////////////////////////////////////////////////
 const std::string& Status::status_info(status_t status_code)
 {
   status_const_iter_t status_iter(m_status_table.find(status_code));
@@ -47,9 +49,9 @@ const std::string& Status::status_info(status_t status_code)
   return status_iter->second;
 }
 
-//----------------------------------------------------------------------------
-//  Status::print_status_table
-//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+// Status::print_status_table
+//////////////////////////////////////////////////////////////////////////////
 void Status::print_status_table()
 {
   std::cout << "Status table contains "
