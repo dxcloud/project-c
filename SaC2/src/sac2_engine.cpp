@@ -1,58 +1,47 @@
-﻿/**
- * \file sac2_engine.cpp
- */
+﻿//////////////////////////////////////////////////////////////////////////////
+//! \file
+//!     sac2_engine.cpp
+//////////////////////////////////////////////////////////////////////////////
 
+#ifdef SAC2_LOGGER_ENABLED
 #include <sstream>
+#endif
 
 #include <sac2_engine.hpp>
-#include <sac2_rendering_manager.hpp>
+
 #include <sac2_input_manager.hpp>
 #include <sac2_asset_manager.hpp>
 #include <sac2_state_manager.hpp>
+#include <sac2_rendering_manager.hpp>
 
 namespace sac2
 {
 
-//----------------------------------------------------------------------------
-//  Engine::m_engine_state
-//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+// Engine::m_engine_state
+//////////////////////////////////////////////////////////////////////////////
 state_t Engine::m_engine_state(SHUTDOWN);
 
-//----------------------------------------------------------------------------
-//  Engine::Engine
-//----------------------------------------------------------------------------
-Engine::Engine(const std::string& title):
+//////////////////////////////////////////////////////////////////////////////
+// Engine::Engine
+//////////////////////////////////////////////////////////////////////////////
+Engine::Engine():
   m_clock()
-//  p_rendering_manager(RenderingManager::create()),
-//  p_input_manager(InputManager::create()),
-//  p_asset_manager(AssetManager::create()),
-//  p_state_manager(StateManager::create())
 {
 #ifdef SAC2_LOGGER_ENABLED
   Logger::log_info("Engine::constructor - start initialization");
 #endif
-  initialize();
+  // initialize all managers
+  InputManager::instance();
+  AssetManager::instance();
+  StateManager::instance();
+  RenderingManager::instance();
+  if (SHUTDOWN == m_engine_state) { m_engine_state = INITIALIZED; }
 }
 
-//----------------------------------------------------------------------------
-//  Engine::initialize
-//----------------------------------------------------------------------------
-void Engine::initialize()
-{
-//  if (false == p_rendering_manager->is_initialized()) { return; }
-//  if (false == p_input_manager->is_initialized()) { return; }
-//  if (false == p_asset_manager->is_initialized()) { return; }
-//  if (false == p_state_manager->is_initialized()) { return; }
-
-  m_engine_state = INITIALIZED;
-#ifdef SAC2_LOGGER_ENABLED
-  Logger::log_debug("Engine::initialize - successfully initialized");
-#endif
-}
-
-//----------------------------------------------------------------------------
-//  Engine::parse_options
-//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+// Engine::parse_options
+//////////////////////////////////////////////////////////////////////////////
 void Engine::parse_options(int argc, char* argv[])
 {
 #ifdef SAC2_LOGGER_ENABLED
@@ -69,9 +58,9 @@ void Engine::parse_options(int argc, char* argv[])
 #endif
 }
 
-//----------------------------------------------------------------------------
-//  Engine::run
-//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+// Engine::run
+//////////////////////////////////////////////////////////////////////////////
 status_t Engine::run()
 {
   if (INITIALIZED != m_engine_state) {
@@ -80,45 +69,42 @@ status_t Engine::run()
 #endif
     return STATUS_FAIL;
   }  // initialization failed
-  m_engine_state = RUNNING;
-
 #ifdef SAC2_LOGGER_ENABLED
   Logger::log_info("Engine::run - running started");
 #endif
-
+  m_engine_state = RUNNING;
   loop();  // main loop
   return STATUS_SUCCESS;
 }
 
-//----------------------------------------------------------------------------
-//  Engine::loop
-//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+// Engine::loop
+//////////////////////////////////////////////////////////////////////////////
 void Engine::loop()
 {
   m_clock.restart();
   while (RUNNING == m_engine_state) {
-    sf::Time elapsed(m_clock.restart());
-    float dt(elapsed.asSeconds());
-//    p_input_manager->update(dt);
-//    p_rendering_manager->update(dt);
-//    p_state_manager->update(dt);
+//    sf::Time elapsed(m_clock.restart());
+//    float dt(elapsed.asSeconds());
+    float dt(m_clock.restart().asSeconds());
     InputManager::instance().update(dt);
+    AssetManager::instance().update(dt);
     StateManager::instance().update(dt);
     RenderingManager::instance().update(dt);
   }  // loop while m_engine_state is RUNNING
 }
 
-//----------------------------------------------------------------------------
-//  Engine::cleanup
-//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+// Engine::cleanup
+//////////////////////////////////////////////////////////////////////////////
 void Engine::cleanup()
 {
   RenderingManager::destroy();
-  InputManager::destroy();
-  AssetManager::destroy();
   StateManager::destroy();
+  AssetManager::destroy();
+  InputManager::destroy();
 #ifdef SAC2_LOGGER_ENABLED
-  Logger::log_info("Engine::cleanup - all managers deleted");
+  Logger::log_info("Engine::cleanup - all managers destroyed");
 #endif
 }
 
