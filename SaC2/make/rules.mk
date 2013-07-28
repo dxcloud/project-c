@@ -117,7 +117,9 @@ SHOW_DEPENDENCIES=no
 USER_REQUEST_CMD    = $(word 1,$(filter $(MAKECMDGOALS),$(SAC2_GOALS)))
 
 ifeq (,$(MAKECMDGOALS))
-  include $(SAC2_MAKE_PATH)/help.mk
+all: exec
+
+  include $(SAC2_MAKE_PATH)/exec.mk
 else ifeq ($(USER_REQUEST_CMD),$(MAKECMDGOALS))
   goal_include = $(addsuffix .mk,$(filter $(MAKECMDGOALS),$(SAC2_GOALS)))
   ifeq (depend,$(USER_REQUEST_CMD))

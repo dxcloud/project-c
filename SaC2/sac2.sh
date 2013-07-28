@@ -11,7 +11,7 @@ fi
 
 SAC2_MAKE_PATH=$(dirname $SAC2_MAKERULES)
 SAC2_PATH=$(dirname $SAC2_MAKE_PATH)
-SFML_PATH=$SAC2_PATH/libs/SFML-2.0
+SFML_PATH=$SAC2_PATH/libs/SFML-2.1
 
 echo "Exporting \`SAC2_PATH=$SAC2_PATH'..."
 export SAC2_PATH

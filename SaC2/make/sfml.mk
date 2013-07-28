@@ -10,7 +10,7 @@
 ### description: Define SMFL compilation and linkage flags
 ###---------------------------------------------------------------------------
 
-SFML_PATH          ?= $(SAC2_PATH)/libs/SFML-2.0
+SFML_PATH          ?= $(SAC2_PATH)/libs/SFML-2.1
 SFML_INCLUDES       = -I$(SFML_PATH)/include \
                       -isystem $(SFML_PATH)/include
 
@@ -24,3 +24,13 @@ SFML_FLAGS         += -L$(SFML_PATH)/lib \
 CXXFLAGS           += $(SFML_INCLUDES)
 
 LDFLAGS            += $(SFML_FLAGS)
+
+SFML_SHARED_OBJ     = $(wildcard $(SFML_PATH)/lib/*.so.2.1)
+
+%.so: %.so.2
+	@echo "Generating shared library \`$(notdir $@)'..."
+	@ln -sf $< $@
+
+%so.2: %so.2.1
+	@ln -sf $< $@
+
