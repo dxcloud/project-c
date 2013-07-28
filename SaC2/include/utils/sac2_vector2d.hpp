@@ -17,7 +17,6 @@
 #include <SFML/System/Vector2.hpp>
 
 #include <sac2_math.hpp>
-#include <sac2_math_physics_type.hpp>
 
 namespace sac2
 {
@@ -222,9 +221,6 @@ std::ostream& operator<<(std::ostream& out, const Vector2D& vector);
 //! \brief
 //////////////////////////////////////////////////////////////////////////////
 Vector2D operator*(float scalar, const Vector2D& vector);
-
-typedef Vector2D vector_t;
-typedef Vector2D point_t;
 
 }
 

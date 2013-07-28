@@ -13,7 +13,7 @@
 //! \mainpage
 //!     Simple and Clear 2D Engine API
 //! \author
-//!     Chengwu HUANG <chengwhuang@gmail.com>
+//!     Chengwu HUANG
 //! \version
 //!     0.1 (development version)
 //! \date

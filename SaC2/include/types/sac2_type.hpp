@@ -11,15 +11,16 @@
 
 #include <iostream>
 #include <string>
+#include <cstdlib>  // size_t
 #include <map>
 
 #include <SFML/Window.hpp>
 
 #include <sac2_status.hpp>
-//#include <sac2_math_physics_type.hpp>
-#include <sac2_vector2d.hpp>
+#include <sac2_mp_type.hpp>
 #include <sac2_math.hpp>
 #include <sac2_physics.hpp>
+#include <sac2_color.hpp>
 
 /*!
  * \namespace sac2
@@ -39,6 +40,8 @@ typedef uint8_t state_id_t;
 
 //! Asset ID, used for identifying Asset objects
 typedef uint32_t asset_id_t;
+
+typedef std::string string_t;
 
 //! Engine configuration file parameters
 typedef struct sac2_engine_conf {
@@ -60,8 +63,6 @@ enum DEFAUL_VIDEO_SETTING {
   //! Window creation styles
   DEFAULT_STYLE           = (sf::Style::Resize | sf::Style::Close)
 };
-
-
 
 /*!
  * \enum    state_t

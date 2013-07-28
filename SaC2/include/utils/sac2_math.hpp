@@ -17,6 +17,7 @@
 #include <cmath>
 #include <limits>
 
+#include <sac2_mp_constant.hpp>
 
 namespace sac2
 {

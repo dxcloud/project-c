@@ -15,8 +15,8 @@
 #define SAC2_PHYSICS_HPP
 
 //#include <sac2_type.hpp>
-#include <sac2_math_physics_type.hpp>
-#include <sac2_vector2d.hpp>
+#include <sac2_mp_constant.hpp>
+#include <sac2_mp_type.hpp>
 
 namespace sac2
 {
