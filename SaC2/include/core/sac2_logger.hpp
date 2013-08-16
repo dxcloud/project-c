@@ -1,10 +1,17 @@
-/*!
- * \file    sac2_logger.hpp
- * \author  Chengwu HUANG
- * \version 0.2
- * \date    2013 - 5 -12
- * \brief   Provides \b Logger class
- */
+//////////////////////////////////////////////////////////////////////////////
+//! \file
+//!     sac2_logger.hpp
+//! \author
+//!     Chengwu HUANG
+//! \version
+//!     1.0
+//! \date
+//!     2013-05-12
+//! \date
+//!     2013-08-16
+//! \brief
+//!     Provides Logger class.
+//////////////////////////////////////////////////////////////////////////////
 
 #ifndef SAC2_LOGGER_HPP
 #define SAC2_LOGGER_HPP
@@ -13,140 +20,246 @@
 
 #include <sac2_type.hpp>
 
+//////////////////////////////////////////////////////////////////////////////
+//! \def LOG_DEBUG
+//! \brief
+//!     Equivalent to \b sac2::Logger::log_debug
+//!     when \b SAC2_LOGGER_ENABLED is defined.
+//! \see sac2::Logger::log_debug
+//!
+//! \def LOG_CONFIG
+//! \brief
+//!     Equivalent to \b sac2::Logger::log_config
+//!     when \b SAC2_LOGGER_ENABLED is defined.
+//! \see sac2::Logger::log_config
+//!
+//! \def LOG_INFO
+//! \brief
+//!     Equivalent to \b sac2::Logger::log_info
+//!     when \b SAC2_LOGGER_ENABLED is defined.
+//! \see sac2::Logger::log_info
+//!
+//! \def LOG_WARNING
+//! \brief
+//!     Equivalent to \b sac2::Logger::log_warning
+//!     when \b SAC2_LOGGER_ENABLED is defined.
+//! \see sac2::Logger::log_warning
+//!
+//! \def LOG_ERROR
+//! \brief
+//!     Equivalent to \b sac2::Logger::log_error
+//!     when \b SAC2_LOGGER_ENABLED is defined.
+//! \see sac2::Logger::log_debug
+//////////////////////////////////////////////////////////////////////////////
+#ifdef SAC2_LOGGER_ENABLED
+#  define LOG_DEBUG(X)   sac2::Logger::log_debug(X);
+#  define LOG_CONFIG(X)  sac2::Logger::log_config(X);
+#  define LOG_INFO(X)    sac2::Logger::log_info(X);
+#  define LOG_WARNING(X) sac2::Logger::log_warning(X);
+#  define LOG_ERROR(X)   sac2::Logger::log_error(X);
+#else
+#  define LOG_DEBUG(X)
+#  define LOG_CONFIG(X)
+#  define LOG_INFO(X)
+#  define LOG_WARNING(X)
+#  define LOG_ERROR(X)
+#endif
+
 namespace sac2
 {
 
-/*!
- * \class   Logger
- * \brief   Writting messages to a log file.
- * \details This class is implemented with a singleton pattern.
- *
- *          The logging methods are all static.
- *
- *          Writting methods which take a single argument are named after the
- *          logging level (write_debug, write_config, etc.). These methods
- *          call \b write() with a specific logging level.
- */
+namespace cts
+{
+
+//////////////////////////////////////////////////////////////////////////////
+//! Default Output Log filename.
+//////////////////////////////////////////////////////////////////////////////
+const string_t DEFAULT_LOG_FILE = "SaC2.log";
+
+}
+
+//////////////////////////////////////////////////////////////////////////////
+//! \class Logger
+//! \brief
+//!     Allows to write messages into a log file.
+//! \details
+//!     The default output is \b std::cout whether log type methods (e.g
+//!     \b Logger::log_debug, \b Logger::log_config, etc.) are used without
+//!     initialization.
+//! \note
+//!     This class is implemented with a singleton pattern.
+//////////////////////////////////////////////////////////////////////////////
 class Logger
 {
-  /*!
-   * \brief   A set of standard logging levels that can be used to signal
-   *          logging output.
-   * \details The logging level indicates the severity of the messages.
-   *
-   *          Typically, use \b ERROR to report a serious error and
-   *          \b DEBUG to display a simple debug trace.
-   *
-   *          The levels in ascending order are:
-   *          - \b DEBUG
-   *          - \b CONFIG
-   *          - \b INFO
-   *          - \b WARNING
-   *          - \b ERROR
-   */
-  typedef enum log_level_t {
-    DEBUG,    ///< Debugging message
-    CONFIG,   ///< Configuration message, e.g. CPU type
-    INFO,     ///< Informational message
-    WARNING,  ///< Potential problem
-    ERROR     ///< Serious error message
-  } log_level_t;
+public:
+  ////////////////////////////////////////////////////////////////////////////
+  //! \enum log_level_t
+  //! \brief
+  //!     A set of logging levels that are used to signal logging output.
+  //! \details
+  //!     The logging level indicates the severity of the messages.
+  //!
+  //!     Typically, use \b ERROR to report a serious error and \b DEBUG
+  //!     to display a simple debug trace.
+  //!
+  //!     The levels in ascending order are:
+  //!     - DEBUG
+  //!     - CONFIG
+  //!     - INFO
+  //!     - WARNING
+  //!     - ERROR
+  ////////////////////////////////////////////////////////////////////////////
+  enum log_level_t {
+    DEBUG   = 0,  //!< Debugging message
+    CONFIG  = 1,  //!< Configuration message, e.g. CPU type
+    INFO    = 2,  //!< Informational message
+    WARNING = 3,  //!< Potential problem
+    ERROR   = 4   //!< Serious error message
+  };
 
 public:
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Initialize Logger, open file stream to start logging.
+  //! \param[in] filename
+  //!     Output Log filename, whether this parameter is omitted,
+  //!     \b DEFAULT_LOG_FILE is used instead.
+  //! \details
+  //!     Whether the output is \b std::cout, this method should NOT be
+  //!     called, otherwise, call also \b destroy when all logging messages
+  //!     are done.
+  //! \see Logger::destroy
+  ////////////////////////////////////////////////////////////////////////////
+  static void create(const string_t& filename=cts::DEFAULT_LOG_FILE);
 
-  /*!
-   * \brief Initialize Logger, open file stream for writting
-   * \param filename Output Log filename, if the parameter is omitted
-   *                 \b DEFAULT_LOG_FILE will be used
-   */
-  static void create(const std::string& filename=DEFAULT_LOG_FILE);
-
-  /*!
-   * \brief Close file stream
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Close file stream.
+  //! \details
+  //!     Always call this method when a file stream is opened.
+  //! \see Logger::create
+  ////////////////////////////////////////////////////////////////////////////
   static void destroy();
 
-  /*!
-   * \brief Log a message
-   * \param level   Log level identifier
-   * \param message The string message
-   * \see   log_level
-   */
-  static void log(log_level_t level, const std::string& message);
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Define the minimum logging level.
+  //! \details
+  //!     A message with a lower severity than the parameter will NOT
+  //!     be displayed.
+  //! \param[in] level
+  //!     Logging level.
+  //! \arg DEBUG
+  //! \arg CONFIG
+  //! \arg INFO
+  //! \arg WARNING
+  //! \arg ERROR
+  //! \see Logger::log_level_t
+  ////////////////////////////////////////////////////////////////////////////
+  static void set_log_level(log_level_t level);
 
-  /*!
-   * \brief Log a DEBUG type message
-   * \param message The string message
-   */
-  static void log_debug(const std::string& message);
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Log a message.
+  //! \param[in] level
+  //!     Logging level.
+  //! \param[in] message
+  //!     The string message.
+  //! \see Logger::log_level_t
+  ////////////////////////////////////////////////////////////////////////////
+  static void log(log_level_t level, const string_t& message);
 
-  /*!
-   * \brief Log a CONFIG type message
-   * \param message The string message
-   */
-  static void log_config(const std::string& message);
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Log a \b DEBUG type message.
+  //! \param[in] message
+  //!     The string message.
+  ////////////////////////////////////////////////////////////////////////////
+  static void log_debug(const string_t& message);
 
-  /*!
-   * \brief Log an INFO type message
-   * \param message The string message
-   */
-  static void log_info(const std::string& message);
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Log a \b CONFIG type message.
+  //! \param[in] message
+  //!     The string message.
+  ////////////////////////////////////////////////////////////////////////////
+  static void log_config(const string_t& message);
 
-  /*!
-   * \brief Log a WARNING type message
-   * \param message The string message
-   */
-  static void log_warning(const std::string& message);
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Log a \b INFO type message.
+  //! \param[in] message
+  //!     The string message.
+  ////////////////////////////////////////////////////////////////////////////
+  static void log_info(const string_t& message);
 
-  /*!
-   * \brief Log an ERROR type message
-   * \param message The string message
-   */
-  static void log_error(const std::string& message);
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Log a \b WARNING type message.
+  //! \param[in] message
+  //!     The string message.
+  ////////////////////////////////////////////////////////////////////////////
+  static void log_warning(const string_t& message);
+
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Log a \b ERROR type message.
+  //! \param[in] message
+  //!     The string message.
+  ////////////////////////////////////////////////////////////////////////////
+  static void log_error(const string_t& message);
 
 private:
-  /*!
-   * \brief Private Constructor
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Private constructor.
+  ////////////////////////////////////////////////////////////////////////////
   Logger();
 
-  /*!
-   * \brief Private Destructor
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Private destructor.
+  ////////////////////////////////////////////////////////////////////////////
   ~Logger();
 
-  /*!
-   * \brief   Private copy Constructor
-   * \details Copy is NOT allowed
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Private copy constructor.
+  ////////////////////////////////////////////////////////////////////////////
   Logger(const Logger&);
 
-  /*!
-   * \brief   Private assignment operator
-   * \details Copy is NOT allowed
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Private assignment operator.
+  ////////////////////////////////////////////////////////////////////////////
   Logger& operator=(const Logger&);
 
 private:
-  bool                     m_active; ///< Indicates whether Logger is initialized
-  std::ofstream            m_stream; ///< Output file stream
+  ////////////////////////////////////////////////////////////////////////////
+  //! Indicates whether a file stream is opened.
+  ////////////////////////////////////////////////////////////////////////////
+  bool                   m_active;
 
-  static Logger            m_logger;  ///< Instance of Logger (Singleton)
-  static const std::string m_level[]; ///< Text describing \b log_level
-  static const std::string DEFAULT_LOG_FILE; ///< Default Output Log file name
+  ////////////////////////////////////////////////////////////////////////////
+  //! Minimum logging level message to be displayed.
+  ////////////////////////////////////////////////////////////////////////////
+  log_level_t            m_log_level;
+
+  ////////////////////////////////////////////////////////////////////////////
+  //! Output file stream.
+  ////////////////////////////////////////////////////////////////////////////
+  std::ofstream          m_stream;
+
+  ////////////////////////////////////////////////////////////////////////////
+  //! Unique instance of Logger.
+  ////////////////////////////////////////////////////////////////////////////
+  static Logger          m_logger;
+
+  ////////////////////////////////////////////////////////////////////////////
+  //! Describing text of each logging level.
+  ////////////////////////////////////////////////////////////////////////////
+  static const string_t  m_level_msg[];
 };  //class Logger
-
-
-inline Logger::Logger():
-  m_active(false)
-{
-  // do nothing
-}
-
-inline Logger::~Logger()
-{
-  // do nothing
-}
 
 }  // namespace sac2
 
