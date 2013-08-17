@@ -63,9 +63,9 @@ public:
   //! \brief
   //!     Test whether the State is initialized.
   //! \return
-  //!     Return \b true if the State is initialized.
+  //!     Return \b true if the State is uninitialized.
   ////////////////////////////////////////////////////////////////////////////
-  bool is_initialized() const;
+  bool is_uninitialized() const;
 
   ////////////////////////////////////////////////////////////////////////////
   //! \brief
