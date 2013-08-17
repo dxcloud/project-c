@@ -1,50 +1,58 @@
 //////////////////////////////////////////////////////////////////////////////
-//! \file
-//!     sac2_asset_manager.cpp
+//! \file sac2_asset_manager.cpp
 //! \author
 //!     Chengwu HUANG
 //! \version
-//!     0.1 (develpment version)
+//!     0.1 (alpha)
 //! \date
 //!     2013-04-08
-//! \brief
-//!     Provides AssetManager class.
 //////////////////////////////////////////////////////////////////////////////
 
 #include <sac2_asset_manager.hpp>
 #include <sac2_sprite_asset.hpp>
-#include <sac2_sound_asset.hpp>
 
 namespace sac2
 {
 
 //////////////////////////////////////////////////////////////////////////////
-//  AssetManager::AssetManager
+// AssetManager::AssetManager
 //////////////////////////////////////////////////////////////////////////////
 AssetManager::AssetManager():
   Manager<AssetManager>(),
   m_font_map(),
   m_music_map(),
-  m_sound_map(),
+  m_buffer_map(),
   m_texture_map()
 {
-#ifdef SAC2_LOGGER_ENABLED
-  Logger::log_info("AssetManager::constructor - succesfully initialized");
-#endif
+  LOG_DEBUG("AssetManager::ctor - successfully initialized")
 }
 
 //////////////////////////////////////////////////////////////////////////////
-//  AssetManager::~AssetManager
+// AssetManager::~AssetManager
 //////////////////////////////////////////////////////////////////////////////
 AssetManager::~AssetManager()
 {
-#ifdef SAC2_LOGGER_ENABLED
-  Logger::log_info("AssetManager::destructor - succesfully destroyed");
-#endif
+  LOG_DEBUG("AssetManager::dtor - succesfully destroyed");
 }
 
 //////////////////////////////////////////////////////////////////////////////
-//  AssetManager::use_texture
+// AssetManager::load_texture
+//////////////////////////////////////////////////////////////////////////////
+status_t AssetManager::load_texture(asset_id_t id)
+{
+  return load_asset<texture_map_t, sf::Texture>(id, m_texture_map);
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// AssetManager::unload_texture
+//////////////////////////////////////////////////////////////////////////////
+status_t AssetManager::unload_texture(asset_id_t id)
+{
+  return unload_asset<texture_map_t>(id, m_texture_map);
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// AssetManager::use_texture
 //////////////////////////////////////////////////////////////////////////////
 status_t AssetManager::use_texture(asset_id_t id, SpriteAsset& sprite)
 {
@@ -54,48 +62,28 @@ status_t AssetManager::use_texture(asset_id_t id, SpriteAsset& sprite)
 }
 
 //////////////////////////////////////////////////////////////////////////////
-//  AssetManager::load_texture
-//////////////////////////////////////////////////////////////////////////////
-status_t AssetManager::load_texture(asset_id_t id)
-{
-  return load_asset<texture_map_t, sf::Texture>(id, m_texture_map);
-}
-
-//////////////////////////////////////////////////////////////////////////////
-//  AssetManager::unload_texture
-//////////////////////////////////////////////////////////////////////////////
-status_t AssetManager::unload_texture(asset_id_t id)
-{
-  return unload_asset<texture_map_t>(id, m_texture_map);
-}
-
-//////////////////////////////////////////////////////////////////////////////
-//  AssetManager::load_sound
+// AssetManager::load_sound
 //////////////////////////////////////////////////////////////////////////////
 status_t AssetManager::load_sound(asset_id_t id)
 {
-  return load_asset<buffer_map_t, sf::SoundBuffer>(id, m_sound_map);
+  return load_asset<buffer_map_t, sf::SoundBuffer>(id, m_buffer_map);
 }
 
 //////////////////////////////////////////////////////////////////////////////
-//  AssetManager::unload_sound
+// AssetManager::unload_sound
 //////////////////////////////////////////////////////////////////////////////
 status_t AssetManager::unload_sound(asset_id_t id)
 {
-  return unload_asset<buffer_map_t>(id, m_sound_map);
+  return unload_asset<buffer_map_t>(id, m_buffer_map);
 }
 
 //////////////////////////////////////////////////////////////////////////////
-//  AssetManager::unload_sound
+// AssetManager::load_music
 //////////////////////////////////////////////////////////////////////////////
 status_t AssetManager::load_music(asset_id_t id)
 {
-  if (m_music_map.end() != m_music_map.find(id)) {
-    return STATUS_ALREADY;
-  }  // if asset_map contains `id'
-  if (m_asset_table.end() == m_asset_table.find(id)) {
-    return STATUS_MISS;
-  }  // m_asset_table does NOT contain `id'
+  if (m_music_map.end() != m_music_map.find(id)) { return STATUS_ALREADY; }
+  if (m_asset_table.end() == m_asset_table.find(id)) { return STATUS_MISS; }
   sf::Music* music(new sf::Music);
   if (false == music->openFromFile(m_asset_table.at(id))) {
     delete music;
@@ -106,7 +94,7 @@ status_t AssetManager::load_music(asset_id_t id)
 }
 
 //////////////////////////////////////////////////////////////////////////////
-//  AssetManager::unload_sound
+// AssetManager::unload_music
 //////////////////////////////////////////////////////////////////////////////
 status_t AssetManager::unload_music(asset_id_t id)
 {
@@ -114,52 +102,14 @@ status_t AssetManager::unload_music(asset_id_t id)
 }
 
 //////////////////////////////////////////////////////////////////////////////
-//  AssetManager::unload_sound
-//////////////////////////////////////////////////////////////////////////////
-status_t AssetManager::play_music(asset_id_t id)
-{
-  if (m_music_map.end() == m_music_map.find(id)) { return STATUS_MISS; }
-  m_music_map[id]->play();
-  return STATUS_SUCCESS;
-}
-
-//////////////////////////////////////////////////////////////////////////////
-//  AssetManager::unload_sound
-//////////////////////////////////////////////////////////////////////////////
-status_t AssetManager::pause_music(asset_id_t id)
-{
-  if (m_music_map.end() == m_music_map.find(id)) { return STATUS_MISS; }
-  m_music_map[id]->pause();
-  return STATUS_SUCCESS;
-}
-
-//////////////////////////////////////////////////////////////////////////////
-//  AssetManager::unload_sound
-//////////////////////////////////////////////////////////////////////////////
-status_t AssetManager::stop_music(asset_id_t id)
-{
-  if (m_music_map.end() == m_music_map.find(id)) { return STATUS_MISS; }
-  m_music_map[id]->stop();
-  return STATUS_SUCCESS;
-}
-
-//////////////////////////////////////////////////////////////////////////////
-//  AssetManager::cleanup
+// AssetManager::cleanup
 //////////////////////////////////////////////////////////////////////////////
 void AssetManager::cleanup()
 {
-  Logger::log_info("AssetManager - cleaning");
   remove_asset<music_map_t>(m_music_map);
   remove_asset<texture_map_t>(m_texture_map);
-  remove_asset<buffer_map_t>(m_sound_map);
-}
-
-//////////////////////////////////////////////////////////////////////////////
-//  AssetManager::update
-//////////////////////////////////////////////////////////////////////////////
-void AssetManager::update(float dt)
-{
-
+  remove_asset<buffer_map_t>(m_buffer_map);
+  LOG_DEBUG("AssetManager::cleanup - all assets removed")
 }
 
 }  // namespace sac2
