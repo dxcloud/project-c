@@ -1,256 +1,278 @@
-/*!
- * \file    srg.cpp
- * \date    2013-06-10
- * \author  Chengwu Huang
- * \version 0.1
- */
+//////////////////////////////////////////////////////////////////////////////
+//! \file srg.cpp
+//! \author
+//!     Chengwu Huang
+//! \version
+//!     0.2.1 (alpha)
+//! \date
+//!     2013-06-10
+//! \date
+//!     2013-08-21
+//////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
 #include <iomanip>
-#include <cstring>
-#include <cstdlib>
 #include <ctime>
 
-#include <rapidxml.hpp>
-#include <rapidxml_utils.hpp>
-
+//#define RAPIDXML_NO_EXCEPTIONS
 #include "srg.hpp"
 
-namespace sac2
+void rapidxml::parse_error_handler(const char* what, void* where)
 {
+  std::cout << "what: " << what << std::endl;
+  std::cout << "where" << reinterpret_cast<char*>(where) << std::endl;
+}
+
 
 namespace srg
 {
 
-const char* Srg::ATTRIBUTE_DIR("dir");
-const char* Srg::ATTRIBUTE_ID("id");
-const char* Srg::ATTRIBUTE_FILENAME("filename");
-const char* Srg::NODE_RESOURCE("resource");
-const char* Srg::NODE_FONT("font");
-const char* Srg::NODE_IMAGE("image");
-const char* Srg::NODE_MUSIC("music");
-const char* Srg::NODE_SOUND("sound");
-const char* Srg::NODE_ITEM("item");
+using std::cout;
+using std::endl;
+using std::string;
 
-const std::string Srg::RESOURCE_FILENAME("resource");
+const char* Srg::ATTRIBUTE_DIR      = "dir";
+const char* Srg::ATTRIBUTE_ID       = "id";
+const char* Srg::ATTRIBUTE_FILENAME = "filename";
+const char* Srg::NODE_RESOURCE      = "resource";
+const char* Srg::NODE_FONT          = "font";
+const char* Srg::NODE_IMAGE         = "image";
+const char* Srg::NODE_MUSIC         = "music";
+const char* Srg::NODE_SOUND         = "sound";
+const char* Srg::NODE_ITEM          = "item";
 
-//----------------------------------------------------------------------------
-//  Srg::constructor
-//----------------------------------------------------------------------------
-Srg::Srg(const std::string& xml_filename):
-  m_xml_filename(xml_filename),
+const string Srg::RESOURCE_FILENAME = "resource";
+const string Srg::HEADER_SUFFIX     = "hpp";
+const string Srg::SOURCE_SUFFIX     = "cpp";
+
+//////////////////////////////////////////////////////////////////////////////
+// Srg::Srg
+//////////////////////////////////////////////////////////////////////////////
+Srg::Srg():
+  m_path_map(),
+  m_res_map(),
+  m_xml_filename(),
   m_res_filename(RESOURCE_FILENAME),
-  m_res_path()
+  m_hdr_suffix(HEADER_SUFFIX),
+  m_src_suffix(SOURCE_SUFFIX),
+  m_verbose(false)
 {
-  m_res_path["image"] = "";
-  m_res_path["sound"] = "";
-  m_res_path["font"]  = "";
-  m_res_path["music"] = "";
+  m_path_map[NODE_IMAGE] = "";
+  m_path_map[NODE_SOUND] = "";
+  m_path_map[NODE_FONT]  = "";
+  m_path_map[NODE_MUSIC] = "";
 }
 
-//----------------------------------------------------------------------------
-//  Srg::destructor
-//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+// Srg::~Srg
+//////////////////////////////////////////////////////////////////////////////
 Srg::~Srg()
 {
 
 }
 
-//----------------------------------------------------------------------------
-//  Srg::is_srg_node
-//----------------------------------------------------------------------------
-bool Srg::is_srg_node(const char* name1, const char* name2) const
+//////////////////////////////////////////////////////////////////////////////
+// unexpected_node
+//////////////////////////////////////////////////////////////////////////////
+void unexpected_node(const char* node_name)
 {
-  if (0 != strncmp(name1, name2, MAX_CHAR_LENGTH)) {
-    return false;
-  }
-  return true;
+//  cout << "Error while parsing <NODE> `" << node_name << "'..." << endl;
+  cout << ">> Unexpected <NODE> `" << node_name << "'" << endl;
 }
 
-//----------------------------------------------------------------------------
-//  Srg::is_resource_node
-//----------------------------------------------------------------------------
-bool Srg::is_resource_node(const char* node_name) const
+//////////////////////////////////////////////////////////////////////////////
+// required_node
+//////////////////////////////////////////////////////////////////////////////
+void required_node(const char* node_name)
 {
-  if (false == is_srg_node(node_name, NODE_RESOURCE)) {
-    std::cout << "Error: `" << node_name << "'"
-              << " is NOT a valid Tag" << std::endl;
-    return false;
-  }
-  return true;
+   cout << ">> Resources required" << endl;
 }
 
-//----------------------------------------------------------------------------
-//  Srg::is_asset_type_node
-//----------------------------------------------------------------------------
-bool Srg::is_asset_type_node(const char* node_name) const
+//////////////////////////////////////////////////////////////////////////////
+// unexpected_attribute
+//////////////////////////////////////////////////////////////////////////////
+void unexpected_attribute(const char* node_name, const char* attribute_name)
 {
-  if (false == is_srg_node(node_name, NODE_FONT)
-      && false == is_srg_node(node_name, NODE_IMAGE)
-      && false == is_srg_node(node_name, NODE_MUSIC)
-      && false == is_srg_node(node_name, NODE_SOUND)) {
-    std::cout << "Error: `" << node_name << "'"
-              << " is NOT a valid Tag" << std::endl;
-    return false;
-  }
-    return true;
+  cout << ">> Unexpected <ATTRIBUTE> `" << attribute_name << "'" << endl;
 }
 
-//----------------------------------------------------------------------------
-//  Srg::is_item_node
-//----------------------------------------------------------------------------
-bool Srg::is_item_node(const char* node_name) const
+//////////////////////////////////////////////////////////////////////////////
+// required_attribute
+//////////////////////////////////////////////////////////////////////////////
+void required_attribute(const char* node_name, const char* attribute_name)
 {
-  if (false == is_srg_node(node_name, NODE_ITEM)) {
-    std::cout << "Error: `" << node_name << "'"
-              << " is NOT a valid Tag" << std::endl;
-    return false;
-  }
-  return true;
+  cout << ">> Expecting <ATTRIBUTE> `" << attribute_name << "'" << endl;
 }
 
-//----------------------------------------------------------------------------
-//  Srg::has_child
-//----------------------------------------------------------------------------
-bool Srg::has_child(xml_node_ptr parent) const
+//////////////////////////////////////////////////////////////////////////////
+// Srg::parse_dir_attribute
+//////////////////////////////////////////////////////////////////////////////
+bool Srg::parse_dir_attribute(xml_node_ptr node)
 {
-  if (0 == parent->first_node()) { return false; }
-  return true;
-}
-
-//----------------------------------------------------------------------------
-//  Srg::has_attribute
-//----------------------------------------------------------------------------
-bool Srg::has_attribute(xml_node_ptr node) const
-{
-  if (0 == node->first_attribute()) { return false; }
-  return true;
-}
-
-//----------------------------------------------------------------------------
-//  Srg:has_id_attribute
-//----------------------------------------------------------------------------
-bool Srg::has_id_attribute(xml_node_ptr node) const
-{
-  if (0 == node->first_attribute(ATTRIBUTE_ID)) { return false; }
-  return true;
-}
-
-//----------------------------------------------------------------------------
-//  Srg::has_filename_attribute
-//----------------------------------------------------------------------------
-bool Srg::has_filename_attribute(xml_node_ptr node) const
-{
-  if (0 == node->first_attribute(ATTRIBUTE_FILENAME)) { return false; }
-  return true;
-}
-
-//----------------------------------------------------------------------------
-//  Srg::is_srg_attribute
-//----------------------------------------------------------------------------
-bool Srg::is_srg_attribute(const char* name1, const char* name2) const
-{
-  if (0 != strncmp(name1, name2, MAX_CHAR_LENGTH)) {
-    std::cout << "`" << name1 << "'"
-              << "is NOT a valide Attribut" << std::endl;
-    return false;
-  }
-  return true;
-}
-
-//----------------------------------------------------------------------------
-//  Srg::is_dir_attribute
-//----------------------------------------------------------------------------
-bool Srg::is_dir_attribute(const char* attribute_name) const
-{
-  return is_srg_attribute(attribute_name, ATTRIBUTE_DIR);
-}
-
-//----------------------------------------------------------------------------
-//  Srg::check_dir_attribute
-//----------------------------------------------------------------------------
-void Srg::check_dir_attribute(xml_node_ptr node, bool all_path)
-{
-  if (true == has_attribute(node)) {
-    if (false == is_dir_attribute(node->first_attribute()->name())) {
-      return;
-    }  // if the node does NOT have `dir' attribute
-    if (true == all_path) {
-      for (filename_iter_t it(m_res_path.begin());
-           it != m_res_path.end(); ++it) {
-        it->second.append(node->first_attribute()->value());
-        it->second.append("/");
-      }
-    }  // if all_path is true
+  for (xml_attribute_ptr attr(node->first_attribute());
+       0 != attr;
+       attr = attr->next_attribute()) {
+    if (0 == strncmp(attr->name(), ATTRIBUTE_DIR, MAX_CHAR_LENGTH)) {
+      VERBOSE("Parsing <ATTRIBUTE> `" << ATTRIBUTE_DIR << "="
+                << attr->value() << "'")
+      return true;
+    }  // attribute found
     else {
-      std::string res_type(node->name());
-      m_res_path[res_type].append(node->first_attribute()->value());
-      m_res_path[res_type].append("/");
+      unexpected_attribute(node->name(), attr->name());
+    }  // unexpected attribute
+  }
+  return false;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// Srg::parse_item_attribute
+//////////////////////////////////////////////////////////////////////////////
+bool Srg::parse_item_attribute(xml_node_ptr node)
+{
+  bool attr_filename(false);
+  bool attr_id(false);
+  for (xml_attribute_ptr attr(node->first_attribute());
+       0 != attr;
+       attr = attr->next_attribute()) {
+    if (0 == strncmp(attr->name(), ATTRIBUTE_FILENAME, MAX_CHAR_LENGTH)) {
+      VERBOSE("Parsing <ATTRIBUTE> `" << ATTRIBUTE_FILENAME << "="
+                << attr->value() << "'")
+      attr_filename = true;
+    }  // attribute found
+    else if (0 == strncmp(attr->name(), ATTRIBUTE_ID, MAX_CHAR_LENGTH)) {
+      VERBOSE("Parsing <ATTRIBUTE> `" << ATTRIBUTE_ID << "="
+                << attr->value() << "'")
+      attr_id = true;
+    }  // attribute found
+    else {
+      unexpected_attribute(node->name(), attr->name());
+    }  // unexpected attribute
+  }
+  if (false == attr_filename) {
+    required_attribute(node->name(), ATTRIBUTE_FILENAME);
+    return false;
+  }
+  if (false == attr_id) {
+    required_attribute(node->name(), ATTRIBUTE_ID);
+    return false;
+  }
+  return true;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// Srg::parse_root_node
+//////////////////////////////////////////////////////////////////////////////
+bool Srg::parse_root_node(xml_node_ptr node)
+{
+  VERBOSE("Parsing <NODE> `" << node->name() << "'...")
+  if (true == parse_dir_attribute(node)) {
+    for (filename_map_t::iterator it(m_path_map.begin());
+         it != m_path_map.end();
+         ++it) {
+      it->second.append(node->first_attribute(ATTRIBUTE_DIR)->value());
+      it->second.append("/");
     }
-  }  // if the node has an attribute
+  }  // attribute found
+  if (0 == node->first_node()) {
+    required_node(node->name());
+    return false;
+  }  // expected node
+  return true;
 }
 
-//----------------------------------------------------------------------------
-//  Srg::check_id_and_filename_attribute
-//----------------------------------------------------------------------------
-void Srg::check_id_and_filename_attribute(xml_node_ptr node)
+//////////////////////////////////////////////////////////////////////////////
+// Srg::parse_type_node
+//////////////////////////////////////////////////////////////////////////////
+bool Srg::parse_type_node(xml_node_ptr parent)
 {
-  std::string id(node->first_attribute("id")->value());
-  std::string filename(node->first_attribute("filename")->value());
-  std::string res_name(node->parent()->name());
-  m_filenames[id] = m_res_path[res_name] + filename;
-  std::cout << "Creating ID `" << id << "'..."<< std::endl;
+  for (xml_node_ptr node_type(parent->first_node());
+       0 != node_type;
+       node_type = node_type->next_sibling()) {
+    if ((0 != strncmp(node_type->name(), NODE_FONT, MAX_CHAR_LENGTH))
+         && (0 != strncmp(node_type->name(), NODE_IMAGE, MAX_CHAR_LENGTH))
+         && (0 != strncmp(node_type->name(), NODE_MUSIC, MAX_CHAR_LENGTH))
+         && (0 != strncmp(node_type->name(), NODE_SOUND, MAX_CHAR_LENGTH))) {
+      unexpected_node(node_type->name());
+      return false;
+    }  // unexpected node
+
+    VERBOSE("Parsing <NODE> `" << node_type->name() << "'...")
+    if (true == parse_dir_attribute(node_type)) {
+      m_path_map[node_type->name()].append(node_type->first_attribute()->value());
+      m_path_map[node_type->name()].append("/");
+    }
+    if (0 == node_type->first_node()) {
+      required_node(node_type->name());
+      return false;
+    }  // expected node
+    if (false == parse_item_node(node_type)) { return false; }
+  }
+  return true;
 }
 
-//----------------------------------------------------------------------------
-//  Srg::parse_xml
-//----------------------------------------------------------------------------
-void Srg::parse_xml()
+//////////////////////////////////////////////////////////////////////////////
+// Srg::parse_item_node
+//////////////////////////////////////////////////////////////////////////////
+bool Srg::parse_item_node(xml_node_ptr parent)
 {
-  rapidxml::file<> file(m_xml_filename.c_str());
+  for (xml_node_ptr node_res(parent->first_node());
+       0 != node_res;
+       node_res = node_res->next_sibling()) {
+    if (0 != strncmp(node_res->name(), NODE_ITEM, MAX_CHAR_LENGTH)) {
+      unexpected_node(node_res->name());
+      return false;
+    }  // no item found
+    if (0 != node_res->first_node()) {
+      unexpected_node(node_res->first_node()->name());
+      return false;
+    }  // unexpected child node
+    if (false == parse_item_attribute(node_res)) {
+      return false;
+    }
+    m_res_map[node_res->first_attribute(ATTRIBUTE_ID)->value()] =
+      m_path_map[node_res->parent()->name()]
+      + node_res->first_attribute(ATTRIBUTE_FILENAME)->value();
+  }
+  return true;
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// Srg::parse_xml
+//////////////////////////////////////////////////////////////////////////////
+bool Srg::parse_xml()
+{
+  VERBOSE("Reading `" << m_xml_filename << "'...")
   rapidxml::xml_document<> xml_doc;
+  rapidxml::file<> file(m_xml_filename.c_str());
   xml_doc.parse<0>(file.data());
 
-  xml_node_ptr node_root(xml_doc.first_node());
-  if (false == is_resource_node(node_root->name())) { return; }
-
-  check_dir_attribute(node_root, true);
-
-  if (false == has_child(node_root)) { return; }
-  for (xml_node_ptr node_type(node_root->first_node());
-       0 != node_type; node_type = node_type->next_sibling()) {
-    if (false == is_asset_type_node(node_type->name())) { return; }
-    check_dir_attribute(node_type);
-
-    if (false == has_child(node_type)) { return; }
-    std::cout << "Reading node `" << node_type->name() << "'..."<< std::endl;
-    for (xml_node_ptr node_res(node_type->first_node());
-         0 != node_res;
-         node_res = node_res->next_sibling()) {
-      if (false == is_item_node(node_res->name())) { return; }
-      if ((false == has_id_attribute(node_res))
-           || (false == has_filename_attribute(node_res))) {
-        std::cout << "Error: attribute `id' and/or `filename' is missing"
-                  << std::endl;
-        return;
-      }
-      check_id_and_filename_attribute(node_res);
-    }
+  for (xml_node_ptr node(xml_doc.first_node());
+       0 != node;
+       node = node->next_sibling()) {
+    if (0 != strncmp(node->name(), NODE_RESOURCE, MAX_CHAR_LENGTH)) {
+      unexpected_node(node->name());
+      return false;
+    }  // unexpected node
   }
+  xml_node_ptr node_root(xml_doc.first_node());
+  if (false == parse_root_node(node_root)) { return false; }
+  if (false == parse_type_node(node_root)) { return false; }
+  xml_doc.clear();
+  return true;
 }
 
-//----------------------------------------------------------------------------
-//  Srg::generate
-//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+// Srg::generate
+//////////////////////////////////////////////////////////////////////////////
 void Srg::generate() const
 {
   generate_header();
   generate_source();
 }
 
-//----------------------------------------------------------------------------
-//  Srg::generate_header
-//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+// Srg::generate_header
+//////////////////////////////////////////////////////////////////////////////
 void Srg::generate_header() const
 {
   std::ofstream ofs;
@@ -263,8 +285,8 @@ void Srg::generate_header() const
         << std::endl
         << "enum RESOURCE_TABLE {" << std::endl;
     uint32_t res_counter(0);
-    for (filename_const_iter_t it(m_filenames.begin());
-         it != m_filenames.end();
+    for (filename_map_t::const_iterator it(m_res_map.begin());
+         it != m_res_map.end();
          ++it) {
       ofs << "  " << it->first << " = " << "0x"
           << std::setw(sizeof(uint32_t))
@@ -281,12 +303,12 @@ void Srg::generate_header() const
         << std::endl;
   }
   ofs.close();
-  std::cout << "srg: `" << m_res_filename << ".hpp' generated." << std::endl;
+  VERBOSE("Generating `" << m_res_filename << "." << m_hdr_suffix << "'...")
 }
 
-//----------------------------------------------------------------------------
-//  Srg::generate_source
-//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+// Srg::generate_source
+//////////////////////////////////////////////////////////////////////////////
 void Srg::generate_source() const
 {
   std::ofstream ofs;
@@ -299,12 +321,13 @@ void Srg::generate_source() const
         << "namespace sac2" << std::endl
         << "{" << std::endl
         << std::endl
-        << "const asset_map_t AssetManager::m_asset_table =" << std::endl
+        << "const AssetManager::asset_map_t AssetManager::m_asset_table ="
+        << std::endl
         << "{" << std::endl;
-    for (filename_const_iter_t it(m_filenames.begin());
-         it != m_filenames.end();
+    for (filename_map_t::const_iterator it(m_res_map.begin());
+         it != m_res_map.end();
          ++it) {
-      if (m_filenames.begin() != it) {
+      if (m_res_map.begin() != it) {
         ofs << "," << std::endl;
       }
       ofs << "  {(asset_id_t) " << it->first << ", "
@@ -314,12 +337,12 @@ void Srg::generate_source() const
           << "}" << std::endl << std::endl;
   }
   ofs.close();
-  std::cout << "srg: `" << m_res_filename << ".cpp' generated." << std::endl;
+  VERBOSE("Generating `" << m_res_filename << "." << m_src_suffix << "'...")
 }
 
-//----------------------------------------------------------------------------
-//  Srg::insert_file_header
-//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+// Srg::insert_file_header
+//////////////////////////////////////////////////////////////////////////////
 void Srg::insert_file_header(std::ofstream& ofs) const
 {
   time_t time_info;
@@ -328,38 +351,11 @@ void Srg::insert_file_header(std::ofstream& ofs) const
   ofs << "/*!" << std::endl
       << " * \\file    " << m_res_filename << ".hpp" << std::endl
       << " * \\date    " << std::ctime(&time_info)
-      << " * \\warning This file is automatically generate by srg."
+      << " * \\warning This file is automatically generate by `srg''."
       << std::endl
       << " *          DO NOT EDIT THIS FILE." << std::endl
       << " */"
       << std::endl << std::endl;
 }
 
-//----------------------------------------------------------------------------
-//  print_usage
-//----------------------------------------------------------------------------
-void Srg::print_usage()
-{
-  std::cout << "Usage: srg <filename>" << std::endl;
-}
-
-}
-
-}
-
-
-//----------------------------------------------------------------------------
-//  main
-//----------------------------------------------------------------------------
-int main(int argc, char* argv[])
-{
-  if (2 != argc) {
-    sac2::srg::Srg::print_usage();
-    return 1;
-  }
-  sac2::srg::Srg generator(argv[1]);
-  generator.parse_xml();
-  generator.generate();
-
-  return 0;
-}
+}  // namespace srg

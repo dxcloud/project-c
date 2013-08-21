@@ -10,6 +10,8 @@
 ### description: Build `srg'
 ###---------------------------------------------------------------------------
 
+SHELL              = /bin/sh
+
 ### C++ Compiler default parameters
 CXX                 = g++
 CXXFLAGS            = -Wall -pedantic -std=c++11 -O2
@@ -17,32 +19,47 @@ LDFLAGS             =
 
 ### Header and source file
 SRG_TOOL_PATH      ?= $(shell locate -l 1 SaC2/tools/srg)
-SRG_HEADER          = $(SRG_TOOL_PATH)/srg.hpp
-SRG_SOURCE          = $(SRG_TOOL_PATH)/srg.cpp
-SRG_OBJECT          = $(SRG_TOOL_PATH)/srg.o
-SAC2_TOOLS_BIN      = $(dir $(SRG_TOOL_PATH))bin
+SAC2_TOOLS_BIN      = $(addprefix $(dir $(SRG_TOOL_PATH)),bin)
 
-### Targets
-SRG_EXEC            = $(SAC2_TOOLS_BIN)/srg
+SRG_CLASS           = srg
+MAIN                = sac2rg
+
+SRG_HEADER          = $(SRG_TOOL_PATH)/$(SRG_CLASS).hpp
+SRG_SOURCE          = $(SRG_TOOL_PATH)/$(SRG_CLASS).cpp
+OBJECTS             = $(SRG_TOOL_PATH)/$(SRG_CLASS).o \
+                      $(SRG_TOOL_PATH)/$(MAIN).o
+
+### Target
+TARGET              = $(SAC2_TOOLS_BIN)/$(MAIN)
 
 ### Rapidxml library path
-INCLUDE             = $(shell locate -l 1 SaC2/libs/rapidxml)
+INCLUDE             = $(shell locate -l 1 SaC2/libs/rapidxml-1.13)
 CXXFLAGS           += -I$(INCLUDE)
 
-all: $(SRG_EXEC)
+all: $(TARGET)
 
-$(SRG_EXEC): $(SRG_OBJECT)
+$(TARGET): $(OBJECTS)
 	@if [ ! -d "$(SAC2_TOOLS_BIN)" ]; then \
 	  echo "Creating directory \`$(SAC2_TOOLS_BIN)'..."; \
 	  mkdir $(SAC2_TOOLS_BIN); \
 	fi
-	@echo "Building \`srg' tool..."
-	@$(CXX) $(LDFLAGS) -o $@ $(SRG_OBJECT)
+	$(CXX) $^ -o $@ $(LDFLAGS)
+	@echo "Finished"
 
-$(SRG_OBJECT): $(SRG_SOURCE) $(SRG_HEADER)
-	@$(CXX) $(CXXFLAGS) -o $@ -c $<
+%.o: %.cpp
+	$(CXX) -c $< -o $@ $(CXXFLAGS)
+
+$(SRG_SOURCE): $(SRG_HEADER)
 
 clean:
-	@rm -rf $(SRG_EXEC) *~ *.o
+	@rm -rf *~ *.o
+	@echo "Removed temporary files"
 
-.PHONY: all clean
+distclean: clean
+	@rm -rf $(TARGET) $(MAIN).1
+	@echo "Removed binary executable"
+
+man:
+	help2man -o $(MAIN).1 $(MAIN)
+
+.PHONY: all clean distclean
