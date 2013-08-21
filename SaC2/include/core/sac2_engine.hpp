@@ -18,21 +18,24 @@
 
 #include <sac2_type.hpp>
 
-#ifdef SAC2_LOGGER_ENABLED
-#include <sac2_logger.hpp>
-#endif
-
 namespace sac2
 {
 
 //////////////////////////////////////////////////////////////////////////////
-//! \class
-//!     Engine
+//! \class Engine
 //! \brief
 //!     Base Engine
-//! \warning
-//!     \b LOG_ENABLED should be defined only for \a Debug or
-//!     \a Test \a Purposes
+//! \code
+//! #include <sac2.hpp>
+//!
+//! int main(int argc, char* argv[])
+//! {
+//!   sac2::Engine engine;
+//!   engine.parse_options(argc, argv);
+//!   engine.run();
+//!   return sac2::STATUS_SUCCESS;
+//! }
+//! \endcode
 //////////////////////////////////////////////////////////////////////////////
 class Engine
 {
@@ -40,8 +43,6 @@ public:
   ////////////////////////////////////////////////////////////////////////////
   //! \brief
   //!     Default constructor
-  //! \param title
-  //!     Title of the window.
   ////////////////////////////////////////////////////////////////////////////
   Engine();
 
@@ -76,8 +77,8 @@ public:
   //!     Start the engine.
   //! \return
   //!     Status code:
-  //!     - \b STATUS_SUCCESS
-  //!     - \b STATUS_FAILED
+  //! \retval STATUS_SUCCESS
+  //! \retval STATUS_FAILED
   ////////////////////////////////////////////////////////////////////////////
   status_t run();
 
@@ -115,7 +116,5 @@ private:
 };  // class Engine
 
 }  // namespace sac2
-
-#include <sac2_engine.inl>
 
 #endif  //! SAC2_ENGINE_HPP
