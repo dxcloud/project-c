@@ -366,3 +366,4 @@ private:
 #include <sac2_asset_manager.inl>
 
 #endif  //! SAC2_ASSET_MANAGER_HPP
+

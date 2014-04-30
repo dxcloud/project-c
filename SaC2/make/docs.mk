@@ -38,4 +38,3 @@ $(DOXYFILE):
 	 -e '10a\OUTPUT_DIRECTORY       = $(DOC_DIR)' \
 	 -e '6a\PROJECT_NAME           = "$(EXEC)"' <$@ > $@.tmp
 	@cat $@.tmp > $@; rm $@.tmp
-

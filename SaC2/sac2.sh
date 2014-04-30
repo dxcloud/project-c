@@ -5,7 +5,7 @@
 
 SAC2_MAKERULES=$(locate -l 1 SaC2/make/rules.mk)
 if [ ! -e $SAC2_MAKERULES ]; then
-  echo "Error: unable to locate file \`SaC2/make/rules.mk'"
+  echo "Error: unable to locate file \`$SAC2_MAKERULES'"
   return
 fi
 

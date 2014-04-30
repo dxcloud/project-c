@@ -51,7 +51,7 @@ The body of the memo comes next.
   * 43: Managing states
 * 50. Assets management
   * 51: Resources
-  * 52: Get assets
+  * 52: Managing assets
 * 80: Make system
   * 81: Available targets
 * 90: Miscellaneous

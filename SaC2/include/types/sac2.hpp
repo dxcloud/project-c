@@ -41,4 +41,3 @@
 #include <sac2_physics.hpp>
 
 #endif  //! SAC2_HPP
-

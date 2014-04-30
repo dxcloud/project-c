@@ -8,7 +8,7 @@
 ### update:      2013-06-17
 ### version:     1.0
 ### description: Generate SaC2 shared objects, and moved them into build/lib
-###              directory from current path
+###              from current directory
 ###---------------------------------------------------------------------------
 
 include $(SAC2_MAKE_PATH)/depend.mk
@@ -29,4 +29,3 @@ $(OUTPUT): $(OBJECTS) $(SAC2_SHARED_OBJECT)
 $(OBJECT_DIR)/%.o: %.cpp
 	@echo "Building \`$(notdir $@)'..."
 	@$(CXX) -o $@ -c $< $(CXXFLAGS)
-

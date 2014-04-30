@@ -32,7 +32,7 @@ AssetManager::AssetManager():
 //////////////////////////////////////////////////////////////////////////////
 AssetManager::~AssetManager()
 {
-  LOG_DEBUG("AssetManager::dtor - succesfully destroyed");
+  LOG_DEBUG("AssetManager::dtor - succesfully destroyed")
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -113,3 +113,4 @@ void AssetManager::cleanup()
 }
 
 }  // namespace sac2
+
