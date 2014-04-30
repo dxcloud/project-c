@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d6/d58/class_effect.html#abb5811a89ac41358261e658f6682516a" title="Effect::onDraw" alt="" coords="191,5,300,35"/>
+<area shape="rect" id="node5" href="$d6/d58/class_effect.html#a406376adb93215da98a51e7eeb4658e6" title="Effect::getFont" alt="" coords="191,59,300,88"/>
+<area shape="rect" id="node7" href="$d1/da8/classsf_1_1_transformable.html#a4dbfb1a7c80688b0b4c477d706550208" title="set the position of the object" alt="" coords="147,112,344,141"/>
+<area shape="rect" id="node9" href="$d6/ddb/classsf_1_1_text.html#ae96f835fc1bff858f8a23c5b01eaaf7e" title="Set the character size." alt="" coords="157,165,333,195"/>
+<area shape="rect" id="node11" href="$d1/d7c/classsf_1_1_render_target.html#a12417a3bcc245c41d957b29583556f39" title="Draw a drawable object to the render&#45;target." alt="" coords="168,219,323,248"/>
+</map>

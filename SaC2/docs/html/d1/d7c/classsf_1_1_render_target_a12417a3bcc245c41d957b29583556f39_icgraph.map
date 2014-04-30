@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d6/d58/class_effect.html#a955d86ffcc94f55949edcb0d46b36f5f" title="Draw the object to a render target." alt="" coords="272,5,365,35"/>
+<area shape="rect" id="node5" href="$d5/d34/tests_2test__01_2main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="293,59,344,88"/>
+<area shape="rect" id="node7" href="$d1/db1/classsac2_1_1_rendering_manager.html#ae7f8152264845f7cdfff9f5c03dfbfb0" title="Update the manager." alt="" coords="212,112,425,141"/>
+<area shape="rect" id="node15" href="$d6/db2/class_pixelate.html#ad4813fcc3c75a104624eced93b45f4b3" title="Pixelate::onDraw" alt="" coords="257,165,380,195"/>
+<area shape="rect" id="node17" href="$d2/de4/class_wave_blur.html#ab91b9f08ed3ae899260d03fbad168be7" title="WaveBlur::onDraw" alt="" coords="253,219,384,248"/>
+<area shape="rect" id="node19" href="$d7/d7a/class_storm_blink.html#ac9359614f04131db6d03abbf91602c9b" title="StormBlink::onDraw" alt="" coords="249,272,388,301"/>
+<area shape="rect" id="node21" href="$d7/d77/class_edge.html#a7a803416ae1c07a17a7fb1bee8d4821c" title="Edge::onUpdate" alt="" coords="261,325,376,355"/>
+<area shape="rect" id="node23" href="$d7/d77/class_edge.html#add2135874747f8ab13bf7e87d1f0b9a8" title="Edge::onDraw" alt="" coords="267,379,371,408"/>
+<area shape="rect" id="node25" href="$d7/d38/test__03_8cpp.html#aae1861ad6054a379180eea2586e50385" title="test_03" alt="" coords="287,432,351,461"/>
+<area shape="rect" id="node9" href="$dd/d00/classsac2_1_1_engine.html#a6143c055fcf9124d0702c207d88b1fac" title="Main loop." alt="" coords="475,112,605,141"/>
+<area shape="rect" id="node11" href="$dd/d00/classsac2_1_1_engine.html#ac9b285c5626c87b998d49f64540c3100" title="Start the engine." alt="" coords="655,112,777,141"/>
+<area shape="rect" id="node13" href="$de/d10/demo__state_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="827,112,877,141"/>
+<area shape="rect" id="node27" href="$d7/d38/test__03_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="515,432,565,461"/>
+</map>

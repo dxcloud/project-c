@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$d7/d30/classsf_1_1_sound_stream.html" title="Abstract base class for streamed audio sources." alt="" coords="96,192,216,221"/>
+<area shape="rect" id="node4" href="$d7/db5/classsf_1_1_sound_source.html" title="Base class defining a sound&#39;s properties." alt="" coords="5,85,123,115"/>
+<area shape="rect" id="node6" href="$d2/dc2/classsf_1_1_thread.html" title="Utility class to manipulate threads." alt="" coords="147,85,227,115"/>
+<area shape="rect" id="node8" href="$d9/df6/classsf_1_1_non_copyable.html" title="Utility class that makes any derived class non&#45;copyable." alt="" coords="176,5,296,35"/>
+<area shape="rect" id="node13" href="$db/d22/classsf_1_1_mutex.html" title="Blocks concurrent access to shared resources from multiple threads." alt="" coords="225,139,303,168"/>
+<area shape="rect" id="node10" href="$d6/d52/classsf_1_1_time.html" title="Represents a time value." alt="" coords="347,192,416,221"/>
+</map>

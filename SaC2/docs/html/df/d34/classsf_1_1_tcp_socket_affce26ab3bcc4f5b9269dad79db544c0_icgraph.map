@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d9/d2b/class_network_recorder.html#aeba28ae4824715c651cf6b2323044fe2" title="NetworkRecorder::onProcessSamples" alt="" coords="195,5,440,35"/>
+<area shape="rect" id="node5" href="$d9/d2b/class_network_recorder.html#a3ae6d62a6b72c7d54ce7b0d45d8291fa" title="NetworkRecorder::onStop" alt="" coords="231,59,404,88"/>
+<area shape="rect" id="node7" href="$d3/d2c/_t_c_p_8cpp.html#a918906a98ab06440251f6920f5fc4bbb" title="runTcpServer" alt="" coords="268,112,367,141"/>
+<area shape="rect" id="node11" href="$d3/d2c/_t_c_p_8cpp.html#acab1386c826ab10447f392c272e70a86" title="runTcpClient" alt="" coords="269,165,365,195"/>
+<area shape="rect" id="node9" href="$dc/d29/_sockets_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="main" alt="" coords="488,139,539,168"/>
+</map>

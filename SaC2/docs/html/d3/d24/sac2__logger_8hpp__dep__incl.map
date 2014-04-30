@@ -1,0 +1,19 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d0/df3/sac2__asset__manager_8hpp.html" title="Provides AssetManager class." alt="" coords="1136,160,1307,189"/>
+<area shape="rect" id="node5" href="$d7/db1/sac2_8hpp.html" title="Provides all includes." alt="" coords="455,237,529,267"/>
+<area shape="rect" id="node13" href="$da/dd7/sac2__input__config_8hpp.html" title="Provides InputConfig class and DefaultInputConfig as a default input configuration." alt="" coords="192,83,344,112"/>
+<area shape="rect" id="node15" href="$d6/d74/sac2__input__manager_8hpp.html" title="Provides class to manage inputs from keyboard." alt="" coords="229,160,395,189"/>
+<area shape="rect" id="node23" href="$d9/dff/sac2__game__state_8hpp.html" title="Provides Game State interface." alt="" coords="5,160,155,189"/>
+<area shape="rect" id="node28" href="$de/dc3/sac2__manager_8hpp.html" title="Provies template for Management classes." alt="" coords="688,83,819,112"/>
+<area shape="rect" id="node42" href="$d7/dd1/sac2__state__manager_8hpp.html" title="Provides the StateManager class." alt="" coords="469,160,637,189"/>
+<area shape="rect" id="node50" href="$d7/d44/sac2__logger_8cpp.html" title="sac2_logger.cpp" alt="" coords="893,83,1011,112"/>
+<area shape="rect" id="node7" href="$d9/d86/sac2__asset__manager_8cpp.html" title="Provides AssetManager class." alt="" coords="1136,237,1307,267"/>
+<area shape="rect" id="node9" href="$d3/d93/sac2__audio__manager_8cpp.html" title="sac2_audio_manager.cpp" alt="" coords="1331,237,1501,267"/>
+<area shape="rect" id="node11" href="$d7/d24/sac2__engine_8cpp.html" title="sac2_engine.cpp" alt="" coords="695,237,815,267"/>
+<area shape="rect" id="node19" href="$dc/da2/sac2__input__manager_8cpp.html" title="sac2_input_manager.cpp" alt="" coords="73,237,239,267"/>
+<area shape="rect" id="node26" href="$db/d25/sac2__state__manager_8cpp.html" title="sac2_state_manager.cpp" alt="" coords="263,237,431,267"/>
+<area shape="rect" id="node31" href="$d4/d65/sac2__audio__manager_8hpp.html" title="sac2_audio_manager.hpp" alt="" coords="1331,160,1501,189"/>
+<area shape="rect" id="node35" href="$d8/dae/sac2__physics__manager_8hpp.html" title="sac2_physics_manager.hpp" alt="" coords="661,160,845,189"/>
+<area shape="rect" id="node37" href="$dd/d14/sac2__rendering__manager_8hpp.html" title="Provides RenderingManager." alt="" coords="920,160,1112,189"/>
+<area shape="rect" id="node40" href="$d9/d7c/sac2__rendering__manager_8cpp.html" title="sac2_rendering_manager.cpp" alt="" coords="920,237,1112,267"/>
+</map>

@@ -1,0 +1,8 @@
+SHELL        = /bin/sh
+CLEAN_FILES := $(shell find . -name '*~')
+
+clean:
+	rm -f $(CLEAN_FILES)
+	@echo 'Done'
+
+.PHONY      = clean

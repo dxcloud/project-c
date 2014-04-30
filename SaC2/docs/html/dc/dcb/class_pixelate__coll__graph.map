@@ -1,0 +1,18 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$d6/d58/class_effect.html" title="Effect" alt="" coords="660,133,716,163"/>
+<area shape="rect" id="node4" href="$d1/d21/classsf_1_1_drawable.html" title="Abstract base class for objects that can be drawn to a render target." alt="" coords="401,99,497,128"/>
+<area shape="rect" id="node21" href="$d2/d70/classsf_1_1_sprite.html" title="Drawable representation of a texture, with its own transformations, color, etc." alt="" coords="651,284,725,313"/>
+<area shape="rect" id="node6" href="$d1/da4/classsf_1_1_font.html" title="Class for loading and manipulating character fonts." alt="" coords="416,152,483,181"/>
+<area shape="rect" id="node8" href="$d4/d96/classsf_1_1_texture.html" title="Image living on the graphics card that can be used for drawing." alt="" coords="407,209,492,239"/>
+<area shape="rect" id="node10" href="$df/d6f/classsf_1_1_gl_resource.html" title="Base class for classes that require an OpenGL context." alt="" coords="55,125,164,155"/>
+<area shape="rect" id="node14" href="$d6/d2b/classsf_1_1_shader.html" title="Shader class (vertex and fragment)" alt="" coords="408,45,491,75"/>
+<area shape="rect" id="node12" href="$d3/d71/classsf_1_1_vector2.html" title="sf::Vector2\&lt; unsigned int \&gt;" alt="" coords="20,201,199,231"/>
+<area shape="rect" id="node17" href="$d9/df6/classsf_1_1_non_copyable.html" title="Utility class that makes any derived class non&#45;copyable." alt="" coords="49,5,169,35"/>
+<area shape="rect" id="node19" href="$d0/d0d/structsf_1_1_shader_1_1_current_texture_type.html" title="Special type/value that can be passed to setParameter, and that represents the texture of the object ..." alt="" coords="7,59,212,88"/>
+<area shape="rect" id="node24" href="$d1/da8/classsf_1_1_transformable.html" title="Decomposed transform defined by a position, a rotation and a scale." alt="" coords="388,349,511,379"/>
+<area shape="rect" id="node26" href="$d4/d49/classsf_1_1_transform.html" title="Define a 3x3 transform matrix." alt="" coords="60,296,159,325"/>
+<area shape="rect" id="node29" href="$d3/d71/classsf_1_1_vector2.html" title="sf::Vector2\&lt; float \&gt;" alt="" coords="43,359,176,388"/>
+<area shape="rect" id="node32" href="$d9/daf/classsf_1_1_vertex.html" title="Define a point with color and texture coordinates." alt="" coords="411,424,488,453"/>
+<area shape="rect" id="node34" href="$d8/de5/classsf_1_1_color.html" title="Utility class for manpulating RGBA colors." alt="" coords="73,592,145,621"/>
+<area shape="rect" id="node38" href="$d1/db4/classsf_1_1_rect.html" title="sf::Rect\&lt; int \&gt;" alt="" coords="396,296,503,325"/>
+</map>

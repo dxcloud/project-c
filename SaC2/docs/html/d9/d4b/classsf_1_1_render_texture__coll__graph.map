@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$d1/d7c/classsf_1_1_render_target.html" title="Base class for all render targets (window, texture, ...)" alt="" coords="880,153,1000,183"/>
+<area shape="rect" id="node4" href="$d9/df6/classsf_1_1_non_copyable.html" title="Utility class that makes any derived class non&#45;copyable." alt="" coords="584,55,704,84"/>
+<area shape="rect" id="node6" href="$d8/d0a/classsf_1_1_view.html" title="2D camera that defines what region is shown on screen" alt="" coords="339,127,408,156"/>
+<area shape="rect" id="node8" href="$d1/db4/classsf_1_1_rect.html" title="sf::Rect\&lt; float \&gt;" alt="" coords="24,5,141,35"/>
+<area shape="rect" id="node10" href="$d4/d49/classsf_1_1_transform.html" title="Define a 3x3 transform matrix." alt="" coords="33,100,132,129"/>
+<area shape="rect" id="node13" href="$d3/d71/classsf_1_1_vector2.html" title="sf::Vector2\&lt; float \&gt;" alt="" coords="16,159,149,188"/>
+<area shape="rect" id="node17" href="$d9/daf/classsf_1_1_vertex.html" title="Define a point with color and texture coordinates." alt="" coords="335,224,412,253"/>
+<area shape="rect" id="node15" href="$d4/dde/structsf_1_1_render_target_1_1_states_cache.html" title="Render states cache." alt="" coords="543,191,745,220"/>
+<area shape="rect" id="node19" href="$d8/de5/classsf_1_1_color.html" title="Utility class for manpulating RGBA colors." alt="" coords="47,392,119,421"/>
+<area shape="rect" id="node23" href="$d4/d96/classsf_1_1_texture.html" title="Image living on the graphics card that can be used for drawing." alt="" coords="897,244,983,273"/>
+<area shape="rect" id="node25" href="$df/d6f/classsf_1_1_gl_resource.html" title="Base class for classes that require an OpenGL context." alt="" coords="589,244,699,273"/>
+<area shape="rect" id="node27" href="$d3/d71/classsf_1_1_vector2.html" title="sf::Vector2\&lt; unsigned int \&gt;" alt="" coords="555,299,733,328"/>
+</map>

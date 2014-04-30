@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d5/dd3/classsac2_1_1_logger.html#a71c4b96c667953450383917cbf69c02a" title="Log an ERROR type message." alt="" coords="179,5,333,35"/>
+<area shape="rect" id="node7" href="$d5/dd3/classsac2_1_1_logger.html#a46a0cab8df6023ba504da339b00ea780" title="Log an INFO type message." alt="" coords="181,59,331,88"/>
+<area shape="rect" id="node10" href="$dd/d00/classsac2_1_1_engine.html#a6143c055fcf9124d0702c207d88b1fac" title="Main loop." alt="" coords="191,137,321,167"/>
+<area shape="rect" id="node5" href="$d5/dd3/classsac2_1_1_logger.html#a1a397214b6663af3106dc79aa33a54df" title="Log a message." alt="" coords="907,56,1029,85"/>
+<area shape="rect" id="node12" href="$d0/d97/classsac2_1_1_input_manager.html#a6597cde536480f1606bf02d0b6d54bbf" title="Update InputManager." alt="" coords="397,108,581,137"/>
+<area shape="rect" id="node16" href="$d1/db1/classsac2_1_1_rendering_manager.html#ae7f8152264845f7cdfff9f5c03dfbfb0" title="Update the manager." alt="" coords="383,161,596,191"/>
+<area shape="rect" id="node23" href="$d4/dee/classsac2_1_1_state_manager.html#ad484023c8afa2554ecf1315c49e01a24" title="Update the StateManager." alt="" coords="396,241,583,271"/>
+<area shape="rect" id="node14" href="$d2/d6f/classsac2_1_1_input_config.html#aa746ebf59da2cb889d0870f9e3d404c8" title="Handle inputs from Keyboard." alt="" coords="645,108,859,137"/>
+<area shape="rect" id="node18" href="$d5/dd3/classsac2_1_1_logger.html#a204fba05e0ad630ba467c2ea9ae74a33" title="Log a DEBUG type message." alt="" coords="671,161,833,191"/>
+<area shape="rect" id="node21" href="$dd/d00/classsac2_1_1_engine.html#a4d8435adf81f4f9ccbc56e5ac97b7a29" title="Stop the Engine and quit." alt="" coords="689,215,815,244"/>
+<area shape="rect" id="node25" href="$d4/dee/classsac2_1_1_state_manager.html#ab2515bcd039c5d4f136ed6ebb3ac8168" title="Test whether the state stack is empty." alt="" coords="652,268,852,297"/>
+</map>

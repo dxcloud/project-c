@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d7/d38/test__03_8cpp.html#acdba839ce28cbb1bb2aecf6a56fa7b1e" title="load_sound" alt="" coords="213,5,301,35"/>
+<area shape="rect" id="node5" href="$d1/d69/classsf_1_1_sound_buffer.html#a2be6a8025c97eb622a7dff6cf2594394" title="Load the sound buffer from a file." alt="" coords="160,59,355,88"/>
+<area shape="rect" id="node7" href="$d9/d0c/classsf_1_1_sound.html#a8b395e9713d0efa48a18628c8ec1972e" title="Set the source buffer containing the audio data to play." alt="" coords="188,112,327,141"/>
+<area shape="rect" id="node9" href="$d7/d09/classsac2_1_1_manager.html#a2d6eba4e30eb9e0b4adad302a58e123e" title="Get an instance of the class." alt="" coords="121,165,393,195"/>
+<area shape="rect" id="node11" href="$d0/d51/classsac2_1_1_asset_manager.html#a395f48758b8e07bcedcd5e84565e2a01" title="Explicitly load a sound buffer." alt="" coords="149,219,365,248"/>
+<area shape="rect" id="node13" href="$dd/dfe/classsf_1_1_window.html#a5aa9c2b2b0e51d3423c2b66c80253337" title="Tell whether or not the window is open." alt="" coords="189,272,325,301"/>
+<area shape="rect" id="node15" href="$dd/dfe/classsf_1_1_window.html#a338e996585faf82e93069858e3b531b7" title="Pop the event on top of the event queue, if any, and return it." alt="" coords="183,325,332,355"/>
+<area shape="rect" id="node17" href="$dd/dfe/classsf_1_1_window.html#a99d1e030387b0c26f5995670504fe7b5" title="Close the window and destroy all the attached resources." alt="" coords="195,379,320,408"/>
+<area shape="rect" id="node19" href="$d1/d7c/classsf_1_1_render_target.html#a6bb6f0ba348f2b1e2f46114aeaf60f26" title="Clear the entire target with a single color." alt="" coords="180,432,335,461"/>
+<area shape="rect" id="node21" href="$d1/d7c/classsf_1_1_render_target.html#a12417a3bcc245c41d957b29583556f39" title="Draw a drawable object to the render&#45;target." alt="" coords="180,485,335,515"/>
+<area shape="rect" id="node23" href="$d3/dac/classsac2_1_1_asset.html#a73b780fc411a1bee3c93888df184685d" title="Return the wrapped asset." alt="" coords="179,539,336,568"/>
+<area shape="rect" id="node25" href="$dd/dfe/classsf_1_1_window.html#adabf839cb103ac96cfc82f781638772a" title="Display on screen what has been rendered to the window so far." alt="" coords="189,592,325,621"/>
+<area shape="rect" id="node27" href="$d7/d09/classsac2_1_1_manager.html#a1b7b8150a21c8a4cd77fc6ba9df4e6ed" title="Destroy the unique instance." alt="" coords="124,645,391,675"/>
+</map>

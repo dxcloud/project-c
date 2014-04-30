@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d4/d48/classrapidxml_1_1xml__base.html#adcdaccff61c665f039d9344e447b7445" title="rapidxml::xml_base::value" alt="" coords="760,5,933,35"/>
+<area shape="rect" id="node7" href="$d1/d7a/structrapidxml_1_1xml__document_1_1whitespace__pred.html#a1dca1a175c784b2ef0b83f3957e820eb" title="rapidxml::xml_document::whitespace_pred::test" alt="" coords="369,57,668,87"/>
+<area shape="rect" id="node9" href="$d1/d46/classrapidxml_1_1memory__pool.html#a4118581c29ee9a2f6b55ebf7dac185f8" title="rapidxml::memory_pool::allocate_node" alt="" coords="396,111,641,140"/>
+<area shape="rect" id="node21" href="$de/d82/classrapidxml_1_1xml__node.html#a8696d098ecc9c4d2a646b43e91d58e31" title="rapidxml::xml_node::append_node" alt="" coords="409,189,628,219"/>
+<area shape="rect" id="node5" href="$d4/d48/classrapidxml_1_1xml__base.html#ad96ff6b1e41dab3ff60b9bc4df769a75" title="rapidxml::xml_base::nullstr" alt="" coords="1312,85,1491,115"/>
+<area shape="rect" id="node11" href="$d1/d46/classrapidxml_1_1memory__pool.html#a4e9cf53fa5f9da3a8f31b754bd94b4ec" title="rapidxml::memory_pool::allocate_aligned" alt="" coords="717,59,976,88"/>
+<area shape="rect" id="node17" href="$d4/d48/classrapidxml_1_1xml__base.html#a9a09739310469995db078ebd0da3ed45" title="rapidxml::xml_base::name" alt="" coords="1057,164,1231,193"/>
+<area shape="rect" id="node13" href="$d1/d46/classrapidxml_1_1memory__pool.html#a317396afc1812f08b64a1dd9cde4039b" title="rapidxml::memory_pool::align" alt="" coords="1048,57,1240,87"/>
+<area shape="rect" id="node15" href="$d1/d46/classrapidxml_1_1memory__pool.html#a1aed504a747303352e05f61c6ccbbebb" title="rapidxml::memory_pool::allocate_raw" alt="" coords="1025,111,1263,140"/>
+<area shape="rect" id="node23" href="$d4/d48/classrapidxml_1_1xml__base.html#a7f31ae930f93852830234db1ae59c4c4" title="rapidxml::xml_base::parent" alt="" coords="757,163,936,192"/>
+<area shape="rect" id="node25" href="$de/d82/classrapidxml_1_1xml__node.html#a2c6a4315b98bcfa2e04fed3fa1b22c36" title="rapidxml::xml_node::type" alt="" coords="763,216,931,245"/>
+<area shape="rect" id="node27" href="$de/d82/classrapidxml_1_1xml__node.html#a2dedeb4e04bb35e06a9a7bddf6ba652d" title="rapidxml::xml_node::first_node" alt="" coords="747,269,947,299"/>
+<area shape="rect" id="node30" href="$d4/d48/classrapidxml_1_1xml__base.html#a7e7f98b3d01e1eab8dc1ca69aad9af84" title="rapidxml::xml_base::name_size" alt="" coords="1041,269,1247,299"/>
+</map>

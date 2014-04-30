@@ -1,0 +1,20 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$dd/dfe/classsf_1_1_window.html#a59041c4556e0351048f8aff366034f61" title="Enable or disable vertical synchronization." alt="" coords="104,5,339,35"/>
+<area shape="rect" id="node5" href="$d1/da4/classsf_1_1_font.html#ab020052ef4e01f6c749a85571c0f3fd1" title="Load the font from a file." alt="" coords="147,59,296,88"/>
+<area shape="rect" id="node7" href="$d6/d58/class_effect.html#a2a4eaf667af8ea6498b77fe532c5a43d" title="Effect::setFont" alt="" coords="167,112,276,141"/>
+<area shape="rect" id="node9" href="$d4/d96/classsf_1_1_texture.html#a8e1b56eabfe33e2e0e1cb03712c7fcc7" title="Load the texture from a file on disk." alt="" coords="137,165,305,195"/>
+<area shape="rect" id="node11" href="$d1/da8/classsf_1_1_transformable.html#a4dbfb1a7c80688b0b4c477d706550208" title="set the position of the object" alt="" coords="123,219,320,248"/>
+<area shape="rect" id="node13" href="$d2/d70/classsf_1_1_sprite.html#a14def44da6437bfea20c4df5e71aba4c" title="Set the global color of the sprite." alt="" coords="156,272,287,301"/>
+<area shape="rect" id="node15" href="$d6/ddb/classsf_1_1_text.html#afd1742fca1adb6b0ea98357250ffb634" title="Set the global color of the text." alt="" coords="160,325,283,355"/>
+<area shape="rect" id="node17" href="$dd/dfe/classsf_1_1_window.html#a5aa9c2b2b0e51d3423c2b66c80253337" title="Tell whether or not the window is open." alt="" coords="153,379,289,408"/>
+<area shape="rect" id="node19" href="$dd/dfe/classsf_1_1_window.html#a338e996585faf82e93069858e3b531b7" title="Pop the event on top of the event queue, if any, and return it." alt="" coords="147,432,296,461"/>
+<area shape="rect" id="node21" href="$dd/dfe/classsf_1_1_window.html#a99d1e030387b0c26f5995670504fe7b5" title="Close the window and destroy all the attached resources." alt="" coords="159,485,284,515"/>
+<area shape="rect" id="node23" href="$d6/ddb/classsf_1_1_text.html#a7d3b3359f286fd9503d1ced25b7b6c33" title="Set the text&#39;s string." alt="" coords="159,539,284,568"/>
+<area shape="rect" id="node25" href="$d5/dd0/classsf_1_1_mouse.html#ac368680f797b7f6e4f50b5b7928c1387" title="Get the current position of the mouse in desktop coordinates." alt="" coords="145,592,297,621"/>
+<area shape="rect" id="node27" href="$dc/d5e/classsf_1_1_render_window.html#a2c7ff414be32621a453745cf2a0f8a3e" title="Get the size of the rendering region of the window." alt="" coords="131,645,312,675"/>
+<area shape="rect" id="node29" href="$d5/d52/classsf_1_1_clock.html#a799feb6acb099b57b58d8d20984fce11" title="Get the elapsed time." alt="" coords="133,699,309,728"/>
+<area shape="rect" id="node31" href="$d6/d52/classsf_1_1_time.html#a7538140d095e48da9d7eee015dd455a9" title="Return the time value as a number of seconds." alt="" coords="151,752,292,781"/>
+<area shape="rect" id="node33" href="$d1/d7c/classsf_1_1_render_target.html#a6bb6f0ba348f2b1e2f46114aeaf60f26" title="Clear the entire target with a single color." alt="" coords="144,805,299,835"/>
+<area shape="rect" id="node35" href="$d1/d7c/classsf_1_1_render_target.html#a12417a3bcc245c41d957b29583556f39" title="Draw a drawable object to the render&#45;target." alt="" coords="144,859,299,888"/>
+<area shape="rect" id="node37" href="$dd/dfe/classsf_1_1_window.html#adabf839cb103ac96cfc82f781638772a" title="Display on screen what has been rendered to the window so far." alt="" coords="153,912,289,941"/>
+</map>

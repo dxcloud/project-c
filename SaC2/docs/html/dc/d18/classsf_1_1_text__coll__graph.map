@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$d1/d21/classsf_1_1_drawable.html" title="Abstract base class for objects that can be drawn to a render target." alt="" coords="25,5,121,35"/>
+<area shape="rect" id="node18" href="$dd/d3d/classsf_1_1_vertex_array.html" title="Define a set of one or more 2D primitives." alt="" coords="337,55,447,84"/>
+<area shape="rect" id="node4" href="$d1/da8/classsf_1_1_transformable.html" title="Decomposed transform defined by a position, a rotation and a scale." alt="" coords="331,108,453,137"/>
+<area shape="rect" id="node6" href="$d4/d49/classsf_1_1_transform.html" title="Define a 3x3 transform matrix." alt="" coords="24,105,123,135"/>
+<area shape="rect" id="node9" href="$d3/d71/classsf_1_1_vector2.html" title="sf::Vector2\&lt; float \&gt;" alt="" coords="7,188,140,217"/>
+<area shape="rect" id="node11" href="$d1/db4/classsf_1_1_rect.html" title="sf::Rect\&lt; float \&gt;" alt="" coords="333,161,451,191"/>
+<area shape="rect" id="node13" href="$df/d84/classsf_1_1_string.html" title="Utility string class that automatically handles conversions between types and encodings." alt="" coords="355,215,429,244"/>
+<area shape="rect" id="node15" href="$d8/de5/classsf_1_1_color.html" title="Utility class for manpulating RGBA colors." alt="" coords="356,448,428,477"/>
+<area shape="rect" id="node21" href="$d1/da4/classsf_1_1_font.html" title="Class for loading and manipulating character fonts." alt="" coords="359,501,425,531"/>
+</map>

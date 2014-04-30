@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d6/d52/classsf_1_1_time.html#a85e6deb41fa71896508ce0f64059a6ae" title="Return the time value as a number of milliseconds." alt="" coords="287,5,449,35"/>
+<area shape="rect" id="node5" href="$d7/d30/classsf_1_1_sound_stream.html#aad1da51c7a752682ca208bf11e3349bb" title="Get the stream sample rate of the stream." alt="" coords="259,59,477,88"/>
+<area shape="rect" id="node7" href="$d7/d30/classsf_1_1_sound_stream.html#a68dedd0a2c26e6937c80fab3d235edea" title="Return the number of channels of the stream." alt="" coords="253,112,483,141"/>
+</map>

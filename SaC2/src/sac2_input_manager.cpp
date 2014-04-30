@@ -1,40 +1,52 @@
+//////////////////////////////////////////////////////////////////////////////
+//! \file sac2_input_manager.cpp
+//! \author
+//!     Chengwu HUANG
+//! \version
+//!     0.1 (alpha)
+//! \date
+//!     2013-05-29
+//////////////////////////////////////////////////////////////////////////////
+
 #include <sac2_input_manager.hpp>
+#include <sac2_input_config.hpp>
 
 namespace sac2
 {
 
-//----------------------------------------------------------------------------
-//  InputManager::update
-//----------------------------------------------------------------------------
-void InputManager::update(float dt)
+//////////////////////////////////////////////////////////////////////////////
+// InputManager::InputManager
+//////////////////////////////////////////////////////////////////////////////
+InputManager::InputManager():
+  Manager<InputManager>(),
+  p_input_config(0)
 {
-  p_input_config->handle_inputs();
+  LOG_INFO("InputManager::ctor - successfully initialized")
 }
 
-//----------------------------------------------------------------------------
-//  InputManager::cleanup
-//----------------------------------------------------------------------------
-void InputManager::cleanup()
+//////////////////////////////////////////////////////////////////////////////
+// InputManager::~InputManager
+//////////////////////////////////////////////////////////////////////////////
+InputManager::~InputManager()
 {
-  if (0 != p_input_config) {
-    delete p_input_config;
-    p_input_config = 0;
-#ifdef SAC2_LOGGER_ENABLED
-    Logger::log_info("InputManager::cleanup - input config removed");
-#endif
-  }
+  LOG_INFO("InputManager::dtor - successfully destroyed")
 }
 
-//----------------------------------------------------------------------------
-//  InputManager::set_input_config
-//----------------------------------------------------------------------------
+//////////////////////////////////////////////////////////////////////////////
+// InputManager::set_input_config
+//////////////////////////////////////////////////////////////////////////////
 void InputManager::set_input_config(InputConfig* input_config)
 {
-  cleanup();
   p_input_config = input_config;
-#ifdef SAC2_LOGGER_ENABLED
-  Logger::log_info("InputManager::set_input_config - input config set");
-#endif
+  LOG_DEBUG("InputManager::set_input_config - input config set")
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// InputManager::update
+//////////////////////////////////////////////////////////////////////////////
+void InputManager::update(float dt)
+{
+  if (0 != p_input_config) { p_input_config->handle_inputs(); }
 }
 
 }

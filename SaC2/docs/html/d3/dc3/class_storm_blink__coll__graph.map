@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$d6/d58/class_effect.html" title="Effect" alt="" coords="139,101,195,131"/>
+<area shape="rect" id="node4" href="$d1/d21/classsf_1_1_drawable.html" title="Abstract base class for objects that can be drawn to a render target." alt="" coords="12,5,108,35"/>
+<area shape="rect" id="node16" href="$dd/d3d/classsf_1_1_vertex_array.html" title="Define a set of one or more 2D primitives." alt="" coords="5,101,115,131"/>
+<area shape="rect" id="node6" href="$d1/da4/classsf_1_1_font.html" title="Class for loading and manipulating character fonts." alt="" coords="132,5,199,35"/>
+<area shape="rect" id="node8" href="$d6/d2b/classsf_1_1_shader.html" title="Shader class (vertex and fragment)" alt="" coords="324,101,407,131"/>
+<area shape="rect" id="node10" href="$df/d6f/classsf_1_1_gl_resource.html" title="Base class for classes that require an OpenGL context." alt="" coords="223,5,332,35"/>
+<area shape="rect" id="node12" href="$d9/df6/classsf_1_1_non_copyable.html" title="Utility class that makes any derived class non&#45;copyable." alt="" coords="356,5,476,35"/>
+<area shape="rect" id="node14" href="$d0/d0d/structsf_1_1_shader_1_1_current_texture_type.html" title="Special type/value that can be passed to setParameter, and that represents the texture of the object ..." alt="" coords="500,5,705,35"/>
+</map>

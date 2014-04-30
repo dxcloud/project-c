@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d6/d2b/classsf_1_1_shader.html#a47e4dd78f0752ae08664b4ee616db1cf" title="Change a float parameter of the shader." alt="" coords="175,5,343,35"/>
+<area shape="rect" id="node5" href="$d1/d7c/classsf_1_1_render_target.html#a6bb6f0ba348f2b1e2f46114aeaf60f26" title="Clear the entire target with a single color." alt="" coords="181,59,336,88"/>
+<area shape="rect" id="node7" href="$d1/d7c/classsf_1_1_render_target.html#a12417a3bcc245c41d957b29583556f39" title="Draw a drawable object to the render&#45;target." alt="" coords="181,112,336,141"/>
+<area shape="rect" id="node9" href="$df/d0c/classsf_1_1_render_texture.html#af92886d5faef3916caff9fa9ab32c555" title="Update the contents of the target texture." alt="" coords="171,165,347,195"/>
+</map>

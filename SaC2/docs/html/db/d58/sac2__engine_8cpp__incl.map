@@ -1,0 +1,18 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$dc/d99/sac2__engine_8hpp.html" title="Provides Engine class." alt="" coords="132,237,252,267"/>
+<area shape="rect" id="node55" href="$d6/d74/sac2__input__manager_8hpp.html" title="Provides class to manage inputs from keyboard." alt="" coords="476,83,641,112"/>
+<area shape="rect" id="node77" href="$d0/df3/sac2__asset__manager_8hpp.html" title="Provides AssetManager class." alt="" coords="951,83,1121,112"/>
+<area shape="rect" id="node88" href="$d7/dd1/sac2__state__manager_8hpp.html" title="Provides the StateManager class." alt="" coords="265,83,433,112"/>
+<area shape="rect" id="node95" href="$dd/d14/sac2__rendering__manager_8hpp.html" title="Provides RenderingManager." alt="" coords="675,83,867,112"/>
+<area shape="rect" id="node7" href="$df/d25/sac2__type_8hpp.html" title="Provides SaC2 types including typedef." alt="" coords="435,315,541,344"/>
+<area shape="rect" id="node19" href="$dd/dbd/sac2__status_8hpp.html" title="sac2_status.hpp" alt="" coords="145,392,263,421"/>
+<area shape="rect" id="node26" href="$df/ddf/sac2__mp__type_8hpp.html" title="sac2_mp_type.hpp" alt="" coords="435,469,565,499"/>
+<area shape="rect" id="node33" href="$df/d44/sac2__math_8hpp.html" title="Math utilities." alt="" coords="629,624,739,653"/>
+<area shape="rect" id="node45" href="$d9/d49/sac2__physics_8hpp.html" title="Physics simulation functions." alt="" coords="521,392,647,421"/>
+<area shape="rect" id="node49" href="$dc/d93/sac2__color_8hpp.html" title="sac2_color.hpp" alt="" coords="721,392,831,421"/>
+<area shape="rect" id="node28" href="$d0/db5/sac2__vector2d_8hpp.html" title="sac2_vector2d.hpp" alt="" coords="435,547,565,576"/>
+<area shape="rect" id="node39" href="$d0/d83/sac2__mp__constant_8hpp.html" title="sac2_mp_constant.hpp" alt="" coords="717,701,875,731"/>
+<area shape="rect" id="node58" href="$de/dc3/sac2__manager_8hpp.html" title="Provies template for Management classes." alt="" coords="705,160,836,189"/>
+<area shape="rect" id="node61" href="$d3/dda/sac2__logger_8hpp.html" title="Provides Logger class." alt="" coords="609,237,727,267"/>
+<area shape="rect" id="node70" href="$da/dd7/sac2__input__config_8hpp.html" title="Provides InputConfig class and DefaultInputConfig as a default input configuration." alt="" coords="428,160,580,189"/>
+</map>

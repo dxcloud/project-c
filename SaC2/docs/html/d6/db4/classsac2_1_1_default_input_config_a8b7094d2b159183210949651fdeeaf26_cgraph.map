@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d2/d6f/classsac2_1_1_input_config.html#a7b0c33d1cfca8af797948e194c197368" title="Check if a key is pressed." alt="" coords="309,5,533,35"/>
+<area shape="rect" id="node7" href="$d5/dd3/classsac2_1_1_logger.html#a78da545ca2b235f0070e15e94b46fbf0" title="Log a DEBUG type message." alt="" coords="340,59,503,88"/>
+<area shape="rect" id="node11" href="$dd/d00/classsac2_1_1_engine.html#a4d8435adf81f4f9ccbc56e5ac97b7a29" title="Stop the engine and quit." alt="" coords="359,112,484,141"/>
+<area shape="rect" id="node5" href="$d6/d33/classsf_1_1_keyboard.html#a80a04b2f53005886957f49eee3531599" title="Check if a key is pressed." alt="" coords="583,5,767,35"/>
+<area shape="rect" id="node9" href="$d5/dd3/classsac2_1_1_logger.html#ab966c0b174f0ebb07010942e11e8ead5" title="Log a message." alt="" coords="613,59,736,88"/>
+</map>

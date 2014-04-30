@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d0/d0f/classsf_1_1_context.html" title="Class holding a valid drawing context." alt="" coords="5,83,91,112"/>
+<area shape="rect" id="node5" href="$d6/d2b/classsf_1_1_shader.html" title="Shader class (vertex and fragment)" alt="" coords="115,83,197,112"/>
+<area shape="rect" id="node7" href="$d4/d96/classsf_1_1_texture.html" title="Image living on the graphics card that can be used for drawing." alt="" coords="221,83,307,112"/>
+<area shape="rect" id="node9" href="$dd/dfe/classsf_1_1_window.html" title="Window that serves as a target for OpenGL rendering." alt="" coords="331,83,419,112"/>
+<area shape="rect" id="node11" href="$dc/d5e/classsf_1_1_render_window.html" title="Window that can serve as a target for 2D drawing." alt="" coords="309,160,440,189"/>
+</map>

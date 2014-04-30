@@ -4,9 +4,9 @@
 *.bak
 
 # Libraries and Documentation
-doc/
-docs/
-apps/
+#doc/
+#docs/
+#apps/
 share/
 samples/
 

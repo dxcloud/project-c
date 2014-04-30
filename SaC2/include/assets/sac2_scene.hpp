@@ -1,10 +1,14 @@
-/*!
- * \file    sac2_scene.hpp
- * \author  Chengwu HUANG <chengwhuang@gmail.com>
- * \version 0.1
- * \date    2013 - 05 -17
- * \brief   Provides Scene class
- */
+//////////////////////////////////////////////////////////////////////////////
+//! \file sac2_scene.hpp
+//! \author
+//!     Chengwu HUANG
+//! \version
+//!     0.1 (development version)
+//! \date
+//!     2013-08-21
+//! \brief
+//!     Provides Scene class.
+//////////////////////////////////////////////////////////////////////////////
 
 #ifndef SAC2_SCENE_HPP
 #define SAC2_SCENE_HPP
@@ -12,138 +16,88 @@
 #include <string>
 #include <map>
 
-#include "sac2_type.hpp"
+#include <sac2_type.hpp>
 
 namespace sac2
 {
 
+//////////////////////////////////////////////////////////////////////////////
+//! \brief
+//!     
+//////////////////////////////////////////////////////////////////////////////
 typedef unsigned int scene_id_t;
-typedef unsigned int deep_t;
 
-/*!
- * \class   Scene
- * \brief   Scene management
- * \details 
- */
+//////////////////////////////////////////////////////////////////////////////
+//! \class Scene
+//! \brief
+//!     Scene
+//////////////////////////////////////////////////////////////////////////////
 class Scene
 {
 public:
-  /*!
-   * \brief Default constructor
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     
+  ////////////////////////////////////////////////////////////////////////////
+  enum depth_t
+  {
+    FOREGROUND = 10,
+    MIDGROUND  = 20,
+    BACKGROUND = 30
+  };
+
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Public default constructor
+  ////////////////////////////////////////////////////////////////////////////
   Scene();
 
-  /*!
-   * \brief Constructor
-   * \param
-   */
-  explicit Scene(scene_id_t id);
-
-  /*!
-   * \brief Copy constructor
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Public destructor
+  ////////////////////////////////////////////////////////////////////////////
   Scene(const Scene& scene);
 
-  /*!
-   * \brief Copy constructor
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     
+  ////////////////////////////////////////////////////////////////////////////
   Scene& operator=(const Scene& scene);
 
-  /*!
-   * \brief Destructor
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     
+  ////////////////////////////////////////////////////////////////////////////
   ~Scene();
 
-  /*!
-   * \brief Remove all scene components (sprites and music)
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     
+  ////////////////////////////////////////////////////////////////////////////
+  void render();
+
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     
+  ////////////////////////////////////////////////////////////////////////////
   void clean();
 
-  /*!
-   * \brief  Return the identifier of the scene
-   * \return Identifier
-   */
-  scene_id_t get_scene_id() const;
-
-  /*!
-   * \brief Add a sprite on the scene
-   * \param id   Identifier of the sprite to be added on the scene
-   * \param deep 
-   */
-//  void add_sprite(const sac2_asset_id_t& id, deep_t deep);
-
-  /*!
-   * \brief Test whether the scene contains the sprite which has \b id
-   * \param id
-   */
-//  bool has_sprite(const sac2_asset_type_t& id) const;
-
-  /*!
-   * \brief  Get a sprite
-   * \param  id Identifier of the sprite
-   * \return Return \b NULL whether the sprite is NOT available on the
-   *         current scene
-   */
-//  AssetSprite* get_sprite(const sac2_asset_id_t& id) const;
-
-  /*!
-   * \brief Get the current music
-   * \return Current music
-   */
-
-
-  /*!
-   * \brief Remove a sprite from the scene
-   * \param id Identifiier of the sprite to be removed
-   */
-//  void remove_sprite(const sac2_asset_id_t& id);
-
-  /*!
-   * \brief Copy constructor
-   */
-//  void add_musics(const sac2_asset_id_t& id);
-
-  /*!
-   * \brief Replace the current music by another one
-   * \param id Identifier of the music to be played instead
-   */
-//  void replace_music(const sac2_asset_id_t& id);
-
-  /*!
-   * \brief Update the scene
-   */
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     
+  ////////////////////////////////////////////////////////////////////////////
   void update();
 
 protected:
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     
+  ////////////////////////////////////////////////////////////////////////////
   scene_id_t m_identifier;
 
 private:
 
 };  // class Scene
-
-
-inline Scene::Scene():
-  m_identifier(0)
-{
-
-}
-
-inline Scene::Scene(scene_id_t id):
-  m_identifier(id)
-{
-
-}
-
-inline Scene::~Scene()
-{
-  clean();
-}
-
-inline scene_id_t Scene::get_scene_id() const
-{
-  return m_identifier;
-}
-
 
 }
 

@@ -1,0 +1,30 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d4/d43/_audio_8hpp.html" title="SFML/Audio.hpp" alt="" coords="2613,83,2731,112"/>
+<area shape="rect" id="node5" href="$d6/def/_system_8hpp.html" title="SFML/System.hpp" alt="" coords="1307,160,1437,189"/>
+<area shape="rect" id="node82" href="$d6/d12/_listener_8hpp.html" title="SFML/Audio/Listener.hpp" alt="" coords="2624,315,2792,344"/>
+<area shape="rect" id="node88" href="$de/d88/_music_8hpp.html" title="SFML/Audio/Music.hpp" alt="" coords="2313,160,2471,189"/>
+<area shape="rect" id="node91" href="$df/d1a/_sound_stream_8hpp.html" title="SFML/Audio/SoundStream.hpp" alt="" coords="2291,237,2493,267"/>
+<area shape="rect" id="node106" href="$d8/da4/_sound_8hpp.html" title="SFML/Audio/Sound.hpp" alt="" coords="2517,237,2677,267"/>
+<area shape="rect" id="node112" href="$d0/d47/_sound_buffer_8hpp.html" title="SFML/Audio/SoundBuffer.hpp" alt="" coords="2803,237,2997,267"/>
+<area shape="rect" id="node120" href="$d9/d57/_sound_buffer_recorder_8hpp.html" title="SFML/Audio/SoundBufferRecorder.hpp" alt="" coords="3055,160,3303,189"/>
+<area shape="rect" id="node124" href="$dc/dd1/_sound_recorder_8hpp.html" title="SFML/Audio/SoundRecorder.hpp" alt="" coords="3072,237,3285,267"/>
+<area shape="rect" id="node7" href="$d8/dd2/_config_8hpp.html" title="SFML/Config.hpp" alt="" coords="1219,547,1341,576"/>
+<area shape="rect" id="node9" href="$d5/dde/_clock_8hpp.html" title="SFML/System/Clock.hpp" alt="" coords="1167,237,1335,267"/>
+<area shape="rect" id="node17" href="$d4/db0/_err_8hpp.html" title="SFML/System/Err.hpp" alt="" coords="268,237,420,267"/>
+<area shape="rect" id="node22" href="$de/d7d/_input_stream_8hpp.html" title="SFML/System/InputStream.hpp" alt="" coords="1761,469,1967,499"/>
+<area shape="rect" id="node25" href="$d6/d8d/_lock_8hpp.html" title="SFML/System/Lock.hpp" alt="" coords="1168,315,1331,344"/>
+<area shape="rect" id="node31" href="$d4/d48/_mutex_8hpp.html" title="SFML/System/Mutex.hpp" alt="" coords="1703,237,1873,267"/>
+<area shape="rect" id="node35" href="$da/d2a/_sleep_8hpp.html" title="SFML/System/Sleep.hpp" alt="" coords="1460,237,1628,267"/>
+<area shape="rect" id="node39" href="$d9/dc5/_string_8hpp.html" title="SFML/System/String.hpp" alt="" coords="975,237,1143,267"/>
+<area shape="rect" id="node46" href="$d6/de8/_thread_8hpp.html" title="SFML/System/Thread.hpp" alt="" coords="2051,315,2224,344"/>
+<area shape="rect" id="node54" href="$dc/d92/_thread_local_8hpp.html" title="SFML/System/ThreadLocal.hpp" alt="" coords="1355,315,1560,344"/>
+<area shape="rect" id="node59" href="$dc/dcf/_thread_local_ptr_8hpp.html" title="SFML/System/ThreadLocalPtr.hpp" alt="" coords="553,237,775,267"/>
+<area shape="rect" id="node64" href="$d7/dc2/_utf_8hpp.html" title="SFML/System/Utf.hpp" alt="" coords="799,237,951,267"/>
+<area shape="rect" id="node74" href="$d3/d12/_vector2_8hpp.html" title="SFML/System/Vector2.hpp" alt="" coords="55,237,233,267"/>
+<area shape="rect" id="node78" href="$d2/d6a/_vector3_8hpp.html" title="SFML/System/Vector3.hpp" alt="" coords="2411,392,2589,421"/>
+<area shape="rect" id="node11" href="$da/d4b/_system_2_export_8hpp.html" title="SFML/System/Export.hpp" alt="" coords="1193,469,1367,499"/>
+<area shape="rect" id="node14" href="$d8/d3a/_time_8hpp.html" title="SFML/System/Time.hpp" alt="" coords="1813,315,1976,344"/>
+<area shape="rect" id="node28" href="$d1/d43/_non_copyable_8hpp.html" title="SFML/System/NonCopyable.hpp" alt="" coords="1351,392,1564,421"/>
+<area shape="rect" id="node84" href="$d0/dcc/_audio_2_export_8hpp.html" title="SFML/Audio/Export.hpp" alt="" coords="2800,392,2960,421"/>
+<area shape="rect" id="node94" href="$d6/dad/_sound_source_8hpp.html" title="SFML/Audio/SoundSource.hpp" alt="" coords="2400,315,2600,344"/>
+</map>

@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d7/d91/classsf_1_1_music.html#a3edc66e5f5b3f11e84b90eaec9c7d7c0" title="Open a music from an audio file." alt="" coords="169,5,332,35"/>
+<area shape="rect" id="node5" href="$d7/d91/classsf_1_1_music.html#af4738b69c4c5038f71414ad7ffbbdc2b" title="Get the total duration of the music." alt="" coords="176,59,325,88"/>
+<area shape="rect" id="node7" href="$d6/d52/classsf_1_1_time.html#a7538140d095e48da9d7eee015dd455a9" title="Return the time value as a number of seconds." alt="" coords="180,112,321,141"/>
+<area shape="rect" id="node9" href="$d7/d30/classsf_1_1_sound_stream.html#aad1da51c7a752682ca208bf11e3349bb" title="Get the stream sample rate of the stream." alt="" coords="141,165,360,195"/>
+<area shape="rect" id="node11" href="$d7/d30/classsf_1_1_sound_stream.html#a68dedd0a2c26e6937c80fab3d235edea" title="Return the number of channels of the stream." alt="" coords="136,219,365,248"/>
+<area shape="rect" id="node13" href="$d7/d30/classsf_1_1_sound_stream.html#afdc08b69cab5f243d9324940a85a1144" title="Start or resume playing the audio stream." alt="" coords="175,272,327,301"/>
+<area shape="rect" id="node15" href="$d7/d30/classsf_1_1_sound_stream.html#a75f722e7edcfa9952ff0c643966c6858" title="Get the current status of the stream (stopped, paused, playing)" alt="" coords="159,325,343,355"/>
+<area shape="rect" id="node17" href="$d4/d37/group__system.html#ga2f2620831533dee0ed432ed982342e09" title="Make the current thread sleep for a given duration." alt="" coords="215,379,287,408"/>
+<area shape="rect" id="node19" href="$d7/d30/classsf_1_1_sound_stream.html#a6070416e1e1a11b5915e9314dd6638f7" title="Get the current playing position of the stream." alt="" coords="139,432,363,461"/>
+</map>

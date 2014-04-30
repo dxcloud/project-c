@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d7/d8e/classsf_1_1_sound_recorder.html#aab2bd0fee9e48d6cfd449b1cb078ce5a" title="Check if the system supports audio capture." alt="" coords="125,5,328,35"/>
+<area shape="rect" id="node5" href="$d7/d8e/classsf_1_1_sound_recorder.html#a777e633114f7221cd7554a6ed486259e" title="Start the capture." alt="" coords="144,59,309,88"/>
+<area shape="rect" id="node7" href="$d7/d8e/classsf_1_1_sound_recorder.html#a8d9c8346aa9aa409cfed4a1101159c4c" title="Stop the capture." alt="" coords="145,112,308,141"/>
+</map>

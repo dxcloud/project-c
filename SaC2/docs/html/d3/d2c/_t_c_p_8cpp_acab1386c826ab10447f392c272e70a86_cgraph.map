@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$df/d34/classsf_1_1_tcp_socket.html#a68cd42d5ab70ab54b16787f555951c40" title="Connect the socket to a remote peer." alt="" coords="151,5,308,35"/>
+<area shape="rect" id="node5" href="$df/d34/classsf_1_1_tcp_socket.html#a90ce50811ea61d4f00efc62bb99ae1af" title="Receive raw data from the remote peer." alt="" coords="152,59,307,88"/>
+<area shape="rect" id="node7" href="$df/d34/classsf_1_1_tcp_socket.html#affce26ab3bcc4f5b9269dad79db544c0" title="Send raw data to the remote peer." alt="" coords="160,112,299,141"/>
+</map>

@@ -1,0 +1,12 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d4/dee/classsac2_1_1_state_manager.html#ad484023c8afa2554ecf1315c49e01a24" title="Update the StateManager." alt="" coords="276,5,463,35"/>
+<area shape="rect" id="node9" href="$d4/dee/classsac2_1_1_state_manager.html#a6faf19095bb1e90a0626343a5c4eb806" title="Initialize the state on the top of the stack." alt="" coords="255,59,484,88"/>
+<area shape="rect" id="node13" href="$d4/dee/classsac2_1_1_state_manager.html#a4d554177fa5974d2402656e151e0f3fa" title="Set the current state to pause." alt="" coords="260,112,479,141"/>
+<area shape="rect" id="node16" href="$d4/dee/classsac2_1_1_state_manager.html#a29cd14cc8cbf525e534cce4d3c5bb2d9" title="Resume the current state." alt="" coords="256,165,483,195"/>
+<area shape="rect" id="node19" href="$d4/dee/classsac2_1_1_state_manager.html#a8eaecb4c615add50dd0bca3402c776be" title="Stop and clean the state." alt="" coords="265,219,473,248"/>
+<area shape="rect" id="node21" href="$d4/dee/classsac2_1_1_state_manager.html#a6f788794fd3287fbd4e600f60fa3fb48" title="Remove the current state from the stack." alt="" coords="265,272,473,301"/>
+<area shape="rect" id="node23" href="$d4/dee/classsac2_1_1_state_manager.html#aa5b0969a957ae73c703eaa658b5d0394" title="Reinitialize the current state." alt="" coords="264,325,475,355"/>
+<area shape="rect" id="node5" href="$dd/d00/classsac2_1_1_engine.html#a6143c055fcf9124d0702c207d88b1fac" title="Main loop." alt="" coords="573,5,704,35"/>
+<area shape="rect" id="node7" href="$dd/d00/classsac2_1_1_engine.html#ac9b285c5626c87b998d49f64540c3100" title="Start the engine." alt="" coords="793,5,916,35"/>
+<area shape="rect" id="node11" href="$d4/dee/classsac2_1_1_state_manager.html#a9f88d371e266d4eb2fe33be3f27d5275" title="Change the current state to the one specified by id." alt="" coords="535,139,743,168"/>
+</map>

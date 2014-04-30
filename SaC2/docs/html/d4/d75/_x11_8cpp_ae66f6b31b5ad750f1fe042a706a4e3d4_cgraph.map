@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d4/d75/_x11_8cpp.html#a7c6d15cc5505dfcc7d3c0b3fecde410b" title="initialize" alt="" coords="159,5,228,35"/>
+<area shape="rect" id="node7" href="$d4/d75/_x11_8cpp.html#a48af9740d723947b5c9182149f240322" title="draw" alt="" coords="168,59,219,88"/>
+<area shape="rect" id="node10" href="$d5/d52/classsf_1_1_clock.html#a799feb6acb099b57b58d8d20984fce11" title="Get the elapsed time." alt="" coords="105,112,281,141"/>
+<area shape="rect" id="node12" href="$d6/d52/classsf_1_1_time.html#a7538140d095e48da9d7eee015dd455a9" title="Return the time value as a number of seconds." alt="" coords="123,165,264,195"/>
+<area shape="rect" id="node14" href="$dd/dfe/classsf_1_1_window.html#adabf839cb103ac96cfc82f781638772a" title="Display on screen what has been rendered to the window so far." alt="" coords="125,219,261,248"/>
+<area shape="rect" id="node5" href="$dd/dfe/classsf_1_1_window.html#a17ccf8ece0ce0bf2f1e6698bcfa29731" title="Activate or deactivate the window as the current target for OpenGL rendering." alt="" coords="332,32,481,61"/>
+</map>

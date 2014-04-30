@@ -1,31 +1,41 @@
-/*!
- * \file    sac2_type.hpp
- * \author  Chengwu HUANG
- * \version 0.1
- * \date    2013-04-08 - Initial Development
- * \brief   Provides SaC2 types including typedef
- */
+//////////////////////////////////////////////////////////////////////////////
+//! \file sac2_type.hpp
+//! \author
+//!     Chengwu HUANG
+//! \version
+//!     0.2 (alpha)
+//! \date
+//!     2013-04-08: Initial develepment.
+//! \date
+//!     2013-08-16: Include sound and music management.
+//! \brief
+//!     Provides all types and constants.
+//////////////////////////////////////////////////////////////////////////////
 
 #ifndef SAC2_TYPE_HPP
 #define SAC2_TYPE_HPP
 
-#include <iostream>
-#include <string>
-#include <cstdlib>  // size_t
+// common used standard libraries
+#include <iostream>  //
+#include <cstdlib>   // size_t
+#include <cstring>    // string
 #include <map>
+#include <vector>
 
 #include <SFML/Window.hpp>
 
 #include <sac2_status.hpp>
+#include <sac2_key.hpp>
 #include <sac2_mp_type.hpp>
 #include <sac2_math.hpp>
 #include <sac2_physics.hpp>
 #include <sac2_color.hpp>
 
-/*!
- * \namespace sac2
- * \brief     Main namespace
- */
+//////////////////////////////////////////////////////////////////////////////
+//! \namespace sac2
+//! \brief
+//!     Main namespace.
+//////////////////////////////////////////////////////////////////////////////
 namespace sac2
 {
 

@@ -1,0 +1,19 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$dd/dff/test__04_8cpp.html#a1eb7e347d2815f905a6f1456cfa22ba9" title="test" alt="" coords="252,167,295,196"/>
+<area shape="rect" id="node5" href="$d0/d83/class_test_input_config.html#a9510aeeb880be35267d765598374bf82" title="TestInputConfig::is_end" alt="" coords="365,140,525,169"/>
+<area shape="rect" id="node7" href="$d0/d83/class_test_input_config.html#af648bb8985b1b24519b8d198c14a22ea" title="Handle inputs from Keyboard." alt="" coords="344,193,547,223"/>
+<area shape="rect" id="node9" href="$d2/d6f/classsac2_1_1_input_config.html#a7b0c33d1cfca8af797948e194c197368" title="Check if a key is pressed." alt="" coords="595,7,819,36"/>
+<area shape="rect" id="node13" href="$d0/d83/class_test_input_config.html#aec50f1af71148ce0e6eea1eefc2dd66f" title="TestInputConfig::print_message" alt="" coords="603,61,811,91"/>
+<area shape="rect" id="node19" href="$d4/dee/classsac2_1_1_state_manager.html#a6faf19095bb1e90a0626343a5c4eb806" title="Initialize the state on the top of the stack." alt="" coords="868,325,1097,355"/>
+<area shape="rect" id="node23" href="$d4/dee/classsac2_1_1_state_manager.html#a8eaecb4c615add50dd0bca3402c776be" title="Stop and clean the state." alt="" coords="603,421,811,451"/>
+<area shape="rect" id="node26" href="$d4/dee/classsac2_1_1_state_manager.html#a4d554177fa5974d2402656e151e0f3fa" title="Set the current state to pause." alt="" coords="873,112,1092,141"/>
+<area shape="rect" id="node29" href="$d4/dee/classsac2_1_1_state_manager.html#a29cd14cc8cbf525e534cce4d3c5bb2d9" title="Resume the current state." alt="" coords="869,165,1096,195"/>
+<area shape="rect" id="node32" href="$d4/dee/classsac2_1_1_state_manager.html#a6f788794fd3287fbd4e600f60fa3fb48" title="Remove the current state from the stack." alt="" coords="603,343,811,372"/>
+<area shape="rect" id="node35" href="$d4/dee/classsac2_1_1_state_manager.html#a9f88d371e266d4eb2fe33be3f27d5275" title="Change the current state to the one specified by id." alt="" coords="603,219,811,248"/>
+<area shape="rect" id="node11" href="$d6/d33/classsf_1_1_keyboard.html#a80a04b2f53005886957f49eee3531599" title="Check if a key is pressed." alt="" coords="891,5,1075,35"/>
+<area shape="rect" id="node15" href="$d5/dd3/classsac2_1_1_logger.html#a78da545ca2b235f0070e15e94b46fbf0" title="Log a DEBUG type message." alt="" coords="901,59,1064,88"/>
+<area shape="rect" id="node17" href="$d5/dd3/classsac2_1_1_logger.html#ab966c0b174f0ebb07010942e11e8ead5" title="Log a message." alt="" coords="1185,59,1308,88"/>
+<area shape="rect" id="node21" href="$d4/dee/classsac2_1_1_state_manager.html#ab2515bcd039c5d4f136ed6ebb3ac8168" title="Test whether the state stack is empty." alt="" coords="1147,272,1347,301"/>
+<area shape="rect" id="node38" href="$d4/dee/classsac2_1_1_state_manager.html#a0d48baf9f82247aa54697849ffb1f4ec" title="Find the state specified by the parameter id." alt="" coords="881,272,1084,301"/>
+<area shape="rect" id="node42" href="$d4/dee/classsac2_1_1_state_manager.html#aa5b0969a957ae73c703eaa658b5d0394" title="Reinitialize the current state." alt="" coords="877,219,1088,248"/>
+</map>

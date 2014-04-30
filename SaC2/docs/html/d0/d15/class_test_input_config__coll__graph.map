@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$d2/d6f/classsac2_1_1_input_config.html" title="This is a base class for input configuration." alt="" coords="5,101,131,131"/>
+<area shape="rect" id="node4" href="$d4/dc2/classsac2_1_1_game_state.html" title="sac2::GameState" alt="" coords="7,5,129,35"/>
+<area shape="rect" id="node6" href="$d4/dee/classsac2_1_1_state_manager.html" title="The class StateManager is used for Game states management." alt="" coords="155,101,293,131"/>
+<area shape="rect" id="node8" href="$d7/d09/classsac2_1_1_manager.html" title="sac2::Manager\&lt; StateManager \&gt;" alt="" coords="187,197,400,227"/>
+</map>

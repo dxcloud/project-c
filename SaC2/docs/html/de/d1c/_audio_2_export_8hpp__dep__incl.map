@@ -1,0 +1,39 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d6/d12/_listener_8hpp.html" title="Listener.hpp" alt="" coords="673,237,767,267"/>
+<area shape="rect" id="node68" href="$de/d88/_music_8hpp.html" title="Music.hpp" alt="" coords="809,237,892,267"/>
+<area shape="rect" id="node71" href="$d8/da4/_sound_8hpp.html" title="Sound.hpp" alt="" coords="939,160,1021,189"/>
+<area shape="rect" id="node74" href="$d0/d47/_sound_buffer_8hpp.html" title="SoundBuffer.hpp" alt="" coords="1040,83,1157,112"/>
+<area shape="rect" id="node76" href="$d9/d57/_sound_buffer_recorder_8hpp.html" title="SoundBufferRecorder.hpp" alt="" coords="1096,160,1267,189"/>
+<area shape="rect" id="node81" href="$dc/dd1/_sound_recorder_8hpp.html" title="SoundRecorder.hpp" alt="" coords="1232,83,1368,112"/>
+<area shape="rect" id="node85" href="$d6/dad/_sound_source_8hpp.html" title="SoundSource.hpp" alt="" coords="840,83,965,112"/>
+<area shape="rect" id="node88" href="$df/d1a/_sound_stream_8hpp.html" title="SoundStream.hpp" alt="" coords="789,160,915,189"/>
+<area shape="rect" id="node5" href="$d4/d43/_audio_8hpp.html" title="Audio.hpp" alt="" coords="940,315,1020,344"/>
+<area shape="rect" id="node7" href="$da/d2e/test__02_8cpp.html" title="test_02.cpp" alt="" coords="5,392,96,421"/>
+<area shape="rect" id="node9" href="$d2/da0/test__03_8hpp.html" title="test_03.hpp" alt="" coords="227,547,317,576"/>
+<area shape="rect" id="node13" href="$d0/df3/sac2__asset__manager_8hpp.html" title="Provides AssetManager class." alt="" coords="627,392,797,421"/>
+<area shape="rect" id="node47" href="$df/d5c/sac2__audio__asset_8hpp.html" title="Provides interface for audio elements manipulation." alt="" coords="351,392,503,421"/>
+<area shape="rect" id="node55" href="$d4/d65/sac2__audio__manager_8hpp.html" title="sac2_audio_manager.hpp" alt="" coords="821,392,992,421"/>
+<area shape="rect" id="node58" href="$db/dd7/_pong_8cpp.html" title="Pong.cpp" alt="" coords="1016,392,1093,421"/>
+<area shape="rect" id="node60" href="$d2/d10/_sound_8cpp.html" title="Sound.cpp" alt="" coords="1117,392,1200,421"/>
+<area shape="rect" id="node62" href="$d6/d27/_sound_capture_8cpp.html" title="SoundCapture.cpp" alt="" coords="1224,392,1355,421"/>
+<area shape="rect" id="node64" href="$d2/dcf/_client_8cpp.html" title="Client.cpp" alt="" coords="1379,392,1459,421"/>
+<area shape="rect" id="node66" href="$d8/d13/_server_8cpp.html" title="Server.cpp" alt="" coords="1483,392,1568,421"/>
+<area shape="rect" id="node11" href="$d7/d38/test__03_8cpp.html" title="test_03.cpp" alt="" coords="227,624,317,653"/>
+<area shape="rect" id="node15" href="$d9/d06/demos_2demo__01_2resource_8cpp.html" title="resource.cpp" alt="" coords="579,469,675,499"/>
+<area shape="rect" id="node18" href="$dd/dfa/tests_2test__07_2resource_8cpp.html" title="resource.cpp" alt="" coords="749,469,845,499"/>
+<area shape="rect" id="node20" href="$d7/db1/sac2_8hpp.html" title="Provides all includes." alt="" coords="869,469,944,499"/>
+<area shape="rect" id="node41" href="$d9/d86/sac2__asset__manager_8cpp.html" title="Provides AssetManager class." alt="" coords="341,547,512,576"/>
+<area shape="rect" id="node43" href="$d3/d93/sac2__audio__manager_8cpp.html" title="sac2_audio_manager.cpp" alt="" coords="1112,469,1283,499"/>
+<area shape="rect" id="node45" href="$d7/d24/sac2__engine_8cpp.html" title="sac2_engine.cpp" alt="" coords="968,469,1088,499"/>
+<area shape="rect" id="node22" href="$df/dd7/app00_2main_8cpp.html" title="main.cpp" alt="" coords="880,547,955,576"/>
+<area shape="rect" id="node24" href="$d1/de6/app01_2main_8cpp.html" title="main.cpp" alt="" coords="979,547,1053,576"/>
+<area shape="rect" id="node26" href="$d4/dae/app02_2main_8cpp.html" title="main.cpp" alt="" coords="1077,547,1152,576"/>
+<area shape="rect" id="node28" href="$d7/db1/demo__state_8hpp.html" title="demo_state.hpp" alt="" coords="1227,547,1341,576"/>
+<area shape="rect" id="node32" href="$dd/dff/test__04_8cpp.html" title="test_04.cpp" alt="" coords="824,624,915,653"/>
+<area shape="rect" id="node34" href="$dd/da4/test__04_8hpp.html" title="test_04.hpp" alt="" coords="536,547,627,576"/>
+<area shape="rect" id="node37" href="$d2/dda/test__06_8cpp.html" title="test_06.cpp" alt="" coords="651,547,741,576"/>
+<area shape="rect" id="node39" href="$dc/da2/test__07_8cpp.html" title="test_07.cpp" alt="" coords="765,547,856,576"/>
+<area shape="rect" id="node30" href="$de/d10/demo__state_8cpp.html" title="demo_state.cpp" alt="" coords="1227,624,1341,653"/>
+<area shape="rect" id="node49" href="$dc/dd8/sac2__music__asset_8hpp.html" title="Provides MusicAsset." alt="" coords="171,469,325,499"/>
+<area shape="rect" id="node51" href="$d3/d47/sac2__sound__asset_8hpp.html" title="sac2_sound_asset.hpp" alt="" coords="349,469,504,499"/>
+</map>

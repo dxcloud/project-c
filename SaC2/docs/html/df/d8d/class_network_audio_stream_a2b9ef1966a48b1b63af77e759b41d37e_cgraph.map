@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$df/d34/classsf_1_1_tcp_socket.html#a90ce50811ea61d4f00efc62bb99ae1af" title="Receive raw data from the remote peer." alt="" coords="281,5,436,35"/>
+<area shape="rect" id="node5" href="$d6/df8/classsf_1_1_packet.html#a304ba9ec94c992710f4dfff879c6340e" title="Get a pointer to the data contained in the packet." alt="" coords="291,59,427,88"/>
+<area shape="rect" id="node7" href="$d6/df8/classsf_1_1_packet.html#a004b62aa5bafa69df8917171a3fe1fa0" title="Get the size of the data contained in the packet." alt="" coords="277,112,440,141"/>
+</map>

@@ -1,0 +1,19 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d8/dd2/_config_8hpp.html" title="SFML/Config.hpp" alt="" coords="432,392,555,421"/>
+<area shape="rect" id="node5" href="$d5/dde/_clock_8hpp.html" title="SFML/System/Clock.hpp" alt="" coords="237,160,405,189"/>
+<area shape="rect" id="node13" href="$d4/db0/_err_8hpp.html" title="SFML/System/Err.hpp" alt="" coords="124,83,276,112"/>
+<area shape="rect" id="node18" href="$de/d7d/_input_stream_8hpp.html" title="SFML/System/InputStream.hpp" alt="" coords="204,315,409,344"/>
+<area shape="rect" id="node21" href="$d6/d8d/_lock_8hpp.html" title="SFML/System/Lock.hpp" alt="" coords="621,160,784,189"/>
+<area shape="rect" id="node27" href="$d4/d48/_mutex_8hpp.html" title="SFML/System/Mutex.hpp" alt="" coords="808,160,979,189"/>
+<area shape="rect" id="node31" href="$da/d2a/_sleep_8hpp.html" title="SFML/System/Sleep.hpp" alt="" coords="429,160,597,189"/>
+<area shape="rect" id="node35" href="$d9/dc5/_string_8hpp.html" title="SFML/System/String.hpp" alt="" coords="1667,160,1835,189"/>
+<area shape="rect" id="node42" href="$d6/de8/_thread_8hpp.html" title="SFML/System/Thread.hpp" alt="" coords="1003,160,1176,189"/>
+<area shape="rect" id="node50" href="$dc/d92/_thread_local_8hpp.html" title="SFML/System/ThreadLocal.hpp" alt="" coords="1200,160,1405,189"/>
+<area shape="rect" id="node55" href="$dc/dcf/_thread_local_ptr_8hpp.html" title="SFML/System/ThreadLocalPtr.hpp" alt="" coords="1192,83,1413,112"/>
+<area shape="rect" id="node60" href="$d7/dc2/_utf_8hpp.html" title="SFML/System/Utf.hpp" alt="" coords="1859,160,2011,189"/>
+<area shape="rect" id="node70" href="$d3/d12/_vector2_8hpp.html" title="SFML/System/Vector2.hpp" alt="" coords="1751,83,1929,112"/>
+<area shape="rect" id="node74" href="$d2/d6a/_vector3_8hpp.html" title="SFML/System/Vector3.hpp" alt="" coords="2195,83,2373,112"/>
+<area shape="rect" id="node7" href="$da/d4b/_system_2_export_8hpp.html" title="SFML/System/Export.hpp" alt="" coords="595,315,768,344"/>
+<area shape="rect" id="node10" href="$d8/d3a/_time_8hpp.html" title="SFML/System/Time.hpp" alt="" coords="431,237,593,267"/>
+<area shape="rect" id="node24" href="$d1/d43/_non_copyable_8hpp.html" title="SFML/System/NonCopyable.hpp" alt="" coords="769,237,983,267"/>
+</map>

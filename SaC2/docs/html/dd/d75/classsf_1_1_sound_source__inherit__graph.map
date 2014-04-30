@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d9/d0c/classsf_1_1_sound.html" title="Regular sound that can be played in the audio environment." alt="" coords="5,83,83,112"/>
+<area shape="rect" id="node5" href="$d7/d30/classsf_1_1_sound_stream.html" title="Abstract base class for streamed audio sources." alt="" coords="107,83,227,112"/>
+<area shape="rect" id="node7" href="$df/d8d/class_network_audio_stream.html" title="NetworkAudioStream" alt="" coords="25,160,172,189"/>
+<area shape="rect" id="node9" href="$d7/d91/classsf_1_1_music.html" title="Streamed music played from an audio file." alt="" coords="196,160,271,189"/>
+</map>
