@@ -1,9 +1,9 @@
-/*!
- * \file    srg.cpp
- * \date    2013-06-10
- * \author  Chengwu Huang
- * \version 0.1
- */
+//////////////////////////////////////////////////////////////////////////////
+//! \file    srg.cpp
+//! \date    2013-06-10
+//! \author  Chengwu Huang
+//! \version 0.1
+//////////////////////////////////////////////////////////////////////////////
 
 #include <iostream>
 #include <iomanip>
@@ -81,19 +81,19 @@ bool Srg::is_resource_node(const char* node_name) const
 }
 
 //----------------------------------------------------------------------------
-//  Srg::is_asset_type_node
+//  Srg::is_asset_node
 //----------------------------------------------------------------------------
-bool Srg::is_asset_type_node(const char* node_name) const
+bool Srg::is_asset_node(const char* node_name) const
 {
   if (false == is_srg_node(node_name, NODE_FONT)
       && false == is_srg_node(node_name, NODE_IMAGE)
       && false == is_srg_node(node_name, NODE_MUSIC)
       && false == is_srg_node(node_name, NODE_SOUND)) {
     std::cout << "Error: `" << node_name << "'"
-              << " is NOT a valid Tag" << std::endl;
+              << " is NOT a valid asset type" << std::endl;
     return false;
-  }
-    return true;
+  }  // if input node is valid
+  return true;
 }
 
 //----------------------------------------------------------------------------
@@ -205,38 +205,39 @@ void Srg::check_id_and_filename_attribute(xml_node_ptr node)
 //----------------------------------------------------------------------------
 //  Srg::parse_xml
 //----------------------------------------------------------------------------
-void Srg::parse_xml()
+statut_t Srg::parse_xml()
 {
   rapidxml::file<> file(m_xml_filename.c_str());
   rapidxml::xml_document<> xml_doc;
   xml_doc.parse<0>(file.data());
 
   xml_node_ptr node_root(xml_doc.first_node());
-  if (false == is_resource_node(node_root->name())) { return; }
+  if (false == is_resource_node(node_root->name())) { return FAIL; }
 
   check_dir_attribute(node_root, true);
 
-  if (false == has_child(node_root)) { return; }
+  if (false == has_child(node_root)) { return FAIL; }
   for (xml_node_ptr node_type(node_root->first_node());
        0 != node_type; node_type = node_type->next_sibling()) {
-    if (false == is_asset_type_node(node_type->name())) { return; }
+    if (false == is_asset_node(node_type->name())) { return FAIL; }
     check_dir_attribute(node_type);
 
-    if (false == has_child(node_type)) { return; }
-    std::cout << "Reading node `" << node_type->name() << "'..."<< std::endl;
+    if (false == has_child(node_type)) { return FAIL; }
+    std::cout << "Reading node `" << node_type->name() << "' ..."<< std::endl;
     for (xml_node_ptr node_res(node_type->first_node());
          0 != node_res;
          node_res = node_res->next_sibling()) {
-      if (false == is_item_node(node_res->name())) { return; }
+      if (false == is_item_node(node_res->name())) { return FAIL; }
       if ((false == has_id_attribute(node_res))
            || (false == has_filename_attribute(node_res))) {
         std::cout << "Error: attribute `id' and/or `filename' is missing"
                   << std::endl;
-        return;
+        return FAIL;
       }
       check_id_and_filename_attribute(node_res);
     }
   }
+  return SUCCESS;
 }
 
 //----------------------------------------------------------------------------
@@ -254,10 +255,10 @@ void Srg::generate() const
 void Srg::generate_header() const
 {
   std::ofstream ofs;
-  std::string header(m_res_filename + ".hpp");
-  ofs.open(header.c_str());
+  std::string f_header(m_res_filename + ".hpp");
+  ofs.open(f_header.c_str());
   if (true == ofs.is_open()) {
-    insert_file_header(ofs);
+    insert_file_header(ofs, f_header);
     ofs << "#ifndef SRG_RESOURCE_HPP" << std::endl
         << "#define SRG_RESOURCE_HPP" << std::endl
         << std::endl
@@ -281,7 +282,7 @@ void Srg::generate_header() const
         << std::endl;
   }
   ofs.close();
-  std::cout << "srg: `" << m_res_filename << ".hpp' generated." << std::endl;
+  std::cout << SRGNAME << "`" << m_res_filename << ".hpp' generated." << std::endl;
 }
 
 //----------------------------------------------------------------------------
@@ -290,9 +291,10 @@ void Srg::generate_header() const
 void Srg::generate_source() const
 {
   std::ofstream ofs;
-  std::string source(m_res_filename + ".cpp");
-  ofs.open(source.c_str());
+  std::string f_source(m_res_filename + ".cpp");
+  ofs.open(f_source.c_str());
   if (true == ofs.is_open()) {
+    insert_file_header(ofs, f_source);
     ofs << "#include <sac2_asset_manager.hpp>" << std::endl
         << "#include \"" << m_res_filename << ".hpp\"" << std::endl
         << std::endl
@@ -314,21 +316,22 @@ void Srg::generate_source() const
           << "}" << std::endl << std::endl;
   }
   ofs.close();
-  std::cout << "srg: `" << m_res_filename << ".cpp' generated." << std::endl;
+  std::cout << SRGNAME << "`" << m_res_filename << ".cpp' generated." << std::endl;
 }
 
 //----------------------------------------------------------------------------
 //  Srg::insert_file_header
 //----------------------------------------------------------------------------
-void Srg::insert_file_header(std::ofstream& ofs) const
+void Srg::insert_file_header(std::ofstream& ofs, const std::string filename) const
 {
   time_t time_info;
   std::time(&time_info);
 
   ofs << "/*!" << std::endl
-      << " * \\file    " << m_res_filename << ".hpp" << std::endl
+      << " * \\file    " << filename << std::endl
       << " * \\date    " << std::ctime(&time_info)
-      << " * \\warning This file is automatically generate by srg."
+      << " * \\warning This file is automatically generate by "
+      << SRGNAME << "."
       << std::endl
       << " *          DO NOT EDIT THIS FILE." << std::endl
       << " */"
@@ -340,7 +343,7 @@ void Srg::insert_file_header(std::ofstream& ofs) const
 //----------------------------------------------------------------------------
 void Srg::print_usage()
 {
-  std::cout << "Usage: srg <filename>" << std::endl;
+  std::cout << "Usage: " << SRGNAME <<" <filename>" << std::endl;
 }
 
 }
@@ -358,8 +361,10 @@ int main(int argc, char* argv[])
     return 1;
   }
   sac2::srg::Srg generator(argv[1]);
-  generator.parse_xml();
-  generator.generate();
+  if (sac2::srg::SUCCESS == generator.parse_xml()) {
+    generator.generate();
+  }
 
   return 0;
 }
+

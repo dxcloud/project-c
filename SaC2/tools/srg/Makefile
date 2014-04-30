@@ -23,26 +23,34 @@ SRG_OBJECT          = $(SRG_TOOL_PATH)/srg.o
 SAC2_TOOLS_BIN      = $(dir $(SRG_TOOL_PATH))bin
 
 ### Targets
-SRG_EXEC            = $(SAC2_TOOLS_BIN)/srg
+SRG_EXEC            = sac2rg
+
+### Output
+SRG_OUTPUT          = $(SAC2_TOOLS_BIN)/$(SRG_EXEC)
 
 ### Rapidxml library path
 INCLUDE             = $(shell locate -l 1 SaC2/libs/rapidxml)
 CXXFLAGS           += -I$(INCLUDE)
 
-all: $(SRG_EXEC)
+all: $(SRG_OUTPUT)
 
-$(SRG_EXEC): $(SRG_OBJECT)
+$(SRG_OUTPUT): $(SRG_OBJECT)
 	@if [ ! -d "$(SAC2_TOOLS_BIN)" ]; then \
-	  echo "Creating directory \`$(SAC2_TOOLS_BIN)'..."; \
+	  echo "Creating directory \`$(SAC2_TOOLS_BIN)' ..."; \
 	  mkdir $(SAC2_TOOLS_BIN); \
 	fi
-	@echo "Building \`srg' tool..."
+	@echo "Building \`$(SRG_EXEC)' ..."
 	@$(CXX) $(LDFLAGS) -o $@ $(SRG_OBJECT)
+	@echo "Finished"
 
 $(SRG_OBJECT): $(SRG_SOURCE) $(SRG_HEADER)
 	@$(CXX) $(CXXFLAGS) -o $@ -c $<
 
 clean:
-	@rm -rf $(SRG_EXEC) *~ *.o
+	@rm -rf *~ *.o
+
+distclean: clean
+	@rm -f $(SRG_OUTPUT)
 
 .PHONY: all clean
+
