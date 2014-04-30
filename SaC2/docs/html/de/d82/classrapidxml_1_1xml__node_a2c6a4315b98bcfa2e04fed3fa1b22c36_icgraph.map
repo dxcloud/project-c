@@ -1,0 +1,11 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d1/d46/classrapidxml_1_1memory__pool.html#a0a10679fc17597d339a0dc107f8a94ac" title="rapidxml::memory_pool::clone_node" alt="" coords="223,5,452,35"/>
+<area shape="rect" id="node5" href="$de/d82/classrapidxml_1_1xml__node.html#adb6ad21a4590cf13d4a6a5036e3cdbbc" title="rapidxml::xml_node::document" alt="" coords="237,59,437,88"/>
+<area shape="rect" id="node7" href="$de/d82/classrapidxml_1_1xml__node.html#a499bbc9300c1b06821d5c08b24164c68" title="rapidxml::xml_node::type" alt="" coords="253,112,421,141"/>
+<area shape="rect" id="node9" href="$de/d82/classrapidxml_1_1xml__node.html#ae86e92908c3eab40bbed8216e4f3f3cb" title="rapidxml::xml_node::prepend_node" alt="" coords="225,165,449,195"/>
+<area shape="rect" id="node11" href="$de/d82/classrapidxml_1_1xml__node.html#a666880f42a7e486d78cc45ed51c7c46d" title="rapidxml::xml_node::insert_node" alt="" coords="553,191,764,220"/>
+<area shape="rect" id="node13" href="$de/d82/classrapidxml_1_1xml__node.html#a8696d098ecc9c4d2a646b43e91d58e31" title="rapidxml::xml_node::append_node" alt="" coords="228,269,447,299"/>
+<area shape="rect" id="node16" href="$db/d68/classrapidxml_1_1xml__document.html#ac6e73ff9ac323bf5a370c38feb03a6b1" title="rapidxml::xml_document::parse" alt="" coords="557,244,760,273"/>
+<area shape="rect" id="node18" href="$db/d68/classrapidxml_1_1xml__document.html#aec6cedf45179b6378c670bc3ea509e61" title="rapidxml::xml_document::parse_and_append_data" alt="" coords="503,297,815,327"/>
+<area shape="rect" id="node20" href="$db/d68/classrapidxml_1_1xml__document.html#aae0a4c2e1972ab9a9e0ce91cf1166ac9" title="rapidxml::xml_document::parse_node_contents" alt="" coords="511,351,807,380"/>
+</map>

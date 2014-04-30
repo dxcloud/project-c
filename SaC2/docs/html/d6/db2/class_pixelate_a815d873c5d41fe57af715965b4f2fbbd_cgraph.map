@@ -1,0 +1,6 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d4/d96/classsf_1_1_texture.html#a8e1b56eabfe33e2e0e1cb03712c7fcc7" title="Load the texture from a file on disk." alt="" coords="173,5,341,35"/>
+<area shape="rect" id="node5" href="$d2/d70/classsf_1_1_sprite.html#a3729c88d88ac38c19317c18e87242560" title="Change the source texture of the sprite." alt="" coords="185,59,329,88"/>
+<area shape="rect" id="node7" href="$d6/d2b/classsf_1_1_shader.html#a053a5632848ebaca2fcd8ba29abe9e6e" title="Load either the vertex or fragment shader from a file." alt="" coords="175,112,340,141"/>
+<area shape="rect" id="node9" href="$d6/d2b/classsf_1_1_shader.html#a47e4dd78f0752ae08664b4ee616db1cf" title="Change a float parameter of the shader." alt="" coords="173,165,341,195"/>
+</map>

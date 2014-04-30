@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d4/d48/classrapidxml_1_1xml__base.html#a9a09739310469995db078ebd0da3ed45" title="rapidxml::xml_base::name" alt="" coords="233,1052,407,1081"/>
+<area shape="rect" id="node124" href="$d4/d48/classrapidxml_1_1xml__base.html#adcdaccff61c665f039d9344e447b7445" title="rapidxml::xml_base::value" alt="" coords="233,267,407,296"/>
+<area shape="rect" id="node5" href="$d1/d46/classrapidxml_1_1memory__pool.html#a4118581c29ee9a2f6b55ebf7dac185f8" title="rapidxml::memory_pool::allocate_node" alt="" coords="467,319,712,348"/>
+<area shape="rect" id="node7" href="$d1/d46/classrapidxml_1_1memory__pool.html#a0a10679fc17597d339a0dc107f8a94ac" title="rapidxml::memory_pool::clone_node" alt="" coords="808,581,1037,611"/>
+<area shape="rect" id="node15" href="$db/d68/classrapidxml_1_1xml__document.html#a09e12a4233a07387d4b5a5ad239388aa" title="rapidxml::xml_document::parse_pi" alt="" coords="812,424,1033,453"/>
+<area shape="rect" id="node21" href="$db/d68/classrapidxml_1_1xml__document.html#aea385acd096ab200d63a777d53435ada" title="rapidxml::xml_document::parse_element" alt="" coords="795,477,1051,507"/>
+<area shape="rect" id="node23" href="$d1/d46/classrapidxml_1_1memory__pool.html#a3de2a66c983336e006ea3844e244ed30" title="rapidxml::memory_pool::allocate_attribute" alt="" coords="457,577,721,607"/>
+<area shape="rect" id="node26" href="$db/d68/classrapidxml_1_1xml__document.html#ac0b3cd07b3d5cbaa83762a196c681519" title="rapidxml::xml_document::parse_node_attributes" alt="" coords="1131,581,1429,611"/>
+<area shape="rect" id="node29" href="$d4/d48/classrapidxml_1_1xml__base.html#ae55060ae958c6e6465d6c8db852ec6ce" title="rapidxml::xml_base::name" alt="" coords="503,1420,676,1449"/>
+<area shape="rect" id="node31" href="$d9/db7/classrapidxml_1_1xml__attribute.html#ae3547cc30b201fd6d7b98c04dda26f89" title="rapidxml::xml_attribute::previous_attribute" alt="" coords="457,1473,721,1503"/>
+<area shape="rect" id="node33" href="$d9/db7/classrapidxml_1_1xml__attribute.html#a56c08d7c96203286c889a43849328a86" title="rapidxml::xml_attribute::next_attribute" alt="" coords="469,1183,709,1212"/>
+<area shape="rect" id="node37" href="$de/d82/classrapidxml_1_1xml__node.html#a2dedeb4e04bb35e06a9a7bddf6ba652d" title="rapidxml::xml_node::first_node" alt="" coords="489,869,689,899"/>
+<area shape="rect" id="node50" href="$db/d68/classrapidxml_1_1xml__document.html#aae0a4c2e1972ab9a9e0ce91cf1166ac9" title="rapidxml::xml_document::parse_node_contents" alt="" coords="1132,908,1428,937"/>
+<area shape="rect" id="node73" href="$de/d82/classrapidxml_1_1xml__node.html#a2ace550c18cf10da6303773972d7157f" title="rapidxml::xml_node::last_node" alt="" coords="491,1527,688,1556"/>
+<area shape="rect" id="node75" href="$de/d82/classrapidxml_1_1xml__node.html#a001ece4e227eebbd6ad0ec7dacf1c00b" title="rapidxml::xml_node::previous_sibling" alt="" coords="472,1832,707,1861"/>
+<area shape="rect" id="node77" href="$de/d82/classrapidxml_1_1xml__node.html#ac59af4dd5f0ec715753e42467dff6aed" title="rapidxml::xml_node::next_sibling" alt="" coords="484,1104,695,1133"/>
+<area shape="rect" id="node81" href="$de/d82/classrapidxml_1_1xml__node.html#ae426802be58114ffc41bf30ac6b8c37d" title="rapidxml::xml_node::first_attribute" alt="" coords="480,1367,699,1396"/>
+<area shape="rect" id="node104" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#a9f2c403e200a64112f7fb53f3f150e22" title="Modify the filename path whether `dir&#39; attribute is found." alt="" coords="1169,1547,1391,1576"/>
+<area shape="rect" id="node117" href="$de/d82/classrapidxml_1_1xml__node.html#a50c03f2db3fa51f27a73d86ec29a49d3" title="rapidxml::xml_node::last_attribute" alt="" coords="480,1885,699,1915"/>
+<area shape="rect" id="node9" href="$db/d68/classrapidxml_1_1xml__document.html#a0151c52c82ba79ea0605c2facf39c534" title="rapidxml::xml_document::parse_xml_declaration" alt="" coords="772,371,1073,400"/>
+<area shape="rect" id="node11" href="$db/d68/classrapidxml_1_1xml__document.html#abc287ce83bcb2dc8519e300236004591" title="rapidxml::xml_document::parse_comment" alt="" coords="791,160,1055,189"/>
+<area shape="rect" id="node13" href="$db/d68/classrapidxml_1_1xml__document.html#a4c613f3a928f763b4c788422edda5860" title="rapidxml::xml_document::parse_doctype" alt="" coords="795,213,1051,243"/>
+<area shape="rect" id="node17" href="$db/d68/classrapidxml_1_1xml__document.html#aec6cedf45179b6378c670bc3ea509e61" title="rapidxml::xml_document::parse_and_append_data" alt="" coords="1124,319,1436,348"/>
+<area shape="rect" id="node19" href="$db/d68/classrapidxml_1_1xml__document.html#ab94daeb25e8a1609e31210a45b2afa6c" title="rapidxml::xml_document::parse_cdata" alt="" coords="801,267,1044,296"/>
+<area shape="rect" id="node35" href="$d7/d8a/namespacerapidxml.html#a6255d15e5d8ad12ebcd7c60da51c97e2" title="rapidxml::count_attributes" alt="" coords="837,1208,1008,1237"/>
+<area shape="rect" id="node40" href="$de/d82/classrapidxml_1_1xml__node.html#ae86e92908c3eab40bbed8216e4f3f3cb" title="rapidxml::xml_node::prepend_node" alt="" coords="811,843,1035,872"/>
+<area shape="rect" id="node44" href="$de/d82/classrapidxml_1_1xml__node.html#a8696d098ecc9c4d2a646b43e91d58e31" title="rapidxml::xml_node::append_node" alt="" coords="813,896,1032,925"/>
+<area shape="rect" id="node52" href="$de/d82/classrapidxml_1_1xml__node.html#a62bf7b276cf7a651a3337f5e0a0ef6ac" title="rapidxml::xml_node::remove_first_node" alt="" coords="797,685,1048,715"/>
+<area shape="rect" id="node54" href="$de/d82/classrapidxml_1_1xml__node.html#a98289923eb9e8889418a9eb0207ea35c" title="Removes specified child from the node." alt="" coords="1169,739,1391,768"/>
+<area shape="rect" id="node56" href="$de/d82/classrapidxml_1_1xml__node.html#a9182512e948ec451a83f116cce7c7674" title="rapidxml::xml_node::remove_last_node" alt="" coords="799,739,1047,768"/>
+<area shape="rect" id="node60" href="$de/d82/classrapidxml_1_1xml__node.html#a95735358b079ae0adcfbbac69aa1fbc3" title="Removes all child nodes (but not attributes)." alt="" coords="799,1051,1047,1080"/>
+<area shape="rect" id="node65" href="$d7/d8a/namespacerapidxml.html#a21c1cf2814019385e6b8d09e75af1d34" title="rapidxml::count_children" alt="" coords="841,1104,1004,1133"/>
+<area shape="rect" id="node67" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#ae955ad1ccf6b086fa83df02bd3c6a8a3" title="Test if the node has children." alt="" coords="1197,985,1363,1015"/>
+<area shape="rect" id="node42" href="$de/d82/classrapidxml_1_1xml__node.html#a666880f42a7e486d78cc45ed51c7c46d" title="rapidxml::xml_node::insert_node" alt="" coords="1175,843,1385,872"/>
+<area shape="rect" id="node47" href="$db/d68/classrapidxml_1_1xml__document.html#ac6e73ff9ac323bf5a370c38feb03a6b1" title="rapidxml::xml_document::parse" alt="" coords="1179,1051,1381,1080"/>
+<area shape="rect" id="node63" href="$db/d68/classrapidxml_1_1xml__document.html#a826929ff54242532198701f19ff5f83f" title="rapidxml::xml_document::clear" alt="" coords="1180,1104,1380,1133"/>
+<area shape="rect" id="node69" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#a695839eda31d707acd9c1a9eabc07ba2" title="Use RapidXML to parse xml file." alt="" coords="1487,1389,1657,1419"/>
+<area shape="rect" id="node71" href="$de/dfd/srg_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="main" alt="" coords="1707,1389,1757,1419"/>
+<area shape="rect" id="node84" href="$de/d82/classrapidxml_1_1xml__node.html#a8b62ee76489faf8e2d1210869d547684" title="rapidxml::xml_node::prepend_attribute" alt="" coords="801,1624,1044,1653"/>
+<area shape="rect" id="node86" href="$de/d82/classrapidxml_1_1xml__node.html#a33ce3386f8c42dd4db658b75cbb6e6c4" title="rapidxml::xml_node::append_attribute" alt="" coords="804,1261,1041,1291"/>
+<area shape="rect" id="node89" href="$de/d82/classrapidxml_1_1xml__node.html#aa95192d2a165cca16c551ed2a2a06aec" title="rapidxml::xml_node::remove_first_attribute" alt="" coords="788,1832,1057,1861"/>
+<area shape="rect" id="node91" href="$de/d82/classrapidxml_1_1xml__node.html#a6f97b1b4f46a94a4587915df3c0c6b57" title="rapidxml::xml_node::remove_attribute" alt="" coords="1160,1729,1400,1759"/>
+<area shape="rect" id="node93" href="$de/d82/classrapidxml_1_1xml__node.html#a1781a2cbedc9a51d609ad5b528125635" title="rapidxml::xml_node::remove_last_attribute" alt="" coords="789,1677,1056,1707"/>
+<area shape="rect" id="node97" href="$de/d82/classrapidxml_1_1xml__node.html#aa8d5d9484aa1eb5ff1841a073c84c1aa" title="Removes all attributes of node." alt="" coords="789,1315,1056,1344"/>
+<area shape="rect" id="node102" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#a1a93ce6c16f03e1ef44eebebaa7186c6" title="Test whether the node has attributes." alt="" coords="829,1520,1016,1549"/>
+<area shape="rect" id="node107" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#abd9cdf24898a84c3a665e656997f03cc" title="Test whether the node has `id&#39; attribute." alt="" coords="1179,1416,1381,1445"/>
+<area shape="rect" id="node110" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#a40d8b78f529ef58d96041c7086f77f22" title="Test whether the node has `filename&#39; attribute." alt="" coords="1159,1469,1401,1499"/>
+<area shape="rect" id="node114" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#ac500eefce081fe671b6488403f4c1754" title="Insert the value of `id&#39; and `filename&#39; into the filename map." alt="" coords="1129,1363,1431,1392"/>
+<area shape="rect" id="node129" href="$d4/d48/classrapidxml_1_1xml__base.html#a3b183c2db7022a6d30494dd2f0ac11e9" title="rapidxml::xml_base::value" alt="" coords="503,5,676,35"/>
+</map>

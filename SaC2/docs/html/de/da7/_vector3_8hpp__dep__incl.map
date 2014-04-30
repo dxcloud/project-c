@@ -1,0 +1,51 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d6/d12/_listener_8hpp.html" title="Listener.hpp" alt="" coords="681,237,774,267"/>
+<area shape="rect" id="node53" href="$d6/dad/_sound_source_8hpp.html" title="SoundSource.hpp" alt="" coords="619,83,745,112"/>
+<area shape="rect" id="node64" href="$d2/d73/_shader_8hpp.html" title="Shader.hpp" alt="" coords="866,83,954,112"/>
+<area shape="rect" id="node91" href="$d6/def/_system_8hpp.html" title="System.hpp" alt="" coords="1198,160,1289,189"/>
+<area shape="rect" id="node5" href="$d4/d43/_audio_8hpp.html" title="Audio.hpp" alt="" coords="553,315,633,344"/>
+<area shape="rect" id="node7" href="$da/d2e/test__02_8cpp.html" title="test_02.cpp" alt="" coords="562,392,653,421"/>
+<area shape="rect" id="node9" href="$d2/da0/test__03_8hpp.html" title="test_03.hpp" alt="" coords="613,547,703,576"/>
+<area shape="rect" id="node13" href="$d0/df3/sac2__asset__manager_8hpp.html" title="Provides AssetManager class." alt="" coords="1178,469,1349,499"/>
+<area shape="rect" id="node32" href="$df/d5c/sac2__audio__asset_8hpp.html" title="Provides interface for audio elements manipulation." alt="" coords="178,392,330,421"/>
+<area shape="rect" id="node40" href="$d4/d65/sac2__audio__manager_8hpp.html" title="sac2_audio_manager.hpp" alt="" coords="695,469,866,499"/>
+<area shape="rect" id="node43" href="$db/dd7/_pong_8cpp.html" title="Pong.cpp" alt="" coords="677,392,754,421"/>
+<area shape="rect" id="node45" href="$d2/d10/_sound_8cpp.html" title="Sound.cpp" alt="" coords="354,392,437,421"/>
+<area shape="rect" id="node47" href="$d6/d27/_sound_capture_8cpp.html" title="SoundCapture.cpp" alt="" coords="23,392,154,421"/>
+<area shape="rect" id="node49" href="$d2/dcf/_client_8cpp.html" title="Client.cpp" alt="" coords="1303,392,1383,421"/>
+<area shape="rect" id="node51" href="$d8/d13/_server_8cpp.html" title="Server.cpp" alt="" coords="1407,392,1493,421"/>
+<area shape="rect" id="node11" href="$d7/d38/test__03_8cpp.html" title="test_03.cpp" alt="" coords="613,624,703,653"/>
+<area shape="rect" id="node15" href="$d9/d06/demos_2demo__01_2resource_8cpp.html" title="resource.cpp" alt="" coords="1301,547,1397,576"/>
+<area shape="rect" id="node18" href="$dd/dfa/tests_2test__07_2resource_8cpp.html" title="resource.cpp" alt="" coords="1421,547,1517,576"/>
+<area shape="rect" id="node20" href="$d7/db1/sac2_8hpp.html" title="Provides all includes." alt="" coords="2033,624,2107,653"/>
+<area shape="rect" id="node26" href="$d9/d86/sac2__asset__manager_8cpp.html" title="Provides AssetManager class." alt="" coords="810,547,981,576"/>
+<area shape="rect" id="node28" href="$d3/d93/sac2__audio__manager_8cpp.html" title="sac2_audio_manager.cpp" alt="" coords="1005,547,1175,576"/>
+<area shape="rect" id="node30" href="$d7/d24/sac2__engine_8cpp.html" title="sac2_engine.cpp" alt="" coords="1679,624,1799,653"/>
+<area shape="rect" id="node22" href="$df/dd7/app00_2main_8cpp.html" title="main.cpp" alt="" coords="2033,701,2107,731"/>
+<area shape="rect" id="node24" href="$d2/dda/test__06_8cpp.html" title="test_06.cpp" alt="" coords="1918,701,2009,731"/>
+<area shape="rect" id="node34" href="$dc/dd8/sac2__music__asset_8hpp.html" title="Provides MusicAsset." alt="" coords="177,469,331,499"/>
+<area shape="rect" id="node36" href="$d3/d47/sac2__sound__asset_8hpp.html" title="sac2_sound_asset.hpp" alt="" coords="466,469,621,499"/>
+<area shape="rect" id="node55" href="$d8/da4/_sound_8hpp.html" title="Sound.hpp" alt="" coords="641,160,723,189"/>
+<area shape="rect" id="node58" href="$df/d1a/_sound_stream_8hpp.html" title="SoundStream.hpp" alt="" coords="491,160,617,189"/>
+<area shape="rect" id="node60" href="$de/d88/_music_8hpp.html" title="Music.hpp" alt="" coords="473,237,555,267"/>
+<area shape="rect" id="node66" href="$d0/daa/_graphics_8hpp.html" title="Graphics.hpp" alt="" coords="950,315,1049,344"/>
+<area shape="rect" id="node68" href="$d5/d34/tests_2test__01_2main_8cpp.html" title="main.cpp" alt="" coords="1087,392,1162,421"/>
+<area shape="rect" id="node73" href="$df/d0f/sac2__sprite__asset_8hpp.html" title="Provides sprite asset manipulation class." alt="" coords="1002,469,1154,499"/>
+<area shape="rect" id="node78" href="$dd/d14/sac2__rendering__manager_8hpp.html" title="Provides RenderingManager." alt="" coords="1517,392,1709,421"/>
+<area shape="rect" id="node83" href="$d6/d93/_open_g_l_8cpp.html" title="OpenGL.cpp" alt="" coords="1186,392,1279,421"/>
+<area shape="rect" id="node86" href="$d2/d89/_effect_8hpp.html" title="Effect.hpp" alt="" coords="879,392,962,421"/>
+<area shape="rect" id="node88" href="$d5/d16/_shader_8cpp.html" title="Shader.cpp" alt="" coords="890,469,978,499"/>
+<area shape="rect" id="node81" href="$d9/d7c/sac2__rendering__manager_8cpp.html" title="sac2_rendering_manager.cpp" alt="" coords="1683,469,1875,499"/>
+<area shape="rect" id="node94" href="$dc/d99/sac2__engine_8hpp.html" title="Provides Engine class." alt="" coords="2071,392,2191,421"/>
+<area shape="rect" id="node110" href="$dc/dd6/_network_8hpp.html" title="Network.hpp" alt="" coords="1551,315,1647,344"/>
+<area shape="rect" id="node120" href="$de/d0b/_window_8hpp.html" title="Window.hpp" alt="" coords="2182,237,2275,267"/>
+<area shape="rect" id="node96" href="$d3/dff/test__06_8hpp.html" title="test_06.hpp" alt="" coords="1918,624,2009,653"/>
+<area shape="rect" id="node99" href="$da/dd7/sac2__input__config_8hpp.html" title="Provides InputConfig class and DefaultInputConfig as a default input configuration." alt="" coords="2171,469,2323,499"/>
+<area shape="rect" id="node101" href="$d6/d74/sac2__input__manager_8hpp.html" title="Provides class to manage inputs from keyboard." alt="" coords="2051,547,2217,576"/>
+<area shape="rect" id="node112" href="$df/d12/_ftp_8cpp.html" title="Ftp.cpp" alt="" coords="1831,392,1898,421"/>
+<area shape="rect" id="node114" href="$d3/d2c/_t_c_p_8cpp.html" title="TCP.cpp" alt="" coords="1922,392,1997,421"/>
+<area shape="rect" id="node116" href="$de/dac/_u_d_p_8cpp.html" title="UDP.cpp" alt="" coords="1733,392,1807,421"/>
+<area shape="rect" id="node124" href="$df/d25/sac2__type_8hpp.html" title="Provides SaC2 types including typedef." alt="" coords="2175,315,2282,344"/>
+<area shape="rect" id="node132" href="$d3/db8/_window_8cpp.html" title="Window.cpp" alt="" coords="2418,315,2511,344"/>
+<area shape="rect" id="node134" href="$d4/d75/_x11_8cpp.html" title="X11.cpp" alt="" coords="2535,315,2605,344"/>
+</map>

@@ -1,0 +1,16 @@
+<map id="G" name="G">
+<area shape="rect" id="node1" href="$d1/d21/classsf_1_1_drawable.html" title="Abstract base class for objects that can be drawn to a render target." alt="" coords="20,219,116,248"/>
+<area shape="rect" id="node3" href="$d6/d58/class_effect.html" title="Effect" alt="" coords="207,139,263,168"/>
+<area shape="rect" id="node13" href="$da/d8c/classsf_1_1_shape.html" title="Base class for textured shapes with outline." alt="" coords="196,219,273,248"/>
+<area shape="rect" id="node21" href="$d2/d70/classsf_1_1_sprite.html" title="Drawable representation of a texture, with its own transformations, color, etc." alt="" coords="197,272,272,301"/>
+<area shape="rect" id="node23" href="$d6/ddb/classsf_1_1_text.html" title="Graphical text that can be drawn to a render target." alt="" coords="201,325,268,355"/>
+<area shape="rect" id="node25" href="$dd/d3d/classsf_1_1_vertex_array.html" title="Define a set of one or more 2D primitives." alt="" coords="180,85,289,115"/>
+<area shape="rect" id="node5" href="$d7/d77/class_edge.html" title="Edge" alt="" coords="383,59,433,88"/>
+<area shape="rect" id="node7" href="$d6/db2/class_pixelate.html" title="Pixelate" alt="" coords="373,112,443,141"/>
+<area shape="rect" id="node9" href="$d7/d7a/class_storm_blink.html" title="StormBlink" alt="" coords="365,165,451,195"/>
+<area shape="rect" id="node11" href="$d2/de4/class_wave_blur.html" title="WaveBlur" alt="" coords="369,5,447,35"/>
+<area shape="rect" id="node15" href="$da/ddf/classsf_1_1_circle_shape.html" title="Specialized shape representing a circle." alt="" coords="352,219,464,248"/>
+<area shape="rect" id="node17" href="$de/d8d/classsf_1_1_convex_shape.html" title="Specialized shape representing a convex polygon." alt="" coords="347,272,469,301"/>
+<area shape="rect" id="node19" href="$d8/d3c/classsf_1_1_rectangle_shape.html" title="Specialized shape representing a rectangle." alt="" coords="340,325,476,355"/>
+<area shape="rect" id="node26" href="$d1/da8/classsf_1_1_transformable.html" title="Decomposed transform defined by a position, a rotation and a scale." alt="" coords="7,272,129,301"/>
+</map>

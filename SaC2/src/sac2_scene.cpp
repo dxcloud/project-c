@@ -1,2 +1,28 @@
-#include "sac2_scene.hpp"
+//////////////////////////////////////////////////////////////////////////////
+//! \file sac2_scene.hpp
+//! \author
+//!     Chengwu HUANG
+//! \version
+//!     0.1 (development version)
+//! \date
+//!     2013-08-21
+//////////////////////////////////////////////////////////////////////////////
 
+#include <sac2_scene.hpp>
+
+namespace sac2
+{
+
+Scene::Scene()
+{
+
+}
+
+Scene::~Scene()
+{
+
+}
+
+
+
+}

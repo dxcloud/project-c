@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d7/d24/classsac2_1_1_version.html#a3f9eb48853815ea06d7c68b1dc1cb6c9" title="Return the version number as a string: MAJOR.MINOR.BUILD.REVISION." alt="" coords="143,5,273,35"/>
+<area shape="rect" id="node5" href="$dc/d84/classsac2_1_1_status.html#a2c3f79d779c7675dbed3fcd9eda52fa2" title="Get the message that describes the status code." alt="" coords="124,59,292,88"/>
+<area shape="rect" id="node7" href="$dc/d84/classsac2_1_1_status.html#a8d50e0dd95455bd83de836556a4199c3" title="Print all status code and the corresponding description." alt="" coords="105,112,311,141"/>
+</map>

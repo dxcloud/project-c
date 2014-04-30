@@ -1,0 +1,8 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$da/d8c/classsf_1_1_shape.html" title="Base class for textured shapes with outline." alt="" coords="164,83,241,112"/>
+<area shape="rect" id="node11" href="$d2/d70/classsf_1_1_sprite.html" title="Drawable representation of a texture, with its own transformations, color, etc." alt="" coords="265,83,340,112"/>
+<area shape="rect" id="node13" href="$d6/ddb/classsf_1_1_text.html" title="Graphical text that can be drawn to a render target." alt="" coords="364,83,431,112"/>
+<area shape="rect" id="node5" href="$da/ddf/classsf_1_1_circle_shape.html" title="Specialized shape representing a circle." alt="" coords="5,160,117,189"/>
+<area shape="rect" id="node7" href="$de/d8d/classsf_1_1_convex_shape.html" title="Specialized shape representing a convex polygon." alt="" coords="141,160,264,189"/>
+<area shape="rect" id="node9" href="$d8/d3c/classsf_1_1_rectangle_shape.html" title="Specialized shape representing a rectangle." alt="" coords="288,160,424,189"/>
+</map>

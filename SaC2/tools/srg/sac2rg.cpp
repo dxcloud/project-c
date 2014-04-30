@@ -1,3 +1,13 @@
+//////////////////////////////////////////////////////////////////////////////
+//! \file sac2rg.cpp
+//! \author
+//!     Chengwu Huang
+//! \version
+//!     0.2.1 (alpha)
+//! \date
+//!     2013-08-21
+//////////////////////////////////////////////////////////////////////////////
+
 #include <unistd.h>
 #include <getopt.h>
 #include <cstdlib>
@@ -10,16 +20,12 @@ using std::cout;
 using std::endl;
 using std::string;
 
-//char* command;
-
-//void try_help(const char* cmd)
 void try_help(const string& cmd)
 {
   cout << "Try `" << cmd << " --help' for more information." << endl;
   exit(EXIT_SUCCESS);
 }
 
-//void help(const char* cmd)
 void help(const string& cmd)
 {
   cout << "Generate resource header and source from FILE." << endl;
@@ -66,7 +72,6 @@ void help(const string& cmd)
 }
 
 void version(const string& cmd)
-//void version(const char* cmd)
 {
   cout << cmd << " 0.2.1 (alpha)";
   cout << endl << endl;
@@ -116,15 +121,13 @@ const struct option long_options[] =
 //////////////////////////////////////////////////////////////////////////////
 int main(int argc, char* argv[])
 {
-//  const char* command(argv[0]);
   string command(argv[0]);
   string input_file;
   string output_file;
   string h_suffix;
   string s_suffix;
-
-  int         option_index(0);
-  bool        verbose(false);
+  int    option_index(0);
+  bool   verbose(false);
 
   while (true) {
     int option_arg = getopt_long(argc,
@@ -145,7 +148,6 @@ int main(int argc, char* argv[])
         break;
       case OUTPUT:
         output_file = optarg;
-        cout << "output " << output_file << endl;
         break;
       case VERSION:
         version(command);
@@ -166,12 +168,10 @@ int main(int argc, char* argv[])
         cout << "x sound" << endl;
         break;
       case HDR_SUFFIX:
-        cout << "hdr suffix" << endl;
         h_suffix = optarg;
         break;
       case SRC_SUFFIX:
-        s_suffix = s_suffix;
-        cout << "src suffix" << endl;
+        s_suffix = optarg;
         break;
       default:
         try_help(command);

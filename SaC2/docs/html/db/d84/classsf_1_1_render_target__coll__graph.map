@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$d9/df6/classsf_1_1_non_copyable.html" title="Utility class that makes any derived class non&#45;copyable." alt="" coords="31,342,151,371"/>
+<area shape="rect" id="node4" href="$d8/d0a/classsf_1_1_view.html" title="2D camera that defines what region is shown on screen" alt="" coords="161,243,231,273"/>
+<area shape="rect" id="node6" href="$d1/db4/classsf_1_1_rect.html" title="sf::Rect\&lt; float \&gt;" alt="" coords="5,69,123,98"/>
+<area shape="rect" id="node8" href="$d4/d49/classsf_1_1_transform.html" title="Define a 3x3 transform matrix." alt="" coords="147,69,245,98"/>
+<area shape="rect" id="node11" href="$d3/d71/classsf_1_1_vector2.html" title="sf::Vector2\&lt; float \&gt;" alt="" coords="341,69,475,98"/>
+<area shape="rect" id="node15" href="$d9/daf/classsf_1_1_vertex.html" title="Define a point with color and texture coordinates." alt="" coords="400,243,477,273"/>
+<area shape="rect" id="node13" href="$d4/dde/structsf_1_1_render_target_1_1_states_cache.html" title="Render states cache." alt="" coords="317,342,520,371"/>
+<area shape="rect" id="node17" href="$d8/de5/classsf_1_1_color.html" title="Utility class for manpulating RGBA colors." alt="" coords="499,69,571,98"/>
+</map>

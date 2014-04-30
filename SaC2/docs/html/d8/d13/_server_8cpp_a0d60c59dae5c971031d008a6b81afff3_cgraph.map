@@ -1,0 +1,13 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$df/d8d/class_network_audio_stream.html#a5c698fc66d35fe30ae5e0148c03766e3" title="NetworkAudioStream::start" alt="" coords="131,125,309,155"/>
+<area shape="rect" id="node11" href="$d7/d30/classsf_1_1_sound_stream.html#afdc08b69cab5f243d9324940a85a1144" title="Start or resume playing the audio stream." alt="" coords="396,219,548,248"/>
+<area shape="rect" id="node21" href="$d7/d30/classsf_1_1_sound_stream.html#a75f722e7edcfa9952ff0c643966c6858" title="Get the current status of the stream (stopped, paused, playing)" alt="" coords="128,256,312,285"/>
+<area shape="rect" id="node23" href="$d4/d37/group__system.html#ga2f2620831533dee0ed432ed982342e09" title="Make the current thread sleep for a given duration." alt="" coords="184,309,256,339"/>
+<area shape="rect" id="node5" href="$d0/dc4/classsf_1_1_tcp_listener.html#a409d9350d3abfea9636df8cf4a61004e" title="Start listening for connections." alt="" coords="399,5,545,35"/>
+<area shape="rect" id="node7" href="$d0/dc4/classsf_1_1_tcp_listener.html#ae2c83ce5a64d50b68180c46bef0a7346" title="Accept a new connection." alt="" coords="395,59,549,88"/>
+<area shape="rect" id="node9" href="$df/d34/classsf_1_1_tcp_socket.html#a7904ca6ab9e018021e305a3aeb7a1b9a" title="Get the address of the connected peer." alt="" coords="360,112,584,141"/>
+<area shape="rect" id="node13" href="$df/d8d/class_network_audio_stream.html#a2b9ef1966a48b1b63af77e759b41d37e" title="NetworkAudioStream::receiveLoop" alt="" coords="360,165,584,195"/>
+<area shape="rect" id="node15" href="$df/d34/classsf_1_1_tcp_socket.html#a90ce50811ea61d4f00efc62bb99ae1af" title="Receive raw data from the remote peer." alt="" coords="636,112,791,141"/>
+<area shape="rect" id="node17" href="$d6/df8/classsf_1_1_packet.html#a304ba9ec94c992710f4dfff879c6340e" title="Get a pointer to the data contained in the packet." alt="" coords="645,165,781,195"/>
+<area shape="rect" id="node19" href="$d6/df8/classsf_1_1_packet.html#a004b62aa5bafa69df8917171a3fe1fa0" title="Get the size of the data contained in the packet." alt="" coords="632,219,795,248"/>
+</map>

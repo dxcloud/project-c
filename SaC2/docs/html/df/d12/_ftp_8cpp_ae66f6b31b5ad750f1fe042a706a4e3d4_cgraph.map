@@ -1,0 +1,17 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$df/de3/classsf_1_1_ftp.html#af02fb3de3f450a50a27981961c69c860" title="Connect to the specified FTP server." alt="" coords="176,5,291,35"/>
+<area shape="rect" id="node5" href="$d4/daa/classsf_1_1_ftp_1_1_response.html#a4dadbe0fe0a3ef2d571a017e1645e675" title="Check if the status code means a success." alt="" coords="152,59,315,88"/>
+<area shape="rect" id="node7" href="$df/de3/classsf_1_1_ftp.html#a686262bc377584cd50e52e1576aa3a9b" title="Log in using an anonymous account." alt="" coords="187,112,280,141"/>
+<area shape="rect" id="node9" href="$df/de3/classsf_1_1_ftp.html#a79c654fcdd0c81e68c4fa29af3b45e0c" title="Get the current working directory." alt="" coords="140,165,327,195"/>
+<area shape="rect" id="node11" href="$d3/d4b/classsf_1_1_ftp_1_1_directory_response.html#a500793778ad0ed223aa86ed8fbee28a3" title="Get the directory returned in the response." alt="" coords="104,219,363,248"/>
+<area shape="rect" id="node13" href="$df/de3/classsf_1_1_ftp.html#a8f37258e461fcb9e2a0655e9df0be4a0" title="Get the contents of the given directory." alt="" coords="145,272,321,301"/>
+<area shape="rect" id="node15" href="$d1/de0/classsf_1_1_ftp_1_1_listing_response.html#a5f0771b52a966bf25b33a70602b6f97f" title="Return the array of directory/file names." alt="" coords="119,325,348,355"/>
+<area shape="rect" id="node17" href="$df/de3/classsf_1_1_ftp.html#a7e93488ea6330dd4dd76e428da9bb6d3" title="Change the current working directory." alt="" coords="152,379,315,408"/>
+<area shape="rect" id="node19" href="$df/de3/classsf_1_1_ftp.html#a247b84c4b25da37804218c2b748c4787" title="Create a new directory." alt="" coords="155,432,312,461"/>
+<area shape="rect" id="node21" href="$df/de3/classsf_1_1_ftp.html#a2a8a7ef9144204b5b319c9a4be8806c2" title="Remove an existing directory." alt="" coords="156,485,311,515"/>
+<area shape="rect" id="node23" href="$df/de3/classsf_1_1_ftp.html#a8f99251d7153e1dc26723e4006deb764" title="Rename an existing file." alt="" coords="168,539,299,568"/>
+<area shape="rect" id="node25" href="$df/de3/classsf_1_1_ftp.html#a8aa272b0eb7769a850006e70fcad370f" title="Remove an existing file." alt="" coords="172,592,295,621"/>
+<area shape="rect" id="node27" href="$df/de3/classsf_1_1_ftp.html#a20c1600ec5fd6f5a2ad1429ab8aa5df4" title="Download a file from the server." alt="" coords="172,645,295,675"/>
+<area shape="rect" id="node29" href="$df/de3/classsf_1_1_ftp.html#a46d6e15cddd719288b5a08b685e11765" title="Upload a file to the server." alt="" coords="180,699,287,728"/>
+<area shape="rect" id="node31" href="$df/de3/classsf_1_1_ftp.html#acf7459926f3391cd06bf84337ed6a0f4" title="Close the connection with the server." alt="" coords="168,752,299,781"/>
+</map>

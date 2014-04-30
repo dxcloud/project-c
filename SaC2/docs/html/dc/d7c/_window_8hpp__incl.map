@@ -1,0 +1,32 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d6/def/_system_8hpp.html" title="SFML/System.hpp" alt="" coords="1343,83,1473,112"/>
+<area shape="rect" id="node80" href="$d1/d87/_context_8hpp.html" title="SFML/Window/Context.hpp" alt="" coords="3368,83,3549,112"/>
+<area shape="rect" id="node88" href="$da/d20/_context_settings_8hpp.html" title="SFML/Window/ContextSettings.hpp" alt="" coords="3216,160,3445,189"/>
+<area shape="rect" id="node92" href="$d6/dc3/_event_8hpp.html" title="SFML/Window/Event.hpp" alt="" coords="3779,83,3949,112"/>
+<area shape="rect" id="node95" href="$d6/d2c/_joystick_8hpp.html" title="SFML/Window/Joystick.hpp" alt="" coords="3771,160,3957,189"/>
+<area shape="rect" id="node98" href="$db/ddd/_keyboard_8hpp.html" title="SFML/Window/Keyboard.hpp" alt="" coords="4032,160,4224,189"/>
+<area shape="rect" id="node101" href="$d2/d39/_mouse_8hpp.html" title="SFML/Window/Mouse.hpp" alt="" coords="3571,160,3747,189"/>
+<area shape="rect" id="node108" href="$de/dfb/_video_mode_8hpp.html" title="SFML/Window/VideoMode.hpp" alt="" coords="2523,160,2725,189"/>
+<area shape="rect" id="node113" href="$d5/d60/_window_2_window_8hpp.html" title="SFML/Window/Window.hpp" alt="" coords="2393,83,2577,112"/>
+<area shape="rect" id="node121" href="$da/d73/_window_style_8hpp.html" title="SFML/Window/WindowStyle.hpp" alt="" coords="2749,160,2963,189"/>
+<area shape="rect" id="node5" href="$d8/dd2/_config_8hpp.html" title="SFML/Config.hpp" alt="" coords="1696,469,1819,499"/>
+<area shape="rect" id="node7" href="$d5/dde/_clock_8hpp.html" title="SFML/System/Clock.hpp" alt="" coords="2128,160,2296,189"/>
+<area shape="rect" id="node15" href="$d4/db0/_err_8hpp.html" title="SFML/System/Err.hpp" alt="" coords="1143,160,1295,189"/>
+<area shape="rect" id="node20" href="$de/d7d/_input_stream_8hpp.html" title="SFML/System/InputStream.hpp" alt="" coords="72,392,277,421"/>
+<area shape="rect" id="node23" href="$d6/d8d/_lock_8hpp.html" title="SFML/System/Lock.hpp" alt="" coords="1672,237,1835,267"/>
+<area shape="rect" id="node29" href="$d4/d48/_mutex_8hpp.html" title="SFML/System/Mutex.hpp" alt="" coords="1859,237,2029,267"/>
+<area shape="rect" id="node33" href="$da/d2a/_sleep_8hpp.html" title="SFML/System/Sleep.hpp" alt="" coords="1815,160,1983,189"/>
+<area shape="rect" id="node37" href="$d9/dc5/_string_8hpp.html" title="SFML/System/String.hpp" alt="" coords="1521,160,1689,189"/>
+<area shape="rect" id="node44" href="$d6/de8/_thread_8hpp.html" title="SFML/System/Thread.hpp" alt="" coords="381,237,555,267"/>
+<area shape="rect" id="node52" href="$dc/d92/_thread_local_8hpp.html" title="SFML/System/ThreadLocal.hpp" alt="" coords="579,237,784,267"/>
+<area shape="rect" id="node57" href="$dc/dcf/_thread_local_ptr_8hpp.html" title="SFML/System/ThreadLocalPtr.hpp" alt="" coords="571,160,792,189"/>
+<area shape="rect" id="node62" href="$d7/dc2/_utf_8hpp.html" title="SFML/System/Utf.hpp" alt="" coords="953,160,1105,189"/>
+<area shape="rect" id="node72" href="$d3/d12/_vector2_8hpp.html" title="SFML/System/Vector2.hpp" alt="" coords="2392,237,2571,267"/>
+<area shape="rect" id="node76" href="$d2/d6a/_vector3_8hpp.html" title="SFML/System/Vector3.hpp" alt="" coords="1319,160,1497,189"/>
+<area shape="rect" id="node9" href="$da/d4b/_system_2_export_8hpp.html" title="SFML/System/Export.hpp" alt="" coords="1671,392,1844,421"/>
+<area shape="rect" id="node12" href="$d8/d3a/_time_8hpp.html" title="SFML/System/Time.hpp" alt="" coords="2155,237,2317,267"/>
+<area shape="rect" id="node26" href="$d1/d43/_non_copyable_8hpp.html" title="SFML/System/NonCopyable.hpp" alt="" coords="1723,315,1936,344"/>
+<area shape="rect" id="node82" href="$de/d5a/_window_2_export_8hpp.html" title="SFML/Window/Export.hpp" alt="" coords="3520,237,3693,267"/>
+<area shape="rect" id="node85" href="$d3/da5/_gl_resource_8hpp.html" title="SFML/Window/GlResource.hpp" alt="" coords="2987,160,3192,189"/>
+<area shape="rect" id="node118" href="$d8/db7/_window_handle_8hpp.html" title="SFML/Window/WindowHandle.hpp" alt="" coords="2147,392,2371,421"/>
+</map>

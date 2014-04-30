@@ -1,0 +1,33 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$de/d0b/_window_8hpp.html" title="SFML/Window.hpp" alt="" coords="3328,83,3461,112"/>
+<area shape="rect" id="node5" href="$d6/def/_system_8hpp.html" title="SFML/System.hpp" alt="" coords="1343,160,1473,189"/>
+<area shape="rect" id="node82" href="$d1/d87/_context_8hpp.html" title="SFML/Window/Context.hpp" alt="" coords="3368,160,3549,189"/>
+<area shape="rect" id="node90" href="$da/d20/_context_settings_8hpp.html" title="SFML/Window/ContextSettings.hpp" alt="" coords="3216,237,3445,267"/>
+<area shape="rect" id="node94" href="$d6/dc3/_event_8hpp.html" title="SFML/Window/Event.hpp" alt="" coords="3779,160,3949,189"/>
+<area shape="rect" id="node97" href="$d6/d2c/_joystick_8hpp.html" title="SFML/Window/Joystick.hpp" alt="" coords="3771,237,3957,267"/>
+<area shape="rect" id="node100" href="$db/ddd/_keyboard_8hpp.html" title="SFML/Window/Keyboard.hpp" alt="" coords="4032,237,4224,267"/>
+<area shape="rect" id="node103" href="$d2/d39/_mouse_8hpp.html" title="SFML/Window/Mouse.hpp" alt="" coords="3571,237,3747,267"/>
+<area shape="rect" id="node110" href="$de/dfb/_video_mode_8hpp.html" title="SFML/Window/VideoMode.hpp" alt="" coords="2523,237,2725,267"/>
+<area shape="rect" id="node115" href="$d5/d60/_window_2_window_8hpp.html" title="SFML/Window/Window.hpp" alt="" coords="2393,160,2577,189"/>
+<area shape="rect" id="node123" href="$da/d73/_window_style_8hpp.html" title="SFML/Window/WindowStyle.hpp" alt="" coords="2749,237,2963,267"/>
+<area shape="rect" id="node7" href="$d8/dd2/_config_8hpp.html" title="SFML/Config.hpp" alt="" coords="1696,547,1819,576"/>
+<area shape="rect" id="node9" href="$d5/dde/_clock_8hpp.html" title="SFML/System/Clock.hpp" alt="" coords="2128,237,2296,267"/>
+<area shape="rect" id="node17" href="$d4/db0/_err_8hpp.html" title="SFML/System/Err.hpp" alt="" coords="1143,237,1295,267"/>
+<area shape="rect" id="node22" href="$de/d7d/_input_stream_8hpp.html" title="SFML/System/InputStream.hpp" alt="" coords="72,469,277,499"/>
+<area shape="rect" id="node25" href="$d6/d8d/_lock_8hpp.html" title="SFML/System/Lock.hpp" alt="" coords="1672,315,1835,344"/>
+<area shape="rect" id="node31" href="$d4/d48/_mutex_8hpp.html" title="SFML/System/Mutex.hpp" alt="" coords="1859,315,2029,344"/>
+<area shape="rect" id="node35" href="$da/d2a/_sleep_8hpp.html" title="SFML/System/Sleep.hpp" alt="" coords="1815,237,1983,267"/>
+<area shape="rect" id="node39" href="$d9/dc5/_string_8hpp.html" title="SFML/System/String.hpp" alt="" coords="1521,237,1689,267"/>
+<area shape="rect" id="node46" href="$d6/de8/_thread_8hpp.html" title="SFML/System/Thread.hpp" alt="" coords="381,315,555,344"/>
+<area shape="rect" id="node54" href="$dc/d92/_thread_local_8hpp.html" title="SFML/System/ThreadLocal.hpp" alt="" coords="579,315,784,344"/>
+<area shape="rect" id="node59" href="$dc/dcf/_thread_local_ptr_8hpp.html" title="SFML/System/ThreadLocalPtr.hpp" alt="" coords="571,237,792,267"/>
+<area shape="rect" id="node64" href="$d7/dc2/_utf_8hpp.html" title="SFML/System/Utf.hpp" alt="" coords="953,237,1105,267"/>
+<area shape="rect" id="node74" href="$d3/d12/_vector2_8hpp.html" title="SFML/System/Vector2.hpp" alt="" coords="2392,315,2571,344"/>
+<area shape="rect" id="node78" href="$d2/d6a/_vector3_8hpp.html" title="SFML/System/Vector3.hpp" alt="" coords="1319,237,1497,267"/>
+<area shape="rect" id="node11" href="$da/d4b/_system_2_export_8hpp.html" title="SFML/System/Export.hpp" alt="" coords="1671,469,1844,499"/>
+<area shape="rect" id="node14" href="$d8/d3a/_time_8hpp.html" title="SFML/System/Time.hpp" alt="" coords="2155,315,2317,344"/>
+<area shape="rect" id="node28" href="$d1/d43/_non_copyable_8hpp.html" title="SFML/System/NonCopyable.hpp" alt="" coords="1723,392,1936,421"/>
+<area shape="rect" id="node84" href="$de/d5a/_window_2_export_8hpp.html" title="SFML/Window/Export.hpp" alt="" coords="3520,315,3693,344"/>
+<area shape="rect" id="node87" href="$d3/da5/_gl_resource_8hpp.html" title="SFML/Window/GlResource.hpp" alt="" coords="2987,237,3192,267"/>
+<area shape="rect" id="node120" href="$d8/db7/_window_handle_8hpp.html" title="SFML/Window/WindowHandle.hpp" alt="" coords="2121,469,2345,499"/>
+</map>

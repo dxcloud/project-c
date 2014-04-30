@@ -1,0 +1,21 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#a2a33e67a08c75d5bfa614dc5ef0951e7" title="Test if the node is a `resource&#39; node." alt="" coords="272,5,485,35"/>
+<area shape="rect" id="node7" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#a9f2c403e200a64112f7fb53f3f150e22" title="Modify the filename path whether `dir&#39; attribute is found." alt="" coords="268,165,489,195"/>
+<area shape="rect" id="node25" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#ae955ad1ccf6b086fa83df02bd3c6a8a3" title="Test if the node has children." alt="" coords="599,475,764,504"/>
+<area shape="rect" id="node31" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#a03cd93d426fe94f8c5deb1384e804ce5" title="Test if the node is a asset type node." alt="" coords="265,59,492,88"/>
+<area shape="rect" id="node34" href="$de/d82/classrapidxml_1_1xml__node.html#ac59af4dd5f0ec715753e42467dff6aed" title="rapidxml::xml_node::next_sibling" alt="" coords="836,400,1047,429"/>
+<area shape="rect" id="node38" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#a10670e3d1937b530ff8b3eb5f0d86f92" title="Test if the node is a `item&#39; node." alt="" coords="284,112,473,141"/>
+<area shape="rect" id="node41" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#abd9cdf24898a84c3a665e656997f03cc" title="Test whether the node has `id&#39; attribute." alt="" coords="580,267,783,296"/>
+<area shape="rect" id="node44" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#a40d8b78f529ef58d96041c7086f77f22" title="Test whether the node has `filename&#39; attribute." alt="" coords="257,319,500,348"/>
+<area shape="rect" id="node47" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#ac500eefce081fe671b6488403f4c1754" title="Insert the value of `id&#39; and `filename&#39; into the filename map." alt="" coords="228,372,529,401"/>
+<area shape="rect" id="node5" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#a4f98348dfa46dedfd2d216d9dfc46f22" title="Compare node names." alt="" coords="591,5,772,35"/>
+<area shape="rect" id="node9" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#a1a93ce6c16f03e1ef44eebebaa7186c6" title="Test whether the node has attributes." alt="" coords="588,213,775,243"/>
+<area shape="rect" id="node11" href="$de/d82/classrapidxml_1_1xml__node.html#ae426802be58114ffc41bf30ac6b8c37d" title="rapidxml::xml_node::first_attribute" alt="" coords="832,293,1051,323"/>
+<area shape="rect" id="node13" href="$d4/d48/classrapidxml_1_1xml__base.html#a9a09739310469995db078ebd0da3ed45" title="rapidxml::xml_base::name" alt="" coords="1116,293,1289,323"/>
+<area shape="rect" id="node19" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#ac198d7ee4aadaccc1f427c80e4ac0bdf" title="Test if the attribute is `dir&#39; attribute." alt="" coords="583,109,780,139"/>
+<area shape="rect" id="node17" href="$d4/d48/classrapidxml_1_1xml__base.html#a7e7f98b3d01e1eab8dc1ca69aad9af84" title="rapidxml::xml_base::name_size" alt="" coords="1100,347,1305,376"/>
+<area shape="rect" id="node15" href="$d4/d48/classrapidxml_1_1xml__base.html#ad96ff6b1e41dab3ff60b9bc4df769a75" title="rapidxml::xml_base::nullstr" alt="" coords="1355,293,1533,323"/>
+<area shape="rect" id="node21" href="$d4/deb/classsac2_1_1srg_1_1_srg.html#af1daab01961bf5cc98c22850282db417" title="Compare attributes." alt="" coords="841,109,1041,139"/>
+<area shape="rect" id="node27" href="$de/d82/classrapidxml_1_1xml__node.html#a2dedeb4e04bb35e06a9a7bddf6ba652d" title="rapidxml::xml_node::first_node" alt="" coords="841,347,1041,376"/>
+<area shape="rect" id="node50" href="$d4/d48/classrapidxml_1_1xml__base.html#a7f31ae930f93852830234db1ae59c4c4" title="rapidxml::xml_base::parent" alt="" coords="592,371,771,400"/>
+</map>

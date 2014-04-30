@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$df/d6f/classsf_1_1_gl_resource.html" title="Base class for classes that require an OpenGL context." alt="" coords="5,101,115,131"/>
+<area shape="rect" id="node4" href="$d9/df6/classsf_1_1_non_copyable.html" title="Utility class that makes any derived class non&#45;copyable." alt="" coords="139,101,259,131"/>
+<area shape="rect" id="node6" href="$d6/d52/classsf_1_1_time.html" title="Represents a time value." alt="" coords="327,5,396,35"/>
+<area shape="rect" id="node11" href="$d5/d52/classsf_1_1_clock.html" title="Utility class that measures the elapsed time." alt="" coords="444,101,519,131"/>
+<area shape="rect" id="node9" href="$d3/d71/classsf_1_1_vector2.html" title="sf::Vector2\&lt; unsigned int \&gt;" alt="" coords="543,101,721,131"/>
+</map>

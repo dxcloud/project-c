@@ -1,0 +1,16 @@
+<resource tot ="2" dir="/home/orange/project-c/SaC2/samples" >
+
+  <image dir="image">
+    <item dl="ld" id="IMAGE0" filename="image00.png" />
+    <item id="IMAGE2" filename="image02.png" />
+    <item id="IMAGE3" filename="image03.png" />
+  </image>
+  <sound dir="sound">
+    <item id="SOUND0" filename="sound00.ogg" ></item>
+    <item id="SOUND1" filename="sound01.ogg" />
+  </sound>
+  <music dir="music">
+    <item id="MUSIC0" filename="music00.ogg" />
+    <item id="MUSIC1" filename="J-E-N-O-V-A.ogg" />
+  </music>
+</resource>

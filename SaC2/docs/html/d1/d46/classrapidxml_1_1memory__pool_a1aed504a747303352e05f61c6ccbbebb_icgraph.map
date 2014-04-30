@@ -1,0 +1,15 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d1/d46/classrapidxml_1_1memory__pool.html#a4e9cf53fa5f9da3a8f31b754bd94b4ec" title="rapidxml::memory_pool::allocate_aligned" alt="" coords="293,379,552,408"/>
+<area shape="rect" id="node5" href="$d1/d46/classrapidxml_1_1memory__pool.html#a4118581c29ee9a2f6b55ebf7dac185f8" title="rapidxml::memory_pool::allocate_node" alt="" coords="609,219,855,248"/>
+<area shape="rect" id="node23" href="$d1/d46/classrapidxml_1_1memory__pool.html#a3de2a66c983336e006ea3844e244ed30" title="rapidxml::memory_pool::allocate_attribute" alt="" coords="600,379,864,408"/>
+<area shape="rect" id="node28" href="$d1/d46/classrapidxml_1_1memory__pool.html#a171941b39d55b868358da97462185f58" title="rapidxml::memory_pool::allocate_string" alt="" coords="608,432,856,461"/>
+<area shape="rect" id="node7" href="$d1/d46/classrapidxml_1_1memory__pool.html#a0a10679fc17597d339a0dc107f8a94ac" title="rapidxml::memory_pool::clone_node" alt="" coords="955,379,1184,408"/>
+<area shape="rect" id="node9" href="$db/d68/classrapidxml_1_1xml__document.html#a0151c52c82ba79ea0605c2facf39c534" title="rapidxml::xml_document::parse_xml_declaration" alt="" coords="919,5,1220,35"/>
+<area shape="rect" id="node11" href="$db/d68/classrapidxml_1_1xml__document.html#abc287ce83bcb2dc8519e300236004591" title="rapidxml::xml_document::parse_comment" alt="" coords="937,59,1201,88"/>
+<area shape="rect" id="node13" href="$db/d68/classrapidxml_1_1xml__document.html#a4c613f3a928f763b4c788422edda5860" title="rapidxml::xml_document::parse_doctype" alt="" coords="941,112,1197,141"/>
+<area shape="rect" id="node15" href="$db/d68/classrapidxml_1_1xml__document.html#a09e12a4233a07387d4b5a5ad239388aa" title="rapidxml::xml_document::parse_pi" alt="" coords="959,165,1180,195"/>
+<area shape="rect" id="node17" href="$db/d68/classrapidxml_1_1xml__document.html#aec6cedf45179b6378c670bc3ea509e61" title="rapidxml::xml_document::parse_and_append_data" alt="" coords="913,219,1225,248"/>
+<area shape="rect" id="node19" href="$db/d68/classrapidxml_1_1xml__document.html#ab94daeb25e8a1609e31210a45b2afa6c" title="rapidxml::xml_document::parse_cdata" alt="" coords="948,272,1191,301"/>
+<area shape="rect" id="node21" href="$db/d68/classrapidxml_1_1xml__document.html#aea385acd096ab200d63a777d53435ada" title="rapidxml::xml_document::parse_element" alt="" coords="941,325,1197,355"/>
+<area shape="rect" id="node26" href="$db/d68/classrapidxml_1_1xml__document.html#ac0b3cd07b3d5cbaa83762a196c681519" title="rapidxml::xml_document::parse_node_attributes" alt="" coords="920,432,1219,461"/>
+</map>

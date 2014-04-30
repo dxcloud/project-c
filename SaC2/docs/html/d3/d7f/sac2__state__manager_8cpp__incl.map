@@ -1,0 +1,14 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d7/dd1/sac2__state__manager_8hpp.html" title="Provides the StateManager class." alt="" coords="349,83,517,112"/>
+<area shape="rect" id="node66" href="$d9/dff/sac2__game__state_8hpp.html" title="Provides Game State interface." alt="" coords="551,160,700,189"/>
+<area shape="rect" id="node9" href="$df/d25/sac2__type_8hpp.html" title="Provides SaC2 types including typedef." alt="" coords="435,315,541,344"/>
+<area shape="rect" id="node54" href="$de/dc3/sac2__manager_8hpp.html" title="Provies template for Management classes." alt="" coords="345,160,476,189"/>
+<area shape="rect" id="node57" href="$d3/dda/sac2__logger_8hpp.html" title="Provides Logger class." alt="" coords="533,237,651,267"/>
+<area shape="rect" id="node20" href="$dd/dbd/sac2__status_8hpp.html" title="sac2_status.hpp" alt="" coords="93,392,211,421"/>
+<area shape="rect" id="node27" href="$df/ddf/sac2__mp__type_8hpp.html" title="sac2_mp_type.hpp" alt="" coords="627,469,757,499"/>
+<area shape="rect" id="node34" href="$df/d44/sac2__math_8hpp.html" title="Math utilities." alt="" coords="976,624,1085,653"/>
+<area shape="rect" id="node46" href="$d9/d49/sac2__physics_8hpp.html" title="Physics simulation functions." alt="" coords="576,392,701,421"/>
+<area shape="rect" id="node50" href="$dc/d93/sac2__color_8hpp.html" title="sac2_color.hpp" alt="" coords="848,392,957,421"/>
+<area shape="rect" id="node29" href="$d0/db5/sac2__vector2d_8hpp.html" title="sac2_vector2d.hpp" alt="" coords="627,547,757,576"/>
+<area shape="rect" id="node40" href="$d0/d83/sac2__mp__constant_8hpp.html" title="sac2_mp_constant.hpp" alt="" coords="787,701,944,731"/>
+</map>

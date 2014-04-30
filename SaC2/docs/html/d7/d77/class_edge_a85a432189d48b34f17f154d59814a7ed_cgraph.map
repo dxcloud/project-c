@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$df/d0c/classsf_1_1_render_texture.html#aefbb76eb3b87e368ab974b2660931ccb" title="Create the render&#45;texture." alt="" coords="172,5,343,35"/>
+<area shape="rect" id="node5" href="$df/d0c/classsf_1_1_render_texture.html#af08991e63c6020865dd07b20e27305b6" title="Enable or disable texture smoothing." alt="" coords="159,59,356,88"/>
+<area shape="rect" id="node7" href="$d4/d96/classsf_1_1_texture.html#a8e1b56eabfe33e2e0e1cb03712c7fcc7" title="Load the texture from a file on disk." alt="" coords="173,112,341,141"/>
+<area shape="rect" id="node9" href="$d4/d96/classsf_1_1_texture.html#a0c3bd6825b9a99714f10d44179d74324" title="Enable or disable the smooth filter." alt="" coords="180,165,335,195"/>
+<area shape="rect" id="node11" href="$d2/d70/classsf_1_1_sprite.html#a3729c88d88ac38c19317c18e87242560" title="Change the source texture of the sprite." alt="" coords="185,219,329,248"/>
+<area shape="rect" id="node13" href="$d1/da8/classsf_1_1_transformable.html#a4dbfb1a7c80688b0b4c477d706550208" title="set the position of the object" alt="" coords="159,272,356,301"/>
+<area shape="rect" id="node15" href="$d6/d2b/classsf_1_1_shader.html#a053a5632848ebaca2fcd8ba29abe9e6e" title="Load either the vertex or fragment shader from a file." alt="" coords="175,325,340,355"/>
+<area shape="rect" id="node17" href="$d6/d2b/classsf_1_1_shader.html#a47e4dd78f0752ae08664b4ee616db1cf" title="Change a float parameter of the shader." alt="" coords="173,379,341,408"/>
+</map>

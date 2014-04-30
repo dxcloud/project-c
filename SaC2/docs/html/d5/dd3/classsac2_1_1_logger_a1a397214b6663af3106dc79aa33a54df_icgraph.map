@@ -1,0 +1,31 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d5/dd3/classsac2_1_1_logger.html#a204fba05e0ad630ba467c2ea9ae74a33" title="Log a DEBUG type message." alt="" coords="183,584,345,613"/>
+<area shape="rect" id="node25" href="$d5/dd3/classsac2_1_1_logger.html#af9511ad72cb0ea5ad969ba38efd20338" title="Log a CONFIG type message." alt="" coords="183,637,345,667"/>
+<area shape="rect" id="node27" href="$d5/dd3/classsac2_1_1_logger.html#a46a0cab8df6023ba504da339b00ea780" title="Log an INFO type message." alt="" coords="453,477,603,507"/>
+<area shape="rect" id="node62" href="$d5/dd3/classsac2_1_1_logger.html#aa1f84590e8fd506fc9e2b198f3b54d4b" title="Log a WARNING type message." alt="" coords="177,691,351,720"/>
+<area shape="rect" id="node64" href="$d5/dd3/classsac2_1_1_logger.html#a71c4b96c667953450383917cbf69c02a" title="Log an ERROR type message." alt="" coords="451,108,605,137"/>
+<area shape="rect" id="node5" href="$dd/d00/classsac2_1_1_engine.html#aa5d03c3a34b9f3930d0b05e3b53a01a0" title="Initialize the Engine." alt="" coords="452,531,604,560"/>
+<area shape="rect" id="node9" href="$dd/d00/classsac2_1_1_engine.html#aedbace4c9df4dce68721579c35c72bc3" title="Analyse command line arguments." alt="" coords="435,691,621,720"/>
+<area shape="rect" id="node11" href="$d6/db4/classsac2_1_1_default_input_config.html#a8b7094d2b159183210949651fdeeaf26" title="Handle inputs." alt="" coords="401,744,655,773"/>
+<area shape="rect" id="node13" href="$d1/db1/classsac2_1_1_rendering_manager.html#ae7f8152264845f7cdfff9f5c03dfbfb0" title="Update the manager." alt="" coords="421,292,635,321"/>
+<area shape="rect" id="node19" href="$d4/dee/classsac2_1_1_state_manager.html#a11817004cdd96c3deb36d65961625f0f" title="Add a new state to the collection of the states." alt="" coords="427,797,629,827"/>
+<area shape="rect" id="node21" href="$d4/dee/classsac2_1_1_state_manager.html#a7f8044eda238e83db2e94ebd46c0b278" title="Default private Constructor." alt="" coords="415,584,641,613"/>
+<area shape="rect" id="node23" href="$d4/dee/classsac2_1_1_state_manager.html#a1ae2b5925244d43e6132d32b9ce8c20f" title="Private Destructor." alt="" coords="411,637,645,667"/>
+<area shape="rect" id="node7" href="$dd/d00/classsac2_1_1_engine.html#ad70159b6a3317c3e0685a0d582c9be00" title="Constructor." alt="" coords="777,899,924,928"/>
+<area shape="rect" id="node15" href="$dd/d00/classsac2_1_1_engine.html#a6143c055fcf9124d0702c207d88b1fac" title="Main loop." alt="" coords="785,160,916,189"/>
+<area shape="rect" id="node17" href="$dd/d00/classsac2_1_1_engine.html#ac0aa73eb0d4e46139d228feb84156546" title="Start the engine." alt="" coords="1127,160,1249,189"/>
+<area shape="rect" id="node29" href="$d0/d51/classsac2_1_1_asset_manager.html#ac27fd1144984eb36e7e879a2c123a101" title="Private default constructor." alt="" coords="733,424,968,453"/>
+<area shape="rect" id="node31" href="$d0/d51/classsac2_1_1_asset_manager.html#a7706b32bcaeb609b469ae553aadadb97" title="Private default constructor." alt="" coords="729,477,972,507"/>
+<area shape="rect" id="node33" href="$d0/d51/classsac2_1_1_asset_manager.html#aba298d673143456cdfd154147025b2a4" title="Remove all loaded assets." alt="" coords="753,531,948,560"/>
+<area shape="rect" id="node37" href="$dd/d00/classsac2_1_1_engine.html#a68379937afe51c222dd9159470d9f923" title="Clean." alt="" coords="776,584,925,613"/>
+<area shape="rect" id="node39" href="$d2/d6f/classsac2_1_1_input_config.html#a61bc003f8e68acf5c6970d2d4c4a7332" title="Default constructor." alt="" coords="751,637,951,667"/>
+<area shape="rect" id="node41" href="$d2/d6f/classsac2_1_1_input_config.html#a644bd2fb07faf6b0efb876f694ef58cf" title="Default destructor." alt="" coords="747,691,955,720"/>
+<area shape="rect" id="node43" href="$d0/d97/classsac2_1_1_input_manager.html#a48c0a80c0e66be739117230125ff2894" title="Delete the current input configuration." alt="" coords="756,795,945,824"/>
+<area shape="rect" id="node45" href="$d0/d97/classsac2_1_1_input_manager.html#aa8fe936383127f26b59a7d65cba16b6a" title="Change the current input configuration." alt="" coords="1068,835,1308,864"/>
+<area shape="rect" id="node47" href="$d0/d97/classsac2_1_1_input_manager.html#ace2015e22c2910699dc9b819d8f6974a" title="Default destructor." alt="" coords="1072,756,1304,785"/>
+<area shape="rect" id="node50" href="$d0/d97/classsac2_1_1_input_manager.html#a3b681c6582846c01bffe81efa1d6acd3" title="Default constructor." alt="" coords="739,264,963,293"/>
+<area shape="rect" id="node53" href="$d5/dd3/classsac2_1_1_logger.html#a84f0a2b605bcd2bb5f5773a99678e35c" title="Initialize Logger, open file stream for writting." alt="" coords="780,317,921,347"/>
+<area shape="rect" id="node55" href="$d1/db1/classsac2_1_1_rendering_manager.html#a2d2a5ca8ff8ccf9fe782f38f85e57cfb" title="Initialise the Rendering Window." alt="" coords="740,5,961,35"/>
+<area shape="rect" id="node57" href="$d1/db1/classsac2_1_1_rendering_manager.html#a5e9d7c8ccf788df4638b1eace0b9d568" title="Constructor." alt="" coords="1047,32,1329,61"/>
+<area shape="rect" id="node60" href="$d1/db1/classsac2_1_1_rendering_manager.html#acf988f302da937be7c27b34d5668fd9c" title="Destructor." alt="" coords="705,371,996,400"/>
+</map>

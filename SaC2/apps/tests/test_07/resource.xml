@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<resource>
+  <image dir="image">
+    <item id="IM0001" filename="image01.png" />
+    <item id="IM0002" filename="image02.png" />
+  </image>
+  <sound dir="sound">
+    <item id="SD0001" filename="sound01.ogg" />
+  </sound>
+</resource>

@@ -1,0 +1,7 @@
+<map id="G" name="G">
+<area shape="rect" id="node2" href="$d7/d8e/classsf_1_1_sound_recorder.html" title="Abstract base class for capturing sound data." alt="" coords="5,181,136,211"/>
+<area shape="rect" id="node4" href="$d2/dc2/classsf_1_1_thread.html" title="Utility class to manipulate threads." alt="" coords="31,85,111,115"/>
+<area shape="rect" id="node6" href="$d9/df6/classsf_1_1_non_copyable.html" title="Utility class that makes any derived class non&#45;copyable." alt="" coords="11,5,131,35"/>
+<area shape="rect" id="node8" href="$d1/d69/classsf_1_1_sound_buffer.html" title="Storage for audio samples defining a sound." alt="" coords="160,181,272,211"/>
+<area shape="rect" id="node10" href="$d6/d52/classsf_1_1_time.html" title="Represents a time value." alt="" coords="181,85,251,115"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$dd/dfe/classsf_1_1_window.html#a17ccf8ece0ce0bf2f1e6698bcfa29731" title="Activate or deactivate the window as the current target for OpenGL rendering." alt="" coords="119,5,268,35"/>
+<area shape="rect" id="node5" href="$dd/dfe/classsf_1_1_window.html#ad2b55a731ba1680fe67292991ef1610e" title="Get the size of the rendering region of the window." alt="" coords="124,59,263,88"/>
+<area shape="rect" id="node7" href="$dd/dfe/classsf_1_1_window.html#a5aa9c2b2b0e51d3423c2b66c80253337" title="Tell whether or not the window is open." alt="" coords="125,112,261,141"/>
+<area shape="rect" id="node9" href="$dd/dfe/classsf_1_1_window.html#a338e996585faf82e93069858e3b531b7" title="Pop the event on top of the event queue, if any, and return it." alt="" coords="119,165,268,195"/>
+<area shape="rect" id="node11" href="$dd/dfe/classsf_1_1_window.html#a99d1e030387b0c26f5995670504fe7b5" title="Close the window and destroy all the attached resources." alt="" coords="131,219,256,248"/>
+<area shape="rect" id="node13" href="$d5/d52/classsf_1_1_clock.html#a799feb6acb099b57b58d8d20984fce11" title="Get the elapsed time." alt="" coords="105,272,281,301"/>
+<area shape="rect" id="node15" href="$d6/d52/classsf_1_1_time.html#a7538140d095e48da9d7eee015dd455a9" title="Return the time value as a number of seconds." alt="" coords="123,325,264,355"/>
+<area shape="rect" id="node17" href="$dd/dfe/classsf_1_1_window.html#adabf839cb103ac96cfc82f781638772a" title="Display on screen what has been rendered to the window so far." alt="" coords="125,379,261,408"/>
+</map>

@@ -1,0 +1,36 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d7/db1/sac2_8hpp.html" title="Provides all includes." alt="" coords="731,83,805,112"/>
+<area shape="rect" id="node5" href="$df/d25/sac2__type_8hpp.html" title="Provides SaC2 types including typedef." alt="" coords="643,392,749,421"/>
+<area shape="rect" id="node58" href="$df/d44/sac2__math_8hpp.html" title="Math utilities." alt="" coords="164,701,273,731"/>
+<area shape="rect" id="node68" href="$d9/d49/sac2__physics_8hpp.html" title="Physics simulation functions." alt="" coords="123,469,248,499"/>
+<area shape="rect" id="node76" href="$dc/d99/sac2__engine_8hpp.html" title="Provides Engine class." alt="" coords="1216,315,1336,344"/>
+<area shape="rect" id="node82" href="$d3/dda/sac2__logger_8hpp.html" title="Provides Logger class." alt="" coords="540,315,657,344"/>
+<area shape="rect" id="node88" href="$d9/dff/sac2__game__state_8hpp.html" title="Provides Game State interface." alt="" coords="295,237,444,267"/>
+<area shape="rect" id="node94" href="$de/dc3/sac2__manager_8hpp.html" title="Provies template for Management classes." alt="" coords="787,237,917,267"/>
+<area shape="rect" id="node100" href="$d7/dd1/sac2__state__manager_8hpp.html" title="Provides the StateManager class." alt="" coords="392,160,560,189"/>
+<area shape="rect" id="node107" href="$d4/d72/sac2__asset_8hpp.html" title="Provides basic asset interface. Asset is a template class." alt="" coords="1501,315,1616,344"/>
+<area shape="rect" id="node112" href="$d0/df3/sac2__asset__manager_8hpp.html" title="Provides AssetManager class." alt="" coords="1096,160,1267,189"/>
+<area shape="rect" id="node126" href="$da/dd7/sac2__input__config_8hpp.html" title="Provides InputConfig class and DefaultInputConfig as a default input configuration." alt="" coords="992,237,1144,267"/>
+<area shape="rect" id="node132" href="$d6/d74/sac2__input__manager_8hpp.html" title="Provides class to manage inputs from keyboard." alt="" coords="685,160,851,189"/>
+<area shape="rect" id="node138" href="$df/d0f/sac2__sprite__asset_8hpp.html" title="Provides sprite asset manipulation class." alt="" coords="1732,160,1884,189"/>
+<area shape="rect" id="node15" href="$de/d0b/_window_8hpp.html" title="SFML/Window.hpp" alt="" coords="1244,469,1377,499"/>
+<area shape="rect" id="node46" href="$dd/dbd/sac2__status_8hpp.html" title="sac2_status.hpp" alt="" coords="475,469,592,499"/>
+<area shape="rect" id="node53" href="$df/ddf/sac2__mp__type_8hpp.html" title="sac2_mp_type.hpp" alt="" coords="255,547,385,576"/>
+<area shape="rect" id="node72" href="$dc/d93/sac2__color_8hpp.html" title="sac2_color.hpp" alt="" coords="1781,469,1891,499"/>
+<area shape="rect" id="node17" href="$d6/def/_system_8hpp.html" title="SFML/System.hpp" alt="" coords="1863,547,1993,576"/>
+<area shape="rect" id="node19" href="$d1/d87/_context_8hpp.html" title="SFML/Window/Context.hpp" alt="" coords="1657,547,1839,576"/>
+<area shape="rect" id="node21" href="$da/d20/_context_settings_8hpp.html" title="SFML/Window/ContextSettings.hpp" alt="" coords="1804,624,2033,653"/>
+<area shape="rect" id="node24" href="$d6/dc3/_event_8hpp.html" title="SFML/Window/Event.hpp" alt="" coords="1052,547,1223,576"/>
+<area shape="rect" id="node26" href="$d6/d2c/_joystick_8hpp.html" title="SFML/Window/Joystick.hpp" alt="" coords="1129,624,1316,653"/>
+<area shape="rect" id="node28" href="$db/ddd/_keyboard_8hpp.html" title="SFML/Window/Keyboard.hpp" alt="" coords="713,624,905,653"/>
+<area shape="rect" id="node30" href="$d2/d39/_mouse_8hpp.html" title="SFML/Window/Mouse.hpp" alt="" coords="929,624,1105,653"/>
+<area shape="rect" id="node35" href="$de/dfb/_video_mode_8hpp.html" title="SFML/Window/VideoMode.hpp" alt="" coords="1340,624,1543,653"/>
+<area shape="rect" id="node39" href="$d5/d60/_window_2_window_8hpp.html" title="SFML/Window/Window.hpp" alt="" coords="1348,547,1532,576"/>
+<area shape="rect" id="node43" href="$da/d73/_window_style_8hpp.html" title="SFML/Window/WindowStyle.hpp" alt="" coords="1567,624,1780,653"/>
+<area shape="rect" id="node55" href="$d0/db5/sac2__vector2d_8hpp.html" title="sac2_vector2d.hpp" alt="" coords="255,624,385,653"/>
+<area shape="rect" id="node64" href="$d0/d83/sac2__mp__constant_8hpp.html" title="sac2_mp_constant.hpp" alt="" coords="28,779,185,808"/>
+<area shape="rect" id="node74" href="$d3/d06/_color_8hpp.html" title="SFML/Graphics/Color.hpp" alt="" coords="2017,547,2191,576"/>
+<area shape="rect" id="node114" href="$d0/daa/_graphics_8hpp.html" title="SFML/Graphics.hpp" alt="" coords="1687,392,1825,421"/>
+<area shape="rect" id="node118" href="$d4/d43/_audio_8hpp.html" title="SFML/Audio.hpp" alt="" coords="1360,315,1477,344"/>
+<area shape="rect" id="node141" href="$de/dae/sac2__graphic__asset_8hpp.html" title="Provides interface for graphic elements manipulation." alt="" coords="1668,237,1831,267"/>
+</map>

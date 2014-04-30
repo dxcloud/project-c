@@ -1,0 +1,23 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$dd/d00/_graphics_2_export_8hpp.html" title="SFML/Graphics/Export.hpp" alt="" coords="802,392,981,421"/>
+<area shape="rect" id="node7" href="$dd/dbc/_drawable_8hpp.html" title="SFML/Graphics/Drawable.hpp" alt="" coords="434,160,632,189"/>
+<area shape="rect" id="node18" href="$d9/d12/_rect_8hpp.html" title="SFML/Graphics/Rect.hpp" alt="" coords="1412,392,1582,421"/>
+<area shape="rect" id="node29" href="$df/d96/_transformable_8hpp.html" title="SFML/Graphics/Transformable.hpp" alt="" coords="48,237,272,267"/>
+<area shape="rect" id="node33" href="$d9/da6/_font_8hpp.html" title="SFML/Graphics/Font.hpp" alt="" coords="1381,83,1549,112"/>
+<area shape="rect" id="node61" href="$d9/dc5/_string_8hpp.html" title="SFML/System/String.hpp" alt="" coords="1185,160,1353,189"/>
+<area shape="rect" id="node74" href="$db/de9/_vertex_array_8hpp.html" title="SFML/Graphics/VertexArray.hpp" alt="" coords="910,83,1121,112"/>
+<area shape="rect" id="node5" href="$d8/dd2/_config_8hpp.html" title="SFML/Config.hpp" alt="" coords="1042,469,1165,499"/>
+<area shape="rect" id="node10" href="$d2/d89/_render_states_8hpp.html" title="SFML/Graphics/RenderStates.hpp" alt="" coords="386,237,608,267"/>
+<area shape="rect" id="node13" href="$d5/d43/_blend_mode_8hpp.html" title="SFML/Graphics/BlendMode.hpp" alt="" coords="373,315,578,344"/>
+<area shape="rect" id="node15" href="$d9/d8c/_transform_8hpp.html" title="SFML/Graphics/Transform.hpp" alt="" coords="149,315,349,344"/>
+<area shape="rect" id="node20" href="$d3/d12/_vector2_8hpp.html" title="SFML/System/Vector2.hpp" alt="" coords="498,469,677,499"/>
+<area shape="rect" id="node36" href="$dc/d24/_glyph_8hpp.html" title="SFML/Graphics/Glyph.hpp" alt="" coords="1256,315,1432,344"/>
+<area shape="rect" id="node40" href="$d2/d4b/_texture_8hpp.html" title="SFML/Graphics/Texture.hpp" alt="" coords="1437,160,1624,189"/>
+<area shape="rect" id="node43" href="$df/d6f/_image_8hpp.html" title="SFML/Graphics/Image.hpp" alt="" coords="1488,237,1666,267"/>
+<area shape="rect" id="node54" href="$d3/da5/_gl_resource_8hpp.html" title="SFML/Window/GlResource.hpp" alt="" coords="1456,315,1661,344"/>
+<area shape="rect" id="node46" href="$d3/d06/_color_8hpp.html" title="SFML/Graphics/Color.hpp" alt="" coords="805,315,978,344"/>
+<area shape="rect" id="node56" href="$de/d5a/_window_2_export_8hpp.html" title="SFML/Window/Export.hpp" alt="" coords="1214,392,1388,421"/>
+<area shape="rect" id="node63" href="$da/d4b/_system_2_export_8hpp.html" title="SFML/System/Export.hpp" alt="" coords="1017,392,1190,421"/>
+<area shape="rect" id="node77" href="$df/da9/_vertex_8hpp.html" title="SFML/Graphics/Vertex.hpp" alt="" coords="704,237,882,267"/>
+<area shape="rect" id="node82" href="$d8/db3/_primitive_type_8hpp.html" title="SFML/Graphics/PrimitiveType.hpp" alt="" coords="706,160,928,189"/>
+</map>

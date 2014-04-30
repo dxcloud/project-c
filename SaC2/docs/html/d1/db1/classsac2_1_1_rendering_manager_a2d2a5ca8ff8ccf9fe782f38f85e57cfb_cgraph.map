@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d3/d3e/classsf_1_1_video_mode.html#aa64ff5420dde3b31c24b9c4e2be9cd9c" title="Tell whether or not the video mode is valid." alt="" coords="303,5,455,35"/>
+<area shape="rect" id="node5" href="$dd/dfe/classsf_1_1_window.html#a30e6edf2162f8dbff61023b9de5d961d" title="Create (or recreate) the window." alt="" coords="313,59,444,88"/>
+<area shape="rect" id="node7" href="$dd/dfe/classsf_1_1_window.html#af4322d315baf93405bf0d5087ad5e784" title="Limit the framerate to a maximum fixed frequency." alt="" coords="279,112,479,141"/>
+<area shape="rect" id="node9" href="$d5/dd3/classsac2_1_1_logger.html#a46cd955654e8690a57087b8eb06b273b" title="Log an INFO type message." alt="" coords="304,165,453,195"/>
+<area shape="rect" id="node13" href="$d5/dd3/classsac2_1_1_logger.html#a86c89a7f8a50aa10899af865849a7270" title="Log an ERROR type message." alt="" coords="301,219,456,248"/>
+<area shape="rect" id="node16" href="$dd/d00/classsac2_1_1_engine.html#a4d8435adf81f4f9ccbc56e5ac97b7a29" title="Stop the engine and quit." alt="" coords="316,272,441,301"/>
+<area shape="rect" id="node11" href="$d5/dd3/classsac2_1_1_logger.html#ab966c0b174f0ebb07010942e11e8ead5" title="Log a message." alt="" coords="528,192,651,221"/>
+</map>

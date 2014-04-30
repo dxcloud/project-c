@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$df/d5c/sac2__audio__asset_8hpp.html" title="Provides interface for audio elements manipulation." alt="" coords="179,83,331,112"/>
+<area shape="rect" id="node11" href="$de/dae/sac2__graphic__asset_8hpp.html" title="Provides interface for graphic elements manipulation." alt="" coords="355,83,517,112"/>
+<area shape="rect" id="node15" href="$d7/db1/sac2_8hpp.html" title="Provides all includes." alt="" coords="459,237,533,267"/>
+<area shape="rect" id="node5" href="$dc/dd8/sac2__music__asset_8hpp.html" title="Provides MusicAsset." alt="" coords="5,160,160,189"/>
+<area shape="rect" id="node7" href="$d3/d47/sac2__sound__asset_8hpp.html" title="sac2_sound_asset.hpp" alt="" coords="184,160,339,189"/>
+<area shape="rect" id="node9" href="$d9/d86/sac2__asset__manager_8cpp.html" title="Provides AssetManager class." alt="" coords="249,237,420,267"/>
+<area shape="rect" id="node13" href="$df/d0f/sac2__sprite__asset_8hpp.html" title="Provides sprite asset manipulation class." alt="" coords="363,160,515,189"/>
+</map>

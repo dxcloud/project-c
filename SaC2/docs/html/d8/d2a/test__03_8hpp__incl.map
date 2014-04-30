@@ -1,0 +1,43 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$df/d0f/sac2__sprite__asset_8hpp.html" title="Provides sprite asset manipulation class." alt="" coords="2133,83,2285,112"/>
+<area shape="rect" id="node5" href="$d0/daa/_graphics_8hpp.html" title="SFML/Graphics.hpp" alt="" coords="908,160,1047,189"/>
+<area shape="rect" id="node100" href="$d3/d47/sac2__sound__asset_8hpp.html" title="sac2_sound_asset.hpp" alt="" coords="2929,83,3084,112"/>
+<area shape="rect" id="node104" href="$d4/d43/_audio_8hpp.html" title="SFML/Audio.hpp" alt="" coords="2833,237,2951,267"/>
+<area shape="rect" id="node133" href="$d0/df3/sac2__asset__manager_8hpp.html" title="Provides AssetManager class." alt="" coords="2447,83,2617,112"/>
+<area shape="rect" id="node83" href="$de/dae/sac2__graphic__asset_8hpp.html" title="Provides interface for graphic elements manipulation." alt="" coords="2163,160,2325,189"/>
+<area shape="rect" id="node7" href="$de/d0b/_window_8hpp.html" title="SFML/Window.hpp" alt="" coords="2105,392,2239,421"/>
+<area shape="rect" id="node11" href="$d5/d43/_blend_mode_8hpp.html" title="SFML/Graphics/BlendMode.hpp" alt="" coords="1851,624,2056,653"/>
+<area shape="rect" id="node13" href="$d3/d06/_color_8hpp.html" title="SFML/Graphics/Color.hpp" alt="" coords="395,547,568,576"/>
+<area shape="rect" id="node15" href="$d9/da6/_font_8hpp.html" title="SFML/Graphics/Font.hpp" alt="" coords="689,315,857,344"/>
+<area shape="rect" id="node17" href="$dc/d24/_glyph_8hpp.html" title="SFML/Graphics/Glyph.hpp" alt="" coords="811,392,987,421"/>
+<area shape="rect" id="node19" href="$d2/d4b/_texture_8hpp.html" title="SFML/Graphics/Texture.hpp" alt="" coords="245,392,432,421"/>
+<area shape="rect" id="node21" href="$df/d6f/_image_8hpp.html" title="SFML/Graphics/Image.hpp" alt="" coords="456,469,635,499"/>
+<area shape="rect" id="node29" href="$d2/d89/_render_states_8hpp.html" title="SFML/Graphics/RenderStates.hpp" alt="" coords="1677,547,1899,576"/>
+<area shape="rect" id="node32" href="$d9/d8c/_transform_8hpp.html" title="SFML/Graphics/Transform.hpp" alt="" coords="420,624,620,653"/>
+<area shape="rect" id="node34" href="$d1/d0c/_render_texture_8hpp.html" title="SFML/Graphics/RenderTexture.hpp" alt="" coords="337,315,564,344"/>
+<area shape="rect" id="node37" href="$da/de4/_render_window_8hpp.html" title="SFML/Graphics/RenderWindow.hpp" alt="" coords="456,392,685,421"/>
+<area shape="rect" id="node41" href="$d2/d73/_shader_8hpp.html" title="SFML/Graphics/Shader.hpp" alt="" coords="251,469,432,499"/>
+<area shape="rect" id="node46" href="$dd/d5c/_shape_8hpp.html" title="SFML/Graphics/Shape.hpp" alt="" coords="1547,315,1725,344"/>
+<area shape="rect" id="node51" href="$db/de9/_vertex_array_8hpp.html" title="SFML/Graphics/VertexArray.hpp" alt="" coords="1211,392,1421,421"/>
+<area shape="rect" id="node53" href="$df/da9/_vertex_8hpp.html" title="SFML/Graphics/Vertex.hpp" alt="" coords="760,469,939,499"/>
+<area shape="rect" id="node57" href="$dc/d9a/_circle_shape_8hpp.html" title="SFML/Graphics/CircleShape.hpp" alt="" coords="1257,237,1471,267"/>
+<area shape="rect" id="node60" href="$da/d1e/_rectangle_shape_8hpp.html" title="SFML/Graphics/RectangleShape.hpp" alt="" coords="1495,237,1732,267"/>
+<area shape="rect" id="node63" href="$d2/dcb/_convex_shape_8hpp.html" title="SFML/Graphics/ConvexShape.hpp" alt="" coords="1756,237,1980,267"/>
+<area shape="rect" id="node66" href="$db/d60/_sprite_8hpp.html" title="SFML/Graphics/Sprite.hpp" alt="" coords="1011,392,1187,421"/>
+<area shape="rect" id="node70" href="$d7/d1f/_text_8hpp.html" title="SFML/Graphics/Text.hpp" alt="" coords="1015,237,1183,267"/>
+<area shape="rect" id="node80" href="$d1/d61/_view_8hpp.html" title="SFML/Graphics/View.hpp" alt="" coords="607,547,777,576"/>
+<area shape="rect" id="node9" href="$d6/def/_system_8hpp.html" title="SFML/System.hpp" alt="" coords="2257,469,2388,499"/>
+<area shape="rect" id="node48" href="$dd/dbc/_drawable_8hpp.html" title="SFML/Graphics/Drawable.hpp" alt="" coords="1507,469,1704,499"/>
+<area shape="rect" id="node85" href="$d4/d72/sac2__asset_8hpp.html" title="Provides basic asset interface. Asset is a template class." alt="" coords="2436,237,2551,267"/>
+<area shape="rect" id="node87" href="$df/d25/sac2__type_8hpp.html" title="Provides SaC2 types including typedef." alt="" coords="2329,315,2436,344"/>
+<area shape="rect" id="node102" href="$df/d5c/sac2__audio__asset_8hpp.html" title="Provides interface for audio elements manipulation." alt="" coords="3100,160,3252,189"/>
+<area shape="rect" id="node107" href="$d6/d12/_listener_8hpp.html" title="SFML/Audio/Listener.hpp" alt="" coords="3249,315,3417,344"/>
+<area shape="rect" id="node109" href="$de/d88/_music_8hpp.html" title="SFML/Audio/Music.hpp" alt="" coords="2511,315,2668,344"/>
+<area shape="rect" id="node111" href="$df/d1a/_sound_stream_8hpp.html" title="SFML/Audio/SoundStream.hpp" alt="" coords="2564,392,2767,421"/>
+<area shape="rect" id="node115" href="$d8/da4/_sound_8hpp.html" title="SFML/Audio/Sound.hpp" alt="" coords="2743,315,2903,344"/>
+<area shape="rect" id="node118" href="$d0/d47/_sound_buffer_8hpp.html" title="SFML/Audio/SoundBuffer.hpp" alt="" coords="2843,392,3037,421"/>
+<area shape="rect" id="node121" href="$d9/d57/_sound_buffer_recorder_8hpp.html" title="SFML/Audio/SoundBufferRecorder.hpp" alt="" coords="2977,315,3225,344"/>
+<area shape="rect" id="node124" href="$dc/dd1/_sound_recorder_8hpp.html" title="SFML/Audio/SoundRecorder.hpp" alt="" coords="3204,392,3417,421"/>
+<area shape="rect" id="node138" href="$de/dc3/sac2__manager_8hpp.html" title="Provies template for Management classes." alt="" coords="2436,160,2567,189"/>
+<area shape="rect" id="node141" href="$d3/dda/sac2__logger_8hpp.html" title="Provides Logger class." alt="" coords="2625,237,2743,267"/>
+</map>

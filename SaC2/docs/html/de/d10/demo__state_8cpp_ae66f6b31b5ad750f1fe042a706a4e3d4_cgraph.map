@@ -1,0 +1,29 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d7/d09/classsac2_1_1_manager.html#a2d6eba4e30eb9e0b4adad302a58e123e" title="Get an instance of the class." alt="" coords="617,272,887,301"/>
+<area shape="rect" id="node5" href="$d4/dee/classsac2_1_1_state_manager.html#a11817004cdd96c3deb36d65961625f0f" title="Add a new state to the collection of the states." alt="" coords="105,465,308,495"/>
+<area shape="rect" id="node11" href="$d4/dee/classsac2_1_1_state_manager.html#a9f88d371e266d4eb2fe33be3f27d5275" title="Change the current state to the one specified by id." alt="" coords="359,139,567,168"/>
+<area shape="rect" id="node28" href="$dd/d00/classsac2_1_1_engine.html#ac9b285c5626c87b998d49f64540c3100" title="Start the engine." alt="" coords="145,651,268,680"/>
+<area shape="rect" id="node7" href="$d5/dd3/classsac2_1_1_logger.html#a78da545ca2b235f0070e15e94b46fbf0" title="Log a DEBUG type message." alt="" coords="961,645,1124,675"/>
+<area shape="rect" id="node9" href="$d5/dd3/classsac2_1_1_logger.html#ab966c0b174f0ebb07010942e11e8ead5" title="Log a message." alt="" coords="1197,697,1320,727"/>
+<area shape="rect" id="node13" href="$d4/dee/classsac2_1_1_state_manager.html#a4d554177fa5974d2402656e151e0f3fa" title="Set the current state to pause." alt="" coords="643,5,861,35"/>
+<area shape="rect" id="node17" href="$d4/dee/classsac2_1_1_state_manager.html#a0d48baf9f82247aa54697849ffb1f4ec" title="Find the state specified by the parameter id." alt="" coords="651,112,853,141"/>
+<area shape="rect" id="node19" href="$d4/dee/classsac2_1_1_state_manager.html#a6faf19095bb1e90a0626343a5c4eb806" title="Initialize the state on the top of the stack." alt="" coords="637,59,867,88"/>
+<area shape="rect" id="node22" href="$d4/dee/classsac2_1_1_state_manager.html#a29cd14cc8cbf525e534cce4d3c5bb2d9" title="Resume the current state." alt="" coords="639,165,865,195"/>
+<area shape="rect" id="node25" href="$d4/dee/classsac2_1_1_state_manager.html#aa5b0969a957ae73c703eaa658b5d0394" title="Reinitialize the current state." alt="" coords="647,219,857,248"/>
+<area shape="rect" id="node15" href="$d4/dee/classsac2_1_1_state_manager.html#ab2515bcd039c5d4f136ed6ebb3ac8168" title="Test whether the state stack is empty." alt="" coords="943,165,1143,195"/>
+<area shape="rect" id="node30" href="$d5/dd3/classsac2_1_1_logger.html#a86c89a7f8a50aa10899af865849a7270" title="Log an ERROR type message." alt="" coords="385,696,540,725"/>
+<area shape="rect" id="node33" href="$d5/dd3/classsac2_1_1_logger.html#a46cd955654e8690a57087b8eb06b273b" title="Log an INFO type message." alt="" coords="388,749,537,779"/>
+<area shape="rect" id="node36" href="$dd/d00/classsac2_1_1_engine.html#a6143c055fcf9124d0702c207d88b1fac" title="Main loop." alt="" coords="397,379,528,408"/>
+<area shape="rect" id="node38" href="$d5/d52/classsf_1_1_clock.html#a123e2627f2943e5ecaa1db0c7df3231b" title="Restart the clock." alt="" coords="692,432,812,461"/>
+<area shape="rect" id="node40" href="$d6/d52/classsf_1_1_time.html#a7538140d095e48da9d7eee015dd455a9" title="Return the time value as a number of seconds." alt="" coords="681,539,823,568"/>
+<area shape="rect" id="node43" href="$d0/d97/classsac2_1_1_input_manager.html#a6597cde536480f1606bf02d0b6d54bbf" title="Update InputManager." alt="" coords="660,592,844,621"/>
+<area shape="rect" id="node48" href="$d0/d51/classsac2_1_1_asset_manager.html#a961bd7f96b69aa0205e4987ea69deb40" title="Update the manager." alt="" coords="657,325,847,355"/>
+<area shape="rect" id="node51" href="$d4/dee/classsac2_1_1_state_manager.html#ad484023c8afa2554ecf1315c49e01a24" title="Update the StateManager." alt="" coords="659,379,845,408"/>
+<area shape="rect" id="node55" href="$d1/db1/classsac2_1_1_rendering_manager.html#ae7f8152264845f7cdfff9f5c03dfbfb0" title="Update the manager." alt="" coords="645,485,859,515"/>
+<area shape="rect" id="node45" href="$d2/d6f/classsac2_1_1_input_config.html#aa746ebf59da2cb889d0870f9e3d404c8" title="Handle inputs from Keyboard." alt="" coords="936,592,1149,621"/>
+<area shape="rect" id="node57" href="$dd/dfe/classsf_1_1_window.html#a338e996585faf82e93069858e3b531b7" title="Pop the event on top of the event queue, if any, and return it." alt="" coords="968,485,1117,515"/>
+<area shape="rect" id="node60" href="$dd/d00/classsac2_1_1_engine.html#a4d8435adf81f4f9ccbc56e5ac97b7a29" title="Stop the engine and quit." alt="" coords="980,539,1105,568"/>
+<area shape="rect" id="node62" href="$d1/d7c/classsf_1_1_render_target.html#a6bb6f0ba348f2b1e2f46114aeaf60f26" title="Clear the entire target with a single color." alt="" coords="965,325,1120,355"/>
+<area shape="rect" id="node64" href="$d1/d7c/classsf_1_1_render_target.html#a12417a3bcc245c41d957b29583556f39" title="Draw a drawable object to the render&#45;target." alt="" coords="965,379,1120,408"/>
+<area shape="rect" id="node66" href="$dd/dfe/classsf_1_1_window.html#adabf839cb103ac96cfc82f781638772a" title="Display on screen what has been rendered to the window so far." alt="" coords="975,432,1111,461"/>
+</map>

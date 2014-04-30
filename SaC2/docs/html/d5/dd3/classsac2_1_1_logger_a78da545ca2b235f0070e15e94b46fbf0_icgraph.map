@@ -1,0 +1,10 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$dd/d00/classsac2_1_1_engine.html#aedbace4c9df4dce68721579c35c72bc3" title="Analyse command line arguments." alt="" coords="253,5,440,35"/>
+<area shape="rect" id="node5" href="$d6/db4/classsac2_1_1_default_input_config.html#a8b7094d2b159183210949651fdeeaf26" title="Handle inputs." alt="" coords="220,59,473,88"/>
+<area shape="rect" id="node7" href="$d1/db1/classsac2_1_1_rendering_manager.html#ae7f8152264845f7cdfff9f5c03dfbfb0" title="Update the manager." alt="" coords="240,112,453,141"/>
+<area shape="rect" id="node13" href="$d4/dee/classsac2_1_1_state_manager.html#a11817004cdd96c3deb36d65961625f0f" title="Add a new state to the collection of the states." alt="" coords="245,165,448,195"/>
+<area shape="rect" id="node15" href="$d4/dee/classsac2_1_1_state_manager.html#a7f8044eda238e83db2e94ebd46c0b278" title="Default private Constructor." alt="" coords="233,219,460,248"/>
+<area shape="rect" id="node17" href="$d4/dee/classsac2_1_1_state_manager.html#a1ae2b5925244d43e6132d32b9ce8c20f" title="Private Destructor." alt="" coords="229,272,464,301"/>
+<area shape="rect" id="node9" href="$dd/d00/classsac2_1_1_engine.html#a6143c055fcf9124d0702c207d88b1fac" title="Main loop." alt="" coords="523,112,653,141"/>
+<area shape="rect" id="node11" href="$dd/d00/classsac2_1_1_engine.html#ac9b285c5626c87b998d49f64540c3100" title="Start the engine." alt="" coords="703,112,825,141"/>
+</map>

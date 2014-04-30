@@ -1,0 +1,41 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$d0/db5/sac2__vector2d_8hpp.html" title="sac2_vector2d.hpp" alt="" coords="2420,83,2551,112"/>
+<area shape="rect" id="node5" href="$dc/d1e/sac2__drawable_8hpp.html" title="Provides basic class for drawable elements." alt="" coords="2393,315,2527,344"/>
+<area shape="rect" id="node34" href="$df/d25/sac2__type_8hpp.html" title="Provides SaC2 types including typedef." alt="" coords="1269,160,1376,189"/>
+<area shape="rect" id="node130" href="$d9/d49/sac2__physics_8hpp.html" title="sac2_physics.hpp" alt="" coords="2601,237,2727,267"/>
+<area shape="rect" id="node135" href="$de/dd7/sac2__vector2d_8cpp.html" title="sac2_vector2d.cpp" alt="" coords="2548,160,2679,189"/>
+<area shape="rect" id="node7" href="$d0/d69/sac2__asset__sprite_8hpp.html" title="Provides class AssetSprite." alt="" coords="1247,392,1399,421"/>
+<area shape="rect" id="node28" href="$d4/d22/sac2__asset__text_8hpp.html" title="sac2_asset_text.hpp" alt="" coords="2553,392,2695,421"/>
+<area shape="rect" id="node9" href="$d8/dfc/sac2__scene_8hpp.html" title="Provides Scene class." alt="" coords="1433,469,1551,499"/>
+<area shape="rect" id="node13" href="$dd/d14/sac2__rendering__manager_8hpp.html" title="Provides RenderingManager." alt="" coords="737,469,929,499"/>
+<area shape="rect" id="node17" href="$d7/db1/sac2_8hpp.html" title="Provides all includes." alt="" coords="815,624,889,653"/>
+<area shape="rect" id="node26" href="$da/df7/sac2__asset__sprite_8cpp.html" title="sac2_asset_sprite.cpp" alt="" coords="1257,469,1409,499"/>
+<area shape="rect" id="node11" href="$d6/dc6/sac2__scene_8cpp.html" title="sac2_scene.cpp" alt="" coords="1433,547,1551,576"/>
+<area shape="rect" id="node15" href="$d9/dff/sac2__game__state_8hpp.html" title="Provides the State interface used by all game engines." alt="" coords="71,547,220,576"/>
+<area shape="rect" id="node21" href="$d7/d24/sac2__engine_8cpp.html" title="sac2_engine.cpp" alt="" coords="687,547,807,576"/>
+<area shape="rect" id="node23" href="$d9/d7c/sac2__rendering__manager_8cpp.html" title="sac2_rendering_manager.cpp" alt="" coords="889,547,1081,576"/>
+<area shape="rect" id="node19" href="$db/d25/sac2__state__manager_8cpp.html" title="sac2_state_manager.cpp" alt="" coords="5,624,173,653"/>
+<area shape="rect" id="node30" href="$d9/d86/sac2__asset__manager_8cpp.html" title="sac2_asset_manager.cpp" alt="" coords="2084,469,2255,499"/>
+<area shape="rect" id="node32" href="$d4/d52/sac2__asset__text_8cpp.html" title="sac2_asset_text.cpp" alt="" coords="2553,469,2695,499"/>
+<area shape="rect" id="node36" href="$d7/dc2/sac2__asset__buffer_8hpp.html" title="sac2_asset_buffer.hpp" alt="" coords="2049,315,2204,344"/>
+<area shape="rect" id="node41" href="$d4/d6a/sac2__asset__font_8hpp.html" title="sac2_asset_font.hpp" alt="" coords="2228,315,2369,344"/>
+<area shape="rect" id="node46" href="$d0/df3/sac2__asset__manager_8hpp.html" title="Provides AssetManager class." alt="" coords="788,392,959,421"/>
+<area shape="rect" id="node52" href="$d2/d71/sac2__asset__music_8hpp.html" title="Provides class AssetMusic." alt="" coords="1703,392,1857,421"/>
+<area shape="rect" id="node59" href="$dd/d70/sac2__asset__sound_8hpp.html" title="Provides class AssetSound." alt="" coords="1473,392,1628,421"/>
+<area shape="rect" id="node69" href="$dc/d99/sac2__engine_8hpp.html" title="Provides Engine class." alt="" coords="1036,315,1156,344"/>
+<area shape="rect" id="node71" href="$da/dd7/sac2__input__config_8hpp.html" title="Provides InputConfig class and DefaultInputConfig as a default input configuration." alt="" coords="359,392,511,421"/>
+<area shape="rect" id="node73" href="$d6/d74/sac2__input__manager_8hpp.html" title="Provides class to manage inputs from keyboard." alt="" coords="295,469,460,499"/>
+<area shape="rect" id="node86" href="$d3/dda/sac2__logger_8hpp.html" title="Provides Logger class." alt="" coords="508,237,625,267"/>
+<area shape="rect" id="node94" href="$de/dc3/sac2__manager_8hpp.html" title="Singleton Pattern template for Manager type classes." alt="" coords="649,315,780,344"/>
+<area shape="rect" id="node99" href="$d7/dd1/sac2__state__manager_8hpp.html" title="Provides the StateManager class." alt="" coords="103,469,271,499"/>
+<area shape="rect" id="node111" href="$d4/d72/sac2__asset_8hpp.html" title="Provides basic asset interface. Asset is a template class." alt="" coords="1768,237,1883,267"/>
+<area shape="rect" id="node38" href="$d4/d66/sac2__asset__buffer_8cpp.html" title="sac2_asset_buffer.cpp" alt="" coords="2159,392,2313,421"/>
+<area shape="rect" id="node43" href="$d8/d53/sac2__asset__font_8cpp.html" title="sac2_asset_font.cpp" alt="" coords="2388,392,2529,421"/>
+<area shape="rect" id="node57" href="$d3/d41/sac2__asset__music_8cpp.html" title="sac2_asset_music.cpp" alt="" coords="1855,469,2009,499"/>
+<area shape="rect" id="node64" href="$d3/dcd/sac2__asset__sound_8cpp.html" title="sac2_asset_sound.cpp" alt="" coords="1575,469,1729,499"/>
+<area shape="rect" id="node78" href="$dc/da2/sac2__input__manager_8cpp.html" title="sac2_input_manager.cpp" alt="" coords="295,547,460,576"/>
+<area shape="rect" id="node108" href="$d7/d44/sac2__logger_8cpp.html" title="sac2_logger.cpp" alt="" coords="508,315,625,344"/>
+<area shape="rect" id="node117" href="$de/dae/sac2__graphic__asset_8hpp.html" title="Provides interface for graphic elements manipulation." alt="" coords="1863,315,2025,344"/>
+<area shape="rect" id="node119" href="$df/d0f/sac2__sprite__asset_8hpp.html" title="sac2_sprite_asset.hpp" alt="" coords="1932,392,2084,421"/>
+<area shape="rect" id="node132" href="$dd/dc5/sac2__physics_8cpp.html" title="sac2_physics.cpp" alt="" coords="2601,315,2727,344"/>
+</map>

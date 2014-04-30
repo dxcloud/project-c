@@ -1,0 +1,22 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$dd/dfe/classsf_1_1_window.html#a59041c4556e0351048f8aff366034f61" title="Enable or disable vertical synchronization." alt="" coords="104,5,339,35"/>
+<area shape="rect" id="node5" href="$dd/dfe/classsf_1_1_window.html#a17ccf8ece0ce0bf2f1e6698bcfa29731" title="Activate or deactivate the window as the current target for OpenGL rendering." alt="" coords="147,59,296,88"/>
+<area shape="rect" id="node7" href="$d4/d96/classsf_1_1_texture.html#a8e1b56eabfe33e2e0e1cb03712c7fcc7" title="Load the texture from a file on disk." alt="" coords="137,112,305,141"/>
+<area shape="rect" id="node9" href="$d1/da4/classsf_1_1_font.html#ab020052ef4e01f6c749a85571c0f3fd1" title="Load the font from a file." alt="" coords="147,165,296,195"/>
+<area shape="rect" id="node11" href="$d6/ddb/classsf_1_1_text.html#afd1742fca1adb6b0ea98357250ffb634" title="Set the global color of the text." alt="" coords="160,219,283,248"/>
+<area shape="rect" id="node13" href="$d1/da8/classsf_1_1_transformable.html#a4dbfb1a7c80688b0b4c477d706550208" title="set the position of the object" alt="" coords="123,272,320,301"/>
+<area shape="rect" id="node15" href="$da/d79/classsf_1_1_image.html#a9e4f2aa8e36d0cabde5ed5a4ef80290b" title="Load the image from a file on disk." alt="" coords="141,325,301,355"/>
+<area shape="rect" id="node17" href="$da/d79/classsf_1_1_image.html#a5c3e9bebdc001c3ebf85ca97039fc86b" title="Return the size (width and height) of the image." alt="" coords="157,379,285,408"/>
+<area shape="rect" id="node19" href="$da/d79/classsf_1_1_image.html#ac6137a608a9efaae2735c13ff259c214" title="Get a read&#45;only pointer to the array of pixels." alt="" coords="144,432,299,461"/>
+<area shape="rect" id="node21" href="$dc/d5e/classsf_1_1_render_window.html#a2c7ff414be32621a453745cf2a0f8a3e" title="Get the size of the rendering region of the window." alt="" coords="131,485,312,515"/>
+<area shape="rect" id="node23" href="$dd/dfe/classsf_1_1_window.html#a5aa9c2b2b0e51d3423c2b66c80253337" title="Tell whether or not the window is open." alt="" coords="153,539,289,568"/>
+<area shape="rect" id="node25" href="$dd/dfe/classsf_1_1_window.html#a338e996585faf82e93069858e3b531b7" title="Pop the event on top of the event queue, if any, and return it." alt="" coords="147,592,296,621"/>
+<area shape="rect" id="node27" href="$dd/dfe/classsf_1_1_window.html#a99d1e030387b0c26f5995670504fe7b5" title="Close the window and destroy all the attached resources." alt="" coords="159,645,284,675"/>
+<area shape="rect" id="node29" href="$d1/d7c/classsf_1_1_render_target.html#a8d1998464ccc54e789aaf990242b47f7" title="Save the current OpenGL render states and matrices." alt="" coords="116,699,327,728"/>
+<area shape="rect" id="node31" href="$d1/d7c/classsf_1_1_render_target.html#a12417a3bcc245c41d957b29583556f39" title="Draw a drawable object to the render&#45;target." alt="" coords="144,752,299,781"/>
+<area shape="rect" id="node33" href="$d1/d7c/classsf_1_1_render_target.html#ad5a98401113df931ddcd54c080f7aa8e" title="Restore the previously saved OpenGL render states and matrices." alt="" coords="120,805,323,835"/>
+<area shape="rect" id="node35" href="$d5/dd0/classsf_1_1_mouse.html#ac368680f797b7f6e4f50b5b7928c1387" title="Get the current position of the mouse in desktop coordinates." alt="" coords="145,859,297,888"/>
+<area shape="rect" id="node37" href="$d5/d52/classsf_1_1_clock.html#a799feb6acb099b57b58d8d20984fce11" title="Get the elapsed time." alt="" coords="133,912,309,941"/>
+<area shape="rect" id="node39" href="$d6/d52/classsf_1_1_time.html#a7538140d095e48da9d7eee015dd455a9" title="Return the time value as a number of seconds." alt="" coords="151,965,292,995"/>
+<area shape="rect" id="node41" href="$dd/dfe/classsf_1_1_window.html#adabf839cb103ac96cfc82f781638772a" title="Display on screen what has been rendered to the window so far." alt="" coords="153,1019,289,1048"/>
+</map>
