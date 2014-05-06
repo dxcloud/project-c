@@ -20,51 +20,6 @@
 
 #include <sac2_type.hpp>
 
-//////////////////////////////////////////////////////////////////////////////
-//! \def LOG_DEBUG
-//! \brief
-//!     Equivalent to \b sac2::Logger::log_debug
-//!     when \b SAC2_LOGGER_ENABLED is defined.
-//! \see sac2::Logger::log_debug
-//!
-//! \def LOG_CONFIG
-//! \brief
-//!     Equivalent to \b sac2::Logger::log_config
-//!     when \b SAC2_LOGGER_ENABLED is defined.
-//! \see sac2::Logger::log_config
-//!
-//! \def LOG_INFO
-//! \brief
-//!     Equivalent to \b sac2::Logger::log_info
-//!     when \b SAC2_LOGGER_ENABLED is defined.
-//! \see sac2::Logger::log_info
-//!
-//! \def LOG_WARNING
-//! \brief
-//!     Equivalent to \b sac2::Logger::log_warning
-//!     when \b SAC2_LOGGER_ENABLED is defined.
-//! \see sac2::Logger::log_warning
-//!
-//! \def LOG_ERROR
-//! \brief
-//!     Equivalent to \b sac2::Logger::log_error
-//!     when \b SAC2_LOGGER_ENABLED is defined.
-//! \see sac2::Logger::log_debug
-//////////////////////////////////////////////////////////////////////////////
-#ifdef SAC2_LOGGER_ENABLED
-#  define LOG_DEBUG(X)   sac2::Logger::log_debug(X);
-#  define LOG_CONFIG(X)  sac2::Logger::log_config(X);
-#  define LOG_INFO(X)    sac2::Logger::log_info(X);
-#  define LOG_WARNING(X) sac2::Logger::log_warning(X);
-#  define LOG_ERROR(X)   sac2::Logger::log_error(X);
-#else
-#  define LOG_DEBUG(X)
-#  define LOG_CONFIG(X)
-#  define LOG_INFO(X)
-#  define LOG_WARNING(X)
-#  define LOG_ERROR(X)
-#endif
-
 namespace sac2
 {
 
