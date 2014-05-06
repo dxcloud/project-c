@@ -14,10 +14,12 @@
 #define SAC2_ANIMATE_SPRITE_HPP
 
 #include <sac2_sprite_asset.hpp>
-#include <sac2_animation_state.hpp>
 
 namespace sac2
 {
+
+// Forward declaration
+class AnimationState;
 
 //////////////////////////////////////////////////////////////////////////////
 //! \class AnimateSprite
@@ -42,25 +44,33 @@ public:
 public:
   ////////////////////////////////////////////////////////////////////////////
   //! \brief
-  //!     Allows to call constructor and destructor of private attribute.
+  //!     Public default constructor.
   ////////////////////////////////////////////////////////////////////////////
   AnimateSprite();
 
   ////////////////////////////////////////////////////////////////////////////
   //! \brief
-  //!     Allows to call constructor and destructor of private attribute.
+  //!     Public default destructor.
   ////////////////////////////////////////////////////////////////////////////
   virtual ~AnimateSprite();
 
   ////////////////////////////////////////////////////////////////////////////
   //! \brief
-  //!     Allows to call constructor and destructor of private attribute.
+  //!     Add an animation data structure.
+  //! \param[in] id
+  //!     ID of the animation state to be added.
+  //! \param[in] state
+  //!     Pointer to the animation state.
   ////////////////////////////////////////////////////////////////////////////
   void add_animation_state(animation_state_t id, AnimationState* state);
 
   ////////////////////////////////////////////////////////////////////////////
   //! \brief
-  //!     Allows to call constructor and destructor of private attribute.
+  //!     Update the animation state.
+  //! \param[in] state
+  //!     Current animation state.
+  //! \param[in] dt
+  //!     Elapsed time since last update.
   ////////////////////////////////////////////////////////////////////////////
   void update(animation_state_t state, float dt);
 
