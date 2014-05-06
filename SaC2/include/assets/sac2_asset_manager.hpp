@@ -22,7 +22,6 @@
 
 namespace sac2
 {
-
 // forward declaration
 class SpriteAsset;
 class FontAsset;
