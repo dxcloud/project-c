@@ -23,7 +23,7 @@ namespace sac2
 //////////////////////////////////////////////////////////////////////////////
 //! \class GraphicAsset
 //! \brief
-//!     Derived from class Asset, provides methods for any graphic
+//!     Derived from class Asset, provides methods for any graphic asset
 //!     manipulation.
 //! \details
 //!     This is also template class, and encapsulates graphic resource.
@@ -52,6 +52,14 @@ public:
   //!     Current scale factor.
   ////////////////////////////////////////////////////////////////////////////
   vector_t get_scale() const;
+
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Get the current size of the object.
+  //! \return
+  //!     Current size.
+  ////////////////////////////////////////////////////////////////////////////
+  vector_t get_size() const;
 
   ////////////////////////////////////////////////////////////////////////////
   //! \brief
@@ -164,3 +172,4 @@ private:
 #include <sac2_graphic_asset.inl>
 
 #endif  //! SAC2_GRAPHIC_ASSET_HPP
+

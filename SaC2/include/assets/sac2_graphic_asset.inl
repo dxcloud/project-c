@@ -50,6 +50,17 @@ inline vector_t GraphicAsset<C>::get_scale() const
 }
 
 //----------------------------------------------------------------------------
+//  GraphicAsset::get_size
+//----------------------------------------------------------------------------
+template<class C>
+inline vector_t GraphicAsset<C>::get_size() const
+{
+  sf::Rect<float> rec(Asset<C>::m_asset.getLocalBounds());
+  return vector_t(rec.width * Asset<C>::m_asset.getScale().x,
+                  rec.height * Asset<C>::m_asset.getScale().y);
+}
+
+//----------------------------------------------------------------------------
 //  GraphicAsset::get_orientation
 //----------------------------------------------------------------------------
 template<class C>
