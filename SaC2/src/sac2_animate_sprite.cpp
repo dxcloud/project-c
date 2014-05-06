@@ -1,0 +1,61 @@
+//////////////////////////////////////////////////////////////////////////////
+//! \file sac2_animate_sprite.cpp
+//! \author
+//!     Chengwu HUANG
+//! \version
+//!     0.1 (alpha)
+//! \date
+//!     2014-05-05
+//////////////////////////////////////////////////////////////////////////////
+
+#include <sac2_animate_sprite.hpp>
+
+namespace sac2
+{
+
+//////////////////////////////////////////////////////////////////////////////
+// AnimateSprite::AnimateSprite
+//////////////////////////////////////////////////////////////////////////////
+AnimateSprite::AnimateSprite():
+  SpriteAsset(),
+  m_animation_map(),
+  m_current(0)
+{
+  
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// AnimateSprite::~AnimateSprite
+//////////////////////////////////////////////////////////////////////////////
+AnimateSprite::~AnimateSprite()
+{
+
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// AnimateSprite::add_animation_state
+//////////////////////////////////////////////////////////////////////////////
+void AnimateSprite::add_animation_state(animation_state_t id,
+                                        AnimationState* state)
+{
+  m_animation_map.insert(std::make_pair(id, state));
+  // initialize current state to the first inserted state
+  if (0 == m_current) { m_current = state; }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// AnimateSprite::update
+//////////////////////////////////////////////////////////////////////////////
+void AnimateSprite::update(animation_state_t state, float dt) {
+  animation_state_t next_state = m_current->update(state, dt);
+  animation_state_map_t::iterator iter = m_animation_map.find(next_state);
+  if (m_animation_map.end() == iter) {
+    LOG_WARNING("AnimateSprite::update - animation state not found")
+    return;
+  }
+  m_current = iter->second;
+  m_current->animation().update(this, dt);
+}
+
+} // namespace sac2
+
