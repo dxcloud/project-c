@@ -71,3 +71,4 @@ inline bool GameState::is_stopped() const
 }  // namespace sac2
 
 #endif  //! SAC2_GAME_STATE_INL
+

@@ -43,7 +43,6 @@ public:
   //!     Return the wrapped asset.
   //! \return
   //!     Reference of the asset.
-  //!
   ////////////////////////////////////////////////////////////////////////////
   const T& get_asset() const;
 
@@ -85,3 +84,4 @@ private:
 #include <sac2_asset.inl>
 
 #endif  //! SAC2_ASSET_HPP
+

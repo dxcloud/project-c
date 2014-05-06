@@ -102,10 +102,11 @@ private:
   //!     Private assignment operator.
   ////////////////////////////////////////////////////////////////////////////
   Manager& operator=(const Manager&);
-};  // class Manager
+}; // class Manager
 
-}  // namespace sac2
+} // namespace sac2
 
 #include <sac2_manager.inl>
 
-#endif  //! SAC2_MANAGER_HPP
+#endif // SAC2_MANAGER_HPP
+

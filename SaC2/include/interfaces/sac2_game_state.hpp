@@ -139,3 +139,4 @@ private:
 #include <sac2_game_state.inl>
 
 #endif  //! SAC2_GAME_STATE_HPP
+
