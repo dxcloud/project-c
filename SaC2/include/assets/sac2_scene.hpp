@@ -13,19 +13,28 @@
 #ifndef SAC2_SCENE_HPP
 #define SAC2_SCENE_HPP
 
-#include <string>
-#include <map>
-
 #include <sac2_type.hpp>
+#include <sac2_game_object.hpp>
 
 namespace sac2
 {
+
+typedef unsigned int depth_t;
+
+enum
+{
+  FOREGROUND = 10,
+  MIDGROUND  = 20,
+  BACKGROUND = 30
+};
 
 //////////////////////////////////////////////////////////////////////////////
 //! \brief
 //!     
 //////////////////////////////////////////////////////////////////////////////
 typedef unsigned int scene_id_t;
+
+typedef std::map<depth_t, std::map<object_id_t, GameObject*>> object_map_t;
 
 //////////////////////////////////////////////////////////////////////////////
 //! \class Scene
@@ -39,12 +48,7 @@ public:
   //! \brief
   //!     
   ////////////////////////////////////////////////////////////////////////////
-  enum depth_t
-  {
-    FOREGROUND = 10,
-    MIDGROUND  = 20,
-    BACKGROUND = 30
-  };
+
 
   ////////////////////////////////////////////////////////////////////////////
   //! \brief
@@ -86,8 +90,11 @@ public:
   //! \brief
   //!     
   ////////////////////////////////////////////////////////////////////////////
-  void update();
+  void update(float dt);
 
+  GameObject* get_object(object_id_t id) const;
+  void add_object(depth_t z, object_id_t id, GameObject* object);
+  void remove_object(object_id_t id);
 protected:
   ////////////////////////////////////////////////////////////////////////////
   //! \brief
@@ -96,9 +103,11 @@ protected:
   scene_id_t m_identifier;
 
 private:
+  object_map_t m_object_map;
 
 };  // class Scene
 
 }
 
 #endif //! SAC2_SCENE_HPP
+
