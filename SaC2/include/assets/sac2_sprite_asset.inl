@@ -40,6 +40,16 @@ inline void SpriteAsset::load(const sf::Texture& texture)
   m_asset.setTexture(texture, true);
 }
 
+//////////////////////////////////////////////////////////////////////////////
+// void SpriteAsset::set_sub_rectangle
+//////////////////////////////////////////////////////////////////////////////
+inline void SpriteAsset::set_sub_rectangle(size_t x, size_t y,
+                                           size_t width, size_t height)
+{
+  m_asset.setTextureRect(sf::IntRect(x, y, width, height));
+}
+
 }  // namespace sac2
 
 #endif  //! SAC2_SPRITE_ASSET_HPP_INCLUDE
+

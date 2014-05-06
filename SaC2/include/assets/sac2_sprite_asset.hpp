@@ -20,12 +20,18 @@
 namespace sac2
 {
 
+class AssetManager;  // forward declaration
+
 //////////////////////////////////////////////////////////////////////////////
+//! \class SpriteAsset
 //! \brief
 //////////////////////////////////////////////////////////////////////////////
 class SpriteAsset:
   public GraphicAsset<sf::Sprite>
 {
+public:
+  friend class AssetManager;
+
 public:
   ////////////////////////////////////////////////////////////////////////////
   //! \brief
@@ -37,14 +43,21 @@ public:
   //! \brief
   //!     Public default destructor
   ////////////////////////////////////////////////////////////////////////////
-  ~SpriteAsset();
+  virtual ~SpriteAsset();
 
-public:
+  ////////////////////////////////////////////////////////////////////////////
+  //! \brief
+  //!     Set the sub-rectangle of the texture. Only the texture in
+  //!     in the sub-rectangle is displayed.
+  ////////////////////////////////////////////////////////////////////////////
+  void set_sub_rectangle(size_t x, size_t y, size_t width, size_t height);
+
+private:
   ////////////////////////////////////////////////////////////////////////////
   //! \brief
   //!     Load the source texture of the sprite
   //! \param[in] texture
-  //!     Texture to use by the sprite
+  //!     Texture to be used by the sprite
   //! \details
   //!     If the source texture changed, the sprite will automatically
   //!     adjust its size.
@@ -70,3 +83,4 @@ private:
 #include <sac2_sprite_asset.inl>
 
 #endif  //! SAC2_SPRITE_ASSET_HPP
+
