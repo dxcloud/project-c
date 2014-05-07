@@ -19,15 +19,8 @@
 #include <sac2_type.hpp>
 #include <sac2_manager.hpp>
 
-//////////////////////////////////////////////////////////////////////////////
-//! \def STATE_MANAGER
-//!     Shortcut, equivalent to sac2::StateManager::instance().
-//////////////////////////////////////////////////////////////////////////////
-#define STATE_MANAGER sac2::StateManager::instance()
-
 namespace sac2
 {
-
 // forward declaration
 class GameState;
 

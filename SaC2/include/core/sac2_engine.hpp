@@ -32,8 +32,7 @@ namespace sac2
 //! {
 //!   sac2::Engine engine;
 //!   engine.parse_options(argc, argv);
-//!   engine.run();
-//!   return sac2::STATUS_SUCCESS;
+//!   return engine.run();
 //! }
 //! \endcode
 //////////////////////////////////////////////////////////////////////////////
