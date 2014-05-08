@@ -31,40 +31,63 @@ public:
 
   ////////////////////////////////////////////////////////////////////////////
   //! \brief
-  //!     Allows to call constructor and destructor of private attribute.
+  //!     Public default constructor.
   ////////////////////////////////////////////////////////////////////////////
   AnimationState();
 
   ////////////////////////////////////////////////////////////////////////////
   //! \brief
-  //!     Allows to call constructor and destructor of private attribute.
+  //!     Public default destructor.
   ////////////////////////////////////////////////////////////////////////////
   virtual ~AnimationState();
 
   ////////////////////////////////////////////////////////////////////////////
   //! \brief
-  //!     Allows to call constructor and destructor of private attribute.
+  //!     Update the animation state.
+  //! \return
+  //!     Return the result of the method \a handle
+  //! \see
+  //!     handle
   ////////////////////////////////////////////////////////////////////////////
   animation_state_t update(animation_state_t state, float dt);
 
 protected:
   ////////////////////////////////////////////////////////////////////////////
   //! \brief
-  //!     Allows to call constructor and destructor of private attribute.
+  //!     Return the animation hold by the class.
+  //! \details
+  //!     This method allows to modify the properties of the animation inside
+  //!     of the method handle.
+  //! \code
+  //!     animation_state_t handle(animation_state_t state, float dt)
+  //!     {
+  //!       animation().set_repeat_enabled(true);  // loop the animation
+  //!       animation().play();  // play the animation
+  //!       return state;
+  //!     }
+  //! \endcode
+  //! \see
+  //!     Animation, handle
   ////////////////////////////////////////////////////////////////////////////
   Animation& animation();
 
 private:
   ////////////////////////////////////////////////////////////////////////////
   //! \brief
-  //!     Allows to call constructor and destructor of private attribute.
+  //!     Handle the state.
+  //! \param[in] state
+  //!     Current animation state.
+  //! \param[in] dt
+  //!     Elapsed time.
+  //! \return
+  //!     Next animation state.
   ////////////////////////////////////////////////////////////////////////////
   virtual animation_state_t handle(animation_state_t state, float dt) = 0;
 
 private:
   ////////////////////////////////////////////////////////////////////////////
   //! \brief
-  //!     Allows to call constructor and destructor of private attribute.
+  //!     Animation hold by the class.
   ////////////////////////////////////////////////////////////////////////////
   Animation m_animation;
 };
